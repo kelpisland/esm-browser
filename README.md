@@ -1,5 +1,5 @@
 # EAO ESM Prototype
-BC Environmental Assessment Office Environmental System Modernization (ESM) Prototype
+BC Environmental Assessment Office Environmental Assessment System Modernization (ESM) Prototype
 
 ## Description
 This repo contains source code files for a protoype being developed by Quartech Systems, Ltd. and partners with particpation of the EAO's ES project team.
