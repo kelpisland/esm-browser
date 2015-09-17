@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+
+		<div class="navbar-form navbar-left" role="view-selection">
+			<div class="btn-group">
+				<button class="btn btn-default" ng-click="filter.view = 'map'"	ng-class="{'btn-primary': filter.view === 'map'}">Map</button>
+				<button class="btn btn-default" ng-click="filter.view = 'list'"	ng-class="{'btn-primary': filter.view === 'list'}">List</button>
+			</div>
+		</div>
+
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<p class="navbar-text">Search</p>
+			</li>
+			<li>
+				<div class="navbar-form">
+					<div class="form-group">
+						<input ng-model="filter.filterKeyword" type="text" class="form-control" placeholder="Search">
+					</div>
+				</div>
+			</li>
+			<li>
+				<p class="navbar-text">Type</p>
+			</li>
+			<li>
+				<div class="navbar-form">
+					<div class="form-group">
+					
+						<select ng-model='filter.filterObject.type' class="form-control">
+							<option value="">All</option>
+							<option ng-repeat='type in fbc.types' value='{{ type }}'>{{ type }}</option>
+						</select>
+						
+					</div>
+				</div>	
+			</li>	
+		</ul>
+
+	</div><!-- /.container-fluid -->
+</nav>

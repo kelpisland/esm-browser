@@ -1,0 +1,41 @@
+<section class='panel panel-default panel-project-summary' ng-repeat="project in filteredProjects = (vm.projects | filter:vm.filterKeyword | filter:vm.filterObject)" ng-if="filteredProjects.length > 0">
+	<div class='panel-body'>
+		<tmpl-progress-circle class="pull-right" x-subtext="estimated progress" x-percentage="project.progress" ></tmpl-progress-circle>
+		<h3>{{ project.name }}</h3>
+		<p>{{ project.description }}</p>
+		<table>
+			<tbody>
+				<tr>
+					<th>Region</th>
+					<td>{{ project.region }}</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>{{ project.type }}</td>
+				</tr>
+				<tr>
+					<th>Status</th>
+					<td>{{ project.status }}</td>
+				</tr>
+				<tr>
+					<th>Location</th>
+					<td>{{ project.location }}</td>
+				</tr>
+				<tr>
+					<th>Pre Application Start Date</th>
+					<td>{{ project.preApplicationStartDate }}</td>
+				</tr>
+				<tr>
+					<th>Next Expected Action</th>
+					<td>{{ project.nextExpectedAction }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+
+<section class='panel panel-default' ng-if="filteredProjects.length === 0">
+	<div class='panel-body'>
+		There are no projects that match the filter.
+	</div>
+</section>

@@ -1,0 +1,233 @@
+{
+	"_id":"kgwfp1234",
+	"name":"Knob Hill Wind Farm Project",
+	"developer":"Sea Breeze Energy Inc.",
+	"type":"Power and Industrial",
+	"description":"Construction of a new wind farm, with a nominal capacity of 70.5 MW with a preliminary layout of 47 turbines.",
+	"region":"Vancouver Island/Coast",
+	"status":"Pending Description Review",
+	"nextExpectedAction":"2015/3/4",
+	"progress":85,
+	"lat":50.752097,
+	"long":-128.322029,
+	"schedule":[
+		{
+			"milestone": "Pre Application",
+			"start":"Jun 1, 2001",
+			"target":"Jun 1, 2002",
+			"completed":"May 8, 2004",
+			"note":"Proponent completed 3 year study on wildlife migration"
+		},
+		{
+			"milestone": "Public Comments",
+			"start":"Aug 10, 2004",
+			"target":"Aug 20, 2004",
+			"completed":"Aug 20, 2004",
+			"note":""
+		},
+		{
+			"milestone": "Application",
+			"start":"Aug 23, 2004",
+			"target":"Aug 30, 2004",
+			"completed":"Aug 30, 2004",
+			"note":""
+		},
+		{
+			"milestone": "Under Review",
+			"start":"Sept 1, 2004",
+			"target":"Oct 1, 2004",
+			"completed":"Sept 28, 2004",
+			"note":""
+		},
+		{
+			"milestone": "Public Comments",
+			"start":"Oct 1, 2004",
+			"target":"Oct 20, 2004",
+			"completed":null,
+			"note":""
+		},
+		{
+			"milestone": "Certificate Issued",
+			"start":"Nov 1, 2004",
+			"target":"Dec 10, 2004",
+			"completed":null,
+			"note":""
+		}
+	],
+	"discussionPoints" : [
+		{
+			"group": "Salmon",
+			"author": "Author",					
+			"concerns":[
+				{
+					"_id":1,
+					"description": "Salmon Ladder at the north falls will not be adequate for seasonal water flow.",
+					"status":"Open",
+					"referredTo":[
+						{
+							"name":"Group1",
+							"dateReplied":"2015/5/6"
+						},
+						{
+							"name":"Group2",
+							"dateReplied":"2015/5/6"
+						},
+						{
+							"name":"Person1",
+							"dateReplied":null
+						}
+					],
+					"comments" : [{
+						"_id":"555",
+						"name":"Citizen",
+						"comment":"This is really important since my land floods in the spring and this ladder will be washed away.",
+						"dateEntered":"2015/5/6"
+					},
+					{
+						"_id":"566",
+						"name":"Citizen",
+						"comment":"The Salmon here are lazy and unwilling to use a ladder.",
+						"dateEntered":"2015/5/6"
+					}]
+				},
+				{
+					"_id":2,
+					"description": "Spawning grounds on the south bend of the river will be adversely effected by the service roadway.",
+					"status":"Closed",
+					"referredTo":[
+						{
+							"name":"Group1",
+							"dateReplied":"2015/5/6"
+						},
+						{
+							"name":"Group2",
+							"dateReplied":"2015/5/6"
+						},
+						{
+							"name":"Person1",
+							"dateReplied":null
+						}
+					],
+					"comments" : [{
+						"_id":"555",
+						"name":"Resolved",
+						"comment":"Road is to be moved 20m to the NW.",
+						"dateEntered":"2015/5/6"
+					}]
+				}
+			]
+		},
+
+		{
+			"group": "Wetlands",
+			"author": "Author",
+					"referredTo":[
+						{
+							"name":"Group1",
+							"dateReplied":null
+						},
+						{
+							"name":"Group2",
+							"dateReplied":null
+						},
+						{
+							"name":"Person1",
+							"dateReplied":null
+						}
+					],
+			"concerns":[
+				{
+					"_id":3,
+					"description": "Concern #1",
+					"status":"Open",
+					"comments" : [{
+						"_id":"555",
+						"name":"Group1",
+						"comment":"comment 123",
+						"dateEntered":"2015/5/6"
+					},
+					{
+						"_id":"566",
+						"name":"Group2",
+						"comment":"comment 123",
+						"dateEntered":"2015/5/6"
+					}]
+				}
+			]
+		},
+		{
+			"group": "Jobs",
+			"author": "Author",	
+			"status":"Open",
+			"concerns":[
+				{
+					"_id":4,
+					"description": "Concern #1",
+					"status":"Open",
+					"comments" : [{
+						"_id":"555",
+						"name":"Group1",
+						"comment":"comment 123",
+						"dateEntered":"2015/5/6"
+					},
+					{
+						"_id":"566",
+						"name":"Group2",
+						"comment":"comment 123",
+						"dateEntered":"2015/5/6"
+					}]
+				}
+			]
+		},
+
+		{
+			"group": "Air Quality",
+			"author": "Author",
+			"status":"Open",
+			"concerns":[
+				{
+					"_id":5,
+					"description": "Concern #1",
+					"status":"Open",
+					"comments" : [{
+						"_id":"555",
+						"name":"Group1",
+						"comment":"comment 123",
+						"dateEntered":"2015/5/6"
+					},
+					{
+						"_id":"566",
+						"name":"Group2",
+						"comment":"comment 123",
+						"dateEntered":"2015/5/6"
+					}]
+				}
+			]
+		},
+
+		{
+			"group": "Water Quality",
+			"author": "Author",	
+			"status":"Open",
+			"concerns":[
+				{
+					"_id":6,
+					"description": "Concern #1",
+					"status":"Open",
+					"comments" : [{
+						"_id":"555",
+						"name":"Group1",
+						"comment":"comment 123",
+						"dateEntered":"2015/5/6"
+					},
+					{
+						"_id":"566",
+						"name":"Group2",
+						"comment":"comment 123",
+						"dateEntered":"2015/5/6"
+					}]
+				}
+			]
+		}
+	]
+	}

@@ -1,0 +1,31 @@
+<section class='panel panel-default'>
+	<table class="table table-condensed table-striped">
+		<thead>
+			<tr>
+				<th>Project</th>
+				<th>Region</th>
+				<th>Status</th>
+				<th class="text-center">Next Expected Activity</th>
+				<th>Estimated Progress</th>
+			</tr>
+		</thead>	
+		<tbody>
+			<tr ng-click="vm.goToProject( project._id );" ng-repeat="project in filteredProjects = (vm.projects | filter:vm.filterKeyword | filter:vm.filterObject)" ng-if='filteredProjects.length > 0' class='clickable'>
+				<td>{{ project.name }}</td>
+				<td>{{ project.region }}</td>
+				<td>{{ project.status }}</td>
+				<td class="text-center">{{ project.nextExpectedAction }}</td>
+				<td>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ project.progress }}%;">
+							{{ project.progress }}%
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr ng-if="filteredProjects.length === 0">
+				<td colspan="5">No projects match your filter criteria.</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
