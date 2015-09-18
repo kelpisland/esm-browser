@@ -11,7 +11,7 @@ module.exports = function(app) {
     app.get(api + '/v1/utils/recentactivity', getUtilsRecentActivity);
     app.get(api + '/v1/utils/quicklinks', getUtilsQuickLinks);
 
-
+	app.get(api + '/v1/user/proponent', getProponent);
     
     function getPublicProject(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'project.json');
@@ -37,6 +37,11 @@ module.exports = function(app) {
         var json = jsonfileservice.getJsonFromFile(data + 'quicklinks.json');
         res.send(json);
     }    
+
+    function getProponent(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'proponent.json');
+        res.send(json);
+    }  
 
 
 };

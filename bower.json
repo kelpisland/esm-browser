@@ -20,12 +20,14 @@
     "angular": "~1.4.0",
     "angular-animate": "~1.4.0",
     "angular-bootstrap": "~0.13.0",
+    "angular-moment": "~0.10.3",
     "angular-sanitize": "~1.4.0",
     "angular-toastr": "~1.4.1",
     "angular-ui-router": "~0.2.15",
     "angularD3": "~0.0.29",
     "bootstrap-sass": "~3.3.4",
     "lodash": "~3.9.3",
+    "moment-timezone": "~0.4.0",
     "ngmap": "~1.13.4"
   }
 }

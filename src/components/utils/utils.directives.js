@@ -7,7 +7,9 @@
         .directive('tmplRecentActivity', directiveRecentNews)
         .directive('modalAddPublicComment', directiveModalAddPublicComment)
         .directive('modalDocumentViewer', directiveModalDocumentViewer)
-        .directive('centerVertical', directiveCenterVertical);
+        .directive('centerVertical', directiveCenterVertical)
+        .directive('countdownClock',directiveCountdownClock);
+        
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Projects Quicklinks
@@ -123,4 +125,58 @@
 		}
 		return directive;
 	}
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Countdown clock
+	//
+    // -----------------------------------------------------------------------------------
+    directiveCountdownClock.$inject = ['moment', '$interval'];
+    /* @ngInject */
+    function directiveCountdownClock(moment, $interval) {
+	    var localFormat = 'YYYY-MM-DD[T]HH:mm:ss';
+		var directive = {
+			restrict: 'E',
+			scope: {
+				end: '='
+			},
+			replace: true,
+			template: '<div class="countdown-wrapper"></div>',
+			link: function link(scope, element, attrs) {
+				var timeoutId;
+
+				function updateTime(seed) {
+					var countDown = moment.preciseDiff(
+										moment(scope.end).format(localFormat),
+										moment().format(localFormat)
+									);
+					
+					if (countDown) {
+						angular.element(element).html(countDown);
+					}
+				}
+
+				scope.$watch(attrs.start, function(seed) {
+					updateTime(seed);
+				});
+
+				element.on('$destroy', function() {
+					$interval.cancel(timeoutId);
+				});
+
+				// start the UI update process; save the timeoutId for canceling
+				timeoutId = $interval(function() {
+					updateTime(); // update DOM
+				}, 1000);
+
+				// show midway point message
+				// if first deployment, award badge
+
+			}
+		};
+		return directive;
+	};
+
+
+
+
 })();

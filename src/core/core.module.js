@@ -9,7 +9,7 @@
         'fw.exception', 'fw.logger',
 
         // 3rd Party modules
-        'toastr', 'ui.bootstrap', 'ui.router', 'ngMap', 'd3'
+        'toastr', 'ui.bootstrap', 'ui.router', 'ngMap', 'd3', 'angularMoment'
     ]);
     
 	angular.module('d3', [])
@@ -38,6 +38,7 @@
 			return {
 				d3: function() { return d.promise; }
 			};
-	}]);
+		}
+	]);
     
 })();

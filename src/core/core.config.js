@@ -11,6 +11,11 @@
 
     core.value('config', config);
 
+	core.value('angularMomentConfig', {
+		preprocess: 'utc',
+		timezone: 'America/Los_Angelas'
+	});
+
     // Configure the app
     core.config(configFunction);
 

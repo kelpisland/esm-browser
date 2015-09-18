@@ -154,12 +154,24 @@ th .progress-bar {
 .panel-project-summary h3 {
 	margin-top: 2px;
 }
-.panel-project-summary table {
-	margin-right: 20px;	
+.panel-project-summary .form-control-static {
+ 	border-top: 1px solid #ddd;
 }
-.panel-project-summary table th,
-.panel-project-summary table td {
-	padding: 2px 5px;
-	vertical-align: top;
-	border-top: 1px solid #ccc;
+
+.countdown-wrapper ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.countdown-wrapper li {
+	display: inline-block;
+	padding-left: 5px;
+}
+.countdown-wrapper li:first-child {
+	padding-left: 0;
+}
+.countdown-wrapper li span.time-units{
+	font-size: 10px;
+	font-style: italic;
+	opacity: 0.8;
 }

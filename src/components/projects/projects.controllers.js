@@ -45,9 +45,9 @@
 	// CONTROLLER: Proponent Projects Main
 	//
     // -----------------------------------------------------------------------------------
-    controllerProponentProjects.$inject = ['logger', '$state', 'Projects'];
+    controllerProponentProjects.$inject = ['logger', '$state', 'Projects', 'Global'];
     /* @ngInject */
-    function controllerProponentProjects(logger, $state, Projects) {
+    function controllerProponentProjects(logger, $state, Projects, Global) {
 		var vm = this;
 
 		Projects.getPublicProjects().then( function(res) {
@@ -58,6 +58,10 @@
 		vm.goToProject = function(id) {
 			$state.go('public.project', {id:id});
 		};	
+
+		Global.getProponent().then( function(res) {
+			vm.proponent = res.data;
+		});
 
 		vm.view = 'list';
 
