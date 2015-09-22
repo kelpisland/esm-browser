@@ -7,6 +7,7 @@
         'app.core',
 		
         // Features (listed alphabetically)
+        'app.activity',
         'app.approot',
         'app.auth',
 

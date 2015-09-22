@@ -1,0 +1,37 @@
+[
+	{
+		"_id":"act1234",
+		"projectId":"kgwfp1234",		
+		"name":"Confirm attendance for Open House",
+		"initiatedBy":"system",
+		"createDate":"2015-02-01T23:58:15.181Z",
+		"dueDate":"2015-03-01T23:58:15.181Z",
+		"updatedDate":"2015-02-10T23:58:15.181Z",		
+		"description":"Open House to be held on such a date at such a place, you must attend.",
+		"status":"Open",
+		"requirement":"Response",
+		"requirements":[
+			{"group":"Team", "requirement":"Review"},
+			{"group":"Public", "requirement":"Visible"},
+			{"group":"Proponent", "requirement":"Response"}			
+		],
+		"valueComponents":null
+	},
+	{
+		"_id":"act5678",
+		"projectId":"kgwfp1234",
+		"name":"Value Component: Salmon",
+		"initiatedBy":"EAO",
+		"createDate":"2015-01-01T23:58:15.181Z",
+		"dueDate":"2015-02-01T23:58:15.181Z",
+		"updatedDate":"2015-02-10T23:58:15.181Z",
+		"description":"Address open discussion points regarding Salmon.",
+		"status":"Open",
+		"requirement":"Endorsement",
+		"requirements":[
+			{"group":"Team", "requirement":"Review"},
+			{"group":"Proponent", "requirement":"Endorsement"}
+		],
+		"valueComponents":["Salmon"]
+	}
+]

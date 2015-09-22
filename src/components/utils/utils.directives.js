@@ -8,7 +8,8 @@
         .directive('modalAddPublicComment', directiveModalAddPublicComment)
         .directive('modalDocumentViewer', directiveModalDocumentViewer)
         .directive('centerVertical', directiveCenterVertical)
-        .directive('countdownClock',directiveCountdownClock);
+        .directive('countdownClock',directiveCountdownClock)
+        .directive('panelSort',directivePanelSort);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -20,7 +21,7 @@
     function directiveQuickLinks() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/utils/partials/quick-links.html',
+            templateUrl: 'components/utils/partials/quick_links.html',
             controller: 'controllerQuickLinks',
             controllerAs: 'qlPanel'
         };
@@ -36,7 +37,7 @@
     function directiveRecentNews() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/utils/partials/recent-activity.html',
+            templateUrl: 'components/utils/partials/recent_activity.html',
             controller: 'controllerRecentActivity',
             controllerAs: 'raPanel'
         };
@@ -175,7 +176,28 @@
 		};
 		return directive;
 	};
-
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Panel Sort
+	// x-fields: list of fields to sort by.
+	// x-data: data to be sorted.
+	//
+    // -----------------------------------------------------------------------------------
+    directivePanelSort.$inject = [];
+    /* @ngInject */
+    function directivePanelSort() {
+        var directive = {
+            restrict: 'E',
+            scope: {
+            	fields: '=',
+            	data: '='
+            },
+            templateUrl: 'components/utils/partials/panel_sort.html',
+            controller: 'controllerPanelSort',
+            controllerAs: 'panelSort'
+        };
+        return directive;
+    }
 
 
 

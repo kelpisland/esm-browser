@@ -26,7 +26,7 @@
 			vm.types = res.data;
 		});
 
-		Projects.getPublicProjects().then( function(res) {
+		Projects.getProjects().then( function(res) {
 			vm.projects = res.data;
 		});
 
@@ -50,7 +50,7 @@
     function controllerProponentProjects(logger, $state, Projects, Global) {
 		var vm = this;
 
-		Projects.getPublicProjects().then( function(res) {
+		Projects.getProjects().then( function(res) {
 			vm.projects = res.data;
 		});
 

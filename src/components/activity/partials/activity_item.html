@@ -1,0 +1,23 @@
+<div	class="panel"
+		ng-class="{
+			'panel-success': ai.activity.valueComponents, 'panel-info': !ai.activity.valueComponents
+		}">
+	<div class="panel-heading">
+		<div class="label pull-right" ng-class="{'label-success':ai.activity.status === 'Closed', 'label-primary':ai.activity.status === 'Open'}">Open</div>
+		<h3 class="panel-title">{{ ai.activity.name }}</h3>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-sm-8">
+				{{ ai.activity.description }}
+			</div>
+			<div class="col-sm-4">
+				<div><label class="control-label">Requires</label><p>	<a href ui-sref="activity.detail({activityId: act._id})">{{ ai.activity.requirement }}</a></p></div>
+				<div><label class="control-label">Visibility</label><ul class="label-list"><li ng-repeat="vis in ai.activity.requirements"><span class="label label-info">{{ vis.group }}</span></li></ul></div>
+				<div><label class="control-label">Last Updated</label><p>{{ ai.activity.updatedDate | amDateFormat:'MMM Do, YYYY h:mm a' }}</p></div>
+			</div>
+		</div>
+	</div>
+	
+	
+</div> <!-- /panel -->

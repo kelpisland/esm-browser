@@ -8,11 +8,11 @@
 		<div class='col-sm-3'>
 			<div class="panel panel-default project-info-panel">
 				<div class='panel-heading'>
-					<p><strong>Developer</strong>: {{ vm.project.developer }}</p>
-					<p><strong>Type</strong>: {{ vm.project.type }}</p>
-					<p><strong>Location</strong>: {{ vm.project.region }}</p>
-					<p><strong>Current Status</strong>: {{ vm.project.status }}</p>
-					<p><strong>Description</strong>:<br/>{{ vm.project.description }}</p>
+					<div><label class="control-label">Developer</label><p>{{ vm.project.developer }}</p></div>
+					<div><label class="control-label">Type</label><p>{{ vm.project.type }}</p></div>
+					<div><label class="control-label">Location</label><p>{{ vm.project.region }}</p></div>
+					<div><label class="control-label">Current Stage</label><p>{{ vm.project.stage }}</p></div>
+					<div><label class="control-label">Description</label><p>{{ vm.project.description }}</p></div>
 					<p><small><a href><span class='glyphicon glyphicon-file'></span> Comprehensive Project Description</a></small></p>
 				</div>
 
@@ -68,46 +68,51 @@
 			</div>
 
 
-			<div class="panel panel-default">
-				<table class='table table-condensed small'>	
-					<thead>
-						<tr>
-							<th class="text-center" colspan="6">
-								<div class="progress-info-button pull-right clickable" ng-click="progressInfo = !progressInfo"><span class='glyphicon glyphicon-question-sign'></span></div>
-								<div class="progress">
+			<div class="panel panel-default panel-project-summary clickable" x-modal-project-schedule x-project="vm.project">
+				<div class="panel-body">
+					<div class='row'>
+						<div class="col-sm-12">
+							<div>
+								<div class="progress-info-button pull-right clickable"
+										popover="At any stage in our process, new information could be introduced that requires investigation.  This takes time and the project dates are adjusted to reflect this."
+										popover-title="Why just an estimate?"
+										popover-placement='left'
+										popover-trigger='mouseenter'
+								><span class='glyphicon glyphicon-question-sign'></span></div>
+								<div class="progress progress-no-margin">
 									<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ vm.project.progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ vm.project.progress }}%;">
 										Estimated Completion: {{ vm.project.progress }}% 
 									</div>
 								</div>
-
-								<div ng-show="progressInfo" class="alert alert-info progress-alert-box">
-									<p><strong>Why is this an estimate?</strong></p>
-									<p>At any stage in our process, new information could be introduced that requires investigation.  This takes time and the project dates are adjusted to reflect this.</p>
-								</div>								
-							</tr>
-						</tr>
-						<tr>
-							<th>Milestone</th>
-							<th class='text-center'>Started</th>
-							<th class='text-center'>Estimated Completion</th>
-							<th class='text-center'>Completed</th>
-							<th class='text-center'></th>
-							<th class='text-center'></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="ms in vm.project.schedule" ng-class="{'success': !!ms.completed}">
-							<td>{{ ms.milestone }}</td>
-							<td class='text-center'>{{ ms.start }}</td>
-							<td class='text-center'>{{ ms.target }}</td>
-							<td class='text-center'>{{ ms.completed }}</td>
-							<td class='text-center'><span class='glyphicon' ng-class="{'glyphicon-ok': !!ms.completed, 'glyphicon-minus': !ms.completed}"></span></td>
-							<td>{{ ms.note }}</td>
-						</tr>
+							</div>
+						</div>
+					</div> <!-- /row -->
 					
-					</tbody>
-				</table>
+					<div class='row'>
+						<div class="col-sm-4">
+							<div>
+								<label class="control-label">Current Stage</label>
+								<p>{{ vm.project.stage }}</p>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div>
+								<label class="control-label">Estimated Stage Completion</label>
+								<p class='text-center'>{{ vm.project.estimatedStageCompleteDate | amDateFormat:'MMM Do YYYY' }}</p>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div>
+								<label class="control-label">Estimated Time To Completion</label>
+								<p class='text-center'>
+									<countdown-clock x-end="vm.project.estimatedStageCompleteDate"></countdown-clock>
+								</p>
+							</div>
+						</div>
+					</div> <!-- /row -->
+				</div>
 			</div>
+
 
 			<nav class="navbar navbar-default bg-info">
 				<div class="container-fluid">

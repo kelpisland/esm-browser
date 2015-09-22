@@ -12,14 +12,14 @@
     serviceProject.$inject = ['$http', 'API'];
     /* @ngInject */
     function serviceProject($http, API) {
-		var getPublicProject = function(req) {
-			return $http({method:'GET',url: API + '/v1/public/project/' + req.id});
+		var getProject = function(req) {
+			return $http({method:'GET',url: API + '/v1/project/' + req.id});
 		};
     	var getProjectTypes = function(req) {
 			return $http({method:'GET',url: API + '/v1/project/types'});
 		};
 		return {
-			getPublicProject: getPublicProject,
+			getProject: getProject,
 			getProjectTypes: getProjectTypes
 		};
     }

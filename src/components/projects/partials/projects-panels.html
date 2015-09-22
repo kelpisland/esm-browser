@@ -36,16 +36,16 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="form-group">
-							<label class="control-label">Time to Next Action</label>
-							<p class="form-control-static">
-								<countdown-clock x-end="project.nextExpectedAction"></countdown-clock>
+							<label class="control-label">Time to Stage Completion</label>
+							<p class="form-control-static text-center">
+								<countdown-clock x-end="project.estimatedStageCompleteDate"></countdown-clock>
 							</p>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="form-group">
-							<label class="control-label">Next Expected Action</label>
-							<p class="form-control-static">{{ project.nextExpectedAction | amDateFormat:'MMM Do YYYY, h:mm:ss a z'  }}</p>
+							<label class="control-label">Est. Stage Completion</label>
+							<p class='text-center'>{{ project.estimatedStageCompleteDate | amDateFormat:'MMM Do, YYYY' }}</p>
 						</div>
 					</div>
 				</div> <!-- /row -->

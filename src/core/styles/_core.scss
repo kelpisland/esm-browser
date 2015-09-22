@@ -5,6 +5,12 @@ body {
 body {
 	background-color: transparent;
 }
+a:hover,
+a:link,
+a:active,
+a:visited {
+	text-decoration: none;
+}
 html {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#606c88+0,3f4c6b+100;Grey+3D+%232 */
 	background: #606c88; /* Old browsers */
@@ -72,7 +78,10 @@ button:focus, a:focus {
 .project-info-panel > .panel-heading {
 	padding-bottom: 0;
 }
-
+.panel label + p,
+.panel label + ul {
+	margin-bottom: 15px;
+}
 a.return-link {
 	text-decoration: none;
 	font-size: 14px;
@@ -100,13 +109,53 @@ h3 .small .label {
 	font-weight: 500;
 }
 
-.contact-list {
+
+
+.label-list,
+.panel-sort {
 	list-style-type: none;
 	padding-left: 0;
 }
-.contact-list li {
+.label-list li,
+.panel-sort li {
 	display: inline-block;
 }
+.label-list li {
+	margin-bottom: 3px;
+	margin-right: 3px;
+}
+.panel-sort li {
+	font-size: 80%;
+	color: #fff;
+}
+.panel-sort li a {
+	padding: 0 5px;
+	color: #fff;
+}
+.panel-sort li:before {
+	content: '|';	
+}
+.panel-sort li:first-child:before {
+	content: '';	
+}
+
+.panel-sort li.asc a span:after {
+	content: '\0020\25B2';
+}
+
+.panel-sort li.desc a span:after {
+	content: "\0020\25BC";
+}
+
+
+
+.panel-heading .label {
+	font-size: 12px;
+}
+
+
+
+
 
 .document-cell a {
 	position: relative;
@@ -155,7 +204,6 @@ th .progress-bar {
 	margin-top: 2px;
 }
 .panel-project-summary .form-control-static {
- 	border-top: 1px solid #ddd;
 }
 
 .countdown-wrapper ul {
@@ -174,4 +222,14 @@ th .progress-bar {
 	font-size: 10px;
 	font-style: italic;
 	opacity: 0.8;
+}
+
+label.control-label {
+	font-size: 85%;
+	font-weight: 500;
+	font-style: italic;
+	display: block;
+	padding: 0 0 2px;
+    margin: 0 0 2px;
+	color: #ababab;	
 }

@@ -11,7 +11,9 @@
 		
 		// General
         .controller('ModalAddPublicComment', controllerModalAddComment)
-        .controller('ModalDocumentViewer', controllerModalDocumentViewer);
+        .controller('ModalDocumentViewer', controllerModalDocumentViewer)
+        .controller('ModalProponentAccess', controllerModalProponentAccess)
+        .controller('ModalProjectSchedule', controllerModalProjectSchedule);
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Public Project Detail
@@ -45,7 +47,7 @@
 		
 		//
 		// Get Project
-		Project.getPublicProject({id: $stateParams.id}).then(function(res) {
+		Project.getProject({id: $stateParams.id}).then(function(res) {
 			vm.project = res.data;
 		});
 
@@ -83,7 +85,7 @@
 		
 		//
 		// Get Project
-		Project.getPublicProject({id: $stateParams.id}).then(function(res) {
+		Project.getProject({id: $stateParams.id}).then(function(res) {
 			vm.project = res.data;
 		});
 
@@ -113,4 +115,34 @@
 		md.ok = function () { $modalInstance.close(); };
 		md.cancel = function () { $modalInstance.dismiss('cancel'); };
 	};
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: View Project Schedule
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalProjectSchedule.$inject = ['$modalInstance', 'rProject'];
+    //
+    function controllerModalProjectSchedule($modalInstance, rProject) { 
+		var ps = this;
+		
+		ps.project = rProject;
+
+		ps.cancel = function () { $modalInstance.dismiss('cancel'); };
+	};
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: View Proponent Access
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalProponentAccess.$inject = ['$modalInstance', 'rProject'];
+    //
+    function controllerModalProponentAccess($modalInstance, rProject) { 
+		var pa = this;
+		
+		pa.project = rProject;
+
+		pa.cancel = function () { $modalInstance.dismiss('cancel'); };
+	};
+		
+	
 })();

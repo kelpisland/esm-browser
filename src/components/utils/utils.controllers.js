@@ -6,7 +6,8 @@
         .controller('controllerQuickLinks', controllerQuickLinks)
 	    .controller('controllerRecentActivity', controllerRecentActivity)   
         .controller('controllerModalAddComment', controllerModalAddComment)
-        .controller('controllerModalDocumentViewer', controllerModalDocumentViewer);
+        .controller('controllerModalDocumentViewer', controllerModalDocumentViewer)
+        .controller('controllerPanelSort', controllerPanelSort);
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Quick Links
@@ -60,4 +61,43 @@
 		md.ok = function () { $modalInstance.close(); };
 		md.cancel = function () { $modalInstance.dismiss('cancel'); };
 	};
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Panel Sort
+	//
+    // -----------------------------------------------------------------------------------
+    controllerPanelSort.$inject = ['$scope', '$filter'];
+    //
+    function controllerPanelSort($scope, $filter) { 
+		var panelSort = this;
+		var orderBy = $filter('orderBy');
+		
+		panelSort.fields = $scope.fields;
+		
+		panelSort.column = '';
+		panelSort.direction = '-';
+		panelSort.field = '';
+		
+		panelSort.sort = function(field) {
+			if (field === panelSort.column) {
+				if (panelSort.direction === '') {
+					panelSort.direction = '-';
+				} else if (panelSort.direction === '-') {
+					panelSort.direction = '+';				
+				} else if (panelSort.direction === '+') {
+					panelSort.direction = '';
+				}
+			} else {
+				panelSort.column = field;
+				panelSort.direction = '-';
+			}
+			if (panelSort.direction === '') {
+				panelSort.field = '';
+			} else {
+				panelSort.field = panelSort.direction + panelSort.column;
+			}
+			$scope.data = orderBy($scope.data, panelSort.field, false);
+		};
+	};	
+	
 })();

@@ -5,8 +5,10 @@
 	"type":"Power and Industrial",
 	"description":"Construction of a new wind farm, with a nominal capacity of 70.5 MW with a preliminary layout of 47 turbines.",
 	"region":"Vancouver Island/Coast",
+	"location":"Knob Hill",
 	"stage":"Pending Description Review",
-	"nextExpectedAction": "2015-11-01T23:58:15.181Z",
+	"estimatedStageCompleteDate": "2015-11-01T23:58:15.181Z",
+	"nextExpectedStage":"Project Description Approval",
 	"preapplicationStartDate": "2015-03-01T23:58:15.181Z",
 	"progress":85,
 	"lat":50.752097,
@@ -14,45 +16,51 @@
 	"schedule":[
 		{
 			"milestone": "Pre Application",
-			"start":"Jun 1, 2001",
-			"target":"Jun 1, 2002",
-			"completed":"May 8, 2004",
-			"note":"Proponent completed 3 year study on wildlife migration"
+			"start":"2001-06-01T23:58:15.181Z",
+			"target":"2002-06-02T23:58:15.181Z",
+			"completed":"2004-04-10T23:58:15.181Z",
+			"note":"Proponent completed 3 year study on wildlife migration",
+			"public":true
 		},
 		{
 			"milestone": "Public Comments",
-			"start":"Aug 10, 2004",
-			"target":"Aug 20, 2004",
-			"completed":"Aug 20, 2004",
-			"note":""
+			"start":"2004-08-10T23:58:15.181Z",
+			"target":"2004-08-20T23:58:15.181Z",
+			"completed":"2004-08-20T23:58:15.181Z",
+			"note":"",
+			"public":true	
 		},
 		{
 			"milestone": "Application",
-			"start":"Aug 23, 2004",
-			"target":"Aug 30, 2004",
-			"completed":"Aug 30, 2004",
-			"note":""
+			"start":"2004-08-27T23:58:15.181Z",
+			"target":"2004-08-30T23:58:15.181Z",
+			"completed":"2004-08-30T23:58:15.181Z",
+			"note":"",
+			"public":true
 		},
 		{
 			"milestone": "Under Review",
-			"start":"Sept 1, 2004",
-			"target":"Oct 1, 2004",
-			"completed":"Sept 28, 2004",
-			"note":""
+			"start":"2004-09-01T23:58:15.181Z",
+			"target":"2004-10-01T23:58:15.181Z",
+			"completed":"2004-09-28T23:58:15.181Z",
+			"note":"",
+			"public":true			
 		},
 		{
 			"milestone": "Public Comments",
-			"start":"Oct 1, 2004",
-			"target":"Oct 20, 2004",
+			"start":"2004-10-01T23:58:15.181Z",
+			"target":"2004-10-20T23:58:15.181Z",
 			"completed":null,
-			"note":""
+			"note":"",
+			"public":true
 		},
 		{
 			"milestone": "Certificate Issued",
-			"start":"Nov 1, 2004",
-			"target":"Dec 10, 2004",
+			"start":"2004-11-01T23:58:15.181Z",
+			"target":"2004-12-10T23:58:15.181Z",
 			"completed":null,
-			"note":""
+			"note":"",
+			"public":true			
 		}
 	],
 	"discussionPoints" : [
