@@ -7,13 +7,19 @@ module.exports = function(app) {
     app.get(api + '/v1/projects', getProjects);
 
     app.get(api + '/v1/projecttypes', getProjectTypes);
+    app.get(api + '/v1/projectstages', getProjectStages);
 
     app.get(api + '/v1/utils/recentactivity', getUtilsRecentActivity);
     app.get(api + '/v1/utils/quicklinks', getUtilsQuickLinks);
 
     app.get(api + '/v1/activities/:id', getActivities);
+	app.get(api + '/v1/activity/:id', getActivity);
 
-	app.get(api + '/v1/user/proponent', getProponent);
+	app.get(api + '/v1/user/:id', getUser);
+	
+	app.get(api + '/v1/currentuser', getCurrentUser);
+	
+	app.get(api + '/v1/proponent', getProponent);	
     
     function getProject(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'project.json');
@@ -45,8 +51,28 @@ module.exports = function(app) {
         res.send(json);
     }  
 
+    function getUser(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'proponent.json');
+        res.send(json);
+    }  
+
+    function getCurrentUser(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'proponent.json');
+        res.send(json);
+    }  
+
     function getActivities(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'activities.json');
+        res.send(json);
+    }
+
+    function getActivity(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'activity.json');
+        res.send(json);
+    }
+
+    function getProjectStages(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectStages.json');
         res.send(json);
     }
 

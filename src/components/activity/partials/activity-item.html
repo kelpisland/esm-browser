@@ -1,4 +1,4 @@
-<div	class="panel"
+<div class="panel"
 		ng-class="{
 			'panel-success': ai.activity.valueComponents, 'panel-info': !ai.activity.valueComponents
 		}">
@@ -12,8 +12,12 @@
 				{{ ai.activity.description }}
 			</div>
 			<div class="col-sm-4">
-				<div><label class="control-label">Requires</label><p>	<a href ui-sref="activity.detail({activityId: act._id})">{{ ai.activity.requirement }}</a></p></div>
-				<div><label class="control-label">Visibility</label><ul class="label-list"><li ng-repeat="vis in ai.activity.requirements"><span class="label label-info">{{ vis.group }}</span></li></ul></div>
+				<div><label class="control-label">Requires</label><p>	<a href ui-sref="proponent.activity({id: ai.activity._id})">{{ ai.activity.requirement }}</a></p></div>
+				<div><label class="control-label">Contributor<span ng-if="(ai.activity.requirements.length !== 1)">s</span></label>
+					<ul class="label-list">
+						<li ng-repeat="vis in ai.activity.requirements"><span class="label" x-is-current-user x-user="vis.group">{{ vis.group }}</span></li>
+					</ul>
+				</div>
 				<div><label class="control-label">Last Updated</label><p>{{ ai.activity.updatedDate | amDateFormat:'MMM Do, YYYY h:mm a' }}</p></div>
 			</div>
 		</div>

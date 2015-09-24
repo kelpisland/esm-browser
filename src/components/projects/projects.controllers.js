@@ -59,9 +59,7 @@
 			$state.go('public.project', {id:id});
 		};	
 
-		Global.getProponent().then( function(res) {
-			vm.proponent = res.data;
-		});
+		vm.proponent = Global.user;
 
 		vm.view = 'list';
 

@@ -4,7 +4,9 @@
 
     angular.module('app.activity')
         .directive('tmplActivityListing', directiveActivityListing)
-        .directive('tmplActivityItem', directiveActivityItem);
+        .directive('tmplActivityItem', directiveActivityItem)
+        .directive('tmplActivityDetail', directiveActivityDetail)
+        .directive('tmplProponentActivity', directiveProponentActivity);        
 //		.directive('tmplProponentProject', directiveProponentProject)
 //         .directive('modalProponentAccess', directiveModalProponentAccess)        
 //         .directive('modalProjectSchedule', directiveModalProjectSchedule);
@@ -18,7 +20,7 @@
     function directiveActivityListing() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/activity/partials/activity_list.html',
+            templateUrl: 'components/activity/partials/activity-list.html',
             controller: 'controllerActivityList',
             controllerAs: 'al',
 			scope : {
@@ -37,12 +39,47 @@
     function directiveActivityItem() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/activity/partials/activity_item.html',
+            templateUrl: 'components/activity/partials/activity-item.html',
             controller: 'controllerActivityItem',
             controllerAs: 'ai',
 			scope : {
              	activity: '='
 			}
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Activity Detail
+	//
+    // -----------------------------------------------------------------------------------
+    directiveActivityDetail.$inject = [];
+    /* @ngInject */
+    function directiveActivityDetail() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/activity/partials/activity-detail.html',
+            controller: 'controllerActivityDetail',
+            controllerAs: 'ad',
+			scope : {
+             	detail: '='
+			}
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Activity Proponent
+	//
+    // -----------------------------------------------------------------------------------
+    directiveProponentActivity.$inject = [];
+    /* @ngInject */
+    function directiveProponentActivity() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/activity/proponent-activity.html',
+            controller: 'controllerActivityProponent',
+            controllerAs: 'ap'
         };
         return directive;
     }

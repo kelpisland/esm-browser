@@ -1,0 +1,19 @@
+{
+	"_id":"act1234",
+	"projectId":"kgwfp1234",
+	"project":"Knob Hill Wind Farm Project",
+	"name":"Confirm attendance for Open House",
+	"initiatedBy":"system",
+	"createDate":"2015-02-01T23:58:15.181Z",
+	"dueDate":"2015-03-01T23:58:15.181Z",
+	"updatedDate":"2015-02-10T23:58:15.181Z",		
+	"description":"Open House to be held on such a date at such a place, you must attend.",
+	"status":"Open",
+	"requirement":"Response",
+	"requirements":[
+		{"group":"EAO", "requirement":"Review"},
+		{"group":"Public", "requirement":"Visible"},
+		{"group":"Proponent", "requirement":"Response"}			
+	],
+	"valueComponents":null
+}

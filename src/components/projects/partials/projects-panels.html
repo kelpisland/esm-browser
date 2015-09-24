@@ -8,44 +8,42 @@
 				<br/>
 				<div class='row'>
 					<div class="col-sm-4">
-						<div class="form-group">
+						<div>
 							<label class="control-label">Type</label>
-							<p class="form-control-static">{{ project.type }}</p>
+							<p>{{ project.type }}</p>
 						</div>
 					</div>
 					<div class="col-sm-4">
-						<div class="form-group">
+						<div>
 							<label class="control-label">Region</label>
-							<p class="form-control-static">{{ project.region }}</p>
+							<p>{{ project.region }}</p>
 						</div>
 					</div>
 					<div class="col-sm-4">
-						<div class="form-group">
+						<div>
 							<label class="control-label">Location</label>
-							<p class="form-control-static">{{ project.location }}</p>
+							<p>{{ project.location }}</p>
 						</div>
 					</div>
 				</div> <!-- /row -->
 
 				<div class='row'>
 					<div class="col-sm-4">
-						<div class="form-group">
+						<div>
 							<label class="control-label">Stage</label>
-							<p class="form-control-static">{{ project.stage }}</p>
+							<p x-stage-colour x-stage="project.stage">{{ project.stage }}</p>
 						</div>
 					</div>
 					<div class="col-sm-4">
-						<div class="form-group">
-							<label class="control-label">Time to Stage Completion</label>
-							<p class="form-control-static text-center">
-								<countdown-clock x-end="project.estimatedStageCompleteDate"></countdown-clock>
-							</p>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="form-group">
+						<div>
 							<label class="control-label">Est. Stage Completion</label>
-							<p class='text-center'>{{ project.estimatedStageCompleteDate | amDateFormat:'MMM Do, YYYY' }}</p>
+							<p>{{ project.estimatedStageCompleteDate | amDateFormat:'MMM Do, YYYY' }}</p>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div>
+							<label class="control-label">Next Stage</label>
+							<p x-stage-colour x-stage="project.nextStage">{{ project.nextStage }}</p>
 						</div>
 					</div>
 				</div> <!-- /row -->

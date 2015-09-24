@@ -15,8 +15,12 @@
 		var getProjectActivities = function(req) {
 			return $http({method:'GET',url: API + '/v1/activities/' + req.id});
 		};
+		var getProjectActivity = function(req) {
+			return $http({method:'GET',url: API + '/v1/activity/' + req.id});
+		};
 		return {
-			getProjectActivities: getProjectActivities
+			getProjectActivities: getProjectActivities,
+			getProjectActivity: getProjectActivity
 		};
     }
 

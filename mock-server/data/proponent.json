@@ -1,4 +1,5 @@
 {
 	"_id":"prop123",
-	"name":"Proponent Name"
+	"name":"Proponent Name", 
+	"type":"Proponent"
 }

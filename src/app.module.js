@@ -12,10 +12,12 @@
         'app.auth',
 
         'app.default',
+        'app.documents',
         'app.project',
         'app.projects',
 
         'app.topnav',
+        'app.users',
         'app.utils'
     ]);
 })();

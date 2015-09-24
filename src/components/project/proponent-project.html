@@ -8,22 +8,10 @@
 
 		<div class='col-sm-9'>
 
-			<nav class="navbar navbar-default bg-info">
+			<nav class="navbar navbar-default navbar-sm">
 				<div class="container-fluid">
 
-					<ul class="nav navbar-nav navbar-left">
-						<li>
-							<p class="navbar-text">Concerns: 6</p>
-						</li>
-						<li>
-							<p class="navbar-text">Closed: 1</p>
-						</li>
-						<li>
-							<p class="navbar-text">Open: 5</p>
-						</li>
-
-					</ul>
-
+	
 					<ul class="nav navbar-nav navbar-right">
 						<li>
 							<p class="navbar-text">Search</p>
@@ -57,10 +45,9 @@
 				</div>
 			
 				<div class='panel-body'>
-					<div><label class="control-label">Current Stage</label><p>{{ vm.project.stage }}</p></div>
-					<div><label class="control-label">Estimated Stage Complete Date</label><p>{{ vm.project.estimatedStageCompleteDate | amDateFormat:'MMM Do YYYY' }}</p></div>
-					<div><label class="control-label">Estimated Time To Stage Completed</label><p><countdown-clock x-end="vm.project.estimatedStageCompleteDate"></countdown-clock></p></div>
-					<div><label class="control-label">Next Stage</label><p>{{ vm.project.stage }}</p></div>
+					<div><label class="control-label">Current Stage</label><p x-stage-colour x-stage="vm.project.stage">{{ vm.project.stage }}</p></div>
+					<div><label class="control-label">Estimated Stage Completion</label><p>{{ vm.project.estimatedStageCompleteDate | amDateFormat:'MMM Do YYYY' }}</p></div>
+					<div><label class="control-label">Next Stage</label><p x-stage-colour x-stage="vm.project.nextStage">{{ vm.project.nextStage }}</p></div>
 					<div><small><a href x-modal-project-schedule x-project="vm.project"><span class='glyphicon glyphicon-calendar'></span> Estimated Project Schedule</a></small></div>
 				</div>
 

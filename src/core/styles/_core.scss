@@ -147,6 +147,13 @@ h3 .small .label {
 	content: "\0020\25BC";
 }
 
+.modal .panel-sort li {
+	color: #777;
+}
+.modal .panel-sort li a {
+	color: #777;
+}
+
 
 
 .panel-heading .label {
@@ -232,4 +239,35 @@ label.control-label {
 	padding: 0 0 2px;
     margin: 0 0 2px;
 	color: #ababab;	
+}
+
+.drop-box {
+    background: #F8F8F8;
+    border: 3px dashed #DDD;
+    text-align: center;
+    padding: 25px;
+}
+.dragover {
+    border: 5px dashed blue;
+}
+
+
+.well h3 {
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+nav {
+	cursor: default;
+}
+.navbar-sm .form-control {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+.navbar-sm .navbar-text {
+	font-size: 12px;
+	margin-top: 14px;
+	margin-bottom: 14px;
 }

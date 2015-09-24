@@ -1,0 +1,19 @@
+<label class="control-label">Upload Documents</label>
+<div class="well well-small clearfix">
+    <div ngf-drop ngf-select ng-model="files" class="drop-box col-md-6" 
+        ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+        accept="image/*,application/pdf" 
+        ngf-pattern="'image/*,application/pdf'">Drop pdfs or images here or click to upload
+    </div>
+    <div class="col-md-6">
+		<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+		<ul class="list-unstyled">
+			<li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+		</ul>
+		<div ng-if="log">
+			Upload Log:
+			<pre>{{log}}</pre>
+		</div>
+	</div>
+</div>
+

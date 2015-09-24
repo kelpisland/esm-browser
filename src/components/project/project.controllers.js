@@ -8,8 +8,10 @@
 
 		// Proponent
 		.controller('controllerProponentProject', controllerProponentProject)
-		
+		.controller('controllerProponentProjectNew', controllerProponentProjectNew)
+
 		// General
+		.controller('controllerProjectEntryTombstone', controllerProjectEntryTombstone)
         .controller('ModalAddPublicComment', controllerModalAddComment)
         .controller('ModalDocumentViewer', controllerModalDocumentViewer)
         .controller('ModalProponentAccess', controllerModalProponentAccess)
@@ -90,6 +92,35 @@
 		});
 
     }
+
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Proponents Project Detail
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerProponentProjectNew.$inject = ['logger', 'Project'];
+	//
+	function controllerProponentProjectNew(logger, Project) {
+		var vm = this;
+    }
+    
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Project Entry Tombstone
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerProjectEntryTombstone.$inject = ['logger', 'Projects'];
+	//
+	function controllerProjectEntryTombstone(logger, Projects) {
+		var pets = this;
+		
+		pets.project = {contact:{}};  // TODO: Replace this with a blank model pulled from the database.
+		
+		Projects.getProjectTypes().then( function(res) {
+			pets.types = res.data;
+		});
+    }        
+    
     
     // -----------------------------------------------------------------------------------
 	//
@@ -140,6 +171,42 @@
 		var pa = this;
 		
 		pa.project = rProject;
+
+		pa.userTypes = ['Proponent', 'Consultant'];  // TO DO: Make into service
+
+		pa.contacts = [];
+		pa.newContact = {};
+		pa.toggle = {};
+		pa.filter ={accepted: null};
+
+		pa.panelSort = [
+			{'field': 'name', 'name':'Name'},
+			{'field': 'role', 'name':'Role'},
+			{'field': 'accepted', 'name':'Accepted'}			
+		];
+		
+		pa.inviteUser = function() {
+			// TO DO: Validation
+			// TO DO: Send Invitation
+			pa.newContact._id = pa.contacts.length;
+			pa.newContact.accepted = false;
+
+			pa.contacts.push(pa.newContact);
+			pa.newContact = {};
+			pa.invite = false;
+		};
+
+		pa.filterAccepted = function() {
+			return function(item) {
+				if (pa.filter.accepted === null) {
+					return true;
+				} else if (pa.filter.accepted === false && item.accepted === false) {
+					return true;
+				} else if (pa.filter.accepted === true && item.accepted !== false) {
+					return false;
+				}
+			}
+		};
 
 		pa.cancel = function () { $modalInstance.dismiss('cancel'); };
 	};

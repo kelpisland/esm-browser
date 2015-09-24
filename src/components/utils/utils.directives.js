@@ -6,10 +6,11 @@
         .directive('tmplQuickLinks', directiveQuickLinks)
         .directive('tmplRecentActivity', directiveRecentNews)
         .directive('modalAddPublicComment', directiveModalAddPublicComment)
-        .directive('modalDocumentViewer', directiveModalDocumentViewer)
         .directive('centerVertical', directiveCenterVertical)
         .directive('countdownClock',directiveCountdownClock)
-        .directive('panelSort',directivePanelSort);
+        .directive('panelSort',directivePanelSort)
+        .directive('stageColour',directiveStageColour)
+        .directive('isCurrentUser', directiveIsCurrentUser);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -63,31 +64,6 @@
 						size: 'md'
 					});
 					modalAddComment.result.then(function () {}, function () {});
-				});
-			}
-        };
-        return directive;
-    }
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Modal document viewer
-	//
-    // -----------------------------------------------------------------------------------
-    directiveModalDocumentViewer.$inject = ['$modal'];
-    /* @ngInject */
-    function directiveModalDocumentViewer($modal) {
-        var directive = {
-            restrict:'A',
-			link : function(scope, element, attrs) {
-				element.on('click', function() {
-					var modalDocView = $modal.open({
-						animation: true,
-						templateUrl: 'components/utils/partials/modal_document_viewer.html',
-						controller: 'controllerModalDocumentViewer',
-						controllerAs: 'md',
-						size: 'lg'
-					});
-					modalDocView.result.then(function () {}, function () {});
 				});
 			}
         };
@@ -198,7 +174,68 @@
         };
         return directive;
     }
-
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Coloured Stage
+	// if the stage is assigned to you, the stage name is green.
+	// if the stage is not assigned to you, the stage name is blue.
+	//
+    // -----------------------------------------------------------------------------------
+    directiveStageColour.$inject = ['$filter'];
+    /* @ngInject */
+    function directiveStageColour($filter) {
+		var directive = {
+			restrict: 'A',
+			scope: {
+				stage: '='
+			},
+			link: function link(scope, element, attrs) {
+			
+				scope.$watch('stage', function(newValue) {
+					if (newValue) {
+						var mine = $filter('projectStageContributor')(newValue);
+						
+						if (mine) {
+							angular.element(element).addClass('text-success');
+						} else {
+							angular.element(element).addClass('text-primary');				
+						}
+					}
+				});
+			}
+		};
+		return directive;
+	};
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Coloured Stage
+	// if the stage is assigned to you, the stage name is green.
+	// if the stage is not assigned to you, the stage name is blue.
+	//
+    // -----------------------------------------------------------------------------------
+    directiveIsCurrentUser.$inject = ['Global'];
+    /* @ngInject */
+    function directiveIsCurrentUser(Global) {
+		var directive = {
+			restrict: 'A',
+			scope: {
+				user: '='
+			},
+			link: function link(scope, element, attrs) {
+			
+				scope.$watch('user', function(newValue) {
+					if (newValue) {
+						if (newValue === Global.user.type) {
+							angular.element(element).addClass('label-success');
+						} else {
+							angular.element(element).addClass('label-info');				
+						}
+					}
+				});
+			}
+		};
+		return directive;
+	};
 
 
 })();

@@ -11,7 +11,7 @@
 		"status":"Open",
 		"requirement":"Response",
 		"requirements":[
-			{"group":"Team", "requirement":"Review"},
+			{"group":"EAO", "requirement":"Review"},
 			{"group":"Public", "requirement":"Visible"},
 			{"group":"Proponent", "requirement":"Response"}			
 		],
@@ -29,7 +29,7 @@
 		"status":"Open",
 		"requirement":"Endorsement",
 		"requirements":[
-			{"group":"Team", "requirement":"Review"},
+			{"group":"EAO", "requirement":"Review"},
 			{"group":"Proponent", "requirement":"Endorsement"}
 		],
 		"valueComponents":["Salmon"]

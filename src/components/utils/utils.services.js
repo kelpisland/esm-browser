@@ -6,22 +6,31 @@
         .service('Utils', serviceUtils);
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Public Projects Main
+	// Service: Util Services
 	//
     // -----------------------------------------------------------------------------------
     serviceUtils.$inject = ['$http', 'API'];
     /* @ngInject */
     function serviceUtils($http, API) {
+    	var getCurrentUser = function(req) {
+			return $http({method:'GET',url: API + '/v1/currentuser'});
+		};
     	var getRecentActivity = function(req) {
 			return $http({method:'GET',url: API + '/v1/utils/recentactivity'});
 		};
     	var getQuickLinks = function(req) {
 			return $http({method:'GET',url: API + '/v1/utils/quicklinks'});
 		};
+		var getProjectStages = function(req) {
+			return $http({method:'GET',url: API + '/v1/projectstages'});
+		};
 		return {
+			getCurrentUser: getCurrentUser,
 			getRecentActivity: getRecentActivity,
-			getQuickLinks: getQuickLinks
+			getQuickLinks: getQuickLinks,
+			getProjectStages: getProjectStages
 		};
     }
+
 
 })();

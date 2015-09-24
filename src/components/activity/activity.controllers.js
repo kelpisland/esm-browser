@@ -5,20 +5,16 @@
     angular.module('app.activity')
 		.controller('controllerActivityList', controllerActivityList)
 		.controller('controllerActivityItem', controllerActivityItem)
-		
-		// General
-//         .controller('ModalAddPublicComment', controllerModalAddComment)
-//         .controller('ModalDocumentViewer', controllerModalDocumentViewer)
-//         .controller('ModalProponentAccess', controllerModalProponentAccess)
-//         .controller('ModalProjectSchedule', controllerModalProjectSchedule);
+		.controller('controllerActivityDetail', controllerActivityDetail)
+		.controller('controllerActivityProponent', controllerActivityProponent);
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Activity List
 	//
     // -----------------------------------------------------------------------------------
-    controllerActivityList.$inject = ['$scope', 'logger', '$modal', 'Activity', '$stateParams', '$rootScope'];
+    controllerActivityList.$inject = ['$scope', 'logger', '$modal', 'Activity', '$stateParams'];
 	//
-	function controllerActivityList($scope, logger, $modal, Activity, $stateParams, $rootScope) {
+	function controllerActivityList($scope, logger, $modal, Activity, $stateParams) {
 		var al = this;
 
 		al.panelSort = [
@@ -46,5 +42,43 @@
 	function controllerActivityItem($scope) {
 		var al = this;
 		al.activity = $scope.activity;
-    }	
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Activity Detail
+	//
+    // -----------------------------------------------------------------------------------
+    controllerActivityDetail.$inject = ['$scope'];
+	//
+	function controllerActivityDetail($scope ) {
+		var ad = this;
+		
+		$scope.$watch('detail', function(newValue) {	
+			ad.activity = angular.copy($scope.detail);		
+		});
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Activity Proponent
+	//
+    // -----------------------------------------------------------------------------------
+    controllerActivityProponent.$inject = ['$scope', 'logger', '$modal', 'Activity', 'Project', '$stateParams'];
+	//
+	function controllerActivityProponent($scope, logger, $modal, Activity, Project, $stateParams) {
+		var ap = this;
+		//
+		// Get Activity
+		Activity.getProjectActivity({id: $stateParams.id}).then(function(res) {
+			ap.activity = res.data;
+
+			//
+			// Get Project
+			Project.getProject({id: res.data.projectId}).then(function(res) {
+				ap.project = res.data;
+			});			
+
+			
+		});
+
+    }    
 })();

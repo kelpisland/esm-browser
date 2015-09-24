@@ -1,0 +1,70 @@
+<h1 class="page-title">
+	<a href ui-sref='proponent.projects' class='pull-right return-link'>Return to Project List</a>
+	EAO Project Submission
+</h1>
+<section id="project-view" class="container-fluid">
+	<div class='row'>
+
+
+		<div class='col-sm-8 col-md-7 col-lg-6'>
+
+			<div class="panel panel-default">
+			
+				<div class='panel-heading'>
+					<h3 class='panel-title'>New Project <small class="pull-right"><em>Short Form</em></small></h3>
+				</div>			
+			
+				<div class='panel-body'>
+
+					<form>
+
+						<tmpl-project-entry-tombstone></tmpl-project-entry-tombstone>
+					
+						<hr/>
+					
+						<tmpl-documents-upload-general></tmpl-documents-upload-general>					
+
+						<hr/>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" ng-model="vm.acceptance">
+										I agree to the terms and conditions.
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<hr/>
+
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<button class="btn btn-success" ng-disabled="!vm.acceptance">Submit</textarea>
+							</div>
+						</div>
+
+					</form>
+
+				</div> <!-- /panelbody -->
+			</div> <!-- /panel -->
+		</div> <!-- /col9 -->
+		
+		
+		<div class='col-sm-4 col-md-5 col-lg-6'>
+			<div class="panel panel-default project-info-panel">
+		
+				<div class='panel-body'>
+
+					Welcome.  Here are some definitions and help with filling in the form.
+
+				</div>
+
+			</div> <!-- /panel -->
+		</div> <!-- /col3 -->
+
+		
+	</div> <!-- /row -->
+
+</section>

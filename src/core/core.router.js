@@ -65,15 +65,18 @@
                 url: '/project/:id',
                 template: '<tmpl-proponent-project></tmpl-proponent-project>'
             })
-            .state('proponent.new_project', {
-                url: '/new_project/',
-                template: '<tmpl-proponent-new-project></tmpl-proponent-new-project>'
+            .state('proponent.newproject', {
+                url: '/newproject/',
+                template: '<tmpl-proponent-project-new></tmpl-proponent-project-new>'
             })
             .state('proponent.register', {
                 url: '/register/',
                 template: '<tmpl-proponent-register></tmpl-proponent-register>'
-            });            
-         
+            })         
+            .state('proponent.activity', {
+                url: '/activity/:id',
+                template: '<tmpl-proponent-activity></tmpl-proponent-activity>'
+            });             
 
 		$urlRouterProvider.otherwise('/');   
 	}

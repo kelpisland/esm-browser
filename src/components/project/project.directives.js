@@ -5,6 +5,8 @@
     angular.module('app.project')
         .directive('tmplPublicProject', directivePublicProject)
         .directive('tmplProponentProject', directiveProponentProject)
+        .directive('tmplProponentProjectNew', directiveProponentProjectNew)
+        .directive('tmplProjectEntryTombstone', directiveProjectEntryTombstone)      
         .directive('modalProponentAccess', directiveModalProponentAccess)        
         .directive('modalProjectSchedule', directiveModalProjectSchedule);
     // -----------------------------------------------------------------------------------
@@ -39,6 +41,38 @@
         };
         return directive;
     }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Proponent Project New
+	//
+    // -----------------------------------------------------------------------------------
+    directiveProponentProjectNew.$inject = [];
+    /* @ngInject */
+    function directiveProponentProjectNew() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/project/proponent-project-new.html',
+            controller: 'controllerProponentProjectNew',
+            controllerAs: 'vm'
+        };
+        return directive;
+    }    
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Project Entry Tombstone - just insert the template
+	//
+    // -----------------------------------------------------------------------------------
+    directiveProjectEntryTombstone.$inject = [];
+    /* @ngInject */
+    function directiveProjectEntryTombstone() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/project/partials/project-entry-tombstone.html',
+            controller: 'controllerProjectEntryTombstone',
+            controllerAs: 'pets'            
+        };
+        return directive;
+    }        
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Modal Project Schedule

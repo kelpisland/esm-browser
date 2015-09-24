@@ -6,5 +6,7 @@
     angular
         .module('app.core')
         .constant('_', _)
-        .constant('API', 'http://localhost:7203/api');
+        .constant('API', 'http://localhost:7203/api')
+        .value('Global', {});
+        
 })();

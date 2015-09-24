@@ -6,7 +6,6 @@
         .controller('controllerQuickLinks', controllerQuickLinks)
 	    .controller('controllerRecentActivity', controllerRecentActivity)   
         .controller('controllerModalAddComment', controllerModalAddComment)
-        .controller('controllerModalDocumentViewer', controllerModalDocumentViewer)
         .controller('controllerPanelSort', controllerPanelSort);
     // -----------------------------------------------------------------------------------
 	//
@@ -49,18 +48,7 @@
 		md.ok = function () { $modalInstance.close(); };
 		md.cancel = function () { $modalInstance.dismiss('cancel'); };
 	};
-    // -----------------------------------------------------------------------------------
-	//
-	// CONTROLLER: Modal: View Documents Comment
-	//
-    // -----------------------------------------------------------------------------------
-    controllerModalDocumentViewer.$inject = ['$modalInstance'];
-    //
-    function controllerModalDocumentViewer($modalInstance) { 
-		var md = this;
-		md.ok = function () { $modalInstance.close(); };
-		md.cancel = function () { $modalInstance.dismiss('cancel'); };
-	};
+
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Panel Sort
@@ -80,13 +68,18 @@
 		
 		panelSort.sort = function(field) {
 			if (field === panelSort.column) {
-				if (panelSort.direction === '') {
-					panelSort.direction = '-';
-				} else if (panelSort.direction === '-') {
-					panelSort.direction = '+';				
-				} else if (panelSort.direction === '+') {
-					panelSort.direction = '';
+				if (panelSort.direction === '-') {
+					panelSort.direction = '+';
+				} else {
+					panelSort.direction = '-';				
 				}
+// 				if (panelSort.direction === '') {
+// 					panelSort.direction = '-';
+// 				} else if (panelSort.direction === '-') {
+// 					panelSort.direction = '+';				
+// 				} else if (panelSort.direction === '+') {
+// 					panelSort.direction = '';
+// 				}
 			} else {
 				panelSort.column = field;
 				panelSort.direction = '-';
