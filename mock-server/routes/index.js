@@ -20,6 +20,8 @@ module.exports = function(app) {
 	app.get(api + '/v1/currentuser', getCurrentUser);
 	
 	app.get(api + '/v1/proponent', getProponent);	
+	
+	app.get(api + '/v1/responseRevisions/:id', getResponseRevisions);		
     
     function getProject(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'project.json');
@@ -73,6 +75,11 @@ module.exports = function(app) {
 
     function getProjectStages(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'projectStages.json');
+        res.send(json);
+    }
+
+    function getResponseRevisions(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'responseRevisions.json');
         res.send(json);
     }
 

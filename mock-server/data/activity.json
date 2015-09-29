@@ -1,19 +1,26 @@
 {
-	"_id":"act1234",
+	"_id":"act5678",
 	"projectId":"kgwfp1234",
-	"project":"Knob Hill Wind Farm Project",
-	"name":"Confirm attendance for Open House",
-	"initiatedBy":"system",
-	"createDate":"2015-02-01T23:58:15.181Z",
-	"dueDate":"2015-03-01T23:58:15.181Z",
-	"updatedDate":"2015-02-10T23:58:15.181Z",		
-	"description":"Open House to be held on such a date at such a place, you must attend.",
+	"name":"Draft A.I.R Working Group: Bats",
+	"initiatedBy":"EAO",
+	"createDate":"2015-01-01T23:58:15.181Z",
+	"dueDate":"2015-02-01T23:58:15.181Z",
+	"updatedDate":"2015-02-10T23:58:15.181Z",
+	"description":"Address open discussion points regarding Bats.",
 	"status":"Open",
 	"requirement":"Response",
 	"requirements":[
 		{"group":"EAO", "requirement":"Review"},
-		{"group":"Public", "requirement":"Visible"},
-		{"group":"Proponent", "requirement":"Response"}			
+		{"group":"Proponent", "requirement":"Endorsement"}
 	],
-	"valueComponents":null
+	"valueComponents":["Bats"],
+	"response":"This is the current response",
+	"relatedDocuments": [
+		{"title": "Document 1", "date":"2015-01-01T23:58:15.181Z", "v":1.0, "responses": ["resp1234", "resp1235"]},
+		{"title": "Document 2", "date":"2015-01-01T23:58:15.181Z", "v":1.0, "responses": ["resp1234"]}
+	],
+	"concerns": [
+		{"_id":"con123", "concern":"Known bat habitat overlapping the proposed project site.", "author":"EAO"},
+		{"_id":"con456", "concern":"Breeding grounds near the south river ben will be adversely effected by the service roadway.", "author":"Public"}
+	]		
 }

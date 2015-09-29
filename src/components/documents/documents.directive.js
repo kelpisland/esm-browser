@@ -4,6 +4,7 @@
 
     angular.module('app.documents')
         .directive('tmplDocumentsUploadGeneral', directiveDocumentsUploadGeneral)
+        .directive('tmplDocumentsList', directiveDocumentsList)        
         .directive('modalDocumentViewer', directiveModalDocumentViewer);
 
     // -----------------------------------------------------------------------------------
@@ -24,6 +25,26 @@
 
         return directive;
     }
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Document List Table
+	//
+    // -----------------------------------------------------------------------------------
+    function directiveDocumentsList() {
+
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/documents/partials/document-list.html',
+            controller: 'controllerDocumentList',
+            controllerAs: 'docList',
+            scope: {
+				documents: '=',
+				filterBy: '='
+            }
+        };
+
+        return directive;
+    }    
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Modal document viewer

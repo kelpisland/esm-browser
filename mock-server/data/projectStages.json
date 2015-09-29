@@ -15,6 +15,8 @@
 	{"name":"Assign Team", "groups":["EAO"]},
 	{"name":"Component Determination", "groups":["EAO"]},
 	{"name":"Information Package Review", "groups":["EAO","Proponent","Consultants"]},
+	{"name":"Draft A.I.R. Accepted", "groups":["EAO"]},
+	{"name":"Evaluate Application", "groups":["EAO"]},
 	{"name":"Information Package Acceptance", "groups":["EAO"]},
 	{"name":"Prepare Application", "groups":["Proponent"]},
 	{"name":"Submit Application", "groups":["Proponent"]},

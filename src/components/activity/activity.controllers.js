@@ -6,7 +6,8 @@
 		.controller('controllerActivityList', controllerActivityList)
 		.controller('controllerActivityItem', controllerActivityItem)
 		.controller('controllerActivityDetail', controllerActivityDetail)
-		.controller('controllerActivityProponent', controllerActivityProponent);
+		.controller('controllerActivityProponent', controllerActivityProponent)
+		.controller('controllerModalResponseRevisions', controllerModalResponseRevisions);		
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Activity List
@@ -53,8 +54,25 @@
 	function controllerActivityDetail($scope ) {
 		var ad = this;
 		
+		ad.comments = [
+			{'author':'EAO', 'comment':'Comment text that scrolls Bootstrap requires a containing element to wrap site contents and house our grid system. You may choose one of two containers to use in your projects. Note that, due to padding and more, neither container is nestable.'},
+			{'author':'EAO', 'comment':'Comment text that scrolls Bootstrap requires a containing element to wrap site contents and house our grid system. You may choose one of two containers to use in your projects. Note that, due to padding and more, neither container is nestable.'},
+			{'author':'EAO', 'comment':'Comment text that scrolls Bootstrap requires a containing element to wrap site contents and house our grid system. You may choose one of two containers to use in your projects. Note that, due to padding and more, neither container is nestable.'}			
+		];
+		
+		ad.toggleDocumentFilter = function(idx) {
+			if (ad.filteredDocumentsFor === undefined || ad.filteredDocumentsFor !== idx) {
+				ad.filterDocumentsBy = 'resp1235';
+				ad.filteredDocumentsFor = idx;
+			} else {
+				ad.filterDocumentsBy = '';
+				ad.filteredDocumentsFor = undefined;
+			}
+		}
+		
 		$scope.$watch('detail', function(newValue) {	
-			ad.activity = angular.copy($scope.detail);		
+			ad.activity = angular.copy(newValue);
+			console.log(newValue);
 		});
     }
     // -----------------------------------------------------------------------------------
@@ -70,15 +88,34 @@
 		// Get Activity
 		Activity.getProjectActivity({id: $stateParams.id}).then(function(res) {
 			ap.activity = res.data;
-
 			//
 			// Get Project
 			Project.getProject({id: res.data.projectId}).then(function(res) {
 				ap.project = res.data;
 			});			
-
-			
 		});
-
     }    
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal Response Revisions
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalResponseRevisions.$inject = ['Activity', 'rActivityId', '$modalInstance'];
+	//
+	function controllerModalResponseRevisions(Activity, rActivityId, $modalInstance) {
+		var resRev = this;
+		
+		Activity.getResponseRevisions({id: rActivityId}).then(function(res) {
+			console.log(res.data);
+			resRev.responses = res.data;
+		});
+		
+		
+		resRev.ok = function () { $modalInstance.close(); };
+		resRev.cancel = function () { $modalInstance.dismiss('cancel'); };
+		
+    }    
+    
+    
+    
 })();

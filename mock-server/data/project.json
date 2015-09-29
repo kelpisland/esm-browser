@@ -6,11 +6,13 @@
 	"description":"Construction of a new wind farm, with a nominal capacity of 70.5 MW with a preliminary layout of 47 turbines.",
 	"region":"Vancouver Island/Coast",
 	"location":"Knob Hill",
-	"stage":"Information Package Acceptance",
-	"nextStage":"Prepare Application",
+	"stage":"Draft A.I.R. Accepted",
+	"nextStage":"Evaluate Application",
 	"estimatedStageCompleteDate": "2015-11-01T23:58:15.181Z",
 	"nextExpectedStage":"Project Description Approval",
 	"preapplicationStartDate": "2015-03-01T23:58:15.181Z",
+	"commentOpen": "2015-09-28T12:00:00.181Z",
+	"commentClose": "2015-10-28T12:00:00.181Z",
 	"progress":85,
 	"lat":50.752097,
 	"long":-128.322029,
@@ -66,12 +68,12 @@
 	],
 	"discussionPoints" : [
 		{
-			"group": "Salmon",
+			"group": "Bats",
 			"author": "Author",					
 			"concerns":[
 				{
 					"_id":1,
-					"description": "Salmon Ladder at the north falls will not be adequate for seasonal water flow.",
+					"description": "Known bat habitat overlapping the proposed project site.",
 					"status":"Open",
 					"referredTo":[
 						{
@@ -90,19 +92,19 @@
 					"comments" : [{
 						"_id":"555",
 						"name":"Citizen",
-						"comment":"This is really important since my land floods in the spring and this ladder will be washed away.",
+						"comment":"This is really important because bats are the signature nocturnal flying mammal of Northern Vancouver Island.",
 						"dateEntered":"2015/5/6"
 					},
 					{
 						"_id":"566",
 						"name":"Citizen",
-						"comment":"The Salmon here are lazy and unwilling to use a ladder.",
+						"comment":"The bats here are lazy and unwilling to go around.",
 						"dateEntered":"2015/5/6"
 					}]
 				},
 				{
 					"_id":2,
-					"description": "Spawning grounds on the south bend of the river will be adversely effected by the service roadway.",
+					"description": "Breeding grounds near the south river ben will be adversely effected by the service roadway.",
 					"status":"Closed",
 					"referredTo":[
 						{

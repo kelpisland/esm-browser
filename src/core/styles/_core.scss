@@ -271,3 +271,29 @@ nav {
 	margin-top: 14px;
 	margin-bottom: 14px;
 }
+
+.well .table {
+	margin-bottom: 0;
+}
+.well .table tr:first-child td {
+	padding-top: 0;
+}
+.outlined-box {
+	border: 1px solid #e3e3e3;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}	
+.scrollable {
+	max-height: 200px;
+	overflow-y: scroll;
+}
+.slight {
+	font-style: normal !important;
+}
+.comment-box {
+	padding: 2px 4px;
+	border-top: 1px solid #e3e3e3;
+}
+.comment-box:first-child {
+	border-top: none;
+}

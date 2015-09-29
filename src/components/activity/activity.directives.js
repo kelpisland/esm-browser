@@ -6,10 +6,8 @@
         .directive('tmplActivityListing', directiveActivityListing)
         .directive('tmplActivityItem', directiveActivityItem)
         .directive('tmplActivityDetail', directiveActivityDetail)
-        .directive('tmplProponentActivity', directiveProponentActivity);        
-//		.directive('tmplProponentProject', directiveProponentProject)
-//         .directive('modalProponentAccess', directiveModalProponentAccess)        
-//         .directive('modalProjectSchedule', directiveModalProjectSchedule);
+        .directive('tmplProponentActivity', directiveProponentActivity)   
+		.directive('modalResponseRevisions', directiveModalResponseRevisions);
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Activity Listing
@@ -85,36 +83,36 @@
     }
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Modal Project Schedule
+	// DIRECTIVE: Modal Response Revisions
 	//
     // -----------------------------------------------------------------------------------
-//     directiveModalProjectSchedule.$inject = ['$modal'];
-//     /* @ngInject */
-//     function directiveModalProjectSchedule($modal) {
-//         var directive = {
-//             restrict:'A',
-//             scope : {
-//             	project: '='
-//             },
-// 			link : function(scope, element, attrs) {
-// 				element.on('click', function() {
-// 					var modalDocView = $modal.open({
-// 						animation: true,
-// 						templateUrl: 'components/project/partials/modal_project_schedule.html',
-// 						controller: 'ModalProjectSchedule',
-// 						controllerAs: 'ps',
-// 						resolve: {
-// 							rProject: function () {
-// 								return scope.project;
-// 							}
-// 						},
-// 						size: 'lg'
-// 					});
-// 					modalDocView.result.then(function () {}, function () {});
-// 				});
-// 			}
-//         };
-//         return directive;
-//     }
+    directiveModalResponseRevisions.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalResponseRevisions($modal) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	activityId: '='
+            },
+			link : function(scope, element, attrs) {
+				element.on('click', function() {
+					var modalDocView = $modal.open({
+						animation: true,
+						templateUrl: 'components/activity/partials/modal-response-revisions.html',
+						controller: 'controllerModalResponseRevisions',
+						controllerAs: 'resRev',
+						resolve: {
+							rActivityId: function () {
+								return scope.activityId;
+							}
+						},
+						size: 'lg'
+					});
+					modalDocView.result.then(function () {}, function () {});
+				});
+			}
+        };
+        return directive;
+    }
 
 })();

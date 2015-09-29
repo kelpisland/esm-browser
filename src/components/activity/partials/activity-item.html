@@ -2,11 +2,11 @@
 		ng-class="{
 			'panel-success': ai.activity.valueComponents, 'panel-info': !ai.activity.valueComponents
 		}">
-	<div class="panel-heading">
+	<div class="panel-heading clickable" ng-click="ad.activityToggle[ad.activity._id] = !ad.activityToggle[ad.activity._id]">
 		<div class="label pull-right" ng-class="{'label-success':ai.activity.status === 'Closed', 'label-primary':ai.activity.status === 'Open'}">Open</div>
 		<h3 class="panel-title">{{ ai.activity.name }}</h3>
 	</div>
-	<div class="panel-body">
+	<div class="panel-body" ng-show="ad.activityToggle[ad.activity._id]">
 		<div class="row">
 			<div class="col-sm-8">
 				{{ ai.activity.description }}

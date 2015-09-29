@@ -144,10 +144,6 @@
 				timeoutId = $interval(function() {
 					updateTime(); // update DOM
 				}, 1000);
-
-				// show midway point message
-				// if first deployment, award badge
-
 			}
 		};
 		return directive;
