@@ -28,7 +28,10 @@ a:hover {
 	text-decoration: none;
 }
 .has-navigation {
-    padding-top: 50px;
+    padding-top: 80px;
+}
+.navbar.navbar-custom {
+	height: 60px !important;
 }
 /* Remove border to delete the 1px line */
 .navbar-fixed-top {
@@ -39,10 +42,8 @@ a:hover {
 .nav, .pagination, .carousel, .panel-title a, .clickable { cursor: pointer; }
 
 h1.page-title {
-	padding: 15px;
-	background-color: $header-blue;
-	color: #fff;
-	text-shadow: 3px 3px 10px #000000;
+	padding: 0 15px;
+	color: #ffffff;
 	margin-top: 0;
 	margin-bottom: 20px;
 }
@@ -82,6 +83,11 @@ button:focus, a:focus {
 .panel label + ul {
 	margin-bottom: 15px;
 }
+.panel .project-small-tombstone label + p,
+.panel .project-small-tombstone label + .progress {
+	margin-bottom: 0;
+}
+
 a.return-link {
 	text-decoration: none;
 	font-size: 14px;
@@ -161,7 +167,9 @@ h3 .small .label {
 }
 
 
-
+.panel {
+	position: relative;
+}
 
 
 .document-cell a {
@@ -296,4 +304,56 @@ nav {
 }
 .comment-box:first-child {
 	border-top: none;
+}
+
+
+.navbar-custom {
+    background-color: #ffffff;
+    color:#154681;
+    border-radius:0;
+    box-shadow: 3px 3px 20px rgba(0,0,0,0.5);
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color: $navbar-blue;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: $navbar-blue;
+    background-color:transparent;
+}
+.navbar-custom .navbar-brand {
+    color: $navbar-blue;
+    padding: 10px 15px;
+}
+.nav > li.navbar-user {
+	padding: 10px 0;
+}
+.nav > li.navbar-user > a {
+	padding: 0 !important;
+	margin: 0 !important;
+	display: inline-block;
+}
+.nav > li.navbar-user > a:hover {
+	background-color: transparent;
+}
+.nav > li.navbar-user-icon {
+    font-size: 40px;
+    padding: 10px 10px;
+    line-height: 40px;
+}
+.panel-toggle {
+	position: absolute;
+	top: -11px;
+	left: -9px;
+	color: #ffffff;
+}
+.panel-toggle:hover {
+	font-size: 24px;
+	color: #ffffff;
+	top: -20px;
+	left: -14px;	
+}
+.navbar-form .form-group .control-label {
+	padding-right: 10px;
+	display: inline-block;
 }

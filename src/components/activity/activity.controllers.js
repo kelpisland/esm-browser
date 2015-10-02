@@ -20,7 +20,7 @@
 
 		al.panelSort = [
 			{'field': 'name', 'name':'Title'},
-			{'field': 'status', 'name':'Status'},
+			{'field': 'stage', 'name':'Stage'},
 			{'field': 'requirement', 'name':'Requires'},
 			{'field': 'updatedDate', 'name':'Date Updated'},
 			{'field': 'createDate', 'name':'Date Created'},			
@@ -72,7 +72,6 @@
 		
 		$scope.$watch('detail', function(newValue) {	
 			ad.activity = angular.copy(newValue);
-			console.log(newValue);
 		});
     }
     // -----------------------------------------------------------------------------------
@@ -106,7 +105,6 @@
 		var resRev = this;
 		
 		Activity.getResponseRevisions({id: rActivityId}).then(function(res) {
-			console.log(res.data);
 			resRev.responses = res.data;
 		});
 		

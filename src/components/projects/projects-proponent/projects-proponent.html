@@ -1,0 +1,33 @@
+<h1 class="page-title">{{ vm.proponent.name }}</h1>
+<section id="projects-view">
+
+	<div class='col-sm-9'>
+	
+		<tmpl-projects-filter-bar x-filter="vm"></tmpl-projects-filter-bar>
+
+		<tmpl-projects-panels x-projects='vm.projects' ng-show="vm.view === 'preview'"></tmpl-projects-panels>
+		<tmpl-projects-list x-projects='vm.projects' ng-show="vm.view === 'list'"></tmpl-projects-list>
+		<tmpl-projects-map x-projects='vm.projects' ng-show="vm.view === 'map'"></tmpl-projects-map>
+	</div>
+
+
+	<div class='col-sm-3'>
+
+		<div class='row'>
+			<div class='col-sm-12'>
+				<div class="form-group">
+					<button ui-sref="proponent.newproject" class="form-control btn btn-block btn-success">New Project</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class='col-sm-12'>
+				<tmpl-recent-activity></tmpl-recent-activity>
+			</div>
+		</div>
+
+	</div>
+
+
+</section>

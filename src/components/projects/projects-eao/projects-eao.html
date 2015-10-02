@@ -1,0 +1,36 @@
+<section id="projects-view">
+
+	<div class='col-sm-9'>
+	
+		<tmpl-projects-filter-bar x-filter="vm"></tmpl-projects-filter-bar>
+
+		<panel-sort x-fields="vm.panelSort" x-data="vm.projects"></panel-sort>
+
+		<tmpl-projects-list x-projects='vm.projects' ng-show="vm.view === 'list'"></tmpl-projects-list>
+		<tmpl-projects-panels x-projects='vm.projects' ng-show="vm.view === 'preview'"></tmpl-projects-panels>
+		<tmpl-projects-map x-projects='vm.projects' ng-show="vm.view === 'map'"></tmpl-projects-map>
+
+	</div>
+
+
+	<div class='col-sm-3'>
+
+		<tmpl-quicklinks-thumbnails></tmpl-quicklinks-thumbnails>
+
+		<div class='row'>
+			<div class='col-sm-12'>
+				<div class="form-group">
+					<button ui-sref="eao.newproject" class="form-control btn btn-block btn-success">New Project</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class='col-sm-12'>
+				<tmpl-recent-activity></tmpl-recent-activity>
+			</div>
+		</div>
+
+	</div>
+
+</section>

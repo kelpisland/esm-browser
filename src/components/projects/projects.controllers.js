@@ -5,80 +5,53 @@
     angular.module('app.projects')
 		// General
         .controller('controllerProjectsFilterBar', controllerProjectsFilterBar)
+        .controller('controllerProjectsList', controllerProjectsList);
 
-		// Public
-        .controller('controllerPublicProjects', controllerPublicProjects)
-
-		// Proponents
-		.controller('controllerProponentProjects', controllerProponentProjects)
-        
     // -----------------------------------------------------------------------------------
 	//
-	// CONTROLLER: Public Projects Main
+	// CONTROLLER: Filter Bar
 	//
     // -----------------------------------------------------------------------------------
-    controllerPublicProjects.$inject = ['logger', '$state', 'Projects'];
+    controllerProjectsFilterBar.$inject = ['logger', '$state', 'Projects', 'Global'];
     /* @ngInject */
-    function controllerPublicProjects(logger, $state, Projects) {
-		var vm = this;
-
-		Projects.getProjectTypes().then( function(res) {
-			vm.types = res.data;
-		});
-
-		Projects.getProjects().then( function(res) {
-			vm.projects = res.data;
-		});
-
-		//
-		vm.goToProject = function(id) {
-			$state.go('public.project', {id:id});
-		};	
-		
-		vm.filterKeyword = '';
-		vm.filterObject = {};
-		vm.view = 'map';
-
-    }
-    // -----------------------------------------------------------------------------------
-	//
-	// CONTROLLER: Proponent Projects Main
-	//
-    // -----------------------------------------------------------------------------------
-    controllerProponentProjects.$inject = ['logger', '$state', 'Projects', 'Global'];
-    /* @ngInject */
-    function controllerProponentProjects(logger, $state, Projects, Global) {
-		var vm = this;
-
-		Projects.getProjects().then( function(res) {
-			vm.projects = res.data;
-		});
-
-		//
-		vm.goToProject = function(id) {
-			$state.go('public.project', {id:id});
-		};	
-
-		vm.proponent = Global.user;
-
-		vm.view = 'list';
-
-    }    
-    // -----------------------------------------------------------------------------------
-	//
-	// CONTROLLER: Proponent Filter Bar
-	//
-    // -----------------------------------------------------------------------------------
-    controllerProjectsFilterBar.$inject = ['logger', '$state', 'Projects'];
-    /* @ngInject */
-    function controllerProjectsFilterBar(logger, $state, Projects) {
+    function controllerProjectsFilterBar(logger, $state, Projects, Global) {
 		var fbc = this;
 
 		Projects.getProjectTypes().then( function(res) {
 			fbc.types = res.data;
 		});
 
-    }    
+		Projects.getProjectStages().then( function(res) {
+			fbc.stages = res.data;
+		});
+
+		fbc.userType = Global.user.type;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Projects
+	//
+    // -----------------------------------------------------------------------------------
+    controllerProjectsList.$inject = ['$scope', '$state', 'Global'];
+    /* @ngInject */
+    function controllerProjectsList($scope, $state, Global) {
+		var pl = this;
+		
+		$scope.$watch('projects', function(newValue) {
+			pl.projects = newValue;
+		});
+		
+		pl.goToProject = function(projectId) {
+			if (Global.user.type === 'EAO') {
+				$state.go('eao.project', {id:projectId});
+			} else if (Global.user.type === 'Proponent') {
+				$state.go('proponent.project', {id:projectId});			
+			} else {
+				$state.go('public.project', ({id:projectId}));
+			}
+		}
+		
+    }
 
 
 })();

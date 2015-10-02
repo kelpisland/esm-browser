@@ -17,7 +17,7 @@
             restrict: 'E',
             templateUrl: 'components/default/default.html',
             controller: 'controllerDefault',
-            controllerAs: 'df'
+            controllerAs: 'def'
         };
 
         return directive;
@@ -25,10 +25,41 @@
 
 
     // ----- ControllerFunction -----
-    controllerDefault.$inject = [];
+    controllerDefault.$inject = ['Global', '$state', '$rootScope'];
 
     /* @ngInject */
-    function controllerDefault() {
+    function controllerDefault(Global, $state, $rootScope) {
+    	var def = this;
+		def.publicUser = function() {
+ 			Global.user.name = 'Public';
+ 			Global.public = true;
+ 			Global.user.type = 'Public';
+
+ 			$rootScope.$emit('loggedIn');
+
+ 			$state.go('public.projects');
+		}
+
+		def.proponentUser = function() {
+ 			Global.user.name = 'Proponent';
+ 			Global.public = false;
+ 			Global.user.type = 'Proponent';
+
+ 			$rootScope.$emit('loggedIn');
+ 			
+  			$state.go('proponent.projects');
+		}
+
+		def.eaoUser = function() {
+ 			Global.user.name = 'EAO';
+ 			Global.public = false;
+ 			Global.user.type = 'EAO';
+ 			
+ 			$rootScope.$emit('loggedIn');
+  			
+  			$state.go('eao.projects');
+		}
+    
     }
 
 })();

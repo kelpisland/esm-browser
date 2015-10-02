@@ -3,35 +3,40 @@
 
     angular
         .module('app.topnav')
-        .directive('tmplTopnav', directiveFunction)
-        .controller('TopnavController', ControllerFunction);
+        .directive('tmplTopnav', directiveTopNav)
+        .controller('controllerTopNav', controllerTopNav);
 
 
     // ----- directiveFunction -----
-    directiveFunction.$inject = [];
+    directiveTopNav.$inject = [];
 
     /* @ngInject */
-    function directiveFunction() {
+    function directiveTopNav() {
 
         var directive = {
             restrict: 'E',
             templateUrl: 'components/topnav/topnav.html',
             scope: {
             },
-            controller: 'TopnavController',
-            controllerAs: 'vm'
+            controller: 'controllerTopNav',
+            controllerAs: 'tn'
         };
 
         return directive;
     }
 
     // ----- ControllerFunction -----
-    ControllerFunction.$inject = [];
+    controllerTopNav.$inject = ['$rootScope', 'Global'];
 
     /* @ngInject */
-    function ControllerFunction() {
-        var vm = this;
-        vm.isCollapsed = true;
+    function controllerTopNav($rootScope, Global) {
+        var tn = this;
+        tn.isCollapsed = true;
+        
+        $rootScope.$on('loggedIn', function() {
+        	tn.user = Global.user;
+        });
+        
     }
 
 })();

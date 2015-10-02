@@ -1,5 +1,4 @@
-<h1 class="page-title">Environmental Assessment Projects</h1>
-<section id="projects-view" class="container-fluid">
+<section id="projects-view">
 
 	<div class='col-sm-5'>
 
@@ -36,8 +35,8 @@
 
 		<tmpl-projects-filter-bar x-filter="vm"></tmpl-projects-filter-bar>
 
-		<tmpl-projects-list ng-show="vm.view === 'list'"></tmpl-projects-list>
-		<tmpl-projects-map ng-show="vm.view === 'map'"></tmpl-projects-map>
+		<tmpl-projects-list x-projects='vm.projects' ng-show="vm.view === 'list'"></tmpl-projects-list>
+		<tmpl-projects-map x-projects='vm.projects' ng-show="vm.view === 'map'"></tmpl-projects-map>
 
 	</div>
 

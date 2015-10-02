@@ -36,6 +36,7 @@
 		// get current user
 		Utils.getCurrentUser().then( function(res) { // This should return the logged in user according to the authenticated profile on the server.
 			Global.user = res.data;
+			rt.public = res.data.public;
 		});
 		
 		// Get Project Stages for use in filter.

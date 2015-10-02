@@ -9,7 +9,7 @@
 			</tr>
 		</thead>	
 		<tbody>
-			<tr ng-click="vm.goToProject( project._id );" ng-repeat="project in filteredProjects = (vm.projects | filter:vm.filterKeyword | filter:vm.filterObject)" ng-if='filteredProjects.length > 0' class='clickable'>
+			<tr ng-click="pl.goToProject( project._id );" ng-repeat="project in filteredProjects = (pl.projects | filter:vm.filterKeyword | filter:vm.filterObject)" ng-if='filteredProjects.length > 0' class='clickable'>
 				<td>{{ project.name }}</td>
 				<td>{{ project.region }}</td>
 				<td>{{ project.stage }}</td>
