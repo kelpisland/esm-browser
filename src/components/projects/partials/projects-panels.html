@@ -1,4 +1,4 @@
-<section class='panel panel-default panel-project-summary clickable' ui-sref="proponent.project({id:project._id})" ng-repeat="project in filteredProjects = (vm.projects | filter:vm.filterKeyword | filter:vm.filterObject)" ng-if="filteredProjects.length > 0">
+<section class='panel panel-default panel-project-summary clickable' ng-click="pl.goToProject({id:project._id})" ng-repeat="project in filteredProjects = (pl.projects | filter:vm.filterKeyword | filter:vm.filterObject)" ng-if="filteredProjects.length > 0">
 	<div class='panel-body'>
 		<div class='row'>
 			<div class='col-md-9 col-sm-6 col-lg-10'>

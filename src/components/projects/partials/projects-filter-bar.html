@@ -1,39 +1,55 @@
 <nav class="navbar navbar-default navbar-sm">
 	<div class="container-fluid">
 
-		<div class="navbar-form navbar-left" role="view-selection">
-			<div class="btn-group btn-group-sm">
-				<button class="btn btn-default" ng-click="filter.view = 'map'"	ng-class="{'btn-primary': filter.view === 'map'}">Map</button>
-				<button class="btn btn-default" ng-click="filter.view = 'list'"	ng-class="{'btn-primary': filter.view === 'list'}">List</button>
-			</div>
-		</div>
+		<ul class="nav navbar-nav navbar-left" role="view-selection">
+			<li>
+				<div class="navbar-form btn-group btn-group-sm">
+					<button class="btn btn-default" ng-click="filter.view = 'map'"		ng-class="{'btn-primary': filter.view === 'map'}">Map</button>
+					<button class="btn btn-default" ng-click="filter.view = 'list'"		ng-class="{'btn-primary': filter.view === 'list'}">List</button>
+					<button class="btn btn-default" ng-click="filter.view = 'preview'"	ng-class="{'btn-primary': filter.view === 'preview'}">Preview</button>				
+				</div>
+			</li>
+			<li ng-if="fbc.userType === 'EAO'">
+				<div class="navbar-form btn-group btn-group-sm">
+					<button class="btn btn-default" ng-click="filter.group = 'all'"			ng-class="{'btn-primary': filter.group === 'all'}">All</button>
+					<button class="btn btn-default" ng-click="filter.group = 'assigned'"	ng-class="{'btn-primary': filter.group === 'assigned'}">Assigned</button>
+					<button class="btn btn-default" ng-click="filter.group = 'unassigned'"	ng-class="{'btn-primary': filter.group === 'unassigned'}">Unassigned</button>				
+				</div>
+			</li>
+		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
 			<li>
-				<p class="navbar-text">Search</p>
-			</li>
-			<li>
 				<div class="navbar-form">
 					<div class="form-group">
+						<label class="control-label">Search</label>
 						<input ng-model="filter.filterKeyword" type="text" class="form-control" placeholder="Search">
 					</div>
 				</div>
 			</li>
-			<li>
-				<p class="navbar-text">Type</p>
-			</li>
-			<li>
+			<li ng-if="fbc.userType === 'EAO'">
 				<div class="navbar-form">
 					<div class="form-group">
-					
+						<label class="control-label">Type</label>
 						<select ng-model='filter.filterObject.type' class="form-control">
 							<option value="">All</option>
 							<option ng-repeat='type in fbc.types' value='{{ type }}'>{{ type }}</option>
 						</select>
-						
 					</div>
 				</div>	
 			</li>	
+			<li ng-if="fbc.userType === 'EAO'">
+				<div class="navbar-form">
+					<div class="form-group">
+						<label class="control-label">Stage</label>
+						<select ng-model='filter.filterObject.stage' class="form-control">
+							<option value="">All</option>
+							<option ng-repeat='stage in fbc.stages' value='{{ stage.name }}'>{{ stage.name }}</option>
+						</select>
+					</div>
+				</div>	
+			</li>	
+
 		</ul>
 
 	</div><!-- /.container-fluid -->

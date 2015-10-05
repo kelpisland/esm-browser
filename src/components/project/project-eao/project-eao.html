@@ -1,0 +1,44 @@
+<h1 class="page-title">
+	<a href ui-sref='eao.projects' class='pull-right return-link'>Return to Project List</a>
+	{{ vm.project.name }}
+</h1>
+<section id="project-view" class="container-fluid">
+
+	<div class='row'>
+		<div class='col-sm-12'>
+
+			<tmpl-project-tombstone-horizontal x-project="vm.project"></tmpl-project-tombstone-horizontal>
+
+			<nav class="navbar navbar-default navbar-sm">
+				<div class="container-fluid">
+	
+					<ul class="nav navbar-nav navbar-left" role="view-selection">
+						<li>
+							<div class="navbar-form btn-group btn-group-sm">
+								<button class="btn btn-default" ng-click="filter.type = 'map'"		ng-class="{'btn-primary': filter.type === 'all'}">All</button>
+								<button class="btn btn-default" ng-click="filter.type = 'list'"		ng-class="{'btn-primary': filter.type === 'value'}">Value</button>
+								<button class="btn btn-default" ng-click="filter.type = 'list'"		ng-class="{'btn-primary': filter.type === 'other'}">Other</button>								
+							</div>
+						</li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="navbar-form">
+								<div class="form-group">
+									<label class="control-label">Search</label>
+									<input ng-model="filter.filterKeyword" type="text" class="form-control" placeholder="Search">
+								</div>
+							</div>
+						</li>
+					</ul>
+
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<tmpl-activity-listing x-project="vm.project._id"></tmpl-activity-listing>
+
+		</div> <!-- /col12 -->
+	</div>		
+
+</section>

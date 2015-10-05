@@ -15,7 +15,6 @@
     function filterProjectStageContributor(Global, $filter, _) {
 		return function(input) {
 			var cur = _.findWhere(Global.projectStages, {name: input});
-			console.log(cur, Global, input);
 			if (cur) {
 				if (cur.groups.indexOf( Global.user.type ) !== -1) {
 					return true;

@@ -76,7 +76,38 @@
             .state('proponent.activity', {
                 url: '/activity/:id',
                 template: '<tmpl-proponent-activity></tmpl-proponent-activity>'
-            });             
+            })         
+			// -----------------------------------------------------------------------------------
+			//
+			// ROUTES: Proponent
+			//
+			// -----------------------------------------------------------------------------------
+            .state('eao', {
+                url: '/eao',
+               	abstract: true,
+               	template: '<div ui-view></div>'
+            })
+            .state('eao.projects', {
+                url: '/projects',
+                template: '<tmpl-eao-projects></tmpl-eao-projects>'
+            })
+            .state('eao.project', {
+                url: '/project/:id',
+                template: '<tmpl-eao-project></tmpl-eao-project>'
+            });
+//             .state('eao.newproject', {
+//                 url: '/newproject/',
+//                 template: '<tmpl-proponent-project-new></tmpl-proponent-project-new>'
+//             })
+//             .state('eao.register', {
+//                 url: '/register/',
+//                 template: '<tmpl-proponent-register></tmpl-proponent-register>'
+//             })         
+//             .state('eao.activity', {
+//                 url: '/activity/:id',
+//                 template: '<tmpl-proponent-activity></tmpl-proponent-activity>'
+//             });             
+
 
 		$urlRouterProvider.otherwise('/');   
 	}

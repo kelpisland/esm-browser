@@ -3,48 +3,10 @@
     'use strict';
 
     angular.module('app.projects')
-    	// Public
-        .directive('tmplPublicProjects', directivePublicProjects)
-		// Proponent
-		.directive('tmplProponentProjects', directiveProponentProjects)
-		// General
         .directive('tmplProjectsList', directiveProjectsList)
         .directive('tmplProjectsPanels', directiveProjectsPanels)        
         .directive('tmplProjectsMap', directiveProjectsMap)
-        .directive('tmplProjectsFilterBar', directiveProjectsFilterBar)
-
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Public Projects Main
-	//
-    // -----------------------------------------------------------------------------------
-    directivePublicProjects.$inject = [];
-    /* @ngInject */
-    function directivePublicProjects() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'components/projects/public-projects.html',
-            controller: 'controllerPublicProjects',
-            controllerAs: 'vm'
-        };
-        return directive;
-    }
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Proponent Projects Main
-	//
-    // -----------------------------------------------------------------------------------
-    directiveProponentProjects.$inject = [];
-    /* @ngInject */
-    function directiveProponentProjects() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'components/projects/proponent-projects.html',
-            controller: 'controllerProponentProjects',
-            controllerAs: 'vm'
-        };
-        return directive;
-    }    
+        .directive('tmplProjectsFilterBar', directiveProjectsFilterBar);
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Projects List
@@ -55,7 +17,12 @@
     function directiveProjectsList() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/projects/partials/projects-list.html'
+            templateUrl: 'components/projects/partials/projects-list.html',
+			controller: 'controllerProjectsList',
+			controllerAs: 'pl',
+            scope: {
+            	projects: '='
+            }
         };
         return directive;
     }
@@ -69,7 +36,12 @@
     function directiveProjectsPanels() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/projects/partials/projects-panels.html'
+            templateUrl: 'components/projects/partials/projects-panels.html',
+			controller: 'controllerProjectsList',
+			controllerAs: 'pl',
+            scope: {
+            	projects: '='
+            }
         };
         return directive;
     }
@@ -83,10 +55,15 @@
     function directiveProjectsMap() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/projects/partials/projects-map.html'
+            templateUrl: 'components/projects/partials/projects-map.html',
+			controller: 'controllerProjectsList',
+			controllerAs: 'pl',
+            scope: {
+            	projects: '='
+            }
         };
         return directive;
-    }    
+    }
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Projects Filter Bar

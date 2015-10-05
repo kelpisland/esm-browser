@@ -3,76 +3,11 @@
     'use strict';
 
     angular.module('app.project')
-        .directive('tmplPublicProject', directivePublicProject)
-        .directive('tmplProponentProject', directiveProponentProject)
-        .directive('tmplProponentProjectNew', directiveProponentProjectNew)
-        .directive('tmplProjectEntryTombstone', directiveProjectEntryTombstone)      
-        .directive('modalProponentAccess', directiveModalProponentAccess)        
-        .directive('modalProjectSchedule', directiveModalProjectSchedule);
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Public Project Main
-	//
-    // -----------------------------------------------------------------------------------
-    directivePublicProject.$inject = [];
-    /* @ngInject */
-    function directivePublicProject() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'components/project/public-project.html',
-            controller: 'controllerPublicProject',
-            controllerAs: 'vm'
-        };
-        return directive;
-    }
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Proponent Project Main
-	//
-    // -----------------------------------------------------------------------------------
-    directiveProponentProject.$inject = [];
-    /* @ngInject */
-    function directiveProponentProject() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'components/project/proponent-project.html',
-            controller: 'controllerProponentProject',
-            controllerAs: 'vm'
-        };
-        return directive;
-    }
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Proponent Project New
-	//
-    // -----------------------------------------------------------------------------------
-    directiveProponentProjectNew.$inject = [];
-    /* @ngInject */
-    function directiveProponentProjectNew() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'components/project/proponent-project-new.html',
-            controller: 'controllerProponentProjectNew',
-            controllerAs: 'vm'
-        };
-        return directive;
-    }    
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Project Entry Tombstone - just insert the template
-	//
-    // -----------------------------------------------------------------------------------
-    directiveProjectEntryTombstone.$inject = [];
-    /* @ngInject */
-    function directiveProjectEntryTombstone() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'components/project/partials/project-entry-tombstone.html',
-            controller: 'controllerProjectEntryTombstone',
-            controllerAs: 'pets'            
-        };
-        return directive;
-    }        
+        .directive('modalProjectSchedule', directiveModalProjectSchedule)
+        .directive('tmplProjectTombstoneHorizontal', directiveProjectTombstoneHorizontal)
+        .directive('tmplProjectTombstoneVertical', directiveProjectTombstoneVertical)
+        .directive('tmplProjectEntryTombstoneHorizontal', directiveProjectEntryTombstone);
+        
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Modal Project Schedule
@@ -90,8 +25,8 @@
 				element.on('click', function() {
 					var modalDocView = $modal.open({
 						animation: true,
-						templateUrl: 'components/project/partials/modal_project_schedule.html',
-						controller: 'ModalProjectSchedule',
+						templateUrl: 'components/project/partials/modal-project-schedule.html',
+						controller: 'modalProjectSchedule',
 						controllerAs: 'ps',
 						resolve: {
 							rProject: function () {
@@ -108,37 +43,58 @@
     }
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Modal Proponent Access
+	// DIRECTIVE: Project Tombstone Horizontal - same controller as the vertical view
 	//
     // -----------------------------------------------------------------------------------
-    directiveModalProponentAccess.$inject = ['$modal'];
+    directiveProjectTombstoneHorizontal.$inject = [];
     /* @ngInject */
-    function directiveModalProponentAccess($modal) {
+    function directiveProjectTombstoneHorizontal() {
         var directive = {
-            restrict:'A',
-            scope : {
+            restrict: 'E',
+            templateUrl: 'components/project/partials/project-tombstone-horizontal.html',
+            controller: 'controllerProjectTombstone',
+            controllerAs: 'pts',
+            scope: {
             	project: '='
-            },
-			link : function(scope, element, attrs) {
-				element.on('click', function() {
-					var modalDocView = $modal.open({
-						animation: true,
-						templateUrl: 'components/project/partials/modal_proponent_access.html',
-						controller: 'ModalProponentAccess',
-						controllerAs: 'pa',
-						resolve: {
-							rProject: function () {
-								return scope.project;
-							}
-						},
-						size: 'lg'
-					});
-					modalDocView.result.then(function () {}, function () {});
-				});
-			}
+            }
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Project Tombstone Vertical - same controller as the horizontal view
+	//
+    // -----------------------------------------------------------------------------------
+    directiveProjectTombstoneVertical.$inject = [];
+    /* @ngInject */
+    function directiveProjectTombstoneVertical() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/project/partials/project-tombstone-vertical.html',
+            controller: 'controllerProjectTombstone',
+            controllerAs: 'pts',
+            scope: {
+            	project: '='
+            }
         };
         return directive;
     }
 
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Project Entry Tombstone - just insert the template
+	//
+    // -----------------------------------------------------------------------------------
+    directiveProjectEntryTombstone.$inject = [];
+    /* @ngInject */
+    function directiveProjectEntryTombstone() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/project/partials/project-entry-tombstone.html',
+            controller: 'controllerProjectEntryTombstone',
+            controllerAs: 'pets'            
+        };
+        return directive;
+    }
 
 })();

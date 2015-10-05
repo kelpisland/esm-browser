@@ -22,6 +22,11 @@ module.exports = function(app) {
 	app.get(api + '/v1/proponent', getProponent);	
 	
 	app.get(api + '/v1/responseRevisions/:id', getResponseRevisions);		
+
+
+
+
+	app.get(api + '/v1/userQuicklinks', getUserQuicklinks);
     
     function getProject(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'project.json');
@@ -80,6 +85,11 @@ module.exports = function(app) {
 
     function getResponseRevisions(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'responseRevisions.json');
+        res.send(json);
+    }
+
+    function getUserQuicklinks(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'userQuicklinks.json');
         res.send(json);
     }
 

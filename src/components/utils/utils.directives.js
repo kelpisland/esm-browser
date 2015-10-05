@@ -10,7 +10,9 @@
         .directive('countdownClock',directiveCountdownClock)
         .directive('panelSort',directivePanelSort)
         .directive('stageColour',directiveStageColour)
-        .directive('isCurrentUser', directiveIsCurrentUser);
+        .directive('isCurrentUser', directiveIsCurrentUser)
+        .directive('expandPanel', directiveExpandPanel);
+
         
     // -----------------------------------------------------------------------------------
 	//
@@ -232,6 +234,24 @@
 		};
 		return directive;
 	};
-
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: expand panel
+	//
+    // -----------------------------------------------------------------------------------
+    directiveExpandPanel.$inject = ['$compile'];
+    /* @ngInject */
+    function directiveExpandPanel($compile) {
+		var directive = {
+			restrict: 'A',
+			link: function link(scope, element, attrs) {
+				if (attrs.expandPanel) {
+					var tmpl = $compile('<a class="panel-toggle" ng-click="' + attrs.expandPanel + ' = !' + attrs.expandPanel + '"><i ng-if="!' + attrs.expandPanel + '" class="glyphicon glyphicon-plus-sign"></i><i ng-if="' + attrs.expandPanel + '" class="glyphicon glyphicon-minus-sign"></i></a>')(scope);	
+					element.append(tmpl);
+				}
+			}
+		};
+		return directive;
+	};
 
 })();

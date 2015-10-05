@@ -1,0 +1,48 @@
+<h1 class="page-title">
+	<a href ui-sref='proponent.projects' class='pull-right return-link'>Return to Project List</a>
+	{{ vm.project.name }}
+</h1>
+<section id="project-view" class="container-fluid">
+
+	<div class='row'>
+		<div class='col-sm-9 col-lg-10'>
+
+			<nav class="navbar navbar-default navbar-sm">
+				<div class="container-fluid">
+	
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<p class="navbar-text">Search</p>
+						</li>
+						<li>
+							<form class="navbar-form" role="filter1">
+								<div class="form-group">
+									<input ng-model="vm.filterKeyword" type="text" class="form-control" placeholder="Search">
+								</div>
+							</form>
+						</li>
+					</ul>
+
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<tmpl-activity-listing x-project="vm.project._id"></tmpl-activity-listing>
+
+		</div> <!-- /col9 -->
+		
+		<div class='col-sm-3 col-lg-2'>
+
+			<tmpl-project-tombstone-vertical x-project="vm.project"></tmpl-project-tombstone>
+			
+		</div> <!-- /col3 -->
+
+
+		
+		
+	</div>		
+
+		
+
+
+
+</section>

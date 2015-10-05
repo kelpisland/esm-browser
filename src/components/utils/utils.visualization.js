@@ -3,11 +3,37 @@
     'use strict';
 
     angular.module('app.utils')
+        .directive('tmplProgressBar', directiveProgressBar)
         .directive('tmplProgressCircle', directiveProgressCircle);
 
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Projects Quicklinks
+	// DIRECTIVE: Progress Bar
+	//
+    // -----------------------------------------------------------------------------------
+    directiveProgressBar.$inject = ['$compile'];
+    /* @ngInject */
+    function directiveProgressBar($compile) {
+        var directive = {
+            restrict: 'E',
+			scope: {
+				percentage: '='
+			},
+			link: function(scope, element, attrs) {
+				scope.$watch('percentage', function(newValue) {
+					if (newValue) {
+						console.log(newValue, scope.percentage);
+						var el = $compile('<div class="progress"><div class="progress-bar progress-bar-success" role="progressbar" style="width: ' + newValue + '%;">Est. ' + newValue + '%</div></div>')(scope);
+						element.replaceWith(el);
+					}
+				});
+			}
+		}
+		return directive;
+	}
+	// -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Progress Circle
 	//
     // -----------------------------------------------------------------------------------
     directiveProgressCircle.$inject = ['d3Service', '$window'];
@@ -18,7 +44,8 @@
             replace: true,
 			scope: {
 				percentage: '=',
-				subtext: '@'
+				subtext: '@',
+				maxWidth: '@'
 			},
 			template: '<svg id="svg_completeness"></svg>',
 			link: function (scope, element, attrs) {
@@ -158,6 +185,12 @@
 					var box = angular.element(element);
 					var grw = box[0].parentNode;
  					var bw = grw.offsetWidth-30;
+ 					
+ 					if (bw < 0) bw = 0;
+ 					
+ 					if (scope.maxWidth && scope.maxWidth < bw) {
+ 						bw = scope.maxWidth;
+ 					}
  					
  					var tag = ('#' + angular.element(element).attr('id'));
  					
