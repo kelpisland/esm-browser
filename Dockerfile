@@ -3,7 +3,7 @@ MAINTAINER shea
 
 RUN yum install -y epel-release
 RUN yum update -y
-RUN yum install -y nodejs npm --enablerepo=epel
+RUN yum install -y nodejs npm bzip2 --enablerepo=epel
 
 ADD . /src
 WORKDIR /src
