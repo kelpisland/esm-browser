@@ -23,7 +23,7 @@ module.exports = function(app) {
 	
 	app.get(api + '/v1/responseRevisions/:id', getResponseRevisions);		
 
-
+	app.get(api + '/v1/item/:id', getItem);		
 
 
 	app.get(api + '/v1/userQuicklinks', getUserQuicklinks);
@@ -90,6 +90,11 @@ module.exports = function(app) {
 
     function getUserQuicklinks(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'userQuicklinks.json');
+        res.send(json);
+    }
+
+    function getItem(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'item.json');
         res.send(json);
     }
 

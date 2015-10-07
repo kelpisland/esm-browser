@@ -22,5 +22,53 @@
 	"concerns": [
 		{"_id":"con123", "concern":"Known bat habitat overlapping the proposed project site.", "author":"EAO"},
 		{"_id":"con456", "concern":"Breeding grounds near the south river ben will be adversely effected by the service roadway.", "author":"Public"}
-	]		
+	],
+	"processes":[],
+	"processData":{},
+	"tasks":{
+		"1234":{
+			"_id": 1234,
+			"group": "Initial",
+			"visible": true,
+			"items": {
+				"t1234":{
+					"_id": "t1234",
+					"title":"Confirmation - No Comment",
+					"value":"Not Started",
+					"values": [	{"title":"Not Started"},
+								{"title":"In Progress", "processes": ["confirmNoComment"]},
+								{"title":"Complete"},
+								{"title":"Not Applicable"}
+							]
+					},
+				"t56789":{
+					"_id": "t56789",				
+					"title":"Confirmation - With Comment",
+					"value":"Not Started",
+					"values": [	{"title":"Not Started"},
+								{"title":"In Progress", "processes": ["confirmWithComment"]},
+								{"title":"Complete", "groups": [5678]},
+								{"title":"Not Applicable"}
+							]
+					}
+				}
+			},
+		"5678":{
+			"_id": 5678,
+			"group": "Second",
+			"visible": false,
+			"items": {
+				"t5678":{
+					"_id":"t5678",
+					"title":"Item 2",
+					"value":"Not Started",
+					"values": [	{"title":"Not Started"},
+								{"title":"In Progress", "processes": ["uploadDocument"]},
+								{"title":"Complete"},
+								{"title":"Not Applicable"}
+							]
+					}
+				}
+			}
+		}
 }

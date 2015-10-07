@@ -9,7 +9,7 @@
 				{{ ai.activity.description }}
 			</div>
 			<div class="col-sm-3">
-				<div><label class="control-label">Requires</label><p>	<a href ui-sref="proponent.activity({id: ai.activity._id})">{{ ai.activity.requirement }}</a></p></div>
+				<div><label class="control-label">Requires</label><p>	<a href ng-click="ai.goToActivity(ai.activity._id)">{{ ai.activity.requirement }}</a></p></div>
 				<div><label class="control-label">Contributor<span ng-if="(ai.activity.requirements.length !== 1)">s</span></label>
 					<ul class="label-list">
 						<li ng-repeat="vis in ai.activity.requirements"><span class="label" x-is-current-user x-user="vis.group">{{ vis.group }}</span></li>

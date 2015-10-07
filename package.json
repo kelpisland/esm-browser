@@ -21,6 +21,7 @@
     "connect-modrewrite": "^0.8.1",
     "cors": "^2.7.1",
     "express": "^4.13.0",
+    "gulp-install": "^0.6.0",
     "morgan": "^1.6.0"
   },
   "devDependencies": {
