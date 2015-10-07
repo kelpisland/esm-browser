@@ -11,7 +11,7 @@
   },
   "scripts": {
     "init": "npm install",
-    "install": "bower install",
+    "install": "bower install --config.interactive=false",
     "start": "node mock-server/app.js",
     "test": "gulp test"
   },
