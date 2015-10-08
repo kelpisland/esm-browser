@@ -5,7 +5,8 @@
     angular.module('app.utils')
         .filter('projectStageContributor', filterProjectStageContributor)
         .filter('kebab', filterKebab)
-		.filter('contains', filterContains);
+		.filter('contains', filterContains)
+		.filter('projectBucketNotComplete', filterProjectBucketNotComplete);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -49,4 +50,23 @@
 			return (_.indexOf(input, term) > -1);
 		}
     }
+    // -----------------------------------------------------------------------------------
+	//
+	// FILTER: Project Buckets - not complete
+	//
+    // -----------------------------------------------------------------------------------
+    filterProjectBucketNotComplete.$inject = [];
+    /* @ngInject */
+    function filterProjectBucketNotComplete() {
+		return function(input) {
+			var output = [];
+			_.each(input, function(item) {
+				if (item.progress < 100) {
+					output.push(item);
+				}
+			});
+			return output;
+		}
+    }
+    
 })();

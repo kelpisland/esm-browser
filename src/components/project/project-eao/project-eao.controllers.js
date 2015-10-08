@@ -19,7 +19,7 @@
 		
 		// show activities first
 		vm.mainView = 'activity';
-		
+		vm.artifactView = 'inprogress';
 		//
 		// Get Project
 		Project.getProject({id: $stateParams.id}).then(function(res) {

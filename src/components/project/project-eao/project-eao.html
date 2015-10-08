@@ -16,9 +16,17 @@
 						<li>
 							<div class="navbar-form btn-group btn-group-sm">
 								<button class="btn btn-default" ng-click="vm.mainView = 'activity'"		ng-class="{'btn-primary': vm.mainView === 'activity'}">Activities</button>								
-								<button class="btn btn-default" ng-click="vm.mainView = 'component'"	ng-class="{'btn-primary': vm.mainView === 'component'}">Value Components</button>
+								<button class="btn btn-default" ng-click="vm.mainView = 'artifact'"		ng-class="{'btn-primary': vm.mainView === 'artifact'}">Artifacts</button>
+								<button class="btn btn-default" ng-click="vm.mainView = 'research'"		ng-class="{'btn-primary': vm.mainView === 'research'}">Research / Spatial</button>								
 							</div>
 						</li>
+						<li ng-if="vm.mainView === 'artifact'">
+							<div class="navbar-form btn-group btn-group-sm">
+								<button class="btn btn-default" ng-click="vm.artifactView = 'all'"			ng-class="{'btn-primary': vm.artifactView === 'all'}">All</button>								
+								<button class="btn btn-default" ng-click="vm.artifactView = 'inprogress'"	ng-class="{'btn-primary': vm.artifactView === 'inprogress'}">In Progress</button>
+							</div>
+						</li>
+
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
@@ -37,7 +45,9 @@
 
 			<tmpl-activity-listing x-project="vm.project._id" ng-if="vm.mainView === 'activity'"></tmpl-activity-listing>
 
-			<tmpl-component-listing x-project="vm.project._id" ng-if="vm.mainView === 'activity'"></tmpl-component-listing>
+			<tmpl-project-bucket-listing x-project="vm.project._id" x-filter="vm.artifactView" ng-if="vm.mainView === 'artifact'"></tmpl-project-bucket-listing>
+
+			<tmpl-project-research x-project="vm.project._id" ng-if="vm.mainView === 'research'"></tmpl-project-research>
 
 		</div> <!-- /col12 -->
 	</div>		

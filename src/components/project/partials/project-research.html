@@ -1,0 +1,95 @@
+<section class="panel panel-default">
+	<div class="controller-fluid panel-body">
+		<div class="row">
+
+			<div class="col-sm-2">
+
+				<label class="control-label">Project Tags</label>
+				<div class="well well-small">
+					<ul class="list-unstyled task-list">
+						<li ng-repeat="tag in pr.projectTags">
+							<button class="btn btn-block btn-sm btn-layer" ng-class="{'btn-success': pr.formProjectTags[tag]}" ng-click="pr.formProjectTags[tag] = !pr.formProjectTags[tag]">{{ tag }}</button>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="col-sm-5">
+
+				<label class="control-label">Project Conditions <span>({{ pr.projectResearch.length || 0 }})</span></label>
+				<div ng-if="pr.projectResearch" class="small">
+
+					<div class="research-content clearfix container-fluid" ng-repeat="condition in pr.projectResearch">
+						<div class="row">
+							<div class="col-md-12">
+								<a href >{{ condition.condition }}</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				
+				<div ng-if="!pr.projectResearch" class="small">
+					No conditions.
+				</div>
+
+			</div>
+			<div class="col-sm-5">
+
+				<label class="control-label">Similar Conditions <span>({{ pr.projectRelatedResearch.length || 0 }})</span></label>
+				<div ng-if="pr.projectRelatedResearch" class="small">
+
+					<div class="research-content clearfix container-fluid" ng-repeat="condition in pr.projectRelatedResearch" ng-class="{'bg-success': condition.similarity >=80, 'bg-warning': condition.similarity < 80  }">
+						<div class="row">
+							<div class="col-md-6">
+								<a href >{{ condition.condition }}</a><br/>
+								<div><strong>Project:</strong> {{ condition.project }}</div>
+								<div><strong>Similarity:</strong> {{ condition.similarity }}</div>
+							</div>
+							<div class="col-md-6">
+								<div><strong>C&E Rating:</strong> {{ condition.rating }}</div>
+								<div ng-if="condition.comment"><strong>C&E Comment:</strong> {{ condition.comment }}</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div ng-if="!pr.projectRelatedResearch" class="small">
+					No comments.
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+<section class="panel panel-default">
+	<div class='container-fluid'>
+		<div class='row'>
+			<div class='col-md-9 col-no-padding'>
+				<map center="54.726668, -127.647621" zoom="5" style='height: 500px' map-type-id="ROADMAP" min-zoom=5 disable-default-u-i="true"></map>
+			</div>
+			<div class='col-md-3 col-top-padding'>
+				<label class="control-label">Project Layers</label>
+				<div class="well well-small">
+					<ul class="list-unstyled task-list">
+						<li ng-repeat="layer in pr.projectLayers">
+							<button class="btn btn-block btn-sm btn-layer" ng-class="{'btn-success': pr.formProjectLayers[layer._id]}" ng-click="pr.formProjectLayers[layer._id] = !pr.formProjectLayers[layer._id]">{{ layer.name }}</button>
+						</li>
+					</ul>
+				</div>
+				<label class="control-label">Shared Layers</label>
+				<div class="well well-small">
+					<ul class="list-unstyled task-list">
+						<li ng-repeat="layer in pr.sharedLayers">
+							<button class="btn btn-block btn-sm btn-layer" ng-class="{'btn-success': pr.formSharedLayers[layer._id]}" ng-click="pr.formSharedLayers[layer._id] = !pr.formSharedLayers[layer._id]">{{ layer.name }}</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+

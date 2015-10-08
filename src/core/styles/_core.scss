@@ -385,6 +385,10 @@ nav {
 	color: #777;
 }
 
+.task-list {
+	margin-bottom: 0;
+}
+
 .task-list li {
 	padding-bottom: 5px;
 }
@@ -398,4 +402,36 @@ nav {
 	padding-right: 100px;
 	white-space: normal;
 	position: relative;
+}
+.task-list li button.btn-layer {
+	padding-right: 10px;
+	white-space: normal;
+	text-align: left;	
+}
+.user-quicklinks a.thumbnail {
+	position: relative;
+	font-size: 12px;
+	height: 80px !important;
+}
+.user-quicklinks a.thumbnail .caption {
+	padding: 0;
+	position: absolute;
+	bottom: 3px;
+	left: 3px;
+}
+.bucket-content-activity {
+	font-size: 85%;
+	border-top: 1px solid #ccc;
+}
+.research-content {
+	border-top: 1px solid #ccc;
+	padding: 3px 5px;
+}
+
+.col-no-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+.col-top-padding {
+	padding-top: 10px !important;
 }
