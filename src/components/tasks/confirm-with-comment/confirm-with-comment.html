@@ -1,0 +1,32 @@
+<div class="panel panel-default" x-expand-panel='taskCwc.form[taskCwc.anchor]'>
+	<div class="panel-heading">
+		{{ taskCwc.item.title }}
+	</div>
+
+	<div class="panel-body" ng-if="taskCwc.form[taskCwc.anchor] && taskCwc.item.value !== 'Complete'">
+
+		<div class="row">
+			<div class="col-sm-10">
+				<label>Comment</label>
+				<textarea class="form-control" ng-model="taskCwc.data.comment"></textarea>
+			</div>
+			<div class="col-sm-2">
+				<button class="btn btn-success btn-block" ng-click="taskCwc.completeTask();">Complete</button>
+			</div>	
+		</div>
+
+	</div>
+
+	<div class="panel-body" ng-if="taskCwc.form[taskCwc.anchor] && taskCwc.item.value === 'Complete'">
+
+		<div class="row">
+			<div class="col-sm-12">
+				Task Completed on DATE TIME, by USER, REASON: {{ taskCwc.data.comment }}
+			</div>
+		</div>
+
+	</div>
+
+
+</div>
+

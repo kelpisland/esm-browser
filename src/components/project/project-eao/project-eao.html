@@ -15,11 +15,18 @@
 					<ul class="nav navbar-nav navbar-left" role="view-selection">
 						<li>
 							<div class="navbar-form btn-group btn-group-sm">
-								<button class="btn btn-default" ng-click="filter.type = 'map'"		ng-class="{'btn-primary': filter.type === 'all'}">All</button>
-								<button class="btn btn-default" ng-click="filter.type = 'list'"		ng-class="{'btn-primary': filter.type === 'value'}">Value</button>
-								<button class="btn btn-default" ng-click="filter.type = 'list'"		ng-class="{'btn-primary': filter.type === 'other'}">Other</button>								
+								<button class="btn btn-default" ng-click="vm.mainView = 'activity'"		ng-class="{'btn-primary': vm.mainView === 'activity'}">Activities</button>								
+								<button class="btn btn-default" ng-click="vm.mainView = 'artifact'"		ng-class="{'btn-primary': vm.mainView === 'artifact'}">Artifacts</button>
+								<button class="btn btn-default" ng-click="vm.mainView = 'research'"		ng-class="{'btn-primary': vm.mainView === 'research'}">Research / Spatial</button>								
 							</div>
 						</li>
+						<li ng-if="vm.mainView === 'artifact'">
+							<div class="navbar-form btn-group btn-group-sm">
+								<button class="btn btn-default" ng-click="vm.artifactView = 'all'"			ng-class="{'btn-primary': vm.artifactView === 'all'}">All</button>								
+								<button class="btn btn-default" ng-click="vm.artifactView = 'inprogress'"	ng-class="{'btn-primary': vm.artifactView === 'inprogress'}">In Progress</button>
+							</div>
+						</li>
+
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
@@ -36,7 +43,11 @@
 				</div><!-- /.container-fluid -->
 			</nav>
 
-			<tmpl-activity-listing x-project="vm.project._id"></tmpl-activity-listing>
+			<tmpl-activity-listing x-project="vm.project._id" ng-if="vm.mainView === 'activity'"></tmpl-activity-listing>
+
+			<tmpl-project-bucket-listing x-project="vm.project._id" x-filter="vm.artifactView" ng-if="vm.mainView === 'artifact'"></tmpl-project-bucket-listing>
+
+			<tmpl-project-research x-project="vm.project._id" ng-if="vm.mainView === 'research'"></tmpl-project-research>
 
 		</div> <!-- /col12 -->
 	</div>		

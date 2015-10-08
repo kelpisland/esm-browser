@@ -6,8 +6,10 @@
 		// General
         .controller('modalProjectSchedule', controllerModalProjectSchedule)
         .controller('controllerProjectTombstone', controllerProjectTombstone)
-        .controller('controllerProjectEntryTombstone', controllerProjectEntryTombstone);
-    
+        .controller('controllerProjectEntryTombstone', controllerProjectEntryTombstone)
+        .controller('controllerProjectBucketListing', controllerProjectBucketListing)
+		.controller('controllerProjectResearch', controllerProjectResearch);
+	
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Modal: View Project Schedule
@@ -51,5 +53,90 @@
 		Projects.getProjectTypes().then( function(res) {
 			pets.types = res.data;
 		});
-    }     	
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Project Bucket Listing
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerProjectBucketListing.$inject = ['$scope', 'Project', '$filter'];
+	//
+	function controllerProjectBucketListing($scope, Project, $filter) {
+		var pbl = this;
+
+		pbl.panelSort = [
+			{'field': 'name', 'name':'Name'},
+			{'field': 'type', 'name':'Type'},
+			{'field': 'progress', 'name':'Complete'}
+		];
+
+		$scope.$watch('filter', function(newValue) {
+			// wait for project and get related buckets
+			if (newValue === 'inprogress') {
+				pbl.bucketsFiltered = $filter('projectBucketNotComplete')(pbl.buckets);
+			} else {
+				pbl.bucketsFiltered = pbl.buckets;
+			}
+		});
+
+
+
+		$scope.$watch('project', function(newValue) {
+			// wait for project and get related buckets
+			Project.getProjectBuckets(newValue).then( function(res) {
+				pbl.buckets = res.data;
+				pbl.bucketsFiltered = $filter('projectBucketNotComplete')(pbl.buckets);
+			});
+		});
+
+
+    }              	
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Project Research
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerProjectResearch.$inject = ['$scope', 'Project', 'Utils'];
+	//
+	function controllerProjectResearch($scope, Project, Utils) {
+		var pr = this;
+
+		pr.panelSort = [
+			{'field': 'name', 'name':'Name'},
+			{'field': 'type', 'name':'Type'},
+			{'field': 'progress', 'name':'Complete'}
+		];
+
+		Utils.getCommonLayers().then( function(res) {
+			pr.sharedLayers = res.data;
+		});
+
+
+		$scope.$watch('project', function(newValue) {
+			// wait for project and get related buckets
+			Project.getProjectBuckets(newValue).then( function(res) {
+				pr.buckets = res.data;
+			});
+
+			Project.getProjectLayers(newValue).then( function(res) {
+				pr.projectLayers = res.data;
+			});
+			
+			Project.getProjectTags(newValue).then( function(res) {
+				pr.projectTags = res.data;
+			});			
+
+			Project.getProjectResearch(newValue).then( function(res) {
+				pr.projectResearch = res.data;
+			});		
+
+			Project.getProjectRelatedResearch(newValue).then( function(res) {
+				pr.projectRelatedResearch = res.data;
+			});		
+
+		});
+
+
+    }              	
+
 })();

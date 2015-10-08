@@ -1,10 +1,10 @@
-<section>
+<section class="user-quicklinks">
 
 	<div class="row">
 		<div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="link in uql.quicklinks">
 			<a class="thumbnail" ui-sref='eao.project({id: link._id})'>
 				<div class="caption">
-					<h3>{{ link.name }}</h3>
+					{{ link.name }}
 				</div>
 			</a>
 		</div>

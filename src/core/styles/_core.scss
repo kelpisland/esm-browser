@@ -343,8 +343,8 @@ nav {
 }
 .panel-toggle {
 	position: absolute;
-	top: -11px;
-	left: -9px;
+	top: -10px;
+	left: -8px;
 	color: #ffffff;
 }
 .panel-toggle:hover {
@@ -356,4 +356,82 @@ nav {
 .navbar-form .form-group .control-label {
 	padding-right: 10px;
 	display: inline-block;
+}
+.panel-tombstone-menu {
+	font-size: 13px;
+	line-height: 15px;
+}
+.panel-tombstone-menu p {
+	margin: 0 0 8px;
+}
+.panel-tombstone-menu hr {
+	margin-top: 15px;
+	margin-bottom: 15px;	
+}
+
+.btn-task-not-started {
+	background-color: $brand-info;
+}
+.btn-task-complete {
+	background-color: $brand-success;
+}
+.btn-task-in-progress {
+	background-color: $brand-warning;
+}
+.btn-task-not-applicable {
+	opacity: 0.5;
+}
+.panel-body .panel-toggle {
+	color: #777;
+}
+
+.task-list {
+	margin-bottom: 0;
+}
+
+.task-list li {
+	padding-bottom: 5px;
+}
+.task-list li .task-current-status {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	font-weight: 700;
+}
+.task-list li button {
+	padding-right: 100px;
+	white-space: normal;
+	position: relative;
+}
+.task-list li button.btn-layer {
+	padding-right: 10px;
+	white-space: normal;
+	text-align: left;	
+}
+.user-quicklinks a.thumbnail {
+	position: relative;
+	font-size: 12px;
+	height: 80px !important;
+}
+.user-quicklinks a.thumbnail .caption {
+	padding: 0;
+	position: absolute;
+	bottom: 3px;
+	left: 3px;
+}
+.bucket-content-activity {
+	font-size: 85%;
+	border-top: 1px solid #ccc;
+}
+.research-content {
+	border-top: 1px solid #ccc;
+	padding: 3px 5px;
+}
+
+.col-no-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+.col-top-padding {
+	padding-top: 10px !important;
 }

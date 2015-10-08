@@ -94,7 +94,7 @@
             .state('eao.project', {
                 url: '/project/:id',
                 template: '<tmpl-eao-project></tmpl-eao-project>'
-            });
+            })
 //             .state('eao.newproject', {
 //                 url: '/newproject/',
 //                 template: '<tmpl-proponent-project-new></tmpl-proponent-project-new>'
@@ -103,10 +103,10 @@
 //                 url: '/register/',
 //                 template: '<tmpl-proponent-register></tmpl-proponent-register>'
 //             })         
-//             .state('eao.activity', {
-//                 url: '/activity/:id',
-//                 template: '<tmpl-proponent-activity></tmpl-proponent-activity>'
-//             });             
+            .state('eao.activity', {
+                url: '/activity/:id',
+                template: '<tmpl-eao-activity></tmpl-eao-activity>'
+            });             
 
 
 		$urlRouterProvider.otherwise('/');   

@@ -1,0 +1,31 @@
+<div class="panel panel-default" x-expand-panel='taskCnc.form[taskCnc.anchor]'>
+	<div class="panel-heading">
+		{{ taskCnc.item.title }}
+	</div>
+
+	<div class="panel-body" ng-if="taskCnc.form[taskCnc.anchor] && taskCnc.item.value !== 'Complete'">
+
+		<div class="row">
+			<div class="col-sm-10">
+				By clicking complete, you confirm this task has been completed.
+			</div>
+			<div class="col-sm-2">
+				<button class="btn btn-success btn-block" ng-click="taskCnc.completeTask();">Complete</button>
+			</div>	
+		</div>
+
+	</div>
+
+	<div class="panel-body" ng-if="taskCnc.form[taskCnc.anchor] && taskCnc.item.value === 'Complete'">
+
+		<div class="row">
+			<div class="col-sm-12">
+				Task Completed on DATE TIME, by USER 
+			</div>
+		</div>
+
+	</div>
+
+
+</div>
+

@@ -6,8 +6,10 @@
         .directive('modalProjectSchedule', directiveModalProjectSchedule)
         .directive('tmplProjectTombstoneHorizontal', directiveProjectTombstoneHorizontal)
         .directive('tmplProjectTombstoneVertical', directiveProjectTombstoneVertical)
-        .directive('tmplProjectEntryTombstoneHorizontal', directiveProjectEntryTombstone);
-        
+        .directive('tmplProjectEntryTombstoneHorizontal', directiveProjectEntryTombstone)
+        .directive('tmplProjectBucketListing', directiveProjectBucketListing)
+        .directive('tmplProjectResearch', directiveProjectResearch);
+       
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Modal Project Schedule
@@ -93,6 +95,46 @@
             templateUrl: 'components/project/partials/project-entry-tombstone.html',
             controller: 'controllerProjectEntryTombstone',
             controllerAs: 'pets'            
+        };
+        return directive;
+    }
+
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Project bucket listing
+	//
+    // -----------------------------------------------------------------------------------
+    directiveProjectBucketListing.$inject = [];
+    /* @ngInject */
+    function directiveProjectBucketListing() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/project/partials/project-bucket-listing.html',
+            controller: 'controllerProjectBucketListing',
+            controllerAs: 'pbl',
+            scope: {
+            	project: '=',
+            	filter: '='
+            }
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Project bucket listing
+	//
+    // -----------------------------------------------------------------------------------
+    directiveProjectResearch.$inject = [];
+    /* @ngInject */
+    function directiveProjectResearch() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/project/partials/project-research.html',
+            controller: 'controllerProjectResearch',
+            controllerAs: 'pr',
+            scope: {
+            	project: '='
+            }
         };
         return directive;
     }

@@ -42,6 +42,7 @@
 		});
 		
 		pl.goToProject = function(projectId) {
+			console.log(Global.user.type);
 			if (Global.user.type === 'EAO') {
 				$state.go('eao.project', {id:projectId});
 			} else if (Global.user.type === 'Proponent') {

@@ -17,6 +17,9 @@
         'app.projects',
 
         'app.topnav',
+        
+        'app.tasks',
+        
         'app.users',
         'app.utils'
     ]);

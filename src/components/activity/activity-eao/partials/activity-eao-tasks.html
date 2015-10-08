@@ -1,0 +1,22 @@
+<label class="control-label">
+	<div class="pull-right slight">Shift-Click to change</div>
+	Tasks
+</label>
+<div class="well well-small">
+
+<div ng-repeat="(id, task) in actTasks.tasks" ng-if="task.visible">
+
+	<label class="control-label">{{ task.group }}</label>
+
+	<ul class="list-unstyled task-list">
+		<li ng-repeat="(itemId, item) in task.items">
+			<button class="btn btn-sm btn-block clearfix btn-task-indicator btn-task-{{ item.value | kebab }}" ng-repeat="value in item.values" ng-if="value.title === item.value" ng-click="actTasks.taskChange(item, $event)">
+				<div class="text-left">{{ item.title }}</div>
+				<div class="text-left task-current-status pull-right">{{ item.value }}</div>
+			</button>
+		</li>
+	</ul>
+
+</div>
+
+</div> <!-- /panel -->

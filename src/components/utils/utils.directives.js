@@ -206,7 +206,7 @@
 	};
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Coloured Stage
+	// DIRECTIVE: Is Current User  - Similar to Coloured Stage
 	// if the stage is assigned to you, the stage name is green.
 	// if the stage is not assigned to you, the stage name is blue.
 	//

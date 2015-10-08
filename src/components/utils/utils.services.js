@@ -24,11 +24,15 @@
 		var getProjectStages = function(req) {
 			return $http({method:'GET',url: API + '/v1/projectstages'});
 		};
+		var getCommonLayers = function(req) {
+			return $http({method:'GET',url: API + '/v1/layers'});
+		};
 		return {
 			getCurrentUser: getCurrentUser,
 			getRecentActivity: getRecentActivity,
 			getQuickLinks: getQuickLinks,
-			getProjectStages: getProjectStages
+			getProjectStages: getProjectStages,
+			getCommonLayers: getCommonLayers
 		};
     }
 

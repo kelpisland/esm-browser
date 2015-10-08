@@ -23,8 +23,14 @@ module.exports = function(app) {
 	
 	app.get(api + '/v1/responseRevisions/:id', getResponseRevisions);		
 
+	app.get(api + '/v1/item/:id', getItem);		
 
-
+	app.get(api + '/v1/project/:id/buckets', getProjectBuckets);	
+	app.get(api + '/v1/project/:id/tags', getProjectTags);	
+	app.get(api + '/v1/project/:id/research', getProjectResearch);	
+	app.get(api + '/v1/project/:id/researchRelated', getProjectRelatedResearch);	
+	app.get(api + '/v1/project/:id/layers', getProjectLayers);
+	app.get(api + '/v1/layers', getCommonLayers);
 
 	app.get(api + '/v1/userQuicklinks', getUserQuicklinks);
     
@@ -92,5 +98,41 @@ module.exports = function(app) {
         var json = jsonfileservice.getJsonFromFile(data + 'userQuicklinks.json');
         res.send(json);
     }
+
+    function getItem(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'item.json');
+        res.send(json);
+    }
+
+    function getProjectBuckets(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectBuckets.json');
+        res.send(json);
+    }
+
+    function getProjectTags(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectTags.json');
+        res.send(json);
+    }
+
+    function getProjectResearch(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectResearch.json');
+        res.send(json);
+    }    
+    
+    function getProjectRelatedResearch(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectResearchRelated.json');
+        res.send(json);
+    }
+        
+    function getProjectLayers(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectLayers.json');
+        res.send(json);
+    }
+        
+    function getCommonLayers(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'commonLayers.json');
+        res.send(json);
+    }
+
 
 };

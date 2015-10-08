@@ -5,8 +5,6 @@
     angular.module('app.activity')
         .directive('tmplActivityListing', directiveActivityListing)
         .directive('tmplActivityItem', directiveActivityItem)
-        .directive('tmplActivityDetail', directiveActivityDetail)
-        .directive('tmplProponentActivity', directiveProponentActivity)   
 		.directive('modalResponseRevisions', directiveModalResponseRevisions);
     // -----------------------------------------------------------------------------------
 	//
@@ -43,41 +41,6 @@
 			scope : {
              	activity: '='
 			}
-        };
-        return directive;
-    }
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Activity Detail
-	//
-    // -----------------------------------------------------------------------------------
-    directiveActivityDetail.$inject = [];
-    /* @ngInject */
-    function directiveActivityDetail() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'components/activity/partials/activity-detail.html',
-            controller: 'controllerActivityDetail',
-            controllerAs: 'ad',
-			scope : {
-             	detail: '='
-			}
-        };
-        return directive;
-    }
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Activity Proponent
-	//
-    // -----------------------------------------------------------------------------------
-    directiveProponentActivity.$inject = [];
-    /* @ngInject */
-    function directiveProponentActivity() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'components/activity/proponent-activity.html',
-            controller: 'controllerActivityProponent',
-            controllerAs: 'ap'
         };
         return directive;
     }

@@ -31,22 +31,31 @@
 		Activity.getProjectActivities({id: $scope.projectId}).then(function(res) {
 			al.activities = res.data;
 		});
-
     }
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Activity Item
 	//
     // -----------------------------------------------------------------------------------
-    controllerActivityItem.$inject = ['$scope'];
+    controllerActivityItem.$inject = ['$scope', '$state', 'Global'];
 	//
-	function controllerActivityItem($scope) {
+	function controllerActivityItem($scope, $state, Global) {
 		var al = this;
+		
+		al.goToActivity = function(activityId) {
+			console.log(Global.user.type);
+			if (Global.user.type === 'EAO') {
+				$state.go('eao.activity', {id:activityId});
+			} else if (Global.user.type === 'Proponent') {
+				$state.go('proponent.activity', {id:activityId});			
+			}
+		}			
+
 		al.activity = $scope.activity;
     }
     // -----------------------------------------------------------------------------------
 	//
-	// CONTROLLER: Activity Detail
+	// CONTROLLER: Activity Detail - NOT USED RIGHT NOW
 	//
     // -----------------------------------------------------------------------------------
     controllerActivityDetail.$inject = ['$scope'];
@@ -69,6 +78,7 @@
 				ad.filteredDocumentsFor = undefined;
 			}
 		}
+		
 		
 		$scope.$watch('detail', function(newValue) {	
 			ad.activity = angular.copy(newValue);
