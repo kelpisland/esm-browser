@@ -1,8 +1,8 @@
 <panel-sort x-fields="pbl.panelSort" x-data="pbl.bucketsFiltered"></panel-sort>
 
-<section ng-repeat="bucket in pbl.bucketsFiltered" ng-click="pbl.bucketToggle[bucket._id] = !pbl.bucketToggle[bucket._id]" class="">
+<section ng-repeat="bucket in pbl.bucketsFiltered" class="">
 
-	<div class="panel" ng-class="{'panel-success': bucket.type === 'component', 'panel-info': bucket.type === 'stage'}" x-expand-panel='ad.activityToggle[ad.activity._id]'>
+	<div class="panel" ng-class="{'panel-warning': bucket.type === 'component', 'panel-default': bucket.type === 'stage'}" x-expand-panel='pbl.bucketToggle[bucket._id]'>
 		<div class="panel-heading">
 			<div class="pull-right col-lg-2 col-md-3 col-xs-4">
 				<tmpl-progress-bar x-percentage="bucket.progress"></tmpl-progress-bar>

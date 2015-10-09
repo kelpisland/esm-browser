@@ -1,20 +1,83 @@
+
+<section>
+
+	<nav class="navbar navbar-default navbar-sm">
+		<div class="container-fluid">
+
+			<ul class="nav navbar-nav navbar-left">
+				<li>
+					<div class="navbar-form">
+						<div class="form-group">
+							<label class="control-label">Focus</label>
+							<select ng-model='pr.search.focus' class="form-control">
+								<option ng-repeat='focus in pr.researchFocus' value='{{ focus }}'>{{ focus }}</option>
+							</select>
+						</div>
+					</div>	
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<div class="navbar-form">
+						<div class="form-group">
+							<label class="control-label">Search</label>
+							<input ng-model="pr.search.term" type="text" class="form-control" placeholder="Search">
+							<button class="btn btn-sm" ng-click="pr.performSearch()">Search</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		</div><!-- /.container-fluid -->
+
+		<div class="container-fluid">
+
+			<ul class="nav navbar-nav navbar-left">
+				<li>
+					<div class="navbar-form">
+						<div class="form-group">
+							<label class="control-label">Tags</label>
+							<button ng-repeat="tag in pr.projectTags" class="btn btn-sm btn-layer btn-spaced" ng-class="{'btn-success': pr.formProjectTags[tag]}" ng-click="pr.formProjectTags[tag] = !pr.formProjectTags[tag]">{{ tag }}</button>
+						</div>
+					</div>	
+				</li>
+			</ul>
+
+		</div><!-- /.container-fluid -->
+
+	</nav>
+			
+</section>
+
+
+
+<section class='panel panel-default' ng-if="pr.searchResults.records.length > 0">
+	<table class="table table-condensed table-striped">
+		<thead>
+			<tr>
+				<th width="30%"><small>Project</small></th>
+				<th><small>{{ pr.searchResults.terms }}</small></th>
+			</tr>
+		</thead>	
+		<tbody>
+			<tr ng-repeat="result in pr.searchResults.records" class='clickable'>
+				<td>{{ result.project.name }}</td>
+				<td>{{ result.response }}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+
+
+
+
+<!-- 
 <section class="panel panel-default">
 	<div class="controller-fluid panel-body">
 		<div class="row">
 
-			<div class="col-sm-2">
-
-				<label class="control-label">Project Tags</label>
-				<div class="well well-small">
-					<ul class="list-unstyled task-list">
-						<li ng-repeat="tag in pr.projectTags">
-							<button class="btn btn-block btn-sm btn-layer" ng-class="{'btn-success': pr.formProjectTags[tag]}" ng-click="pr.formProjectTags[tag] = !pr.formProjectTags[tag]">{{ tag }}</button>
-						</li>
-					</ul>
-				</div>
-
-			</div>
-			<div class="col-sm-5">
+			<div class="col-sm-6">
 
 				<label class="control-label">Project Conditions <span>({{ pr.projectResearch.length || 0 }})</span></label>
 				<div ng-if="pr.projectResearch" class="small">
@@ -34,7 +97,7 @@
 				</div>
 
 			</div>
-			<div class="col-sm-5">
+			<div class="col-sm-6">
 
 				<label class="control-label">Similar Conditions <span>({{ pr.projectRelatedResearch.length || 0 }})</span></label>
 				<div ng-if="pr.projectRelatedResearch" class="small">
@@ -63,6 +126,7 @@
 		</div>
 	</div>
 </section>
+ -->
 
 
 <section class="panel panel-default">
