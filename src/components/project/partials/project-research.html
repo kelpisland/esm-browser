@@ -15,6 +15,12 @@
 						</div>
 					</div>	
 				</li>
+				<li>
+					<div class="navbar-form btn-group btn-group-sm">
+						<button class="btn btn-default" ng-click="pr.search.project = 'all'"		ng-class="{'btn-primary': pr.search.project === 'all'}">All Projects</button>			
+						<button class="btn btn-default" ng-click="pr.search.project = 'this'"		ng-class="{'btn-primary': pr.search.project === 'this'}">This Project</button>
+					</div>
+				</li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
@@ -57,13 +63,15 @@
 		<thead>
 			<tr>
 				<th width="30%"><small>Project</small></th>
-				<th><small>{{ pr.searchResults.terms }}</small></th>
+				<th ng-if="pr.searchResults.terms !== 'Project'"><small>{{ pr.searchResults.terms }}</small></th>
+				<th width="5%" class="text-right"></th>
 			</tr>
 		</thead>	
 		<tbody>
 			<tr ng-repeat="result in pr.searchResults.records" class='clickable'>
-				<td>{{ result.project.name }}</td>
-				<td>{{ result.response }}</td>
+				<td x-modal-research-detail x-seed="result._id" x-term="pr.searchResults.terms">{{ result.project.name }}</td>
+				<td x-modal-research-detail x-seed="result._id" x-term="pr.searchResults.terms" ng-if="pr.searchResults.terms !== 'Project'">{{ result.response }}</td>
+				<td width="5%" class="text-right"><a href title="Add Project to Map"><i class="glyphicon glyphicon-globe"></i></a></td>
 			</tr>
 		</tbody>
 	</table>

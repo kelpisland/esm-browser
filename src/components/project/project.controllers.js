@@ -9,7 +9,7 @@
         .controller('controllerProjectEntryTombstone', controllerProjectEntryTombstone)
         .controller('controllerProjectBucketListing', controllerProjectBucketListing)
 		.controller('controllerProjectResearch', controllerProjectResearch);
-	
+		
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Modal: View Project Schedule
@@ -119,7 +119,7 @@
 		pr.performSearch = function() {
 			Utils.getResearchResults({'term': pr.search.focus}).then( function(res) {
 				pr.searchResults.records = res.data;
-				pr.searchResults.terms = (pr.search.focus !== 'Project') ? pr.search.focus : '';
+				pr.searchResults.terms = pr.search.focus;
 			});
 		};
 

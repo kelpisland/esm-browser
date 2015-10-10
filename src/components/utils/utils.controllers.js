@@ -6,7 +6,9 @@
         .controller('controllerQuickLinks', controllerQuickLinks)
 	    .controller('controllerRecentActivity', controllerRecentActivity)   
         .controller('controllerModalAddComment', controllerModalAddComment)
-        .controller('controllerPanelSort', controllerPanelSort);
+        .controller('controllerPanelSort', controllerPanelSort)
+        .controller('controllerModalResearchDetail', controllerModalResearchDetail);
+        
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Quick Links
@@ -92,5 +94,29 @@
 			$scope.data = orderBy($scope.data, panelSort.field, false);
 		};
 	};	
-	
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Project Research Detail
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerModalResearchDetail.$inject = ['$scope', 'Utils', '$modalInstance'];
+	//
+	function controllerModalResearchDetail($scope, Utils, $modalInstance) {
+		var rd = this;
+		
+		$scope.$watchGroup(['seed', 'term'], function(newValue) {
+			if (newValue[0] && newValue[1]) {
+				rd.term = newValue[1];
+				// array of terms is sent to service
+				Utils.getProjectResearchDetail({'seed': newValue[0], 'term': newValue[1]}).then( function(res) {
+					rd.relatedData = res.data;
+				});
+			}
+		});
+
+		rd.cancel = function () { $modalInstance.dismiss('cancel'); };
+
+
+    }     
+
 })();

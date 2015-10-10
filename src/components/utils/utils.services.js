@@ -32,7 +32,10 @@
 		};
     	var getResearchResults = function(req) {
 			return $http({method:'GET',url: API + '/v1/research/' + req.term });
-		};			
+		};
+		var getProjectResearchDetail = function(req) {
+			return $http({method:'GET',url: API + '/v1/researchDetail/' + req.seed + '/' + req.term });		
+		}
 		return {
 			getCurrentUser: getCurrentUser,
 			getRecentActivity: getRecentActivity,
@@ -40,7 +43,8 @@
 			getProjectStages: getProjectStages,
 			getCommonLayers: getCommonLayers,
 			getResearchFocus: getResearchFocus,
-			getResearchResults: getResearchResults
+			getResearchResults: getResearchResults,
+			getProjectResearchDetail: getProjectResearchDetail
 		};
     }
 

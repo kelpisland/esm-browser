@@ -11,8 +11,9 @@
         .directive('panelSort',directivePanelSort)
         .directive('stageColour',directiveStageColour)
         .directive('isCurrentUser', directiveIsCurrentUser)
-        .directive('expandPanel', directiveExpandPanel);
-
+        .directive('expandPanel', directiveExpandPanel)
+        .directive('modalResearchDetail', directiveModalResearchDetail)
+        .directive('goToElement', directiveGoToElement);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -24,7 +25,7 @@
     function directiveQuickLinks() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/utils/partials/quick_links.html',
+            templateUrl: 'components/utils/partials/quick-links.html',
             controller: 'controllerQuickLinks',
             controllerAs: 'qlPanel'
         };
@@ -40,7 +41,7 @@
     function directiveRecentNews() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/utils/partials/recent_activity.html',
+            templateUrl: 'components/utils/partials/recent-activity.html',
             controller: 'controllerRecentActivity',
             controllerAs: 'raPanel'
         };
@@ -60,7 +61,7 @@
 				element.on('click', function() {
 					var modalAddComment = $modal.open({
 						animation: true,
-						templateUrl: 'components/utils/partials/modal_add_public_comment.html',
+						templateUrl: 'components/utils/partials/modal-add-public-comment.html',
 						controller: 'controllerModalAddComment',
 						controllerAs: 'md',
 						size: 'md'
@@ -166,7 +167,7 @@
             	fields: '=',
             	data: '='
             },
-            templateUrl: 'components/utils/partials/panel_sort.html',
+            templateUrl: 'components/utils/partials/panel-sort.html',
             controller: 'controllerPanelSort',
             controllerAs: 'panelSort'
         };
@@ -253,5 +254,59 @@
 		};
 		return directive;
 	};
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Research Detail
+	//
+    // -----------------------------------------------------------------------------------
+    directiveModalResearchDetail.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalResearchDetail($modal) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	seed: '=',
+            	term: '='
+            },
+			link : function(scope, element, attrs) {
+				element.on('click', function() {
+					var modalDocView = $modal.open({
+						animation: true,
+						templateUrl: 'components/utils/partials/modal-research-detail.html',
+						controller: 'controllerModalResearchDetail',
+						controllerAs: 'rd',
+						scope: scope,
+						size: 'lg'
+					});
+					modalDocView.result.then(function () {}, function () {});
+				});
+			}
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Research Detail
+	//
+    // -----------------------------------------------------------------------------------
+    directiveGoToElement.$inject = ['$state'];
+    /* @ngInject */
+    function directiveGoToElement($state) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	goToProject: '=',
+            	goToId: '=',
+            	goToType: '='
+            },
+			link : function(scope, element, attrs) {
+				element.on('click', function() {
+					// user is EAO
+					$state.go('eao.project', {'id': scope.goToProject});
+				});
+			}
+        };
+        return directive;
+    }
 
 })();

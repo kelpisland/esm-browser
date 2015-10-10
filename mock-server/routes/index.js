@@ -37,6 +37,7 @@ module.exports = function(app) {
 	app.get(api + '/v1/userQuicklinks', getUserQuicklinks);
     
 	app.get(api + '/v1/research/:term', getResearchResults);
+	app.get(api + '/v1/researchDetail/:seed/:term', getResearchResultDetail);
 
 
     function getProject(req, res, next) {
@@ -147,6 +148,11 @@ module.exports = function(app) {
     function getResearchResults(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'researchResults.json');
         res.send(json[req.params.term]);
+    }
+
+    function getResearchResultDetail(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'researchResultDetail.json');
+        res.send(json);
     }
 
 
