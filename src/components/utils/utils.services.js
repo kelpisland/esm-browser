@@ -27,12 +27,24 @@
 		var getCommonLayers = function(req) {
 			return $http({method:'GET',url: API + '/v1/layers'});
 		};
+    	var getResearchFocus = function(req) {
+			return $http({method:'GET',url: API + '/v1/researchFocus'});
+		};
+    	var getResearchResults = function(req) {
+			return $http({method:'GET',url: API + '/v1/research/' + req.term });
+		};
+		var getProjectResearchDetail = function(req) {
+			return $http({method:'GET',url: API + '/v1/researchDetail/' + req.seed + '/' + req.term });		
+		}
 		return {
 			getCurrentUser: getCurrentUser,
 			getRecentActivity: getRecentActivity,
 			getQuickLinks: getQuickLinks,
 			getProjectStages: getProjectStages,
-			getCommonLayers: getCommonLayers
+			getCommonLayers: getCommonLayers,
+			getResearchFocus: getResearchFocus,
+			getResearchResults: getResearchResults,
+			getProjectResearchDetail: getProjectResearchDetail
 		};
     }
 

@@ -33,6 +33,7 @@
     	var getProjectLayers = function(req) {
 			return $http({method:'GET',url: API + '/v1/project/' + req.id + '/layers'});
 		};		
+
 		return {
 			getProject: getProject,
 			getProjectTypes: getProjectTypes,

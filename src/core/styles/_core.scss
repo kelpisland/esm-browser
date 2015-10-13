@@ -427,11 +427,45 @@ nav {
 	border-top: 1px solid #ccc;
 	padding: 3px 5px;
 }
-
+.btn-spaced {
+	margin-right: 3px;
+}
 .col-no-padding {
 	padding-left: 0;
 	padding-right: 0;
 }
 .col-top-padding {
 	padding-top: 10px !important;
+}
+.user-quick-links h1 {
+	padding: 0;
+	margin: 0;
+}
+.user-quick-links a {
+	color: #fff;
+}
+.user-quick-links a:hover {
+	text-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+.modal-header .form-control {
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid #fff;
+}
+
+
+.modal-header .form-control::-webkit-input-placeholder {
+   color: #fff;
+}
+
+.modal-header .form-control:-moz-placeholder { /* Firefox 18- */
+   color: #fff;  
+}
+
+.modal-header .form-control::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
+}
+
+.modal-header .form-control:-ms-input-placeholder {  
+   color: #fff;  
 }

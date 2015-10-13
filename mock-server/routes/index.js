@@ -32,8 +32,14 @@ module.exports = function(app) {
 	app.get(api + '/v1/project/:id/layers', getProjectLayers);
 	app.get(api + '/v1/layers', getCommonLayers);
 
+	app.get(api + '/v1/researchFocus', getResearchFocus);
+
 	app.get(api + '/v1/userQuicklinks', getUserQuicklinks);
     
+	app.get(api + '/v1/research/:term', getResearchResults);
+	app.get(api + '/v1/researchDetail/:seed/:term', getResearchResultDetail);
+
+
     function getProject(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'project.json');
         res.send(json);
@@ -131,6 +137,21 @@ module.exports = function(app) {
         
     function getCommonLayers(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'commonLayers.json');
+        res.send(json);
+    }
+
+    function getResearchFocus(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'researchFocus.json');
+        res.send(json);
+    }
+
+    function getResearchResults(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'researchResults.json');
+        res.send(json[req.params.term]);
+    }
+
+    function getResearchResultDetail(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'researchResultDetail.json');
         res.send(json);
     }
 

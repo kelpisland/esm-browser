@@ -9,7 +9,7 @@
         .controller('controllerProjectEntryTombstone', controllerProjectEntryTombstone)
         .controller('controllerProjectBucketListing', controllerProjectBucketListing)
 		.controller('controllerProjectResearch', controllerProjectResearch);
-	
+		
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Modal: View Project Schedule
@@ -100,7 +100,8 @@
 	//
 	function controllerProjectResearch($scope, Project, Utils) {
 		var pr = this;
-
+		pr.searchResults = {};
+		
 		pr.panelSort = [
 			{'field': 'name', 'name':'Name'},
 			{'field': 'type', 'name':'Type'},
@@ -111,6 +112,16 @@
 			pr.sharedLayers = res.data;
 		});
 
+		Utils.getResearchFocus().then( function(res) {
+			pr.researchFocus = res.data;
+		});
+
+		pr.performSearch = function() {
+			Utils.getResearchResults({'term': pr.search.focus}).then( function(res) {
+				pr.searchResults.records = res.data;
+				pr.searchResults.terms = pr.search.focus;
+			});
+		};
 
 		$scope.$watch('project', function(newValue) {
 			// wait for project and get related buckets
