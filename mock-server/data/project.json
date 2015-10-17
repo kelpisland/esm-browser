@@ -16,14 +16,96 @@
 	"progress":85,
 	"lat":50.752097,
 	"long":-128.322029,
+	"stages": [
+		{
+			"name":"Create Project",
+			"responsibility":["EAO"],
+			"dateEstimatedStart":"2015-10-15T07:00:00.000Z",
+			"dateEstimatedEnd":"2015-10-15T07:00:00.000Z",
+			"dateActualStart":"2004-04-10T23:58:15.181Z",
+			"dateActualEnd":"2004-04-10T23:58:15.181Z",			
+			"activities":[
+				{
+					"_id":"1",
+					"dateStart":"2004-04-10T23:58:15.181Z",
+					"dateEnd":"2004-04-10T23:58:15.181Z",					
+					"name":"Public Comments Open",
+					"description":"",
+					"components":[],
+					"tasks": [
+						{
+							"_id": 1234,
+							"group": "Initial",
+							"visible": true,
+							"items": {
+								"t1234":{
+									"_id": "t1234",
+									"title":"Confirmation - No Comment",
+									"value":"Not Started",
+									"values": [	{"title":"Not Started"},
+												{"title":"In Progress", "processes": ["confirmNoComment"]},
+												{"title":"Complete"},
+												{"title":"Not Applicable"}
+											]
+									},
+								"t56789":{
+									"_id": "t56789",				
+									"title":"Confirmation - With Comment",
+									"value":"Not Started",
+									"values": [	{"title":"Not Started"},
+												{"title":"In Progress", "processes": ["confirmWithComment"]},
+												{"title":"Complete", "groups": [5678]},
+												{"title":"Not Applicable"}
+											]
+								}
+							}
+						},
+						{
+							"_id": 5678,
+							"group": "Second",
+							"visible": false,
+							"items": {
+								"t5678":{
+									"_id":"t5678",
+									"title":"Item 2",
+									"value":"Not Started",
+									"values": [	{"title":"Not Started"},
+												{"title":"In Progress", "processes": ["uploadDocument"]},
+												{"title":"Complete"},
+												{"title":"Not Applicable"}
+											]
+									}
+								}
+							}					
+					],
+					"requirements":[],
+					"access":["EAO", "Working Group", "Public"]
+				}
+			]
+		},
+		{"name":"Prepare Initial Submission", "groups":["Proponent"]},
+		{"name":"Submit Initial Submission", "groups":["Proponent"]},
+		{"name":"Receive Initial Submission", "groups":["EAO"]}
+	],
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	"schedule":[
 		{
 			"milestone": "Pre Application",
-			"start":"2001-06-01T23:58:15.181Z",
-			"target":"2002-06-02T23:58:15.181Z",
-			"completed":"2004-04-10T23:58:15.181Z",
-			"note":"Proponent completed 3 year study on wildlife migration",
-			"public":true
+			"dateEstimatedStart":"2001-06-01T23:58:15.181Z",
+			"dateEstimatedEnd":"2002-06-02T23:58:15.181Z",
+			"dateActualStart":"2004-04-10T23:58:15.181Z",
+			"dateActualEnd":"2004-04-10T23:58:15.181Z",			
+			"note":"Proponent completed 3 year study on wildlife migration"
 		},
 		{
 			"milestone": "Public Comments",

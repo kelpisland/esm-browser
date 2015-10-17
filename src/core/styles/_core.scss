@@ -353,7 +353,8 @@ nav {
 	top: -20px;
 	left: -14px;	
 }
-.navbar-form .form-group .control-label {
+.navbar-form .form-group .control-label,
+.form-inline .form-group .control-label {
 	padding-right: 10px;
 	display: inline-block;
 }
@@ -468,4 +469,9 @@ nav {
 
 .modal-header .form-control:-ms-input-placeholder {  
    color: #fff;  
+}
+
+.btn-list .btn {
+	margin: 0 2px;
+	display: inline-block;
 }

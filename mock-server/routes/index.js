@@ -40,6 +40,9 @@ module.exports = function(app) {
 	app.get(api + '/v1/researchDetail/:seed/:term', getResearchResultDetail);
 
 
+	app.get(api + '/v1/roles', getRoles);
+
+
     function getProject(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'project.json');
         res.send(json);
@@ -155,5 +158,9 @@ module.exports = function(app) {
         res.send(json);
     }
 
+	function getRoles(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'roles.json');
+        res.send(json);
+    }
 
 };
