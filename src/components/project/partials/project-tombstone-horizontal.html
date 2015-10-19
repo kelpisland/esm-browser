@@ -41,6 +41,7 @@
 						</div>
 
 						<div class='col-sm-3'>
+							<label class="control-label">Stage Completion</label>
 							<tmpl-progress-circle x-subtext="estimated progress" x-percentage="pts.project.progress" x-max-width="200"></tmpl-progress-circle>
 						</div>
 					</div>
@@ -70,7 +71,13 @@
 				</div>
 
 				<div class='panel-body' ng-if="pts.tombstone">
-					Current Stage Progress Full with Control
+					Activities In Progress:<br/>
+					Activities Complete:<br/>
+					Activities Not Started:<br/>
+					Documents:<br/>
+					Valid Comments:<br/>
+					Time to Next stage:<br/>
+					Schedule Estimate Accuracy:<br/>
 				</div>
 
 			</div> <!-- /col3 performance indicators -->
@@ -92,7 +99,7 @@
 					<p><a href x-modal-project-edit-plan-stages		x-project="pts.project"><span class='glyphicon glyphicon-certificate'></span> Manage Stages</a></p>
 					<p><a href x-modal-project-edit-plan-schedule 	x-project="pts.project"><span class='glyphicon glyphicon-calendar'></span> Manage Schedule</a></p>
 					<p><a href x-modal-project-edit-plan-activities	x-project="pts.project"><span class='glyphicon glyphicon-tasks'></span> Manage Activities</a></p>
-					<p><a href x-modal-manage-activities	x-project="pts.project"><span class='glyphicon glyphicon-tasks'></span> Manage Components</a></p>
+					<p><a href x-modal-project-edit-plan-components	x-project="pts.project"><span class='glyphicon glyphicon-tasks'></span> Manage Components</a></p>
 					<hr>
 					<p><a href x-modal-manage-documents		x-project="pts.project"><span class='glyphicon glyphicon-file'></span> Documents</a></p>
 					<p><a href x-modal-manage-Reports		x-project="pts.project"><span class='glyphicon glyphicon-signal'></span> Reports</a></p>

@@ -87,7 +87,16 @@
 		{"name":"Submit Initial Submission", "groups":["Proponent"]},
 		{"name":"Receive Initial Submission", "groups":["EAO"]}
 	],
-	
+	"components": [
+		{
+			"name": "Project Description",
+			"type": "Milestone",
+			"requirements": [],
+			"contents":[],
+			"control": "active"
+		}
+		
+	],
 	
 	
 	

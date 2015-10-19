@@ -6,7 +6,8 @@
         .directive('tmplEaoProject', directiveEAOProject)
 		.directive('modalProjectEditPlanStages', directiveModalProjectEditPlanStages)
 		.directive('modalProjectEditPlanSchedule', directiveModalProjectEditPlanSchedule)
-		.directive('modalProjectEditPlanActivities', directiveModalProjectEditPlanActivities);        
+		.directive('modalProjectEditPlanActivities', directiveModalProjectEditPlanActivities)        
+		.directive('modalProjectEditPlanComponents', directiveModalProjectEditPlanComponents);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -123,5 +124,39 @@
         };
         return directive;
     }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Modal Edit Project Components
+	//
+    // -----------------------------------------------------------------------------------
+    directiveModalProjectEditPlanComponents.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalProjectEditPlanComponents($modal) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	project: '='
+            },
+			link : function(scope, element, attrs) {
+				element.on('click', function() {
+					var modalDocView = $modal.open({
+						animation: true,
+						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-components.html',
+						controller: 'controllerModalProjectEditPlanComponents',
+						controllerAs: 'pecomp',
+						resolve: {
+							rProject: function () {
+								return scope.project;
+							}
+						},
+						size: 'lg'
+					});
+					modalDocView.result.then(function () {}, function () {});
+				});
+			}
+        };
+        return directive;
+    }
+
 
 })();

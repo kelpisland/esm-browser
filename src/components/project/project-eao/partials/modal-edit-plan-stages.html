@@ -36,6 +36,9 @@
 
 </div>
 <div class="modal-footer">
+	<div ng-if="pestag.project.stages" class="pull-left small text-left">
+		<a href x-modal-project-edit-plan-schedule x-project="pestag.project" ng-click="pestag.ok()">Manage Schedule</a>
+	</div>
 	<button class="btn btn-warning" type="button" ng-click="pestag.cancel()">Cancel</button>
-	<button class="btn btn-primary" type="button" ng-click="pestag.ok()">Save</button>
+	<button class="btn btn-primary" type="button" ng-click="pestag.ok()">Close</button>
 </div>

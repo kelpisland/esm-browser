@@ -8,7 +8,8 @@
 		.controller('controllerEAOProjectNew', controllerEAOProjectNew)
 		.controller('controllerModalProjectEditPlanStages', controllerModalProjectEditPlanStages)
 		.controller('controllerModalProjectEditPlanSchedule', controllerModalProjectEditPlanSchedule)
-		.controller('controllerModalProjectEditPlanActivities', controllerModalProjectEditPlanActivities);
+		.controller('controllerModalProjectEditPlanActivities', controllerModalProjectEditPlanActivities)
+		.controller('controllerModalProjectEditPlanComponents', controllerModalProjectEditPlanComponents);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -107,7 +108,7 @@
 			// saving so write the new data.
 			rProject = angular.copy(pesched.project);
 			$modalInstance.close();
-		};
+		};	
 	};
     // -----------------------------------------------------------------------------------
 	//
@@ -149,7 +150,35 @@
 			$modalInstance.close();
 		};
 	};
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: Edit Project Components
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalProjectEditPlanComponents.$inject = ['$scope', '$modalInstance', 'rProject'];
+    //
+    function controllerModalProjectEditPlanComponents($scope, $modalInstance, rProject) { 
+		var pecomp = this;
+		
+		// set local var to passed project
+		pecomp.project = rProject;
 	
+		$scope.filter = {
+			active: true,
+			value: true,
+			other: false,
+			inactive: false
+		};
+
+
+		pecomp.cancel = function () { $modalInstance.dismiss('cancel'); };
+		pecomp.ok = function () { 
+			// saving so write the new data.
+			rProject = angular.copy(pecomp.project);
+			$modalInstance.close();
+		};
+	};
+
 	
 	
 	
