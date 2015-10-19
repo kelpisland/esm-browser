@@ -13,6 +13,9 @@
 
         'app.default',
         'app.documents',
+
+        'app.maps',
+        
         'app.project',
         'app.projects',
 

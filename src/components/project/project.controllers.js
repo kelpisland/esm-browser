@@ -102,6 +102,8 @@
 		var pr = this;
 		pr.searchResults = {};
 		
+		pr.workSpaceLayers = [];
+		
 		pr.panelSort = [
 			{'field': 'name', 'name':'Name'},
 			{'field': 'type', 'name':'Type'},
@@ -131,6 +133,7 @@
 
 			Project.getProjectLayers(newValue).then( function(res) {
 				pr.projectLayers = res.data;
+				pr.workSpaceLayers.push({"name":"Project", "layers": res.data});
 			});
 			
 			Project.getProjectTags(newValue).then( function(res) {

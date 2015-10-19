@@ -1,0 +1,46 @@
+<div class="modal-header">
+	<h3 class="modal-title">Project Activities</h3>
+</div>
+<div class="modal-body">
+
+	<form class="form-inline text-right">
+		<div class="form-group">
+			<label for="selectStage" class="control-label">Project Stage</label>
+			<select ng-options="stage as stage.name for stage in peact.project.stages" ng-model="form.stage" class="form-control"></select>
+		</div>
+	</form>
+
+	<table class='table table-condensed'>	
+		<thead>
+			<tr class="small">
+				<th width="30%">Activity</th>
+				<th width="20%" class='text-center'>Tasks</th>
+				<th width="50%" class='text-center'>Access</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="activity in peact.project.stages[ _.indexOf(peact.project.stages, form.stage) ].activities track by $index">
+				<td><p class="form-control-static">{{ activity.name }}</p></td>
+				<td class='text-center'>
+					<p class="form-control-static"><a href>{{ activity.tasks.length }}</a></p>
+				</td>
+				<td class='text-center'> 
+					<p class="form-control-static btn-list">
+						<button class="btn btn-xs btn-primary" ng-repeat="role in peact.roles" ng-class="{'btn-success': _.indexOf(activity.access, role) > -1}" ng-click="peact.toggleAccess(activity, role)">{{ role }}</button>
+					</p>
+				</td>
+			</tr>
+			<tr ng-if="!form.stage">
+				<td colspan="3" class="text-center">
+					<br/>Select a Project Stage.
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+
+</div>
+<div class="modal-footer">
+	<button class="btn btn-warning" type="button" ng-click="peact.cancel()">Cancel</button>
+	<button class="btn btn-primary" type="button" ng-click="peact.ok()">Save</button>
+</div>

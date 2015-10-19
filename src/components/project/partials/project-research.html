@@ -135,33 +135,5 @@
 	</div>
 </section>
  -->
-
-
-<section class="panel panel-default">
-	<div class='container-fluid'>
-		<div class='row'>
-			<div class='col-md-9 col-no-padding'>
-				<map center="54.726668, -127.647621" zoom="5" style='height: 500px' map-type-id="ROADMAP" min-zoom=5 disable-default-u-i="true"></map>
-			</div>
-			<div class='col-md-3 col-top-padding'>
-				<label class="control-label">Project Layers</label>
-				<div class="well well-small">
-					<ul class="list-unstyled task-list">
-						<li ng-repeat="layer in pr.projectLayers">
-							<button class="btn btn-block btn-sm btn-layer" ng-class="{'btn-success': pr.formProjectLayers[layer._id]}" ng-click="pr.formProjectLayers[layer._id] = !pr.formProjectLayers[layer._id]">{{ layer.name }}</button>
-						</li>
-					</ul>
-				</div>
-				<label class="control-label">Shared Layers</label>
-				<div class="well well-small">
-					<ul class="list-unstyled task-list">
-						<li ng-repeat="layer in pr.sharedLayers">
-							<button class="btn btn-block btn-sm btn-layer" ng-class="{'btn-success': pr.formSharedLayers[layer._id]}" ng-click="pr.formSharedLayers[layer._id] = !pr.formSharedLayers[layer._id]">{{ layer.name }}</button>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
+ 
+<tmpl-map x-layers="pr.layers"></tmpl-map>

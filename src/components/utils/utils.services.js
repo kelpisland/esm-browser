@@ -36,6 +36,9 @@
 		var getProjectResearchDetail = function(req) {
 			return $http({method:'GET',url: API + '/v1/researchDetail/' + req.seed + '/' + req.term });		
 		}
+		var getRoles = function(req) {
+			return $http({method:'GET',url: API + '/v1/roles' });		
+		}
 		return {
 			getCurrentUser: getCurrentUser,
 			getRecentActivity: getRecentActivity,
@@ -44,7 +47,8 @@
 			getCommonLayers: getCommonLayers,
 			getResearchFocus: getResearchFocus,
 			getResearchResults: getResearchResults,
-			getProjectResearchDetail: getProjectResearchDetail
+			getProjectResearchDetail: getProjectResearchDetail,
+			getRoles: getRoles
 		};
     }
 

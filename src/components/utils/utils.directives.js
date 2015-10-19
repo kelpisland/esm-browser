@@ -13,7 +13,9 @@
         .directive('isCurrentUser', directiveIsCurrentUser)
         .directive('expandPanel', directiveExpandPanel)
         .directive('modalResearchDetail', directiveModalResearchDetail)
-        .directive('goToElement', directiveGoToElement);
+        .directive('goToElement', directiveGoToElement)
+        .directive('dynamicClass', directiveDynamicClass)
+        .directive('dateField', directiveDateField);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -308,5 +310,53 @@
         };
         return directive;
     }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Dynamic Class
+	//
+    // -----------------------------------------------------------------------------------
+    directiveDynamicClass.$inject = ['$compile'];
+    /* @ngInject */
+    function directiveDynamicClass($compile) {
+        var directive = {
+			scope: {
+				dynamicClassWhen: '=',
+				dynamicClass: '@'
+			},
+			link: function(scope, elt, attrs) {
+				scope.$watch('dynamicClassWhen', function(val) {
+					if (val) {
+						elt.addClass(scope.dynamicClass);
+						$compile(elt)(scope);
+					}
+				});
+			}
+		};
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Date Field
+	//
+    // -----------------------------------------------------------------------------------
+	directiveDateField.$inject = ['moment'];
+    /* @ngInject */
+    function directiveDateField(moment) {
+		var directive = {
+			restrict: 'A',
+			require: 'ngModel',
+			link: function(scope, element, attr, ngModel) {
 
+				ngModel.$formatters.push(function(value){
+					return moment(value).toDate();
+				});
+
+// 				ngModel.$parsers.push(function(value){
+// 
+// 				});
+
+			}
+		};
+		return directive;
+	}
 })();

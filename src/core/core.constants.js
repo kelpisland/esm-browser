@@ -12,8 +12,8 @@
         .constant('_', _)
         .constant('API',  apiPath)
         .value('Global', {
-        					user:{name:{}, _id:undefined},
-        					public: true
-        				});
+			user:{name:{}, _id:undefined},
+			public: true
+		});
 
 })();
