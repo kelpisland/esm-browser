@@ -14,6 +14,9 @@ RUN npm install -g node-inspector bower gulp
 RUN useradd node -p xyz123
 
 RUN chown -R node:node /src
+
+USER node
+
 ENV HOME=/tmp TEMP=/tmp
 
 RUN npm install
