@@ -15,7 +15,7 @@ RUN useradd node -p xyz123
 
 RUN chown -R node:node /src
 ENV HOME=/tmp TEMP=/tmp
-reverted dockerfile.
+
 RUN npm install
 
 CMD ["gulp", "serve-dev"]
