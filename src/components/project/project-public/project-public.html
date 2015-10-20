@@ -64,7 +64,7 @@
 						<div class="col-sm-12">
 							<div>
 								<div class="progress-info-button pull-right clickable"
-										popover="At any stage in our process, new information could be introduced that requires investigation.  This takes time and the project dates are adjusted to reflect this."
+										popover="At any Phase in our process, new information could be introduced that requires investigation.  This takes time and the project dates are adjusted to reflect this."
 										popover-title="Why just an estimate?"
 										popover-placement='left'
 										popover-trigger='mouseenter'
@@ -81,20 +81,20 @@
 					<div class='row'>
 						<div class="col-sm-4">
 							<div class="text-center">
-								<label class="control-label">Current Stage</label>
-								<p>{{ vm.project.stage }}</p>
+								<label class="control-label">Current Phase</label>
+								<p>{{ vm.project.phase }}</p>
 							</div>
 						</div>
 						<div class="col-sm-4">
 							<div class="text-center">
-								<label class="control-label">Est. Stage Completion</label>
-								<p>{{ vm.project.estimatedStageCompleteDate | amDateFormat:'MMM Do YYYY' }}</p>
+								<label class="control-label">Est. Phase Completion</label>
+								<p>{{ vm.project.estimatedPhaseCompleteDate | amDateFormat:'MMM Do YYYY' }}</p>
 							</div>
 						</div>
 						<div class="col-sm-4">
 							<div class="text-center">
-								<label class="control-label ">Next Stage</label>
-								<p>{{ vm.project.nextStage }}</p>
+								<label class="control-label ">Next Phase</label>
+								<p>{{ vm.project.nextPhase }}</p>
 							</div>
 						</div>
 					</div> <!-- /row -->

@@ -5,8 +5,8 @@
 
 	<form class="form-inline text-right">
 		<div class="form-group">
-			<label for="selectStage" class="control-label">Project Stage</label>
-			<select ng-options="stage as stage.name for stage in peact.project.stages" ng-model="form.stage" class="form-control"></select>
+			<label for="selectPhase" class="control-label">Project Phase</label>
+			<select ng-options="phase as phase.name for phase in peact.project.phases" ng-model="form.phase" class="form-control"></select>
 		</div>
 	</form>
 
@@ -19,7 +19,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="activity in peact.project.stages[ _.indexOf(peact.project.stages, form.stage) ].activities track by $index">
+			<tr ng-repeat="activity in peact.project.phases[ _.indexOf(peact.project.phases, form.phase) ].activities track by $index">
 				<td><p class="form-control-static">{{ activity.name }}</p></td>
 				<td class='text-center'>
 					<p class="form-control-static"><a href>{{ activity.tasks.length }}</a></p>
@@ -30,9 +30,9 @@
 					</p>
 				</td>
 			</tr>
-			<tr ng-if="!form.stage">
+			<tr ng-if="!form.phase">
 				<td colspan="3" class="text-center">
-					<br/>Select a Project Stage.
+					<br/>Select a Project Phase.
 				</td>
 			</tr>
 
@@ -41,7 +41,7 @@
 
 </div>
 <div class="modal-footer">
-	<div ng-if="peact.project.stages" class="pull-left small text-left">
+	<div ng-if="peact.project.phases" class="pull-left small text-left">
 		<a href x-modal-project-edit-plan-schedule x-project="peact.project" ng-click="peact.ok()">Manage Schedule</a>
 	</div>
 

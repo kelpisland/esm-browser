@@ -21,7 +21,7 @@
 			dug.upload($scope.files);
 		});
 		$scope.$watch('file', function () {
-			if (dug.file != null) {
+			if (dug.file !== null) {
 				dug.upload([dug.file]);
 			}
 		});
@@ -47,7 +47,7 @@
 					}
 				}
 			}
-        }
+        };
     }
     // -----------------------------------------------------------------------------------
 	//
@@ -79,7 +79,5 @@
 		var md = this;
 		md.ok = function () { $modalInstance.close(); };
 		md.cancel = function () { $modalInstance.dismiss('cancel'); };
-	};
-
-
+	}
 })();

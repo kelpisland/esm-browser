@@ -10,9 +10,9 @@
 		</div>
 	
 		<div class='panel-body'>
-			<div><label class="control-label">Current Stage</label><p x-stage-colour x-stage="pts.project.stage">{{ pts.project.stage }}</p></div>
-			<div><label class="control-label">Estimated Stage Completion</label><p>{{ pts.project.estimatedStageCompleteDate | amDateFormat:'MMM Do YYYY' }}</p></div>
-			<div><label class="control-label">Next Stage</label><p x-stage-colour x-stage="pts.project.nextStage">{{ pts.project.nextStage }}</p></div>
+			<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="pts.project.phase">{{ pts.project.phase }}</p></div>
+			<div><label class="control-label">Estimated Phase Completion</label><p>{{ pts.project.estimatedPhaseCompleteDate | amDateFormat:'MMM Do YYYY' }}</p></div>
+			<div><label class="control-label">Next Phase</label><p x-phase-colour x-phase="pts.project.nextPhase">{{ pts.project.nextPhase }}</p></div>
 			<div><small><a href x-modal-project-schedule x-project="pts.project"><span class='glyphicon glyphicon-calendar'></span> Estimated Project Schedule</a></small></div>
 		</div>
 

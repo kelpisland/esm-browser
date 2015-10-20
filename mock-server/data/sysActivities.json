@@ -1,0 +1,17 @@
+[
+	{
+		"shortName":"actName",
+		"name":"Long Name",
+		"description":"",
+		"access":["roles"],
+		"requirements":["requirementName"],
+		"taskGroups":[
+			{
+				"shortName":"groupName",
+				"name": "Group Name",
+				"initial": true,
+				"tasks": []
+			}
+		]
+	}
+]

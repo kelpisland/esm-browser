@@ -30,20 +30,20 @@
 				<div class='row'>
 					<div class="col-sm-4">
 						<div>
-							<label class="control-label">Stage</label>
-							<p x-stage-colour x-stage="project.stage">{{ project.stage }}</p>
+							<label class="control-label">Phase</label>
+							<p x-phase-colour x-phase="project.phase">{{ project.phase }}</p>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div>
-							<label class="control-label">Est. Stage Completion</label>
-							<p>{{ project.estimatedStageCompleteDate | amDateFormat:'MMM Do, YYYY' }}</p>
+							<label class="control-label">Est. Phase Completion</label>
+							<p>{{ project.estimatedPhaseCompleteDate | amDateFormat:'MMM Do, YYYY' }}</p>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div>
-							<label class="control-label">Next Stage</label>
-							<p x-stage-colour x-stage="project.nextStage">{{ project.nextStage }}</p>
+							<label class="control-label">Next Phase</label>
+							<p x-phase-colour x-phase="project.nextPhase">{{ project.nextPhase }}</p>
 						</div>
 					</div>
 				</div> <!-- /row -->

@@ -10,32 +10,34 @@
 				<th width="18%" class='text-center'>Estimated Start</th>
 				<th width="18%" class='text-center'>Estimated End</th>
 				<th width="18%" class='text-center'>Actual Start</th>
-				<th width="18%" class='text-center'>Actual End</th>				
+				<th width="18%" class='text-center'>Actual End</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="stage in pesched.project.stages track by $index">
-				<td><p class="form-control-static">{{ stage.name }}</p></td>
+			<tr ng-repeat="phase in pesched.project.phases track by $index">
+				<td><p class="form-control-static">{{ phase.name }}</p></td>
 				<td class='text-center'>
-					<input type='date' x-date-field ng-model="stage.dateEstimatedStart" class="form-control text-center"/>
+					<input type='date' x-date-field ng-model="phase.dateEstimatedStart" class="form-control text-center" ng-disabled="phase.dateActualStart"/>
 				</td>
 				<td class='text-center'>
-					<input type='date' x-date-field ng-model="stage.dateEstimatedEnd" class="form-control text-center"/>
+					<input type='date' x-date-field ng-model="phase.dateEstimatedEnd" class="form-control text-center" ng-disabled="phase.dateActualEnd"/>
 				</td>
-				<td class='text-center'><p class="form-control-static">{{ stage.dateActualStart | amDateFormat:'MMM Do YYYY' }}</p></td>
-				<td class='text-center'><p class="form-control-static">{{ stage.dateActualEnd | amDateFormat:'MMM Do YYYY' }}</p></td>
+				<td class='text-center'><p class="form-control-static">{{ phase.dateActualStart | amDateFormat:'MMM Do YYYY' }}</p></td>
+				<td class='text-center'><p class="form-control-static">{{ phase.dateActualEnd | amDateFormat:'MMM Do YYYY' }}</p></td>
+				<td></td>
 			</tr>
 
-			<tr ng-if="!pesched.project.stages">
-				<td colspan="5" class="text-center">Project stages must be defined before the schedule.<br/><a href x-modal-project-edit-plan-stages x-project="pesched.project">Click here to define project stages.</a></td>
+			<tr ng-if="!pesched.project.phases">
+				<td colspan="6" class="text-center">Project phases must be defined before the schedule.<br/><a href x-modal-project-edit-plan-phases x-project="pesched.project">Click here to define project phases.</a></td>
 			</tr>
 		
 		</tbody>
 	</table>
 </div>
 <div class="modal-footer">
-	<div ng-if="pesched.project.stages" class="pull-left small text-left">
-		<a href x-modal-project-edit-plan-stages x-project="pesched.project" ng-click="pesched.ok()">Manage Stages</a>
+	<div ng-if="pesched.project.phases" class="pull-left small text-left">
+		<a href x-modal-project-edit-plan-phases x-project="pesched.project" ng-click="pesched.ok()">Manage Phases</a>
 		<br/>
 		<a href x-modal-project-edit-plan-activities x-project="pesched.project" ng-click="pesched.ok()">Manage Activities</a>
 	</div>

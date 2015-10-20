@@ -20,7 +20,7 @@
 
 		al.panelSort = [
 			{'field': 'name', 'name':'Title'},
-			{'field': 'stage', 'name':'Stage'},
+			{'field': 'Phase', 'name':'Phase'},
 			{'field': 'requirement', 'name':'Requires'},
 			{'field': 'updatedDate', 'name':'Date Updated'},
 			{'field': 'createDate', 'name':'Date Created'},			
@@ -40,18 +40,17 @@
     controllerActivityItem.$inject = ['$scope', '$state', 'Global'];
 	//
 	function controllerActivityItem($scope, $state, Global) {
-		var al = this;
+		var ai = this;
 		
-		al.goToActivity = function(activityId) {
-			console.log(Global.user.type);
+		ai.goToActivity = function(activityId) {
 			if (Global.user.type === 'EAO') {
 				$state.go('eao.activity', {id:activityId});
 			} else if (Global.user.type === 'Proponent') {
 				$state.go('proponent.activity', {id:activityId});			
 			}
-		}			
+		};		
 
-		al.activity = $scope.activity;
+		ai.activity = $scope.activity;
     }
     // -----------------------------------------------------------------------------------
 	//
@@ -77,7 +76,7 @@
 				ad.filterDocumentsBy = '';
 				ad.filteredDocumentsFor = undefined;
 			}
-		}
+		};
 		
 		
 		$scope.$watch('detail', function(newValue) {	

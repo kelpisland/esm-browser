@@ -1,0 +1,9 @@
+[
+	{
+		"shortName":"bucketName",
+		"name": "Intake",
+		"type":"phase",
+		"access":["role"],
+		"requirements":["requirementName"]
+	}
+]

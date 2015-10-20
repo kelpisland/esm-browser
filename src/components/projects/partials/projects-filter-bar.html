@@ -41,10 +41,10 @@
 			<li ng-if="fbc.userType === 'EAO'">
 				<div class="navbar-form">
 					<div class="form-group">
-						<label class="control-label">Stage</label>
-						<select ng-model='filter.filterObject.stage' class="form-control">
+						<label class="control-label">Phase</label>
+						<select ng-model='filter.filterObject.phase' class="form-control">
 							<option value="">All</option>
-							<option ng-repeat='stage in fbc.stages' value='{{ stage.name }}'>{{ stage.name }}</option>
+							<option ng-repeat='phase in fbc.phases' value='{{ phase.name }}'>{{ phase.name }}</option>
 						</select>
 					</div>
 				</div>	

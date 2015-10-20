@@ -6,7 +6,7 @@
     	// EAO
         .controller('controllerEAOProject', controllerEAOProject)
 		.controller('controllerEAOProjectNew', controllerEAOProjectNew)
-		.controller('controllerModalProjectEditPlanStages', controllerModalProjectEditPlanStages)
+		.controller('controllerModalProjectEditPlanPhases', controllerModalProjectEditPlanPhases)
 		.controller('controllerModalProjectEditPlanSchedule', controllerModalProjectEditPlanSchedule)
 		.controller('controllerModalProjectEditPlanActivities', controllerModalProjectEditPlanActivities)
 		.controller('controllerModalProjectEditPlanComponents', controllerModalProjectEditPlanComponents);
@@ -46,47 +46,47 @@
 	// CONTROLLER: Modal: View Project Schedule
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalProjectEditPlanStages.$inject = ['$modalInstance', 'rProject', 'Utils'];
+    controllerModalProjectEditPlanPhases.$inject = ['$modalInstance', 'rProject', 'Utils'];
     //
-    function controllerModalProjectEditPlanStages($modalInstance, rProject, Utils) { 
+    function controllerModalProjectEditPlanPhases($modalInstance, rProject, Utils) { 
 		var pestag = this;
 		
-		// remove a stage from the temporary list.
-		pestag.removeStageFromProject = function(idx) {
-			pestag.projectStages.splice(idx, 1);
+		// remove a Phase from the temporary list.
+		pestag.removePhaseFromProject = function(idx) {
+			pestag.projectPhases.splice(idx, 1);
 		};
 
-		// remove a stage from the temporary list.
-		pestag.addStageToProject = function(stage) {
-			pestag.projectStages.push(stage);
+		// remove a Phase from the temporary list.
+		pestag.addPhaseToProject = function(phase) {
+			pestag.projectPhases.push(phase);
 		};
 
-		// remove a stage from the temporary list.
-		pestag.addStageToProject = function(stage) {
-			pestag.projectStages.push(stage);
+		// remove a Phase from the temporary list.
+		pestag.addPhaseToProject = function(phase) {
+			pestag.projectPhases.push(phase);
 		};
 		
-		// remove a stage from the temporary list.
-		pestag.inProject = function(stage) {
-			return _.includes(pestag.projectStages, stage);
+		// remove a Phase from the temporary list.
+		pestag.inProject = function(phase) {
+			return _.includes(pestag.projectPhases, phase);
 		};
 		
-		// TODO: manually sort the stage list.
+		// TODO: manually sort the Phase list.
 		
 		// set local var to passed project
 		pestag.project = rProject;
 
-		// copy the stages so we can cancel the changes.
-		pestag.projectStages = angular.copy(rProject.stages) || [];
+		// copy the Phases so we can cancel the changes.
+		pestag.projectPhases = angular.copy(rProject.phases) || [];
 
-		Utils.getProjectStages().then( function(res) {
-			pestag.allStages = res.data;
+		Utils.getProjectPhases().then( function(res) {
+			pestag.allPhases = res.data;
 		});
 
 		pestag.cancel = function () { $modalInstance.dismiss('cancel'); };
 		pestag.ok = function () { 
 			// saving so write the new data.
-			rProject.stages = angular.copy(pestag.projectStages);
+			rProject.phases = angular.copy(pestag.projectPhases);
 			$modalInstance.close();
 		};
 	};

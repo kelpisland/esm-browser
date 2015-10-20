@@ -4,7 +4,7 @@
 
     angular.module('app.project')
         .directive('tmplEaoProject', directiveEAOProject)
-		.directive('modalProjectEditPlanStages', directiveModalProjectEditPlanStages)
+		.directive('modalProjectEditPlanPhases', directiveModalProjectEditPlanPhases)
 		.directive('modalProjectEditPlanSchedule', directiveModalProjectEditPlanSchedule)
 		.directive('modalProjectEditPlanActivities', directiveModalProjectEditPlanActivities)        
 		.directive('modalProjectEditPlanComponents', directiveModalProjectEditPlanComponents);
@@ -27,12 +27,12 @@
     }
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Modal Edit Project Stages
+	// DIRECTIVE: Modal Edit Project Phases
 	//
     // -----------------------------------------------------------------------------------
-    directiveModalProjectEditPlanStages.$inject = ['$modal'];
+    directiveModalProjectEditPlanPhases.$inject = ['$modal'];
     /* @ngInject */
-    function directiveModalProjectEditPlanStages($modal) {
+    function directiveModalProjectEditPlanPhases($modal) {
         var directive = {
             restrict:'A',
             scope : {
@@ -42,8 +42,8 @@
 				element.on('click', function() {
 					var modalDocView = $modal.open({
 						animation: true,
-						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-stages.html',
-						controller: 'controllerModalProjectEditPlanStages',
+						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-phases.html',
+						controller: 'controllerModalProjectEditPlanPhases',
 						controllerAs: 'pestag',
 						resolve: {
 							rProject: function () {
@@ -60,7 +60,7 @@
     }
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Modal Edit Project Stages
+	// DIRECTIVE: Modal Edit Project Phases
 	//
     // -----------------------------------------------------------------------------------
     directiveModalProjectEditPlanSchedule.$inject = ['$modal'];

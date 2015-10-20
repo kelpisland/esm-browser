@@ -38,7 +38,7 @@
  			$rootScope.$emit('loggedIn');
 
  			$state.go('public.projects');
-		}
+		};
 
 		def.proponentUser = function() {
  			Global.user.name = 'Proponent';
@@ -48,7 +48,7 @@
  			$rootScope.$emit('loggedIn');
  			
   			$state.go('proponent.projects');
-		}
+		};
 
 		def.eaoUser = function() {
  			Global.user.name = 'EAO';
@@ -58,7 +58,7 @@
  			$rootScope.$emit('loggedIn');
   			
   			$state.go('eao.projects');
-		}
+		};
     
     }
 
