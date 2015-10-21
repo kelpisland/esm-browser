@@ -21,8 +21,8 @@
     	var getQuickLinks = function(req) {
 			return $http({method:'GET',url: API + '/v1/utils/quicklinks'});
 		};
-		var getProjectStages = function(req) {
-			return $http({method:'GET',url: API + '/v1/projectstages'});
+		var getProjectPhases = function(req) {
+			return $http({method:'GET',url: API + '/v1/projectPhases'});
 		};
 		var getCommonLayers = function(req) {
 			return $http({method:'GET',url: API + '/v1/layers'});
@@ -43,7 +43,7 @@
 			getCurrentUser: getCurrentUser,
 			getRecentActivity: getRecentActivity,
 			getQuickLinks: getQuickLinks,
-			getProjectStages: getProjectStages,
+			getProjectPhases: getProjectPhases,
 			getCommonLayers: getCommonLayers,
 			getResearchFocus: getResearchFocus,
 			getResearchResults: getResearchResults,

@@ -8,12 +8,7 @@
 	"updatedDate":"2015-02-10T23:58:15.181Z",
 	"description":"Address open discussion points regarding Bats.",
 	"status":"Open",
-	"requirement":"Response",
-	"requirements":[
-		{"group":"EAO", "requirement":"Review"},
-		{"group":"Proponent", "requirement":"Endorsement"}
-	],
-	"valueComponents":["Bats"],
+	"buckets":["Bats"],
 	"response":"This is the current response",
 	"relatedDocuments": [
 		{"title": "Document 1", "date":"2015-01-01T23:58:15.181Z", "v":1.0, "responses": ["resp1234", "resp1235"]},

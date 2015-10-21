@@ -6,17 +6,17 @@
 	"description":"Construction of a new wind farm, with a nominal capacity of 70.5 MW with a preliminary layout of 47 turbines.",
 	"region":"Vancouver Island/Coast",
 	"location":"Knob Hill",
-	"stage":"Draft A.I.R. Accepted",
-	"nextStage":"Evaluate Application",
-	"estimatedStageCompleteDate": "2015-11-01T23:58:15.181Z",
-	"nextExpectedStage":"Project Description Approval",
+	"phase":"Draft A.I.R. Accepted",
+	"nextPhase":"Evaluate Application",
+	"estimatedPhaseCompleteDate": "2015-11-01T23:58:15.181Z",
+	"nextExpectedPhase":"Project Description Approval",
 	"preapplicationStartDate": "2015-03-01T23:58:15.181Z",
 	"commentOpen": "2015-09-28T12:00:00.181Z",
 	"commentClose": "2015-10-28T12:00:00.181Z",
 	"progress":85,
 	"lat":50.752097,
 	"long":-128.322029,
-	"stages": [
+	"phases": [
 		{
 			"name":"Create Project",
 			"responsibility":["EAO"],

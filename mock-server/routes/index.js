@@ -3,17 +3,20 @@ module.exports = function(app) {
     var data = '/../../data/';
     var jsonfileservice = require('./utils/jsonfileservice')();
 
+	app.use(function(req, res, next) {
+		res.header("Access-Control-Allow-Origin", "*");
+		res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+		next();
+	});
+
     app.get(api + '/v1/project/:id', getProject);
     app.get(api + '/v1/projects', getProjects);
-
-    app.get(api + '/v1/projecttypes', getProjectTypes);
-    app.get(api + '/v1/projectstages', getProjectStages);
 
     app.get(api + '/v1/utils/recentactivity', getUtilsRecentActivity);
     app.get(api + '/v1/utils/quicklinks', getUtilsQuickLinks);
 
-    app.get(api + '/v1/activities/:id', getActivities);
-	app.get(api + '/v1/activity/:id', getActivity);
+    app.get(api + '/v1/activities/:id', getProjectActivities);
+	app.get(api + '/v1/activity/:id', getProjectActivity);
 
 	app.get(api + '/v1/user/:id', getUser);
 	
@@ -24,6 +27,8 @@ module.exports = function(app) {
 	app.get(api + '/v1/responseRevisions/:id', getResponseRevisions);		
 
 	app.get(api + '/v1/item/:id', getItem);		
+
+    app.get(api + '/v1/alerts/user', getAlertsUser);
 
 	app.get(api + '/v1/project/:id/buckets', getProjectBuckets);	
 	app.get(api + '/v1/project/:id/tags', getProjectTags);	
@@ -39,9 +44,9 @@ module.exports = function(app) {
 	app.get(api + '/v1/research/:term', getResearchResults);
 	app.get(api + '/v1/researchDetail/:seed/:term', getResearchResultDetail);
 
-
-	app.get(api + '/v1/roles', getRoles);
-
+	app.get(api + '/v1/roles', getSysRoles);
+    app.get(api + '/v1/projecttypes', getSysProjectTypes);
+    app.get(api + '/v1/projectphases', getSysProjectPhases);
 
     function getProject(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'project.json');
@@ -50,11 +55,6 @@ module.exports = function(app) {
 
     function getProjects(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'projects.json');
-        res.send(json);
-    }
-
-    function getProjectTypes(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projectTypes.json');
         res.send(json);
     }
 
@@ -83,20 +83,17 @@ module.exports = function(app) {
         res.send(json);
     }  
 
-    function getActivities(req, res, next) {
+    function getProjectActivities(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'activities.json');
         res.send(json);
     }
 
-    function getActivity(req, res, next) {
+    function getProjectActivity(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'activity.json');
         res.send(json);
     }
 
-    function getProjectStages(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projectStages.json');
-        res.send(json);
-    }
+
 
     function getResponseRevisions(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'responseRevisions.json');
@@ -110,6 +107,11 @@ module.exports = function(app) {
 
     function getItem(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'item.json');
+        res.send(json);
+    }
+
+    function getAlertsUser(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'alerts.json');
         res.send(json);
     }
 
@@ -158,8 +160,23 @@ module.exports = function(app) {
         res.send(json);
     }
 
-	function getRoles(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'roles.json');
+    function getSysProjectTypes(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'sysProjectTypes.json');
+        res.send(json);
+    }
+
+    function getSysProjectPhases(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'sysProjectPhases.json');
+        res.send(json);
+    }
+
+	function getSysRoles(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'sysRoles.json');
+        res.send(json);
+    }
+
+    function getSysActivities(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'sysActivities.json');
         res.send(json);
     }
 

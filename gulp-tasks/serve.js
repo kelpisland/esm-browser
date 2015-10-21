@@ -108,10 +108,10 @@ module.exports = function (config) {
             },
             port: config.port,
             ghostMode: {
-                clicks: true,
+                clicks: false,
                 location: false,
-                forms: true,
-                scroll: true
+                forms: false,
+                scroll: false
             },
             injectChanges: true,
             logFileChanges: true,

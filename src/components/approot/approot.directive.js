@@ -39,9 +39,9 @@
 			rt.public = res.data.public;
 		});
 		
-		// Get Project Stages for use in filter.
-		Utils.getProjectStages().then( function(res) {
-			Global.projectStages = res.data;
+		// Get Project Phases for use in filter.
+		Utils.getProjectPhases().then( function(res) {
+			Global.projectPhases = res.data;
 		});	
 		
 		

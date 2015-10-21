@@ -15,11 +15,11 @@
 						</div>
 
 						<div class='col-sm-3'>
-							<div><label class="control-label">Current Stage</label><p x-stage-colour x-stage="pts.project.stage">{{ pts.project.stage }}</p></div>
+							<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="pts.project.phase">{{ pts.project.phase }}</p></div>
 						</div>
 
 						<div class='col-sm=3'>
-							<div><label class="control-label">Estimated Stage Completion</label><p>{{ pts.project.estimatedStageCompleteDate | amDateFormat:'MMM Do YYYY' }}</p></div>
+							<div><label class="control-label">Estimated Phase Completion</label><p>{{ pts.project.estimatedPhaseCompleteDate | amDateFormat:'MMM Do YYYY' }}</p></div>
 						</div>
 						
 					</div> 
@@ -30,9 +30,9 @@
 						<div class='col-sm-3'>
 							<div><label class="control-label">Type</label><p>{{ pts.project.type }}</p></div>
 							<div><label class="control-label">Location</label><p>{{ pts.project.region }}</p></div>
-							<div><label class="control-label">Current Stage</label><p x-stage-colour x-stage="pts.project.stage">{{ pts.project.stage }}</p></div>
-							<div><label class="control-label">Estimated Stage Completion</label><p>{{ pts.project.estimatedStageCompleteDate | amDateFormat:'MMM Do YYYY' }}</p></div>
-							<div><label class="control-label">Next Stage</label><p x-stage-colour x-stage="pts.project.nextStage">{{ pts.project.nextStage }}</p></div>
+							<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="pts.project.phase">{{ pts.project.phase }}</p></div>
+							<div><label class="control-label">Estimated Phase Completion</label><p>{{ pts.project.estimatedPhaseCompleteDate | amDateFormat:'MMM Do YYYY' }}</p></div>
+							<div><label class="control-label">Next Phase</label><p x-phase-colour x-phase="pts.project.nextPhase">{{ pts.project.nextPhase }}</p></div>
 						</div>
 
 						<div class='col-sm-6'>
@@ -41,7 +41,7 @@
 						</div>
 
 						<div class='col-sm-3'>
-							<label class="control-label">Stage Completion</label>
+							<label class="control-label">Phase Completion</label>
 							<tmpl-progress-circle x-subtext="estimated progress" x-percentage="pts.project.progress" x-max-width="200"></tmpl-progress-circle>
 						</div>
 					</div>
@@ -63,7 +63,7 @@
 						</div>
 		
 						<div class='col-sm-6'>
-							<label class="control-label">Stage Progress</label>
+							<label class="control-label">Phase Progress</label>
 							<tmpl-progress-bar x-percentage="pts.project.progress"></tmpl-progress-bar>
 						</div>					
 					
@@ -76,7 +76,7 @@
 					Activities Not Started:<br/>
 					Documents:<br/>
 					Valid Comments:<br/>
-					Time to Next stage:<br/>
+					Time to Next Phase:<br/>
 					Schedule Estimate Accuracy:<br/>
 				</div>
 
@@ -96,7 +96,7 @@
 					<p><a href x-modal-eao-project-edit		x-project="pts.project"><span class='glyphicon glyphicon-pencil'></span> Edit Project</a></p>
 					<p><a href x-modal-eao-access			x-project="pts.project"><span class='glyphicon glyphicon-user'></span> Manage Access</a></p>
 					<hr>
-					<p><a href x-modal-project-edit-plan-stages		x-project="pts.project"><span class='glyphicon glyphicon-certificate'></span> Manage Stages</a></p>
+					<p><a href x-modal-project-edit-plan-phases		x-project="pts.project"><span class='glyphicon glyphicon-certificate'></span> Manage Phases</a></p>
 					<p><a href x-modal-project-edit-plan-schedule 	x-project="pts.project"><span class='glyphicon glyphicon-calendar'></span> Manage Schedule</a></p>
 					<p><a href x-modal-project-edit-plan-activities	x-project="pts.project"><span class='glyphicon glyphicon-tasks'></span> Manage Activities</a></p>
 					<p><a href x-modal-project-edit-plan-components	x-project="pts.project"><span class='glyphicon glyphicon-tasks'></span> Manage Components</a></p>

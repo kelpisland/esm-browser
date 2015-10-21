@@ -21,8 +21,8 @@
 			fbc.types = res.data;
 		});
 
-		Projects.getProjectStages().then( function(res) {
-			fbc.stages = res.data;
+		Projects.getProjectPhases().then( function(res) {
+			fbc.phases = res.data;
 		});
 
 		fbc.userType = Global.user.type;

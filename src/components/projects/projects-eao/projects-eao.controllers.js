@@ -23,7 +23,7 @@
 
 		vm.panelSort = [
 			{'field': 'name', 'name':'Title'},
-			{'field': 'stage', 'name':'Stage'},
+			{'field': 'Phase', 'name':'Phase'},
 			{'field': 'requirement', 'name':'Requires'},
 			{'field': 'updatedDate', 'name':'Date Updated'},
 			{'field': 'createDate', 'name':'Date Created'},			

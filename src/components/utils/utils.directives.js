@@ -9,7 +9,7 @@
         .directive('centerVertical', directiveCenterVertical)
         .directive('countdownClock',directiveCountdownClock)
         .directive('panelSort',directivePanelSort)
-        .directive('stageColour',directiveStageColour)
+        .directive('phaseColour',directivePhaseColour)
         .directive('isCurrentUser', directiveIsCurrentUser)
         .directive('expandPanel', directiveExpandPanel)
         .directive('modalResearchDetail', directiveModalResearchDetail)
@@ -177,24 +177,24 @@
     }
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Coloured Stage
-	// if the stage is assigned to you, the stage name is green.
-	// if the stage is not assigned to you, the stage name is blue.
+	// DIRECTIVE: Coloured Phase
+	// if the Phase is assigned to you, the Phase name is green.
+	// if the Phase is not assigned to you, the Phase name is blue.
 	//
     // -----------------------------------------------------------------------------------
-    directiveStageColour.$inject = ['$filter'];
+    directivePhaseColour.$inject = ['$filter'];
     /* @ngInject */
-    function directiveStageColour($filter) {
+    function directivePhaseColour($filter) {
 		var directive = {
 			restrict: 'A',
 			scope: {
-				stage: '='
+				Phase: '='
 			},
 			link: function link(scope, element, attrs) {
 			
-				scope.$watch('stage', function(newValue) {
+				scope.$watch('Phase', function(newValue) {
 					if (newValue) {
-						var mine = $filter('projectStageContributor')(newValue);
+						var mine = $filter('projectPhaseContributor')(newValue);
 						
 						if (mine) {
 							angular.element(element).addClass('text-success');
@@ -209,9 +209,9 @@
 	};
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Is Current User  - Similar to Coloured Stage
-	// if the stage is assigned to you, the stage name is green.
-	// if the stage is not assigned to you, the stage name is blue.
+	// DIRECTIVE: Is Current User  - Similar to Coloured Phase
+	// if the Phase is assigned to you, the Phase name is green.
+	// if the Phase is not assigned to you, the Phase name is blue.
 	//
     // -----------------------------------------------------------------------------------
     directiveIsCurrentUser.$inject = ['Global'];

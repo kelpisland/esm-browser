@@ -1,5 +1,12 @@
 [
-	{"name":"Create Project", "groups":["Proponent"]},
+	{
+		"shortName":"createProject",
+		"name":"Create Project", 
+		"roles":["Proponent"],
+		"buckets":["Intake"],
+		"activities":["Activity Names"],
+		"prerequisitPhases":["Phase Names"]
+	},
 	{"name":"Prepare Initial Submission", "groups":["Proponent"]},
 	{"name":"Submit Initial Submission", "groups":["Proponent"]},
 	{"name":"Receive Initial Submission", "groups":["EAO"]},
