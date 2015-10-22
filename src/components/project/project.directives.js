@@ -6,6 +6,7 @@
         .directive('modalProjectSchedule', directiveModalProjectSchedule)
         .directive('tmplProjectTombstoneHorizontal', directiveProjectTombstoneHorizontal)
         .directive('tmplProjectTombstoneVertical', directiveProjectTombstoneVertical)
+        .directive('tmplProjectTimeline', directiveProjectTimeline)
         .directive('tmplProjectEntryTombstoneHorizontal', directiveProjectEntryTombstone)
         .directive('tmplProjectBucketListing', directiveProjectBucketListing)
         .directive('tmplProjectResearch', directiveProjectResearch);
@@ -81,7 +82,25 @@
         };
         return directive;
     }
-
+    // -----------------------------------------------------------------------------------
+    //
+    // DIRECTIVE: Project Timeline Horizontal
+    //
+    // -----------------------------------------------------------------------------------
+    directiveProjectTimeline.$inject = [];
+    /* @ngInject */
+    function directiveProjectTimeline() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/project/partials/project-timeline.html',
+            controller: 'controllerProjectTimeline',
+            controllerAs: 'ptime',
+            scope: {
+                project: '='
+            }
+        };
+        return directive;
+    }
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Project Entry Tombstone - just insert the template

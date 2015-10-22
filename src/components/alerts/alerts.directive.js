@@ -3,7 +3,8 @@
     'use strict';
 
     angular.module('app.alerts')      
-        .directive('modalAlertViewer', directiveModalAlertViewer);
+        .directive('modalAlertViewer', directiveModalAlertViewer)
+        .directive('tmplAlertList', directiveAlertList);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -16,13 +17,15 @@
         var directive = {
             restrict:'A',
             scope : {
-                user: '='
+                divider: '='
             },                         
 			link : function(scope, element, attrs) {
 
                 Alerts.getAlerts().then( function(res) {
                     element.html('<i class="glyphicon glyphicon-alert"></i>&nbsp;&nbsp;' + res.data.length + " alerts");
-                    angular.element(element).after("&nbsp;|&nbsp;");
+                    if( scope.divider ) {
+                        angular.element(element).after("&nbsp;|&nbsp;");
+                    }
     				element.on('click', function() {
     					var modalAlertView = $modal.open({
     						animation: true,
@@ -31,7 +34,6 @@
     						controllerAs: 'alertView',
     						size: 'lg',
                             resolve: {
-                                rUser: function() {return scope.user},
                                 rAlerts: function() {return res.data}
                             }
     					});
@@ -44,4 +46,23 @@
         };
         return directive;
     }
+
+    // -----------------------------------------------------------------------------------
+    //
+    // DIRECTIVE: Alert List
+    //
+    // -----------------------------------------------------------------------------------
+    directiveAlertList.$inject = ['$modal', 'Alerts'];
+    /* @ngInject */
+    function directiveAlertList($modal, Alerts) {
+        var directive = {
+            restrict:'E',
+            templateUrl: 'components/alerts/partials/alert-list.html',
+            controller: 'controllerAlertList',
+            controllerAs: 'alertList'
+        };
+        return directive;
+    }
+
+
 })();

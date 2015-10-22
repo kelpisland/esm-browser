@@ -1,5 +1,4 @@
-/* Move down content because we have a fixed navbar that is 50px tall */
-body {
+/* Move down content because we have a fixed navbar that is 50px tall */ body {
     padding-top: 0px;
 }
 body {
@@ -475,4 +474,9 @@ nav {
 .btn-list .btn {
 	margin: 0 2px;
 	display: inline-block;
+}
+
+.task-selected {
+	border-left: 5px solid white;
+	border-right: 5px solid white;
 }

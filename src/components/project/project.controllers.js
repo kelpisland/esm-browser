@@ -6,6 +6,7 @@
 		// General
         .controller('modalProjectSchedule', controllerModalProjectSchedule)
         .controller('controllerProjectTombstone', controllerProjectTombstone)
+        .controller('controllerProjectTimeline', controllerProjectTimeline)        
         .controller('controllerProjectEntryTombstone', controllerProjectEntryTombstone)
         .controller('controllerProjectBucketListing', controllerProjectBucketListing)
 		.controller('controllerProjectResearch', controllerProjectResearch);
@@ -36,6 +37,20 @@
 		
 		$scope.$watch('project', function(newValue) {
 			pts.project = newValue;		
+		});
+    }    
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Project Timeline
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerProjectTimeline.$inject = ['$scope'];
+	//
+	function controllerProjectTimeline($scope) {
+		var ptime = this;
+		
+		$scope.$watch('project', function(newValue) {
+			ptime.project = newValue;		
 		});
     }    
     // -----------------------------------------------------------------------------------
