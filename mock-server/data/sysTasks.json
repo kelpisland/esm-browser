@@ -3,19 +3,18 @@
 		"shortName":"taskName",
 		"name":"Long Name",
 		"value":"Not Started",
+		"process":"processName",
 		"values": [
 			{
 				"title":"Not Started"
 			},
 			{
 				"title":"In Progress",
-				"processes":["processName"],
 				"groups":["taskGroupName"],
 				"canComplete":["projectRole"]
 			},
 			{
 				"title":"Complete",
-				"processes":["processName"],
 				"groups":["groupName"],
 				"canComplete":["projectRole"],
 				"requirementsMet":["requirementName"]

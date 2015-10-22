@@ -41,9 +41,10 @@
 								"t1234":{
 									"_id": "t1234",
 									"title":"Confirmation - No Comment",
+									"process": "confirmNoComment",
 									"value":"Not Started",
 									"values": [	{"title":"Not Started"},
-												{"title":"In Progress", "processes": ["confirmNoComment"]},
+												{"title":"In Progress"},
 												{"title":"Complete"},
 												{"title":"Not Applicable"}
 											]
@@ -51,9 +52,10 @@
 								"t56789":{
 									"_id": "t56789",				
 									"title":"Confirmation - With Comment",
+									"process": "confirmWithComment",
 									"value":"Not Started",
 									"values": [	{"title":"Not Started"},
-												{"title":"In Progress", "processes": ["confirmWithComment"]},
+												{"title":"In Progress"},
 												{"title":"Complete", "groups": [5678]},
 												{"title":"Not Applicable"}
 											]
@@ -68,9 +70,10 @@
 								"t5678":{
 									"_id":"t5678",
 									"title":"Item 2",
+									"process": "uploadDocument",
 									"value":"Not Started",
 									"values": [	{"title":"Not Started"},
-												{"title":"In Progress", "processes": ["uploadDocument"]},
+												{"title":"In Progress"},
 												{"title":"Complete"},
 												{"title":"Not Applicable"}
 											]

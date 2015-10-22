@@ -1,22 +1,32 @@
-<div class="panel panel-default" x-expand-panel='taskCnc.form[taskCnc.anchor]'>
+<div class="panel panel-default">
 	<div class="panel-heading">
-		{{ taskCnc.item.title }}
+		{{ taskCnc.item.title }} {{ taskCnc.item.value}}
 	</div>
 
-	<div class="panel-body" ng-if="taskCnc.form[taskCnc.anchor] && taskCnc.item.value !== 'Complete'">
+	<div class="panel-body" ng-if="taskCnc.item.value === 'Not Started'">
+
+		<div class="row" >
+			<div class="col-sm-10">
+				<label>Confirmation Needed.</label>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="panel-body" ng-if="taskCnc.item.value === 'In Progress'">
 
 		<div class="row">
 			<div class="col-sm-10">
-				By clicking complete, you confirm this task has been completed.
+				Click complete to confirm.
 			</div>
 			<div class="col-sm-2">
-				<button class="btn btn-success btn-block" ng-click="taskCnc.completeTask();">Complete</button>
+				<button class="btn btn-success btn-block" ng-click="taskCwc.completeTask();">Complete</button>
 			</div>	
 		</div>
 
 	</div>
 
-	<div class="panel-body" ng-if="taskCnc.form[taskCnc.anchor] && taskCnc.item.value === 'Complete'">
+	<div class="panel-body" ng-if="taskCnc.item.value === 'Complete'">
 
 		<div class="row">
 			<div class="col-sm-12">

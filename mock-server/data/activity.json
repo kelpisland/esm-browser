@@ -30,8 +30,9 @@
 					"_id": "t1234",
 					"title":"Confirmation - No Comment",
 					"value":"Not Started",
+					"process": "confirmNoComment",
 					"values": [	{"title":"Not Started"},
-								{"title":"In Progress", "processes": ["confirmNoComment"]},
+								{"title":"In Progress"},
 								{"title":"Complete"},
 								{"title":"Not Applicable"}
 							]
@@ -40,8 +41,9 @@
 					"_id": "t56789",				
 					"title":"Confirmation - With Comment",
 					"value":"Not Started",
+					"process": "confirmWithComment",
 					"values": [	{"title":"Not Started"},
-								{"title":"In Progress", "processes": ["confirmWithComment"]},
+								{"title":"In Progress"},
 								{"title":"Complete", "groups": [5678]},
 								{"title":"Not Applicable"}
 							]
