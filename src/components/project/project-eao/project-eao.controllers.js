@@ -6,10 +6,10 @@
     	// EAO
         .controller('controllerEAOProject', controllerEAOProject)
 		.controller('controllerEAOProjectNew', controllerEAOProjectNew)
-		.controller('controllerModalProjectEditPlanPhases', controllerModalProjectEditPlanPhases)
+		.controller('controllerModalProjectEditPlanMilestones', controllerModalProjectEditPlanMilestones)
 		.controller('controllerModalProjectEditPlanSchedule', controllerModalProjectEditPlanSchedule)
 		.controller('controllerModalProjectEditPlanActivities', controllerModalProjectEditPlanActivities)
-		.controller('controllerModalProjectEditPlanComponents', controllerModalProjectEditPlanComponents);
+		.controller('controllerModalProjectEditPlanArtifacts', controllerModalProjectEditPlanArtifacts);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -46,47 +46,43 @@
 	// CONTROLLER: Modal: View Project Schedule
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalProjectEditPlanPhases.$inject = ['$modalInstance', 'rProject', 'Utils'];
+    controllerModalProjectEditPlanMilestones.$inject = ['$modalInstance', 'rProject', 'Utils'];
     //
-    function controllerModalProjectEditPlanPhases($modalInstance, rProject, Utils) { 
+    function controllerModalProjectEditPlanMilestones($modalInstance, rProject, Utils) { 
 		var pestag = this;
 		
-		// remove a Phase from the temporary list.
-		pestag.removePhaseFromProject = function(idx) {
-			pestag.projectPhases.splice(idx, 1);
+		// remove a milestone from the temporary list.
+		pestag.removeMilestoneFromProject = function(idx) {
+			pestag.projectMilestones.splice(idx, 1);
 		};
 
-		// remove a Phase from the temporary list.
-		pestag.addPhaseToProject = function(phase) {
-			pestag.projectPhases.push(phase);
+		// add the milestone to the project
+		pestag.addMilestoneToProject = function(milestone) {
+			pestag.projectMilestones.push(milestone);
 		};
 
-		// remove a Phase from the temporary list.
-		pestag.addPhaseToProject = function(phase) {
-			pestag.projectPhases.push(phase);
+	
+		// is the milestone already in the project?
+		pestag.inProject = function(milestone) {
+			return _.includes(pestag.projectMilestones, milestone);
 		};
 		
-		// remove a Phase from the temporary list.
-		pestag.inProject = function(phase) {
-			return _.includes(pestag.projectPhases, phase);
-		};
-		
-		// TODO: manually sort the Phase list.
+		// TODO: manually sort the milestone list.
 		
 		// set local var to passed project
 		pestag.project = rProject;
 
-		// copy the Phases so we can cancel the changes.
-		pestag.projectPhases = angular.copy(rProject.phases) || [];
+		// copy the milestones so we can cancel the changes.
+		pestag.projectMilestones = angular.copy(rProject.milestones) || [];
 
-		Utils.getProjectPhases().then( function(res) {
-			pestag.allPhases = res.data;
+		Utils.getProjectMilestones().then( function(res) {
+			pestag.allMilestones = res.data;
 		});
 
 		pestag.cancel = function () { $modalInstance.dismiss('cancel'); };
 		pestag.ok = function () { 
 			// saving so write the new data.
-			rProject.phases = angular.copy(pestag.projectPhases);
+			rProject.milestones = angular.copy(pestag.projectMilestones);
 			$modalInstance.close();
 		};
 	};
@@ -120,28 +116,10 @@
     function controllerModalProjectEditPlanActivities($scope, $modalInstance, rProject, Utils) { 
 		var peact = this;
 		
-		// set local var to passed project
-		peact.project = rProject;
-
 		$scope._ = _;
 
-		// get roles
-		Utils.getRoles().then( function(res) {
-			peact.roles = res.data;
-		});
-
-		// 
-		peact.toggleAccess = function(activity, role) {
-			if( _.contains(activity.access, role) ) {
-				// remove
-				_.remove(activity.access, function(item) {
-					return item === role;
-				});
-			} else {
-				activity.access.push(role);			
-			}
-
-		};
+		// set local var to passed project
+		peact.project = rProject;
 
 		peact.cancel = function () { $modalInstance.dismiss('cancel'); };
 		peact.ok = function () { 
@@ -155,13 +133,13 @@
 	// CONTROLLER: Modal: Edit Project Components
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalProjectEditPlanComponents.$inject = ['$scope', '$modalInstance', 'rProject'];
+    controllerModalProjectEditPlanArtifacts.$inject = ['$scope', '$modalInstance', 'rProject'];
     //
-    function controllerModalProjectEditPlanComponents($scope, $modalInstance, rProject) { 
-		var pecomp = this;
+    function controllerModalProjectEditPlanArtifacts($scope, $modalInstance, rProject) { 
+		var peart = this;
 		
 		// set local var to passed project
-		pecomp.project = rProject;
+		peart.project = rProject;
 	
 		$scope.filter = {
 			active: true,
@@ -171,10 +149,10 @@
 		};
 
 
-		pecomp.cancel = function () { $modalInstance.dismiss('cancel'); };
-		pecomp.ok = function () { 
+		peart.cancel = function () { $modalInstance.dismiss('cancel'); };
+		peart.ok = function () { 
 			// saving so write the new data.
-			rProject = angular.copy(pecomp.project);
+			rProject = angular.copy(peart.project);
 			$modalInstance.close();
 		};
 	};

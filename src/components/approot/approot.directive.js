@@ -40,7 +40,7 @@
 		});
 		
 		// Get Project Phases for use in filter.
-		Utils.getProjectPhases().then( function(res) {
+		Utils.getProjectMilestones().then( function(res) {
 			Global.projectPhases = res.data;
 		});	
 		

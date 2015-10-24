@@ -1,4 +1,4 @@
-(function () {
+ (function () {
 
     'use strict';
 
@@ -7,7 +7,10 @@
 	    .controller('controllerRecentActivity', controllerRecentActivity)   
         .controller('controllerModalAddComment', controllerModalAddComment)
         .controller('controllerPanelSort', controllerPanelSort)
-        .controller('controllerModalResearchDetail', controllerModalResearchDetail);
+        .controller('controllerModalResearchDetail', controllerModalResearchDetail)
+        .controller('controllerRolesSelect', controllerRolesSelect)
+        .controller('controllerUsersSelect', controllerUsersSelect)
+        .controller('controllerModalUsersSelect', controllerModalUsersSelect);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -115,8 +118,129 @@
 		});
 
 		rd.cancel = function () { $modalInstance.dismiss('cancel'); };
-
-
     }     
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Roles Select
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerRolesSelect.$inject = ['$scope', 'Utils'];
+	//
+	function controllerRolesSelect($scope, Utils) {
+		var utilRolesSelect = this;
 
+		$scope.$watch('selectedRoles', function(newValue) {
+			if (newValue) {
+				utilRolesSelect.access = newValue;
+			}
+		});
+
+		$scope._ = _;
+
+		// get roles
+		Utils.getRoles().then( function(res) {
+			utilRolesSelect.roles = res.data;
+		});
+
+		// 
+		utilRolesSelect.toggleAccess = function(role) {
+			if( _.contains(utilRolesSelect.access, role) ) {
+				// remove
+				_.remove(utilRolesSelect.access, function(item) {
+					return item === role;
+				});
+			} else {
+				utilRolesSelect.access.push(role);
+			}
+		};
+	}
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Users Select
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerUsersSelect.$inject = ['$scope', '$modal'];
+	//
+	function controllerUsersSelect($scope, $modal) {
+		var utilUsersSelect = this;
+
+		utilUsersSelect.users = $scope.selectedUsers || [];
+
+		utilUsersSelect.userChooser = function() {
+			var modalUsersView = $modal.open({
+				animation: true,
+				templateUrl: 'components/utils/partials/modal-users-select.html',
+				controller: 'controllerModalUsersSelect',
+				controllerAs: 'utilUsers',
+				size: 'lg',
+				resolve: {
+					rUsers: function() {
+						return utilUsersSelect.users;
+					}
+				}
+			});
+			modalUsersView.result.then(function () {}, function () {});
+		};
+
+	}
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Roles Select
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerModalUsersSelect.$inject = ['$scope', 'rUsers', '$modalInstance', 'Project', 'Utils'];
+	//
+	function controllerModalUsersSelect($scope, rUsers, $modalInstance, Project, Utils) {
+		var utilUsers = this;
+
+		$scope._ = _;
+
+		utilUsers.form = {filtered:null};
+
+		// TODO: actually get a project linkage here.
+		Project.getProjectContacts({id:123}).then( function(res) {
+			utilUsers.users = res.data;
+		});
+
+		Utils.getRoles().then( function(res) {
+			utilUsers.roles = res.data;
+		});
+
+		utilUsers.selected = rUsers;
+
+
+		// remove a user from the selected list.
+		utilUsers.removeUserFromSelected = function(user) {
+			if( _.contains(utilUsers.selected, user) ) {
+				// remove
+				_.remove(utilUsers.selected, function(item) {
+					return item === user;
+				});
+			}
+		};
+
+		// add the user to the selected list
+		utilUsers.addUserToSelected = function(user) {
+			if(!_.includes(utilUsers.selected, user)) {
+				utilUsers.selected.push(user);
+			}
+		};
+
+
+
+		utilUsers.ok = function () { $modalInstance.close(utilUsers.users); };
+		utilUsers.cancel = function () { $modalInstance.dismiss('cancel'); };
+
+
+		// utilRolesSelect.toggleAccess = function(role) {
+		// 	if( _.contains(utilRolesSelect.access, role) ) {
+		// 		// remove
+		// 		_.remove(utilRolesSelect.access, function(item) {
+		// 			return item === role;
+		// 		});
+		// 	} else {
+		// 		utilRolesSelect.access.push(role);
+		// 	}
+		// };
+	}
 })();

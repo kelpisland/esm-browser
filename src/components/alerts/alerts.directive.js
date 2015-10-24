@@ -3,17 +3,19 @@
     'use strict';
 
     angular.module('app.alerts')      
-        .directive('modalAlertViewer', directiveModalAlertViewer)
+        .directive('modalAlertsViewer', directiveModalAlertsViewer)
+        .directive('modalAlertViewer', directiveModalAlertViewer) 
+        .directive('modalAlertNew', directiveModalAlertNew)
         .directive('tmplAlertList', directiveAlertList);
 
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Modal document viewer
+	// DIRECTIVE: Modal Alerts viewer
 	//
     // -----------------------------------------------------------------------------------
-    directiveModalAlertViewer.$inject = ['$modal', 'Alerts'];
+    directiveModalAlertsViewer.$inject = ['$modal', 'Alerts'];
     /* @ngInject */
-    function directiveModalAlertViewer($modal, Alerts) {
+    function directiveModalAlertsViewer($modal, Alerts) {
         var directive = {
             restrict:'A',
             scope : {
@@ -27,26 +29,82 @@
                         angular.element(element).after("&nbsp;|&nbsp;");
                     }
     				element.on('click', function() {
-    					var modalAlertView = $modal.open({
+    					var modalAlertsView = $modal.open({
     						animation: true,
-    						templateUrl: 'components/alerts/partials/modal-alert-viewer.html',
-    						controller: 'controllerModalAlertViewer',
-    						controllerAs: 'alertView',
+    						templateUrl: 'components/alerts/partials/modal-alerts-viewer.html',
+    						controller: 'controllerModalAlertsViewer',
+    						controllerAs: 'alertsView',
     						size: 'lg',
                             resolve: {
                                 rAlerts: function() {return res.data}
                             }
     					});
-    					modalAlertView.result.then(function () {}, function () {});
+    					modalAlertsView.result.then(function () {}, function () {});
     				});
                 });
-
-
 			}
         };
         return directive;
     }
+    // -----------------------------------------------------------------------------------
+    //
+    // DIRECTIVE: Modal Alert viewer
+    //
+    // -----------------------------------------------------------------------------------
+    directiveModalAlertViewer.$inject = ['$modal', 'Alerts'];
+    /* @ngInject */
+    function directiveModalAlertViewer($modal, Alerts) {
+        var directive = {
+            restrict:'A',
+            scope : {
+                divider: '='
+            },                         
+            link : function(scope, element, attrs) {
 
+                Alerts.getAlert().then( function(res) {
+                    element.on('click', function() {
+                        var modalAlertView = $modal.open({
+                            animation: true,
+                            templateUrl: 'components/alerts/partials/modal-alert-viewer.html',
+                            controller: 'controllerModalAlertViewer',
+                            controllerAs: 'alertView',
+                            size: 'md',
+                            resolve: {
+                                rAlert: function() {return res.data}
+                            }
+                        });
+                        modalAlertView.result.then(function () {}, function () {});
+                    });
+                });
+            }
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+    //
+    // DIRECTIVE: Modal New Alert
+    //
+    // -----------------------------------------------------------------------------------
+    directiveModalAlertNew.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalAlertNew($modal) {
+        var directive = {
+            restrict:'A',
+            link : function(scope, element, attrs) {
+                element.on('click', function() {
+                    var modalAlertNew = $modal.open({
+                        animation: true,
+                        templateUrl: 'components/alerts/partials/modal-alert-new.html',
+                        controller: 'controllerModalAlertNew',
+                        controllerAs: 'alertNew',
+                        size: 'md'
+                    });
+                    modalAlertNew.result.then(function () {}, function () {});
+                });
+            }
+        };
+        return directive;
+    }
     // -----------------------------------------------------------------------------------
     //
     // DIRECTIVE: Alert List

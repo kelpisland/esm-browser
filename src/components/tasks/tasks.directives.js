@@ -21,10 +21,16 @@
 				// each directive receives: 
 				// anchor: the key used to identify the item / panel type to cross reference the process data.
 				// itemId: the id used to get more info about the item via a service.
-				if (scope.task.tmpl) {
-					var tmpl = $compile('<' + scope.task.tmpl + ' x-anchor="' + scope.task.anchor + '" x-item="' + scope.task.itemId + '"></' + scope.task.tmpl + '>')(scope);	
-					element.replaceWith(tmpl);
-				}
+				scope.$watch('task', function(newValue) { 
+					if (newValue) {
+						console.log('merge', newValue);
+						// scope task should be bound to the task menu
+						var tmpl = '<' + newValue.tmpl + ' x-anchor="' + newValue.anchor + '" x-item="task"></' + newValue.tmpl + '>';
+						var ctmpl = $compile(tmpl)(scope);	
+						console.log(tmpl,ctmpl);						
+						element.replaceWith(ctmpl);
+					}
+				});
 			}
 		};
 		return directive;

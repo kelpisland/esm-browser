@@ -18,13 +18,13 @@
     	var getProjectTypes = function(req) {
 			return $http({method:'GET',url: API + '/v1/projecttypes'});
 		};
-    	var getProjectPhases = function(req) {
-			return $http({method:'GET',url: API + '/v1/projectphases'});
+    	var getProjectMilestones = function(req) {
+			return $http({method:'GET',url: API + '/v1/projectmilestones'});
 		};
 		return {
 			getProjects: getProjects,
 			getProjectTypes: getProjectTypes,
-			getProjectPhases: getProjectPhases
+			getProjectMilestones: getProjectMilestones
 		};
     }
 

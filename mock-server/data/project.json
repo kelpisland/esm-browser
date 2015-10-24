@@ -18,7 +18,7 @@
 	"long":-128.322029,
 	"phases": [
 		{
-			"name":"Create Project",
+			"name":"Intake",
 			"responsibility":["EAO"],
 			"dateEstimatedStart":"2015-10-15T07:00:00.000Z",
 			"dateEstimatedEnd":"2015-10-15T07:00:00.000Z",
@@ -29,7 +29,7 @@
 					"_id":"1",
 					"dateStart":"2004-04-10T23:58:15.181Z",
 					"dateEnd":"2004-04-10T23:58:15.181Z",					
-					"name":"Public Comments Open",
+					"name":"Intake",
 					"description":"",
 					"components":[],
 					"tasks": [

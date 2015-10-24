@@ -18,7 +18,7 @@
 							<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="pts.project.phase">{{ pts.project.phase }}</p></div>
 						</div>
 
-						<div class='col-sm=3'>
+						<div class='col-sm-3'>
 							<div><label class="control-label">Estimated Phase Completion</label><p>{{ pts.project.estimatedPhaseCompleteDate | amDateFormat:'MMM Do YYYY' }}</p></div>
 						</div>
 						
@@ -96,10 +96,10 @@
 					<p><a href x-modal-eao-project-edit		x-project="pts.project"><span class='glyphicon glyphicon-pencil'></span> Edit Project</a></p>
 					<p><a href x-modal-eao-access			x-project="pts.project"><span class='glyphicon glyphicon-user'></span> Manage Access</a></p>
 					<hr>
-					<p><a href x-modal-project-edit-plan-phases		x-project="pts.project"><span class='glyphicon glyphicon-certificate'></span> Manage Phases</a></p>
+					<p><a href x-modal-project-edit-plan-milestones	x-project="pts.project"><span class='glyphicon glyphicon-certificate'></span> Manage Milestones</a></p>
 					<p><a href x-modal-project-edit-plan-schedule 	x-project="pts.project"><span class='glyphicon glyphicon-calendar'></span> Manage Schedule</a></p>
 					<p><a href x-modal-project-edit-plan-activities	x-project="pts.project"><span class='glyphicon glyphicon-tasks'></span> Manage Activities</a></p>
-					<p><a href x-modal-project-edit-plan-components	x-project="pts.project"><span class='glyphicon glyphicon-tasks'></span> Manage Components</a></p>
+					<p><a href x-modal-project-edit-plan-artifacts	x-project="pts.project"><span class='glyphicon glyphicon-tasks'></span> Manage Process Artifacts</a></p>
 					<hr>
 					<p><a href x-modal-manage-documents		x-project="pts.project"><span class='glyphicon glyphicon-file'></span> Documents</a></p>
 					<p><a href x-modal-manage-Reports		x-project="pts.project"><span class='glyphicon glyphicon-signal'></span> Reports</a></p>

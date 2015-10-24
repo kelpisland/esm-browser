@@ -1,9 +1,5 @@
-<div ng-repeat='actProc in actProcs.processes'>
+<tmpl-load-task x-task="actProcs.process"></tmpl-load-task>
 
-	<tmpl-load-task x-task="actProc"></tmpl-load-task>
-
-</div> <!-- /processes -->
-
-<div class="well well-small" ng-if="actProcs.processes.length === 0">
+<div class="well well-small" ng-if="!actProcs.process">
 	No tasks underway.  Select a task to begin.
 </div>

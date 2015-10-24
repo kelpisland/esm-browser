@@ -15,7 +15,9 @@
         .directive('modalResearchDetail', directiveModalResearchDetail)
         .directive('goToElement', directiveGoToElement)
         .directive('dynamicClass', directiveDynamicClass)
-        .directive('dateField', directiveDateField);
+        .directive('dateField', directiveDateField)
+        .directive('rolesSelect', directiveRolesSelect)
+        .directive('usersSelect', directiveUsersSelect);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -288,12 +290,53 @@
     }
     // -----------------------------------------------------------------------------------
 	//
+	// DIRECTIVE: Role Select
+	//
+    // -----------------------------------------------------------------------------------
+    directiveRolesSelect.$inject = [];
+    /* @ngInject */
+    function directiveRolesSelect() {
+        var directive = {
+            restrict:'E',
+            scope : {
+            	selectedRoles: '='
+            },
+            templateUrl: 'components/utils/partials/roles-select.html',
+			controller: 'controllerRolesSelect',
+			controllerAs: 'utilRolesSelect',
+			link: function(scope, element, attrs) {
+				element.addClass('btn-list')
+			}
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Users Select
+	//
+    // -----------------------------------------------------------------------------------
+    directiveUsersSelect.$inject = [];
+    /* @ngInject */
+    function directiveUsersSelect() {
+        var directive = {
+            restrict:'E',
+            scope : {
+            	selectedUsers: '='
+            },
+            templateUrl: 'components/utils/partials/users-select.html',
+			controller: 'controllerUsersSelect',
+			controllerAs: 'utilUsersSelect'
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
 	// DIRECTIVE: Research Detail
 	//
     // -----------------------------------------------------------------------------------
-    directiveGoToElement.$inject = ['$state'];
+    directiveGoToElement.$inject = [];
     /* @ngInject */
-    function directiveGoToElement($state) {
+    function directiveGoToElement() {
         var directive = {
             restrict:'A',
             scope : {
@@ -304,7 +347,7 @@
 			link : function(scope, element, attrs) {
 				element.on('click', function() {
 					// user is EAO
-					$state.go('eao.project', {'id': scope.goToProject});
+					$state.go('eao.project', {'id': scope.goToProject} );
 				});
 			}
         };
