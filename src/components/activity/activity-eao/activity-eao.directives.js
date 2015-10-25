@@ -5,7 +5,7 @@
     angular.module('app.activity')
         .directive('tmplEaoActivity', directiveEAOActivity)
         .directive('tmplEaoActivityDetail', directiveEAOActivityDetail)
-		.directive('tmplEaoActivityTasks', directiveEAOActivityTasks)
+		.directive('tmplEaoActivityTasks', directiveEAOActivityTasks)       
 		.directive('tmplEaoActivityProcesses', directiveEAOActivityProcesses);        
     // -----------------------------------------------------------------------------------
 	//

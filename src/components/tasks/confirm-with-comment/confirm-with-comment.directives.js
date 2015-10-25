@@ -19,7 +19,7 @@
             controllerAs: 'taskCwc',
             scope: {
             	anchor: '@',
-            	item: '@'
+            	item: '='
             }
         };
         return directive;

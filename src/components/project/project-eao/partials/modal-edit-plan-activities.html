@@ -26,7 +26,9 @@
 				</td>
 				<td class='text-center'> 
 					<p class="form-control-static btn-list">
-						<button class="btn btn-xs btn-primary" ng-repeat="role in peact.roles" ng-class="{'btn-success': _.indexOf(activity.access, role) > -1}" ng-click="peact.toggleAccess(activity, role)">{{ role }}</button>
+
+						<roles-select x-selected-roles="activity.access"></role-select>
+						
 					</p>
 				</td>
 			</tr>

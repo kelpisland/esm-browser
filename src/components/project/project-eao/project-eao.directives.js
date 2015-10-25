@@ -4,10 +4,10 @@
 
     angular.module('app.project')
         .directive('tmplEaoProject', directiveEAOProject)
-		.directive('modalProjectEditPlanPhases', directiveModalProjectEditPlanPhases)
+		.directive('modalProjectEditPlanMilestones', directiveModalProjectEditPlanMilestones)
 		.directive('modalProjectEditPlanSchedule', directiveModalProjectEditPlanSchedule)
-		.directive('modalProjectEditPlanActivities', directiveModalProjectEditPlanActivities)        
-		.directive('modalProjectEditPlanComponents', directiveModalProjectEditPlanComponents);
+		.directive('modalProjectEditPlanActivities', directiveModalProjectEditPlanActivities)     
+		.directive('modalProjectEditPlanArtifacts', directiveModalProjectEditPlanArtifacts);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -30,9 +30,9 @@
 	// DIRECTIVE: Modal Edit Project Phases
 	//
     // -----------------------------------------------------------------------------------
-    directiveModalProjectEditPlanPhases.$inject = ['$modal'];
+    directiveModalProjectEditPlanMilestones.$inject = ['$modal'];
     /* @ngInject */
-    function directiveModalProjectEditPlanPhases($modal) {
+    function directiveModalProjectEditPlanMilestones($modal) {
         var directive = {
             restrict:'A',
             scope : {
@@ -40,10 +40,10 @@
             },
 			link : function(scope, element, attrs) {
 				element.on('click', function() {
-					var modalDocView = $modal.open({
+					var modalMilestoneView = $modal.open({
 						animation: true,
-						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-phases.html',
-						controller: 'controllerModalProjectEditPlanPhases',
+						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-milestones.html',
+						controller: 'controllerModalProjectEditPlanMilestones',
 						controllerAs: 'pestag',
 						resolve: {
 							rProject: function () {
@@ -52,7 +52,7 @@
 						},
 						size: 'lg'
 					});
-					modalDocView.result.then(function () {}, function () {});
+					modalMilestoneView.result.then(function () {}, function () {});
 				});
 			}
         };
@@ -126,12 +126,12 @@
     }
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Modal Edit Project Components
+	// DIRECTIVE: Modal Edit Project Artifacts
 	//
     // -----------------------------------------------------------------------------------
-    directiveModalProjectEditPlanComponents.$inject = ['$modal'];
+    directiveModalProjectEditPlanArtifacts.$inject = ['$modal'];
     /* @ngInject */
-    function directiveModalProjectEditPlanComponents($modal) {
+    function directiveModalProjectEditPlanArtifacts($modal) {
         var directive = {
             restrict:'A',
             scope : {
@@ -141,9 +141,9 @@
 				element.on('click', function() {
 					var modalDocView = $modal.open({
 						animation: true,
-						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-components.html',
-						controller: 'controllerModalProjectEditPlanComponents',
-						controllerAs: 'pecomp',
+						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-artifacts.html',
+						controller: 'controllerModalProjectEditPlanArtifacts',
+						controllerAs: 'peart',
 						resolve: {
 							rProject: function () {
 								return scope.project;

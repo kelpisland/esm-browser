@@ -16,15 +16,20 @@
 		var taskCwc = this;
 
 		$scope.$watch('anchor', function(newValue) {
-			taskCwc.task = newValue;
+			if (newValue) {
+				taskCwc.task = newValue;
+			}
 		});
 
 		$scope.$watch('item', function(newValue) {
 			// get item for title
-			taskCwc.itemId = newValue;
-			Tasks.getItem({id: newValue}).then( function(res) {
-				taskCwc.item = res.data;
-			});
+			if (newValue) {
+				taskCwc.itemId = newValue._id;
+				taskCwc.item = newValue;
+			}
+			// Tasks.getItem({id: newValue}).then( function(res) {
+			// 	taskCwc.item = res.data;
+			// });
 		});
 
 		taskCwc.completeTask = function() {

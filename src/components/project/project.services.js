@@ -33,6 +33,9 @@
     	var getProjectLayers = function(req) {
 			return $http({method:'GET',url: API + '/v1/project/' + req.id + '/layers'});
 		};		
+    	var getProjectContacts = function(req) {
+			return $http({method:'GET',url: API + '/v1/project/' + req.id + '/contacts'});
+		};
 
 		return {
 			getProject: getProject,
@@ -41,7 +44,8 @@
 			getProjectTags: getProjectTags,
 			getProjectResearch: getProjectResearch,
 			getProjectRelatedResearch: getProjectRelatedResearch,
-			getProjectLayers: getProjectLayers
+			getProjectLayers: getProjectLayers,
+			getProjectContacts: getProjectContacts
 		};
     }
 

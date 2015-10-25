@@ -7,7 +7,7 @@
 		"recipientProjectRole":["projectRoles"],
 		"initiatedBy":"system",
 		"dateInitiated":"2015-02-01T23:58:15.181Z",
-		"link":"url",
+		"link":"/eao/activity/act1234",
 		"subject":"subject",
 		"description":"description"
 	},
@@ -19,7 +19,7 @@
 		"recipientProjectRole":["projectRoles"],
 		"initiatedBy":"system",
 		"dateInitiated":"2015-02-01T23:58:15.181Z",
-		"link":"url",
+		"link":"/eao/activity/act1234",
 		"subject":"subject",
 		"description":"description"
 	}

@@ -13,28 +13,32 @@
     controllerTaskConfirmNoComment.$inject = ['$scope', '$rootScope', 'Tasks'];
  	//
 	function controllerTaskConfirmNoComment($scope, $rootScope, Tasks) {
-		var taskCnc = this;
+		var taskCnc = this;	
 
-		console.log($scope);		
-
+		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('anchor', function(newValue) {
-			taskCnc.task = newValue;
+			if (newValue) {
+				taskCnc.anchor = newValue;
+			}
 		});
 
+		// get the spec item
 		$scope.$watch('item', function(newValue) {
 			// get item for title
-			Tasks.getItem({id: newValue}).then( function(res) {
-				taskCnc.item = res.data;
-			});
+			if (newValue) {
+				console.log('task', newValue);
+				taskCnc.itemId = newValue.item._id;
+				taskCnc.item = newValue.item;
+			}
 
 		});
 
 		taskCnc.completeTask = function() {
 			// validate
 			// when ok, broadcast
-			console.log('resolve', taskCnc.item._id);
+			console.log('complete', taskCnc.item);
 			taskCnc.item.value = 'Complete';
-			$rootScope.$broadcast('resolveItem', {item: taskCnc.item._id});
+			$rootScope.$broadcast('resolveItem', {itemId: taskCnc.itemId});
 		}
 		
     }    

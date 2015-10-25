@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<h3 class="modal-title">Project Components</h3>
+	<h3 class="modal-title">Project Process Artifacts</h3>
 </div>
 <div class="modal-body">
 
@@ -23,7 +23,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="component in pecomp.project.components track by $index">
+			<tr ng-repeat="component in peart.project.components track by $index">
 				<td><p class="form-control-static">{{ component.name }}</p></td>
 				<td><p class="form-control-static">{{ component.type }}</p></td>
 				<td class='text-center'>
@@ -44,6 +44,6 @@
 
 </div>
 <div class="modal-footer">
-	<button class="btn btn-warning" type="button" ng-click="pecomp.cancel()">Cancel</button>
-	<button class="btn btn-primary" type="button" ng-click="pecomp.ok()">Close</button>
+	<button class="btn btn-warning" type="button" ng-click="peart.cancel()">Cancel</button>
+	<button class="btn btn-primary" type="button" ng-click="peart.ok()">Close</button>
 </div>

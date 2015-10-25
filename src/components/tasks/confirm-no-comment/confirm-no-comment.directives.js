@@ -19,7 +19,10 @@
             controllerAs: 'taskCnc',
             scope: {
             	anchor: '@',
-            	item: '@'
+            	item: '='
+            },
+            link: function(scope, element, attrs) {
+                console.log('in item', scope.item);
             }
         };
         return directive;

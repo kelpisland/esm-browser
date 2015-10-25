@@ -9,8 +9,7 @@ module.exports = function(app) {
 		next();
 	});
 
-    app.get(api + '/v1/project/:id', getProject);
-    app.get(api + '/v1/projects', getProjects);
+
 
     app.get(api + '/v1/utils/recentactivity', getUtilsRecentActivity);
     app.get(api + '/v1/utils/quicklinks', getUtilsQuickLinks);
@@ -29,12 +28,17 @@ module.exports = function(app) {
 	app.get(api + '/v1/item/:id', getItem);		
 
     app.get(api + '/v1/alerts/user', getAlertsUser);
+    app.get(api + '/v1/alert/:id', getAlert);
+    app.get(api + '/v1/newAlert', getAlertPrim);      
 
+    app.get(api + '/v1/projects', getProjects);
+    app.get(api + '/v1/project/:id', getProject);
 	app.get(api + '/v1/project/:id/buckets', getProjectBuckets);	
 	app.get(api + '/v1/project/:id/tags', getProjectTags);	
 	app.get(api + '/v1/project/:id/research', getProjectResearch);	
 	app.get(api + '/v1/project/:id/researchRelated', getProjectRelatedResearch);	
 	app.get(api + '/v1/project/:id/layers', getProjectLayers);
+    app.get(api + '/v1/project/:id/contacts', getProjectContacts);
 	app.get(api + '/v1/layers', getCommonLayers);
 
 	app.get(api + '/v1/researchFocus', getResearchFocus);
@@ -47,6 +51,7 @@ module.exports = function(app) {
 	app.get(api + '/v1/roles', getSysRoles);
     app.get(api + '/v1/projecttypes', getSysProjectTypes);
     app.get(api + '/v1/projectphases', getSysProjectPhases);
+    app.get(api + '/v1/projectmilestones', getSysProjectMilestones);    
 
     function getProject(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'project.json');
@@ -115,6 +120,16 @@ module.exports = function(app) {
         res.send(json);
     }
 
+    function getAlert(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'alerts.json');
+        res.send(json[0]);
+    }
+
+    function getAlertPrim(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'primAlert.json');
+        res.send(json);
+    }
+
     function getProjectBuckets(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'projectBuckets.json');
         res.send(json);
@@ -140,6 +155,19 @@ module.exports = function(app) {
         res.send(json);
     }
         
+    function getProjectContacts(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectContacts.json');
+        res.send(json);
+    }
+
+
+
+
+
+
+
+
+
     function getCommonLayers(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'commonLayers.json');
         res.send(json);
@@ -170,6 +198,11 @@ module.exports = function(app) {
         res.send(json);
     }
 
+    function getSysProjectMilestones(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'sysProjectMilestones.json');
+        res.send(json);
+    }
+
 	function getSysRoles(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'sysRoles.json');
         res.send(json);
@@ -179,5 +212,6 @@ module.exports = function(app) {
         var json = jsonfileservice.getJsonFromFile(data + 'sysActivities.json');
         res.send(json);
     }
+
 
 };

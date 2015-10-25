@@ -46,6 +46,24 @@ h1.page-title {
 	margin-top: 0;
 	margin-bottom: 20px;
 }
+
+td h4 {
+	margin-top: 0;		
+}
+
+
+.modal-pre-table {
+	padding-top: 5px;
+	padding-bottom: 0;
+}
+.table-modal {
+	margin-bottom: 0
+}
+
+p.small {
+	margin: 0 0 0;
+}
+
 .modal-header {
 	background-color: $header-blue;
 	color: #fff;
@@ -448,26 +466,27 @@ nav {
 	text-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
 
-.modal-header .form-control {
+.modal-header input.form-control {
 	background-color: rgba(255,255,255,0.3);
-	border: 1px solid #fff;
 	color: #fff;
+	border: none;
 }
-
-
-.modal-header .form-control::-webkit-input-placeholder {
+.modal-header .form-group {
+	text-shadow: none !important;
+}
+.modal-header input.form-control::-webkit-input-placeholder {
    color: #fff;
 }
 
-.modal-header .form-control:-moz-placeholder { /* Firefox 18- */
+.modal-header input.form-control:-moz-placeholder { /* Firefox 18- */
    color: #fff;  
 }
 
-.modal-header .form-control::-moz-placeholder {  /* Firefox 19+ */
+.modal-header input.form-control::-moz-placeholder {  /* Firefox 19+ */
    color: #fff;  
 }
 
-.modal-header .form-control:-ms-input-placeholder {  
+.modal-header input.form-control:-ms-input-placeholder {  
    color: #fff;  
 }
 
@@ -479,4 +498,9 @@ nav {
 .task-selected {
 	border-left: 5px solid white;
 	border-right: 5px solid white;
+}
+
+
+.input-group .form-control {
+	height: auto;
 }
