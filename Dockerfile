@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER shea.phillips
+MAINTAINER shea.phillips@gmail.com
 
 RUN yum install -y epel-release
 RUN yum update -y
