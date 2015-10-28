@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER shea
+MAINTAINER shea.phillips
 
 RUN yum install -y epel-release
 RUN yum update -y
