@@ -6,7 +6,8 @@ RUN yum update -y
 RUN yum install -y git nodejs npm bzip2 --enablerepo=epel
 RUN yum -y groupinstall "Development Tools"
 
-ADD . /src
+ADD package.json bower.json /src/
+
 WORKDIR /src
 
 RUN npm install -g node-inspector bower gulp
@@ -20,5 +21,7 @@ USER node
 ENV HOME=/tmp TEMP=/tmp
 
 RUN npm install
+
+ADD . /src/
 
 CMD ["gulp", "serve-dev"]
