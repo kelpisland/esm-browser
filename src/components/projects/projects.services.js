@@ -16,10 +16,10 @@
 			return $http({method:'GET',url: API + '/v1/projects'});
 		};
     	var getProjectTypes = function(req) {
-			return $http({method:'GET',url: API + '/v1/projecttypes'});
+			return $http({method:'GET',url: API + '/v1/projectTypes'});
 		};
     	var getProjectMilestones = function(req) {
-			return $http({method:'GET',url: API + '/v1/projectmilestones'});
+			return $http({method:'GET',url: API + '/v1/projectMilestones'});
 		};
 		return {
 			getProjects: getProjects,

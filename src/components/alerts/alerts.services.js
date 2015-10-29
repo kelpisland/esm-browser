@@ -25,7 +25,7 @@
 
 		// get blank object
 		var getNew = function(req) {
-			return $http({method:'GET',url: API + '/v1/newAlert'});		
+			return $http({method:'GET',url: API + '/v1/alertNew'});		
 		};
 
 		return {

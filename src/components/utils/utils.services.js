@@ -13,16 +13,16 @@
     /* @ngInject */
     function serviceUtils($http, API) {
     	var getCurrentUser = function(req) {
-			return $http({method:'GET',url: API + '/v1/currentuser'});
+			return $http({method:'GET',url: API + '/v1/currentUser'});
 		};
     	var getRecentActivity = function(req) {
-			return $http({method:'GET',url: API + '/v1/utils/recentactivity'});
+			return $http({method:'GET',url: API + '/v1/utils/recentActivity'});
 		};
     	var getQuickLinks = function(req) {
 			return $http({method:'GET',url: API + '/v1/utils/quicklinks'});
 		};
 		var getProjectMilestones = function(req) {
-			return $http({method:'GET',url: API + '/v1/projectmilestones'});
+			return $http({method:'GET',url: API + '/v1/projectMilestones'});
 		};
 		var getCommonLayers = function(req) {
 			return $http({method:'GET',url: API + '/v1/layers'});

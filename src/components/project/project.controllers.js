@@ -33,10 +33,10 @@
     controllerProjectTombstone.$inject = ['$scope'];
 	//
 	function controllerProjectTombstone($scope) {
-		var pts = this;
+		var projTomb = this;
 		
 		$scope.$watch('project', function(newValue) {
-			pts.project = newValue;		
+			projTomb.project = newValue;		
 		});
     }    
     // -----------------------------------------------------------------------------------

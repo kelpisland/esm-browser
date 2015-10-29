@@ -6,21 +6,11 @@
 		"process":"processName",
 		"values": [
 			{
-				"title":"Not Started"
-			},
-			{
-				"title":"In Progress",
-				"groups":["taskGroupName"],
-				"canComplete":["projectRole"]
-			},
-			{
 				"title":"Complete",
-				"groups":["groupName"],
-				"canComplete":["projectRole"],
-				"requirementsMet":["requirementName"]
-			},
-			{
-				"title":"Not Applicable"
+				"preCanComplete":["project role that can transition to this value"],
+				"preMetRequirements":["requirementName needs to be met to transition to this"],
+				"postMetRequirements":["requirementName met when this value is transitioned to"],
+				"alerts":[]
 			}
 		]
 	}

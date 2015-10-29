@@ -1,0 +1,242 @@
+{
+	"_id":"123",
+	"name":"project name",
+	"proponent":{},
+	"type":"sysProjectTypes",
+	"description":"description",
+	"region":"region",
+	"location":"location",
+	"currentPhase":"intake",
+	"currentPhaseEstimatedStartDate": "2015-11-01T23:58:15.181Z",
+	"currentPhaseEstimatedEndDate": "2015-11-01T23:58:15.181Z",
+	"nextPhase":"pre-app",
+	"nextPhaseEstimatedStartDate": "2015-03-01T23:58:15.181Z",
+	"comments":"Open",
+	"commentOpen": "2015-09-28T12:00:00.181Z",
+	"commentClose": "2015-10-28T12:00:00.181Z",
+	"overallProgress":85,
+	"lat":50.752097,
+	"long":-128.322029,
+	"intake": [
+		{
+			"q": "question1",
+			"a": "answer1"
+		}
+	],
+	"phases": {
+		"intake":{
+			"shortName": "intake",
+			"name":"Intake",
+			"dataEstimatedEnd":"",
+			"completion":80,
+			"access":[{"read":["roles"],"edit":["roles"]}],
+			"dateEstimatedStart":"2001-06-01T23:58:15.181Z",
+			"dateEstimatedEnd":"2002-06-02T23:58:15.181Z",
+			"dateActualStart":"2004-04-10T23:58:15.181Z",
+			"dateActualEnd":"2004-04-10T23:58:15.181Z"
+		}
+	},
+	"milestones": [
+		{
+			"name":"",
+			"phases":[],
+			"milestoneShortId": "",
+			"dateEstimatedStart":"2001-06-01T23:58:15.181Z",
+			"dateEstimatedEnd":"2002-06-02T23:58:15.181Z",
+			"dateActualStart":"2004-04-10T23:58:15.181Z",
+			"dateActualEnd":"2004-04-10T23:58:15.181Z",
+			"access":{
+				"notification":[
+					{"type":"group", "value":"name of group"},
+					{"type":"email", "email":"email@email.com", "name":"recipient name"}
+				],
+				"visibility":[
+					{"type":"group", "value":"name of group"},
+					{"type":"email", "email":"email@email.com", "name":"recipient name"}
+				],
+				"approval":[
+					{"type":"group", "value":"name of group"},
+					{"type":"email", "email":"email@email.com", "name":"recipient name"}
+				]
+			},
+			"preMetRequirements":["requirementName needs to be met to transition to this"],
+			"activities": [
+				{
+					"_id":"a1234",
+					"name":"Activity Name",
+					"description":"",
+					"dateStart":"2004-04-10T23:58:15.181Z",
+					"dateEnd":"2004-04-10T23:58:15.181Z",
+					"dateUpdated":"2004-04-10T23:58:15.181Z",
+					"updatedBy": {"user":"user name"},
+					"tasks": [
+						{
+							"t1234":{
+								"_id":"t1234",
+								"shortName":"taskName",
+								"name":"Long Name",
+								"currentValue":"Not Started",
+								"process":"processName",
+								"values": [
+									{
+										"title":"Not Started"
+									},
+									{
+										"title":"In Progress",
+										"preCanComplete":["projectRole"]
+									},
+									{
+										"title":"Complete",
+										"preCanComplete":["project role that can transition to this value"],
+										"preMetRequirements":["requirementName needs to be met to transition to this"],
+										"postMetRequirements":["requirementName met when this value is transitioned to"],
+										"alerts":[
+											{"_id":"alerts"}
+										]
+									},
+									{
+										"title":"Not Applicable"
+									}
+								],
+								"audit": [
+									{
+										"value":"value",
+										"dateValue":"2004-04-10T23:58:15.181Z",
+										"user": {}
+									}
+								],
+								"data":{"":"variable object based on what type of process this is."}
+							}
+						}
+					],
+					"preMetRequirements":["requirementName needs to be met to start this activity"],
+					"access":[{"read":["roles"],"edit":["roles"]}]
+				}
+			],
+			"requirements":[{}],
+			"artifacts": ["list of artifacts that this milestone enables"]
+		}
+	],
+	"team": [
+		{
+			"_id":"123",
+			"name": "user name",
+			"systemRole": ["role"],
+			"projectRole": ["role"]
+		}
+	],
+	"deliverables": [
+		{
+			"_id":"123",
+			"name": "document name",
+			"synopsys": "",
+			"type":"document|shapefile|?",
+			"artifacts":["list of artifacts this can go in"]
+		}
+	],
+	"artifacts": [
+		{
+			"shortName":"bats",
+			"name":"Bats",
+			"valueComponment":true,
+			"status":"open|closed",
+			"progress": 100,
+			"requirements":["subset of requirements needed for this artifact / bucket"],
+			"data":{"":"data based on the process"},
+			"activeDuring":["list of milestones this bucket is valid through"]
+		}
+	],
+	"requirements":[
+		{
+			"shortName": "unique short string identifier",
+			"type":"document|approval",
+			"name":"Section 10-1c",
+			"artifact":"name of artifact grouping this belongs to",
+			"dateComplete": "2004-04-10T23:58:15.181Z",
+			"completedBy": {"_id": "user"},
+			"deliverable":"optional embed element",
+			"completingTask":"milestoneShortId+taskID"
+		}
+	],
+	"data":{
+		"publicComments":[
+			{
+				"_id":"commentId",
+				"author": "",
+				"instance": "milestone short id",
+				"comment": "",
+				"spam": false,
+				"dateCreated":"2004-04-10T23:58:15.181Z",
+				"vettedBy": {"user":"username"},
+				"dataVetted": "2004-04-10T23:58:15.181Z",
+				"artifacts":[{"_id":"associated artifact object"}],
+				"issues":[{"_id":"link to issues that this comment started or is related to"}]
+			}
+		],
+		"notifications":[
+			{
+				"milestone": "milestone",
+				"status":"pending|queued|sent",
+				"dateSent":"2004-04-10T23:58:15.181Z",
+				"dateQueued":"2004-04-10T23:58:15.181Z",
+				"recipientsDigital":[
+					{"name":"name", "email":"email"}
+				],
+				"recipientsAnalog":[
+					{"name":"name", "email":"email"}
+				]				
+			}
+		],
+		"issues":[
+			{
+				"_id":"",
+				"description":"",
+				"artifacts":[{"_id":"list of associated artifacts"}],
+				"identifiedBy":[{"_id":"user"}],
+				"dateCreated":"2004-04-10T23:58:15.181Z",
+				"response":[{"_id": "response data object"}],
+				"status":"open|closed",
+				"revision":1,
+				"publicComments":[{"_id":"associated public comments"}],
+				"responses":[
+					{
+						"_id":"referredToId",
+						"assigned":{"_id":"user"},
+						"comment":"comment from working group memeber",
+						"dateAssigned":"2004-04-10T23:58:15.181Z",
+						"dateReplied":"2004-04-10T23:58:15.181Z",
+						"deliverables":[
+							{"_id":"link to document"}
+						]
+					}
+				]
+			}
+		],
+		"approval":[
+			{
+				"_id":"approvalId",
+				"dateApproved":"2004-04-10T23:58:15.181Z",
+				"approvedBy":{"_id":"user"},
+				"comment":""
+			}
+		],
+		"conditions":[
+			{
+				"_id":"approvalId",
+				"dateCondition":"2004-04-10T23:58:15.181Z",
+				"createdBy":{"_id":"user"},
+				"condition":"",
+				"status": "draft|approved|denied",
+				"inspections":[{"_id":"future inspections"}]
+			}
+		]
+	},
+	"spatial": [
+		{
+			"_id":"",
+			"layerName":"",
+			"type":"poly|line|point",
+			"coords":""
+		}
+	]
+}

@@ -10,59 +10,57 @@ module.exports = function(app) {
 	});
 
 
+    // sytem wide widgets
+    app.get(api + '/v1/utils/recentActivity', getUtilsRecentActivity);
+    app.get(api + '/v1/utils/quickLinks', getUtilsQuickLinks);
 
-    app.get(api + '/v1/utils/recentactivity', getUtilsRecentActivity);
-    app.get(api + '/v1/utils/quicklinks', getUtilsQuickLinks);
-
-    app.get(api + '/v1/activities/:id', getProjectActivities);
-	app.get(api + '/v1/activity/:id', getProjectActivity);
-
+    // user
 	app.get(api + '/v1/user/:id', getUser);
-	
-	app.get(api + '/v1/currentuser', getCurrentUser);
-	
+	app.get(api + '/v1/currentUser', getCurrentUser);
+    app.get(api + '/v1/userQuicklinks', getUserQuicklinks);  // CAN BE REMOVED
 	app.get(api + '/v1/proponent', getProponent);	
 	
 	app.get(api + '/v1/responseRevisions/:id', getResponseRevisions);		
 
 	app.get(api + '/v1/item/:id', getItem);		
 
+    // System Alerts
+    app.get(api + '/v1/alertNew', getAlertPrim);  
     app.get(api + '/v1/alerts/user', getAlertsUser);
     app.get(api + '/v1/alert/:id', getAlert);
-    app.get(api + '/v1/newAlert', getAlertPrim);      
 
+    // Projects
     app.get(api + '/v1/projects', getProjects);
-    app.get(api + '/v1/project/:id', getProject);
-	app.get(api + '/v1/project/:id/buckets', getProjectBuckets);	
-	app.get(api + '/v1/project/:id/tags', getProjectTags);	
-	app.get(api + '/v1/project/:id/research', getProjectResearch);	
-	app.get(api + '/v1/project/:id/researchRelated', getProjectRelatedResearch);	
+
+    // Project
+    app.get(api + '/v1/project/:id', getProject); // get project by ID
+	app.get(api + '/v1/project/:id/buckets', getProjectBuckets); // get project artifacts (buckets)
+	app.get(api + '/v1/project/:id/tags', getProjectTags); // CAN BE REMOVED
+	app.get(api + '/v1/project/:id/research', getProjectResearch); // research tags, pivot data
+	app.get(api + '/v1/project/:id/researchRelated', getProjectRelatedResearch);
 	app.get(api + '/v1/project/:id/layers', getProjectLayers);
     app.get(api + '/v1/project/:id/contacts', getProjectContacts);
-	app.get(api + '/v1/layers', getCommonLayers);
 
+    // Activities
+    app.get(api + '/v1/activities/:id', getProjectActivities);
+    app.get(api + '/v1/activity/:id', getProjectActivity);
+
+    // Research View - these can be replaced by the proper project structure
 	app.get(api + '/v1/researchFocus', getResearchFocus);
-
-	app.get(api + '/v1/userQuicklinks', getUserQuicklinks);
-    
 	app.get(api + '/v1/research/:term', getResearchResults);
 	app.get(api + '/v1/researchDetail/:seed/:term', getResearchResultDetail);
 
+    // Lookups
 	app.get(api + '/v1/roles', getSysRoles);
-    app.get(api + '/v1/projecttypes', getSysProjectTypes);
-    app.get(api + '/v1/projectphases', getSysProjectPhases);
-    app.get(api + '/v1/projectmilestones', getSysProjectMilestones);    
+    app.get(api + '/v1/projectTypes', getSysProjectTypes);
+    app.get(api + '/v1/projectPhases', getSysProjectPhases);
+    app.get(api + '/v1/projectMilestones', getSysProjectMilestones); 
 
-    function getProject(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'project.json');
-        res.send(json);
-    }
+    // common map layers
+    app.get(api + '/v1/layers', getCommonLayers);   
 
-    function getProjects(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projects.json');
-        res.send(json);
-    }
-
+    //
+    // system wide widgets
     function getUtilsRecentActivity(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'recentactivity.json');
         res.send(json);
@@ -71,13 +69,10 @@ module.exports = function(app) {
     function getUtilsQuickLinks(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'quicklinks.json');
         res.send(json);
-    }    
+    }
 
-    function getProponent(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'proponent.json');
-        res.send(json);
-    }  
-
+    //
+    // User
     function getUser(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'proponent.json');
         res.send(json);
@@ -87,6 +82,66 @@ module.exports = function(app) {
         var json = jsonfileservice.getJsonFromFile(data + 'proponent.json');
         res.send(json);
     }  
+
+    function getUserQuicklinks(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'userQuicklinks.json');
+        res.send(json);
+    }
+
+    function getProponent(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'proponent.json');
+        res.send(json);
+    }  
+
+
+    //
+    // projects
+    function getProjects(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projects.json');
+        res.send(json);
+    }
+
+
+    //
+    // project
+    function getProject(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'primProject.json');
+        res.send(json);
+    }
+
+    function getProjectBuckets(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectBuckets.json'); // should load project.artifacts
+        res.send(json);
+    }
+
+    function getProjectTags(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectTags.json'); // remove
+        res.send(json);
+    }
+
+    function getProjectResearch(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectResearch.json');
+        res.send(json);
+    }    
+    
+    function getProjectRelatedResearch(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectResearchRelated.json');
+        res.send(json);
+    }
+        
+    function getProjectLayers(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectLayers.json');  // project, spatial
+        res.send(json);
+    }
+  
+    function getProjectContacts(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'projectContacts.json');
+        res.send(json);
+    }
+
+
+  
+
 
     function getProjectActivities(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'activities.json');
@@ -98,23 +153,21 @@ module.exports = function(app) {
         res.send(json);
     }
 
-
-
     function getResponseRevisions(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'responseRevisions.json');
         res.send(json);
     }
 
-    function getUserQuicklinks(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'userQuicklinks.json');
-        res.send(json);
-    }
+
 
     function getItem(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'item.json');
         res.send(json);
     }
 
+
+    //
+    // Alerts
     function getAlertsUser(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'alerts.json');
         res.send(json);
@@ -130,49 +183,11 @@ module.exports = function(app) {
         res.send(json);
     }
 
-    function getProjectBuckets(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projectBuckets.json');
-        res.send(json);
-    }
-
-    function getProjectTags(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projectTags.json');
-        res.send(json);
-    }
-
-    function getProjectResearch(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projectResearch.json');
-        res.send(json);
-    }    
-    
-    function getProjectRelatedResearch(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projectResearchRelated.json');
-        res.send(json);
-    }
-        
-    function getProjectLayers(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projectLayers.json');
-        res.send(json);
-    }
-        
-    function getProjectContacts(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projectContacts.json');
-        res.send(json);
-    }
 
 
 
-
-
-
-
-
-
-    function getCommonLayers(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'commonLayers.json');
-        res.send(json);
-    }
-
+    //
+    // Resereach Project Pivot
     function getResearchFocus(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'researchFocus.json');
         res.send(json);
@@ -188,6 +203,8 @@ module.exports = function(app) {
         res.send(json);
     }
 
+    //
+    // Lookups
     function getSysProjectTypes(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'sysProjectTypes.json');
         res.send(json);
@@ -212,6 +229,13 @@ module.exports = function(app) {
         var json = jsonfileservice.getJsonFromFile(data + 'sysActivities.json');
         res.send(json);
     }
+
+    //
+    // Common Layers
+    function getCommonLayers(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'commonLayers.json');
+        res.send(json);
+    }    
 
 
 };

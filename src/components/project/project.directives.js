@@ -56,7 +56,7 @@
             restrict: 'E',
             templateUrl: 'components/project/partials/project-tombstone-horizontal.html',
             controller: 'controllerProjectTombstone',
-            controllerAs: 'pts',
+            controllerAs: 'projTomb',
             scope: {
             	project: '='
             }
@@ -75,7 +75,7 @@
             restrict: 'E',
             templateUrl: 'components/project/partials/project-tombstone-vertical.html',
             controller: 'controllerProjectTombstone',
-            controllerAs: 'pts',
+            controllerAs: 'projTomb',
             scope: {
             	project: '='
             }

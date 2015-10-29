@@ -190,11 +190,11 @@
 		var directive = {
 			restrict: 'A',
 			scope: {
-				Phase: '='
+				phase: '='
 			},
 			link: function link(scope, element, attrs) {
 			
-				scope.$watch('Phase', function(newValue) {
+				scope.$watch('phase', function(newValue) {
 					if (newValue) {
 						var mine = $filter('projectPhaseContributor')(newValue);
 						
