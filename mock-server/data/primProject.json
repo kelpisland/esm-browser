@@ -168,7 +168,7 @@
 			{
 				"_id":"commentId",
 				"author": "",
-				"instance": "milestone short id",
+				"instance": "currentCommentPeriod code",
 				"comment": "",
 				"isSpam": false,
 				"dateCreated":"2004-04-10T23:58:15.181Z",
