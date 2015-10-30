@@ -14,7 +14,7 @@ RUN npm install -g node-inspector bower gulp
 
 RUN useradd node -p xyz123
 
-RUN chown -R node:node /src
+RUN chown -R node:0 /src && chmod -R 770 /src
 
 USER node
 
