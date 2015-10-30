@@ -23,6 +23,6 @@ ENV HOME=/tmp TEMP=/tmp
 RUN npm install
 
 ADD . /src
-EXPOSE 3000 7203add expose to dockerfile.add EXPOS
+EXPOSE 3000 7203
 
 CMD ["gulp", "serve-dev"]
