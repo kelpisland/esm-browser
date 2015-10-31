@@ -27,7 +27,7 @@
 		];
 
 		//
-		// Get Project
+		// Get Project Activity
 		Activity.getProjectActivities({id: $scope.projectId}).then(function(res) {
 			al.activities = res.data;
 		});

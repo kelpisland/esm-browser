@@ -6,8 +6,8 @@
 	<ul class="list-unstyled task-list">
 		<li ng-repeat="(itemId, item) in task.items">
 			<button class="btn btn-sm btn-block clearfix btn-task-indicator btn-task-{{ item.value | kebab }}" ng-repeat="value in item.values" ng-if="value.title === item.value" ng-click="actTasks.taskChange(item, $event)" ng-class="{'task-selected': actTasks.form.currentTask === 'task-' + ( item._id | kebab )}">
-				<div class="text-left">{{ item.title }}</div>
-				<div class="text-left task-current-status pull-right">{{ item.value }}</div>
+				<div>{{ item.title }}</div>
+				<div class="task-current-status">{{ item.value }}</div>
 			</button>
 		</li>
 	</ul>

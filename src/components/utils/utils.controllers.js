@@ -206,6 +206,7 @@
 			utilUsers.roles = res.data;
 		});
 
+		// collection of users.
 		utilUsers.selected = rUsers;
 
 
@@ -226,7 +227,16 @@
 			}
 		};
 
+		// setup new users
+		utilUsers.userNew = {allowChoice: false, viaEmail:true};
 
+		// add a new 
+		utilUsers.addNewUser = function() {
+			// TODO: validate user record.
+			utilUsers.selected.push(utilUsers.userNew);
+			// if new user is invited to register, flag that with a token.
+			// and resolve later on.
+		};
 
 		utilUsers.ok = function () { $modalInstance.close(utilUsers.users); };
 		utilUsers.cancel = function () { $modalInstance.dismiss('cancel'); };

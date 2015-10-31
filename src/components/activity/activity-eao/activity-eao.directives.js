@@ -37,7 +37,7 @@
             controller: 'controllerEAOActivityDetail',
             controllerAs: 'actDetail',
 			scope : {
-             	detail: '='
+             	project: '='
 			}
         };
         return directive;
@@ -56,7 +56,7 @@
             controller: 'controllerEAOActivityTasks',
             controllerAs: 'actTasks',
 			scope : {
-             	tasks: '='
+             	project: '='
 			}
         };
         return directive;
@@ -75,7 +75,7 @@
             controller: 'controllerEAOActivityProcesses',
             controllerAs: 'actProcs',
 			scope : {
-             	processes: '='
+             	project: '='
 			}
         };
         return directive;

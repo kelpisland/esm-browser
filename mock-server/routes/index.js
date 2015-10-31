@@ -144,13 +144,14 @@ module.exports = function(app) {
 
 
     function getProjectActivities(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'activities.json');
-        res.send(json);
+        var json = jsonfileservice.getJsonFromFile(data + 'primProject.json');
+        console.log(json);
+        res.send(json.activities);
     }
 
     function getProjectActivity(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'activity.json');
-        res.send(json);
+        var json = jsonfileservice.getJsonFromFile(data + 'primProject.json');
+        res.send(json.activities[0]);
     }
 
     function getResponseRevisions(req, res, next) {

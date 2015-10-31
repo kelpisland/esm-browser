@@ -9,7 +9,7 @@
 				{{ actDetail.activity.description }}
 			</div>
 			<div class="col-sm-4">
-				<div><label class="control-label">Last Updated</label><p>{{ actDetail.activity.updatedDate | amDateFormat:'MMM Do, YYYY h:mm a' }}</p></div>
+				<div><label class="control-label">Last Updated</label><p>{{ actDetail.activity.dateUpdated | amDateFormat:'MMM Do, YYYY h:mm a' }}</p></div>
 			</div>
 		</div>
 	</div>
@@ -17,11 +17,11 @@
 		
 <div class="row">
 
-	<div class="col-md-3 col-lg-2">
+	<div class="col-md-3 col-lg-3">
 		<tmpl-eao-activity-tasks x-tasks="actDetail.activity.tasks"></tmpl-eao-activity-tasks>
 	</div> <!-- /col3 -->
 	
-	<div class="col-md-9 col-lg-10">
+	<div class="col-md-9 col-lg-9">
 		<tmpl-eao-activity-processes x-processes="actDetail.activity.processes"></tmpl-eao-activity-processes>
 	</div> <!-- /col6 -->
 

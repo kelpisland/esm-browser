@@ -41,7 +41,7 @@
 					"_id": "t56789",				
 					"title":"Confirmation - With Comment",
 					"value":"Not Started",
-					"process": "confirmWithComment",
+					"process": "notifications",
 					"values": [	{"title":"Not Started"},
 								{"title":"In Progress"},
 								{"title":"Complete", "groups": [5678]},

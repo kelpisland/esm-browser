@@ -18,6 +18,7 @@
 		var actBase = this;
 		//
 		// Get Activity
+
 		Activity.getProjectActivity({id: $stateParams.id}).then(function(res) {
 			actBase.activity = res.data;
 			//
@@ -26,7 +27,7 @@
 				actBase.project = res.data;
 			});			
 		});
-    }    
+    }
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: EAO Activity Detail
@@ -34,27 +35,22 @@
     // -----------------------------------------------------------------------------------
     controllerEAOActivityDetail.$inject = ['$scope'];
 	//
-	function controllerEAOActivityDetail($scope ) {
+	function controllerEAOActivityDetail($scope) {
 		var actDetail = this;
+
+		// actDetail.toggleDocumentFilter = function(idx) {
+		// 	if (actDetail.filteredDocumentsFor === undefined || actDetail.filteredDocumentsFor !== idx) {
+		// 		actDetail.filterDocumentsBy = 'resp1235';
+		// 		actDetail.filteredDocumentsFor = idx;
+		// 	} else {
+		// 		actDetail.filterDocumentsBy = '';
+		// 		actDetail.filteredDocumentsFor = undefined;
+		// 	}
+		// }
 		
-		actDetail.comments = [
-			{'author':'EAO', 'comment':'Comment text that scrolls Bootstrap requires a containing element to wrap site contents and house our grid system. You may choose one of two containers to use in your projects. Note that, due to padding and more, neither container is nestable.'},
-			{'author':'EAO', 'comment':'Comment text that scrolls Bootstrap requires a containing element to wrap site contents and house our grid system. You may choose one of two containers to use in your projects. Note that, due to padding and more, neither container is nestable.'},
-			{'author':'EAO', 'comment':'Comment text that scrolls Bootstrap requires a containing element to wrap site contents and house our grid system. You may choose one of two containers to use in your projects. Note that, due to padding and more, neither container is nestable.'}			
-		];
-		
-		actDetail.toggleDocumentFilter = function(idx) {
-			if (actDetail.filteredDocumentsFor === undefined || actDetail.filteredDocumentsFor !== idx) {
-				actDetail.filterDocumentsBy = 'resp1235';
-				actDetail.filteredDocumentsFor = idx;
-			} else {
-				actDetail.filterDocumentsBy = '';
-				actDetail.filteredDocumentsFor = undefined;
-			}
-		}
-		
-		$scope.$watch('detail', function(newValue) {	
-			actDetail.activity = newValue;
+		$scope.$watch('project', function(newValue) {
+			actDetail.project = newValue;
+			actDetail.activity = newValue.activities[0];
 		});
     }
     // -----------------------------------------------------------------------------------
@@ -83,8 +79,6 @@
 				$rootScope.$broadcast('taskAddProcess', {'procs': item.process, 'item': item});
 			}
 		};
-
-
 
 		// when a task is marked complete, refresh the list.
 		$rootScope.$on('resolveItem', function(req, targetId) {
@@ -142,7 +136,7 @@
 		
 
 
-		$scope.$watch('tasks', function(newValue) {	
+		$scope.$watch('project', function(newValue) {	
 			actTasks.tasks = newValue;
 		});
     }

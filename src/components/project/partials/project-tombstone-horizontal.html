@@ -11,7 +11,7 @@
 						</div>
 		
 						<div class='col-sm-3'>
-							<div><label class="control-label">Location</label><p>{{ projTomb.project.region }}</p></div>
+							<div><label class="control-label">Location</label><p>{{ projTomb.project.location }}</p></div>
 						</div>
 
 						<div class='col-sm-3'>
@@ -19,7 +19,7 @@
 						</div>
 
 						<div class='col-sm-3'>
-							<div><label class="control-label">Estimated Phase Completion</label><p>{{ projTomb.project.currentPhaseEstimatedEndDate | amDateFormat:'MMM Do YYYY' }}</p></div>
+							<div><label class="control-label">Estimated Phase Completion</label><p>{{ projTomb.project.dateCurrentPhaseEstimatedEnd | amDateFormat:'MMM Do YYYY' }}</p></div>
 						</div>
 						
 					</div> 
@@ -29,9 +29,9 @@
 					<div class='row'>
 						<div class='col-sm-3'>
 							<div><label class="control-label">Type</label><p>{{ projTomb.project.type }}</p></div>
-							<div><label class="control-label">Location</label><p>{{ projTomb.project.region }}</p></div>
+							<div><label class="control-label">Location</label><p>{{ projTomb.project.location }}</p></div>
 							<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="projTomb.project.currentPhase">{{ projTomb.project.phases[projTomb.project.currentPhase].name }}</p></div>
-							<div><label class="control-label">Estimated Phase Completion</label><p>{{ projTomb.project.currentPhaseEstimatedEndDate | amDateFormat:'MMM Do YYYY' }}</p></div>
+							<div><label class="control-label">Estimated Phase Completion</label><p>{{ projTomb.project.dateCurrentPhaseEstimatedEnd | amDateFormat:'MMM Do YYYY' }}</p></div>
 							<div><label class="control-label">Next Phase</label><p x-phase-colour x-phase="projTomb.project.nextPhase">{{ projTomb.project.nextPhase }}</p></div>
 						</div>
 
@@ -59,12 +59,12 @@
 					
 						<div class='col-sm-6'>
 							<label class="control-label">Overall Progress</label>
-							<tmpl-progress-bar x-percentage="projTomb.project.progress"></tmpl-progress-bar>
+							<tmpl-progress-bar x-percentage="projTomb.project.overallProgress"></tmpl-progress-bar>
 						</div>
 		
 						<div class='col-sm-6'>
 							<label class="control-label">Phase Progress</label>
-							<tmpl-progress-bar x-percentage="projTomb.project.progress"></tmpl-progress-bar>
+							<tmpl-progress-bar x-percentage="projTomb.project.phases[projTomb.project.currentPhase].progress"></tmpl-progress-bar>
 						</div>					
 					
 					</div>

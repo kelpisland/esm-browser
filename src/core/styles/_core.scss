@@ -403,6 +403,7 @@ nav {
 	color: #777;
 }
 
+
 .task-list {
 	margin-bottom: 0;
 }
@@ -411,21 +412,22 @@ nav {
 	padding-bottom: 5px;
 }
 .task-list li .task-current-status {
-	position: absolute;
-	top: 5px;
-	right: 10px;
 	font-weight: 700;
 }
 .task-list li button {
-	padding-right: 100px;
 	white-space: normal;
 	position: relative;
+	text-align: left;
 }
 .task-list li button.btn-layer {
-	padding-right: 10px;
 	white-space: normal;
-	text-align: left;	
-}
+	}
+
+
+
+
+
+
 .user-quicklinks a.thumbnail {
 	position: relative;
 	font-size: 12px;
@@ -491,7 +493,7 @@ nav {
 }
 
 .btn-list .btn {
-	margin: 0 2px;
+	margin: 0 2px 4px;
 	display: inline-block;
 }
 

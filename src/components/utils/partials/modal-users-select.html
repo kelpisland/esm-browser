@@ -1,18 +1,27 @@
 <div class="modal-header">
-	<h3 class="modal-title">Select Users</h3>
+	<h3 class="modal-title">Select Contacts</h3>
 </div>
 <div class="modal-body">
 	<div class="row">
 
 		<div class="col-sm-6">
-			<label class="control-label">Project Contacts</label>
+			<label class="control-label">Contacts</label>
 			<p>
-				<select class="form-control input-sm" ng-model="utilUsers.form.filteredUsers" ng-options="role for role in utilUsers.roles">
-					<option value>All</option>
+				<select class="form-control input-sm" ng-model="utilUsers.form.filteredUsers">
+					<optgroup label="Project Team Members">
+						<option value>All</option>
+						<option ng-repeat="role in utilUsers.roles" value="{{ role }}">{{ role }}</option>
+					</optgroup>
+					<optgroup label="External">
+						<option value="search">Search...</option>
+					</optgroup>
+					<optgroup label="Custom">
+						<option value="add">Add...</option>
+					</optgroup>
 				</select>
 			</p>
 			<div class="well well-small">
-				<ul class="list-unstyled task-list">
+				<ul class="list-unstyled task-list" ng-show="utilUsers.form.filteredUsers !== 'search' && utilUsers.form.filteredUsers !== 'add'">
 					<li ng-repeat="user in usersFiltered = (utilUsers.users | filter:{role: (utilUsers.form.filteredUsers || undefined)})">
 						<button class="btn btn-block btn-sm btn-layer" ng-click="utilUsers.addUserToSelected(user)" x-dynamic-class-when="utilUsers.inSelected(user)" x-dynamic-class="btn-primary">{{ user.name }} <em class="small">{{ user.role }}</em></button>
 					</li>
@@ -20,6 +29,88 @@
 						No users match {{ utilUsers.form.filtered }}
 					</li>
 				</ul>
+
+				<!-- Search External Sources -->
+				<div class="list-unstyled task-list" ng-show="utilUsers.form.filteredUsers === 'search'">
+					<div class="alert alert-danger small">
+						Warning: this user will only be added as an email receipient of this one alert. To add them permanently, assign them to a group.  
+					</div>
+					<form class="form-search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Name or Email">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-search btn-default">Search</button>
+							</span>
+						</div>
+					</form>
+
+					<hr/>
+					<ul class="list-unstyled task-list">
+						<li ng-repeat="user in utilUsers.searchResults">
+							<button class="btn btn-block btn-sm btn-layer" ng-click="utilUsers.addUserToSelected(user)" x-dynamic-class-when="utilUsers.inSelected(user)" x-dynamic-class="btn-primary">{{ user.name }} <em class="small">{{ user.email }}</em></button>
+						</li>
+						<li ng-if="usersFiltered.length === 0" class="small">
+							No users found.
+						</li>
+					</ul>
+
+				</div>
+
+				<!-- Add an ad-hoc user -->
+				<div class="list-unstyled task-list" ng-show="utilUsers.form.filteredUsers === 'add'">
+					<div class="form-group">
+						<label class="control-label">Name</label>
+						<input type="text" class="form-control" ng-model="utilUsers.userNew.name"/>
+					</div>
+					<div class="checkbox" ng-show="utilUsers.userNew.allowChoice">
+						<label for="receiveViaEmail">
+ 						<input ng-model="utilUsers.userNew.viaEmail" type="checkbox" id="receiveViaEmail" class="checkbox"/>
+							<span>Contact Via Email</span>
+						</label>
+					</div>
+					<div ng-show="utilUsers.userNew.viaEmail">
+						<div class="form-group">
+							<label class="control-label">Email</label>
+							<input type="text" class="form-control" ng-model="utilUsers.userNew.email"/>
+						</div>	
+					</div>
+					<div class="checkbox" ng-show="utilUsers.userNew.allowChoice">
+						<label for="receiveViaMail">
+ 						<input ng-model="utilUsers.userNew.viaMail" type="checkbox" id="receiveViaMail" class="checkbox"/>
+							<span>Contact Via Mail</span>
+						</label>
+					</div>
+					<div ng-show="utilUsers.userNew.viaMail">
+						<div class="form-group">
+							<label class="control-label">Address</label>
+							<input type="text" class="form-control" ng-model="utilUsers.userNew.address"/>
+						</div>
+						<div class="row">
+							<div class="form-group col-sm-5">
+								<label class="control-label">City</label>
+								<input type="text" class="form-control" ng-model="utilUsers.userNew.city"/>
+							</div>	
+							<div class="form-group col-sm-3">
+								<label class="control-label">Province</label>
+								<input type="text" class="form-control" ng-model="utilUsers.userNew.province"/>
+							</div>	
+							<div class="form-group col-sm-4">
+								<label class="control-label">Postal</label>
+								<input type="text" class="form-control" ng-model="utilUsers.userNew.postal"/>
+							</div>	
+						</div>
+					</div>
+					<div class="checkbox">
+						<label for="inviteToRegister">
+ 						<input ng-model="utilUsers.userNew.inviteToRegister" type="checkbox" id="inviteToRegister" class="checkbox"/>
+							<span>Send invitation to register</span>
+						</label>
+					</div>
+					<div class="text-right">
+						<button class="btn btn-success" ng-click="utilUsers.addNewUser()">Add</button>
+					</div>					
+				</div>
+
 			</div>
 
 		</div>
@@ -33,7 +124,7 @@
 			<div class="well well-small">
 				<ul class="list-unstyled task-list">
 					<li ng-repeat="user in selectedFiltered = (utilUsers.selected | filter:{role: (utilUsers.form.filteredSelected || undefined)})">
-						<button class="btn btn-block btn-sm btn-layer" ng-click="utilUsers.removeUserFromSelected(user)">{{ user.name }} <em class="small">{{ user.role }}</em></button>
+						<button class="btn btn-block btn-sm btn-layer" ng-click="utilUsers.removeUserFromSelected(user)">{{ user.name }} <em class="small">{{ user.role || user.email }}</em></button>
 					</li>
 					<li ng-if="selectedFiltered.length === 0" class="small">
 						Select users on the left.

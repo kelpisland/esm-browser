@@ -6,7 +6,7 @@
 	"description":"description",
 	"region":"region",
 	"location":"location",
-	"dateCurrentPhase":"intake",
+	"currentPhase":"intake",
 	"dateCurrentPhaseEstimatedStart": "2015-11-01T23:58:15.181Z",
 	"dateCurrentPhaseEstimatedEnd": "2015-11-01T23:58:15.181Z",
 	"nextPhase":"pre-app",
@@ -14,7 +14,7 @@
 	"currentCommentPeriod":{
 		"code":"tag each comment as this",
 		"dateOpen": "2015-09-28T12:00:00.181Z",
-		"dateClosed": "2015-10-28T12:00:00.181Z",
+		"dateClosed": "2015-10-28T12:00:00.181Z"
 	},
 	"overallProgress":85,
 	"lat":50.752097,
@@ -29,7 +29,8 @@
 		"intake":{
 			"code": "intake",
 			"name":"Intake",
-			"completion":80,
+			"requirements":[{}],
+			"progress":80,
 			"dateEstimatedStart":"2001-06-01T23:58:15.181Z",
 			"dateEstimatedEnd":"2002-06-02T23:58:15.181Z",
 			"dateActualStart":"2004-04-10T23:58:15.181Z",
@@ -45,6 +46,9 @@
 			"dateEstimatedEnd":"2002-06-02T23:58:15.181Z",
 			"dateActualStart":"2004-04-10T23:58:15.181Z",
 			"dateActualEnd":"2004-04-10T23:58:15.181Z",
+			"preMetRequirements":["comma delimeted list of requirement codes, each needs to be met to transition to this milestone"],
+			"requirements":[{}],
+			"buckets": ["list of buckets that this milestone enables"],
 			"access":{
 				"notification":[
 					{"type":"group", "value":"name of group"},
@@ -58,61 +62,73 @@
 					{"type":"group", "value":"name of group"},
 					{"type":"email", "email":"email@email.com", "name":"recipient name"}
 				]
+			}
+		}
+	],
+	"activities": [
+		{
+			"_id":"a1234",
+			"name":"Activity Name",
+			"description":"Desc",
+			"dateStart":"2004-04-10T23:58:15.181Z",
+			"dateEnd":"2004-04-10T23:58:15.181Z",
+			"dateUpdated":"2004-04-10T23:58:15.181Z",
+			"status":"open",
+			"updatedBy": {"user":"user name"},
+			"access":{
+				"visibility":[
+					{"type":"group", "value":"EAO"},
+					{"type":"email", "email":"email@email.com", "name":"recipient name"}
+				]
 			},
-			"preMetRequirements":["comma delimeted list of requirement codes, each needs to be met to transition to this milestone"],
-			"activities": [
-				{
-					"_id":"a1234",
-					"name":"Activity Name",
-					"description":"",
-					"dateStart":"2004-04-10T23:58:15.181Z",
-					"dateEnd":"2004-04-10T23:58:15.181Z",
-					"dateUpdated":"2004-04-10T23:58:15.181Z",
-					"updatedBy": {"user":"user name"},
-					"preMetRequirements":["rcomma delimeted requirement codes each needs to be met to start this activity"],
-					"tasks": {
-						"t1234":{
-							"_id":"t1234",
-							"code":"taskname all lowercase",
-							"name":"Long Name",
-							"currentStatusTitle":"Not Started",
-							"processCode":"process code value",
-							"statusValues": [
-								{
-									"title":"Not Started"
-								},
-								{
-									"title":"In Progress",
-									"preCanComplete":["projectRole"]
-								},
-								{
-									"title":"Complete",
-									"preCanComplete":["comma delimeted, project role codes that can transition to this value"],
-									"preMetRequirements":["comma delimeted requirement codes each needs to be met to transition to this"],
-									"postMetRequirements":["comma delimeted requirement codes each needs to met when this value is transitioned to"],
-									"alerts":[
-										{"_id":"alerts"}
-									]
-								},
-								{
-									"title":"Not Applicable"
-								}
-							],
-							"data":{"":"variable object based on what type of process this is."}
+			"preMetRequirements":["comma delimeted requirement codes each needs to be met to start this activity"],
+			"tasks": {
+				"t1234":{
+					"_id":"t1234",
+					"code":"taskname all lowercase",
+					"name":"Long Name",
+					"currentStatusTitle":"Not Started",
+					"processCode":"notifications",
+					"statusValues": [
+						{
+							"title":"Not Started"
+						},
+						{
+							"title":"In Progress",
+							"preCanComplete":["projectRole"]
+						},
+						{
+							"title":"Complete",
+							"preCanComplete":["comma delimeted, project role codes that can transition to this value"],
+							"preMetRequirements":["comma delimeted requirement codes each needs to be met to transition to this"],
+							"postMetRequirements":["comma delimeted requirement codes each needs to met when this value is transitioned to"],
+							"alerts":[
+								{"_id":"alerts"}
+							]
+						},
+						{
+							"title":"Not Applicable"
 						}
-					}
+					],
+					"data":{"":"variable object based on what type of process this is."}
 				}
-			],
-			"requirements":[{}],
-			"buckets": ["list of buckets that this milestone enables"]
+			}
 		}
 	],
 	"team": [
 		{
 			"_id":"123",
 			"name": "user name",
-			"systemRole": ["comma delimeted roles"],
-			"projectRole": ["comma delimeted roles"]
+			"systemRole": ["EAO"],
+			"projectRole": ["comma delimeted roles"],
+			"email":"email@email.com",
+			"country":"country",
+			"address":"address",
+			"city":"city",
+			"province":"province",
+			"postal":"postal",
+			"viaEmail":true,
+			"viaMail":true
 		}
 	],
 	"deliverables": [
@@ -199,9 +215,9 @@
 						"prov":"prov",
 						"postal":"postal",
 						"tracking":"tracking",
-						"dateSent":"2004-04-10T23:58:15.181Z",
+						"dateSent":"2004-04-10T23:58:15.181Z"
 					}
-				],
+				]
 			}
 		],
 		"issues":[
@@ -219,7 +235,7 @@
 					{
 						"_id":"referredToId",
 						"assigned":{"_id":"user"},
-						"comment":"comment from working group memeber",
+						"comment":"comment from working group member",
 						"dateAssigned":"2004-04-10T23:58:15.181Z",
 						"dateReplied":"2004-04-10T23:58:15.181Z",
 						"deliverables":[
