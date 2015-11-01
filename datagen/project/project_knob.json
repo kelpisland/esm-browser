@@ -376,11 +376,49 @@
                     ]
                 },
                 {
-                    "_id": "coandem",
-                    "code": "confirm and modify value components created in system",
+                    "_id": "eaocoandem",
+                    "code": "eao confirm and modify value components created in system",
                     "currentStatusTitle": "Complete",
                     "data": {},
-                    "name": "Confirm and Modify Value Components created in system",
+                    "name": "EAO Confirm and Modify Value Components created in system",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "propcoandem",
+                    "code": "proponent confirm and modify value components created in system",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Proponent Confirm and Modify Value Components created in system",
                     "processCode": "notifications",
                     "statusValues": [
                         {
@@ -2842,10 +2880,10 @@
             "tasks": [
                 {
                     "_id": "tocSS",
-                    "code": "approve toco",
+                    "code": "create toc",
                     "currentStatusTitle": "Complete",
                     "data": {},
-                    "name": "Approve ToCO",
+                    "name": "Create ToC",
                     "processCode": "notifications",
                     "statusValues": [
                         {
@@ -3315,10 +3353,10 @@
                 },
                 {
                     "_id": "doappetoc",
-                    "code": "document approval process (table of concordance)",
+                    "code": "approve toc",
                     "currentStatusTitle": "In Progress",
                     "data": {},
-                    "name": "DOCUMENT APPROVAL PROCESS (Table of Concordance)",
+                    "name": "Approve ToC",
                     "processCode": "notifications",
                     "statusValues": [
                         {
@@ -3726,10 +3764,10 @@
                 },
                 {
                     "_id": "doappnrev",
-                    "code": "document approval process (application)",
+                    "code": "approve application",
                     "currentStatusTitle": "Not Started",
                     "data": {},
-                    "name": "DOCUMENT APPROVAL PROCESS (Application)",
+                    "name": "Approve Application",
                     "processCode": "notifications",
                     "statusValues": [
                         {
