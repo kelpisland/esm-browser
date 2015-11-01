@@ -165,8 +165,52 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "Cary Sechrist",
+                        "name": "CaryXSechrist@jourrapide.com",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "seupps",
@@ -560,8 +604,52 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "Cary Sechrist",
+                        "name": "CaryXSechrist@jourrapide.com",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "soc",
@@ -727,8 +815,52 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "Cary Sechrist",
+                        "name": "CaryXSechrist@jourrapide.com",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "popcont",
@@ -932,8 +1064,52 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "Cary Sechrist",
+                        "name": "CaryXSechrist@jourrapide.com",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "crprojdesc",
@@ -1061,8 +1237,31 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "CaryXSechrist@jourrapide.com"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "Proponent"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CaryXSechrist@jourrapide.com",
+                        "name": "Cary Sechrist",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RandyIConrad@dayrep.com",
+                        "name": "Randy Conrad",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "crs101c",
@@ -1190,8 +1389,52 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "Cary Sechrist",
+                        "name": "CaryXSechrist@jourrapide.com",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "s11",
@@ -1471,8 +1714,52 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "Cary Sechrist",
+                        "name": "CaryXSechrist@jourrapide.com",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "valcommm",
@@ -1752,8 +2039,52 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "Cary Sechrist",
+                        "name": "CaryXSechrist@jourrapide.com",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "wgpart",
@@ -1919,8 +2250,52 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "Cary Sechrist",
+                        "name": "CaryXSechrist@jourrapide.com",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "drftair",
@@ -2124,8 +2499,31 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "Proponent"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CaryXSechrist@jourrapide.com",
+                        "name": "Cary Sechrist",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RandyIConrad@dayrep.com",
+                        "name": "Randy Conrad",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "crair",
@@ -2329,8 +2727,31 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "CaryXSechrist@jourrapide.com"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "Proponent"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CaryXSechrist@jourrapide.com",
+                        "name": "Cary Sechrist",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RandyIConrad@dayrep.com",
+                        "name": "Randy Conrad",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "crapp",
@@ -2382,8 +2803,31 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "CaryXSechrist@jourrapide.com"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "Proponent"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CaryXSechrist@jourrapide.com",
+                        "name": "Cary Sechrist",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RandyIConrad@dayrep.com",
+                        "name": "Randy Conrad",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "crtoc",
@@ -2435,8 +2879,52 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "Cary Sechrist",
+                        "name": "CaryXSechrist@jourrapide.com",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "preappwrap",
@@ -2564,8 +3052,65 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "Proponent"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CaryXSechrist@jourrapide.com",
+                        "name": "",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RandyIConrad@dayrep.com",
+                        "name": "",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "initeval",
@@ -2807,8 +3352,85 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": {
+                "user": "LiliLNorrell@fleckens.hu"
+            },
+            "visibility": [
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "Proponent"
+                    }
+                },
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "EAO"
+                    }
+                },
+                {
+                    "group": {
+                        "type": "group",
+                        "value": "WG"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "SuzanneFBoyd@jourrapide.com",
+                        "name": "Suzanne Boyd",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LidiaSOtis@einrot.com",
+                        "name": "Lidia Otis",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CaryXSechrist@jourrapide.com",
+                        "name": "",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RandyIConrad@dayrep.com",
+                        "name": "",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "LiliLNorrell@fleckens.hu",
+                        "name": "Lili Norrell",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "WilliamSButler@einrot.com",
+                        "name": "William Butler",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "CeciliaFBrown@gustr.com",
+                        "name": "Cecilia Brown",
+                        "type": "email"
+                    }
+                },
+                {
+                    "group": {
+                        "email": "RachelJWinston@superrito.com",
+                        "name": "Rachel Winston",
+                        "type": "email"
+                    }
+                }
+            ]
         },
         {
             "_id": "evalwrap",
@@ -3363,7 +3985,7 @@
         "dateOpen": "2015-09-28T12:00:00.181Z"
     },
     "currentPhase": "eval",
-    "data123": [
+    "data": [
         {
             "approvals": [
                 {
