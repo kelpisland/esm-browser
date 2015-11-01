@@ -1,0 +1,87 @@
+File,_id,code,name,currentStatusTitle,processCode,statusValues,data
+knob-inproj,reprol,review project description (high level),Review project description (high Level),Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-inproj,deapp10,determine appropriate project process - section 10,Determine appropriate Project Process - Section 10,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-inproj,gedefon,generate default project template based on above selection,Generate Default Project Template based on above selection,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-inproj,kpplaER,kpi placeholder,KPI PLACEHOLDER,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,reandan,review and modify tasks in plan,Review and Modify Tasks in Plan,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,admilan,add milestone dates to the plan,Add Milestone Dates to the Plan,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,crproem,create project team and assign roles in system,Create Project Team and Assign roles in System,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,reandem,review and populate stakeholder members in system,Review and populate Stakeholder Members in System,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,coandem,confirm and modify value components created in system,Confirm and Modify Value Components created in system,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,poisses,populate issue tracking table with known issues,Populate Issue Tracking Table with known issues,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,pofnits,populate fni tracking table with known interests,Populate FNI Tracking Table with known Interests,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,reandix,review and modify notification matrix,Review and Modify Notification Matrix,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,approew,approve projectspace for proponent view,Approve ProjectSpace for Proponent View,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-seupps,noprontps,notify proponent about project space,Notify Proponent about Project Space,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-soc,idfirn ,identify first nations for consultation ,Identify First Nations for Consultation ,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-soc,refirim,research first nations strength of claim,Research First Nations Strength of Claim,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-soc,seconel,set consultation level,Set Consultation level,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-soc,amstast,amend stakeholder list,Amend Stakeholder List,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-popcont,crdra10,create draft section 10,Create Draft Section 10,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-popcont,crdraem,create draft section 11 document and upload to the system,Create Draft Section 11 Document and Upload to the System,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-popcont,ininint,input initial value component content,Input Initial Value Component Content,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-popcont,inknoes,input known issues,Input known Issues,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-popcont,adfnist,add fni items to fni list,Add FNI items to FNI List,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crprojdesc,reprdesc,revise project description,Revise Project Description,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crprojdesc,apprdesc,approve project description,Approve Project Description,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crprojdesc,puprdesc,publish project description,Publish Project Description,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crs101c,fiprs101c,finalize section 10.1c,Finalize Section 10.1C,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crs101c,apprs101c,approve section 10.1c,Approve Section 10.1C,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crs101c,noprs101c,notify section 10.1c,Notify Section 10.1C,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-s11,ifnotad,"if not already complete, create draft s11 and upload","If not already complete, Create Draft S11 and Upload",Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-s11,sufornt,submit for first nations' comment,Submit for First Nations' Comment,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-s11,s11rev,section 11 review,Section 11 Review,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-s11,fiandnt,finalize and approve document,Finalize and Approve Document,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-s11,crvalte,create value components as appropriate,Create Value Components as appropriate,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-s11,nopront,notify proponent,Notify Proponent,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-s11,setors,send to proponent and identified stakeholders,Send to Proponent and identified Stakeholders,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-valcommm,adval11,add value components based on information provided through s11,Add Value Components based on information provided through S11,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-valcommm,enmannt,enter mandatory minimum information within each value component,Enter Mandatory Minimum information within each Value Component,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-valcommm,alstars,alert stakeholders,Alert stakeholders,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-valcommm,revalts,review value components,Review Value Components,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-valcommm,asvalrs,assign value components to working group members,Assign Value Components to Working Group Members,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-valcommm,apvalep,approve value component content - in order to progress to next step,Approve Value Component Content - in order to progress to next step,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-valcommm,crvalnt,create value component document,Create Value Component Document,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-wgpart,sereqts,send request to desired working group participants,Send request to desired Working Group Participants,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-wgpart,coparon,confirm participation,Confirm Participation,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-wgpart,upstaes,update stakeholder list with confirmed names,Update Stakeholder List with confirmed names,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-wgpart,enworts,ensure working group members are assigned to relevant value components,Ensure Working Group members are assigned to relevant Value Components,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-drftair,drairss,approve draft air,Approve Draft AIR,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-drftair,inpubedair,initiate draft air public comment period if required,Initiate Draft AIR Public Comment Period if Required,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-drftair,movaledair,"modify value components, issues, etc. as required for draft air","Modify Value Components, Issues, etc. as Required for Draft AIR",Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-drftair,crdraedair,create draft conditions as required based on draft air,Create Draft Conditions as Required based on Draft AIR,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-drftair,fiandrsair,finalize and publish draft air to identified stakeholders,Finalize and Publish Draft AIR to identified stakeholders,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crair,crairss,approve air,Approve AIR,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crair,inpubed,initiate air public comment period if required,Initiate AIR Public Comment Period if Required,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crair,movaled,"modify value components, issues, etc. as required for air","Modify Value Components, Issues, etc. as Required for AIR",Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crair,crdraed,create draft conditions as required based on air,Create Draft Conditions as Required based on AIR,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crair,fiandrs,finalize and publish air to identified stakeholders,Finalize and Publish AIR to identified stakeholders,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crapp,crappss,approve submission of application,Approve Submission of Application,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-crtoc,tocSS,approve toco,Approve ToCO,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-preappwrap,scevaodpre,schedule evaluation period,Schedule Evaluation Period,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-preappwrap,noworodpre,notify working group of upcoming evaluation period,Notify Working Group of upcoming Evaluation Period,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-preappwrap,scworedpre,schedule working group metings as required,Schedule Working Group Metings as required,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initeval,foaccon,fomally accept application,Fomally Accept Application,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initeval,noswgrs,"notify / send application, air, and table of concordance to working group members","Notify / Send Application, AIR, and Table of Concordance to Working Group Members",Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initeval,seinvnt,send invoice to proponent,Send Invoice to Proponent,Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initeval,coworlsinit,"confirm working group application, air, and table of concordance","Confirm Working Group Application, AIR, and Table of Concordance",Complete,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initeval,foiniod30,formally initiate 30 day evaluation period,Formally Initiate 30 Day Evaluation Period,In Progress,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initeval,doappetoc,document approval process (table of concordance),DOCUMENT APPROVAL PROCESS (Table of Concordance),In Progress,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-evalwrap,scevaodwrap,schedule application evaluation period,Schedule Application Evaluation Period,In Progress,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-evalwrap,noworod,notify working group of upcoming review period,Notify Working Group of upcoming Review Period,In Progress,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-evalwrap,scwored,schedule working group application evaluation meetings as required,Schedule Working Group Application Evaluation Meetings as required,In Progress,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initrev,nosrswg,notify / send application to working group members,Notify / Send Application to Working Group Members,In Progress,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initrev,coworls,confirm working group received application package of materials,Confirm Working Group received Application Package of Materials,Not Started,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initrev,foiniod,formally initiate 180 day review period,Formally Initiate 180 Day Review Period,Not Started,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initrev,alproed,alert proponent/stakeholders 180 day review commenced,Alert Proponent/Stakeholders 180 Day Review commenced,Not Started,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-initrev,doappnrev,document approval process (application),DOCUMENT APPROVAL PROCESS (Application),Not Started,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-pubcomm,inpubss,initiate public comment period process,initiate Public Comment Period Process,Not Started,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-pubcomm,reandns,review and complete conditions,Review and Complete Conditions,Not Started,notifications,"rg:dataset('status.csv','regular')",rg:{}
+knob-pubcomm,reandon,revise and finalize certified project description,Revise and Finalize Certified Project Description,Not Started,notifications,"rg:dataset('status.csv','regular')",rg:{}
+-,#N/A,0,0,0,0,"rg:dataset('status.csv','')",rg:{}
+-,#N/A,0,0,0,0,"rg:dataset('status.csv','')",rg:{}
+-,#N/A,0,0,0,0,"rg:dataset('status.csv','')",rg:{}
+-,#N/A,0,0,0,0,"rg:dataset('status.csv','')",rg:{}
+-,#N/A,0,0,0,0,"rg:dataset('status.csv','')",rg:{}
+-,#N/A,0,0,0,0,"rg:dataset('status.csv','')",rg:{}
+-,#N/A,0,0,0,0,"rg:dataset('status.csv','')",rg:{}
