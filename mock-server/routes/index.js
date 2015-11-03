@@ -59,6 +59,10 @@ module.exports = function(app) {
     // common map layers
     app.get(api + '/v1/layers', getCommonLayers);   
 
+    // common map layers
+    app.get(api + '/v1/notificationTemplates', getNotificationTemplates);
+
+
     //
     // system wide widgets
     function getUtilsRecentActivity(req, res, next) {
@@ -238,5 +242,11 @@ module.exports = function(app) {
         res.send(json);
     }    
 
+    //
+    // Notifications
+    function getNotificationTemplates(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'sysNotificationTemplates.json');
+        res.send(json);
+    }    
 
 };

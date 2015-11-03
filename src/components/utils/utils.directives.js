@@ -17,7 +17,8 @@
         .directive('dynamicClass', directiveDynamicClass)
         .directive('dateField', directiveDateField)
         .directive('rolesSelect', directiveRolesSelect)
-        .directive('usersSelect', directiveUsersSelect);
+        .directive('usersSelect', directiveUsersSelect)
+        .directive('modalSelectUsers', directiveModalSelectUsers);        
         
     // -----------------------------------------------------------------------------------
 	//
@@ -321,7 +322,8 @@
         var directive = {
             restrict:'E',
             scope : {
-            	selectedUsers: '='
+            	selectedUsers: '=',
+            	project: '='
             },
             templateUrl: 'components/utils/partials/users-select.html',
 			controller: 'controllerUsersSelect',
@@ -402,4 +404,49 @@
 		};
 		return directive;
 	}
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Modal Select Users
+	//
+    // -----------------------------------------------------------------------------------
+    directiveModalSelectUsers.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalSelectUsers($modal) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	users: '=',
+            	project: '='
+            },
+			link : function(scope, element, attrs) {
+				console.log('here', scope.users);
+				element.on('click', function() {
+					var modalUsersView = $modal.open({
+						animation: true,
+						templateUrl: 'components/utils/partials/modal-users-select.html',
+						controller: 'controllerModalUsersSelect',
+						controllerAs: 'utilUsers',
+						size: 'lg',
+						resolve: {
+							rUsers: function() {
+								return scope.users || [];
+							},
+							rProject: function() {
+								return scope.project || {};
+							},
+							rConfig: function() {
+								return {allowChoice: true, allowTeam: false};
+							}
+						}
+					});
+					modalUsersView.result.then(function (data) {
+						if (!scope.users) scope.users = [];
+
+						scope.users = data;
+					}, function () {});
+				});
+			}
+        };
+        return directive;
+    }
 })();

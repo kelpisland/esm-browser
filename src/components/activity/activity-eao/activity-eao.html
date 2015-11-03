@@ -1,5 +1,5 @@
 <h1 class="page-title">
-	<a href ui-sref='eao.project({id: actBase.activity.projectId})' class='pull-right return-link'>Return to Activities</a>
+	<a href ui-sref='eao.project({id: actBase.activity.projectId })' class='pull-right return-link'>Return to Activities</a>
 	{{ actBase.project.name }}
 </h1>
 
@@ -11,7 +11,7 @@
 
 	<div class='row'>
 		<div class='col-sm-9 col-lg-10'>
-			<tmpl-eao-activity-detail x-project="actBase.project"></tmpl-eao-activity-detail>
+			<tmpl-eao-activity-detail x-project="actBase.project" x-activity="actBase.activity"></tmpl-eao-activity-detail>
 		</div> <!-- /col12 -->
 		<div class='col-sm-3 col-lg-2'>
 			<tmpl-alert-list></tmpl-alert-list>

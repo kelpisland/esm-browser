@@ -176,6 +176,12 @@
 				resolve: {
 					rUsers: function() {
 						return utilUsersSelect.users;
+					},
+					rProject: function() {
+						return utilUsersSelect.project;
+					},
+					rConfig: function() {
+						return null; // user defaults
 					}
 				}
 			});
@@ -188,27 +194,22 @@
 	// CONTROLLER: Roles Select
 	//
     // -----------------------------------------------------------------------------------    
-    controllerModalUsersSelect.$inject = ['$scope', 'rUsers', '$modalInstance', 'Project', 'Utils'];
+    controllerModalUsersSelect.$inject = ['$scope', 'rUsers', 'rProject', 'rConfig', '$modalInstance', 'Project', 'Utils'];
 	//
-	function controllerModalUsersSelect($scope, rUsers, $modalInstance, Project, Utils) {
+	function controllerModalUsersSelect($scope, rUsers, rProject, rConfig, $modalInstance, Project, Utils) {
 		var utilUsers = this;
 
 		$scope._ = _;
 
 		utilUsers.form = {filtered:null};
 
-		// TODO: actually get a project linkage here.
-		Project.getProjectContacts({id:123}).then( function(res) {
-			utilUsers.users = res.data;
-		});
-
 		Utils.getRoles().then( function(res) {
 			utilUsers.roles = res.data;
 		});
 
 		// collection of users.
-		utilUsers.selected = rUsers;
-
+		utilUsers.users = rProject.team; // all possible users
+		utilUsers.selected = rUsers || []; // selected users
 
 		// remove a user from the selected list.
 		utilUsers.removeUserFromSelected = function(user) {
@@ -228,7 +229,18 @@
 		};
 
 		// setup new users
-		utilUsers.userNew = {allowChoice: false, viaEmail:true};
+		if (!rConfig) {
+			utilUsers.config = {allowChoice: false, allowTeam:true, viaEmail:true};
+		} else {
+			utilUsers.config = rConfig;
+		}
+		// default to add if there's no team to select.
+		if (!utilUsers.config.allowTeam) {
+			utilUsers.form.filteredUsers = 'add';
+		}
+		utilUsers.newUser = {};
+		utilUsers.newUser.viaEmail = utilUsers.config.viaEmail || false;
+		utilUsers.newUser.viaMail = utilUsers.config.viaMail || false;
 
 		// add a new 
 		utilUsers.addNewUser = function() {
@@ -238,7 +250,7 @@
 			// and resolve later on.
 		};
 
-		utilUsers.ok = function () { $modalInstance.close(utilUsers.users); };
+		utilUsers.ok = function () { $modalInstance.close(utilUsers.selected); };
 		utilUsers.cancel = function () { $modalInstance.dismiss('cancel'); };
 
 

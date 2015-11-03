@@ -19,7 +19,8 @@
             controllerAs: 'taskNotifications',
             scope: {
             	anchor: '@',
-            	item: '='
+            	task: '=',
+                project: '='
             }
         };
         return directive;

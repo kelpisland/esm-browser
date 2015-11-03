@@ -1,13 +1,13 @@
-<div ng-repeat="(id, task) in actTasks.tasks" ng-if="task.visible">
-	<label class="control-label">
-		{{ task.group }} Tasks
-	</label>
-
+<div>
 	<ul class="list-unstyled task-list">
-		<li ng-repeat="(itemId, item) in task.items">
-			<button class="btn btn-sm btn-block clearfix btn-task-indicator btn-task-{{ item.value | kebab }}" ng-repeat="value in item.values" ng-if="value.title === item.value" ng-click="actTasks.taskChange(item, $event)" ng-class="{'task-selected': actTasks.form.currentTask === 'task-' + ( item._id | kebab )}">
-				<div>{{ item.title }}</div>
-				<div class="task-current-status">{{ item.value }}</div>
+		<li ng-repeat="(itemId, item) in actTasks.activity.tasks">
+			<button
+				class="btn btn-sm btn-block clearfix btn-task-indicator btn-task-{{ item.currentStatusTitle | kebab }}" 
+				ng-click="actTasks.taskChange(item, actTasks.project, $event)"
+				ng-class="{'task-selected': actTasks.form.currentTask === 'task-' + ( item._id | kebab )}">
+
+				<div>{{ item.name }}</div>
+				<div class="task-current-status">{{ item.currentStatusTitle }}</div>
 			</button>
 		</li>
 	</ul>

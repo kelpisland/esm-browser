@@ -47,10 +47,13 @@
 		// 		actDetail.filteredDocumentsFor = undefined;
 		// 	}
 		// }
+
+		$scope.$watch('activity', function(newValue) {
+			actDetail.activity = newValue;
+		});
 		
 		$scope.$watch('project', function(newValue) {
 			actDetail.project = newValue;
-			actDetail.activity = newValue.activities[0];
 		});
     }
     // -----------------------------------------------------------------------------------
@@ -64,45 +67,44 @@
 		var actTasks = this;
 		actTasks.form = {};
 
-		// add new tasks or processes when a click or event is sent to this controller
-		actTasks.updateTaskList = function(item, idx) {
-			item.value = item.values[idx].title;
+		$scope.$watch('activity', function(newValue) {
+			actTasks.activity = newValue;
+		});
+		
+		$scope.$watch('project', function(newValue) {
+			actTasks.project = newValue;
+		});
 
-			// Show any other task groups
-			if (item.values[idx].groups) {
-				_.each( item.values[idx].groups, function( val, key ) {
-					actTasks.tasks[val].visible = true;
-				});
-			}
+		// add new tasks or processes when a click or event is sent to this controller
+		actTasks.updateTaskList = function(item, project, idx) {
+			console.log(idx);
+			item.currentStatusTitle = item.statusValues[idx].title;
+
 			// Show any other processes
-			if (item.process) {
-				$rootScope.$broadcast('taskAddProcess', {'procs': item.process, 'item': item});
+			if (item.processCode) {
+				$rootScope.$broadcast('taskAddProcess', {'procCode': item.processCode, 'item': item, 'project': project});
 			}
 		};
 
 		// when a task is marked complete, refresh the list.
+		// TODO: This needs work.  It hasn't been tested.
 		$rootScope.$on('resolveItem', function(req, targetId) {
 			var idx=0;
-			console.log('Resolve', targetId);
-			_.each( actTasks.tasks, function( task, key1 ) {
-				console.log('tasks', task);
-				_.each( task.items, function( item, key2 ) {
-					if (item._id === targetId) {
-						// item.value = 'Complete';
-						_.each( item.values, function( val, key3 ) {
-							if (val.title === 'Complete') {
-								idx = key3;
-							}							
-						});
-						actTasks.updateTaskList(item, idx);	
-					}
-				});
+			_.each( actTasks.activity.tasks, function( task, key1 ) {
+				if (item._id === targetId) {
+					_.each( task.statusValues, function( item, key2 ) {
+						if (val.title === 'Complete') {
+							idx = key3;
+						}							
+					});
+					actTasks.updateTaskList(item, idx);	
+				}
 			});
 		});
 
 
 		// change the task value with a click
-		actTasks.taskChange = function(item, $event) {
+		actTasks.taskChange = function(item, project, $event) {
 			// find the current value in values
 			// altkey only
 			if ($event.altKey && !$event.shiftKey) {
@@ -111,16 +113,19 @@
 			}
 
 			// set current item
-			actTasks.form.currentTask = 'task-' + $filter('kebab')(item._id);
-
+			// actTasks.form.currentTask = 'task-' + $filter('kebab')(item._id);
+			project.currentTask = item.code + item._id;
+			
 			// find the current value profile.
 			var idx = 0;
-			_.each( item.values, function(val, key) {
-				if (val.title === item.value) {
+			_.each( item.statusValues, function(val, key) {
+				if (val.title === item.currentStatusTitle) {
 					idx = key;
 				}
 			});
 			
+			console.log(idx, project);
+
 			// if shiftkey is down, iterate the status	
 			if (!$event.altKey && $event.shiftKey) {
 				idx++;
@@ -128,17 +133,11 @@
 					idx = 0;
 				}
 			}
-			actTasks.updateTaskList(item, idx);
+			actTasks.updateTaskList(item, project, idx);
 
 		};
 
 
-		
-
-
-		$scope.$watch('project', function(newValue) {	
-			actTasks.tasks = newValue;
-		});
     }
     // -----------------------------------------------------------------------------------
 	//
@@ -154,14 +153,18 @@
 
 		// key the task to the originating item so we can have multiple instances of the same panel
 		$rootScope.$on('taskAddProcess', function(event, args) {
-			console.log('args', args);
-			var newKey = (args.item._id + '_' + args.procs);
-			actProcs.process = {'anchor': newKey, 'tmpl': _.kebabCase('tmpl-' + args.procs), 'item':args.item};
+			//var newKey = (args.item._id + '_' + args.procCode);
+			//actProcs.process = {'anchor': newKey, 'tmpl': _.kebabCase('tmpl-' + args.procCode), 'item':args.item, 'project':args.project};
  		});
 
-		// $scope.$watch('processes', function(newValue) {	
-		// 	actProcs.processes = newValue;
-		// });
+		$scope.$watch('activity', function(newValue) {
+			actProcs.activity = newValue;
+		});
+		
+		$scope.$watch('project', function(newValue) {
+			actProcs.project = newValue;
+		});
+
     }
     
 })();

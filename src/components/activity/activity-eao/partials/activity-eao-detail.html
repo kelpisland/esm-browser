@@ -1,6 +1,6 @@
 <div class="panel" ng-class="{'panel-success': actDetail.activity.valueComponents, 'panel-info': !actDetail.activity.valueComponents}" x-expand-panel='actDetail.activityToggle[actDetail.activity._id]'>
 	<div class="panel-heading">
-		<div class="label pull-right" ng-class="{'label-success':actDetail.activity.status === 'Closed', 'label-primary':actDetail.activity.status === 'Open'}">Open</div>
+		<div class="label pull-right" ng-class="{'label-success':actDetail.activity.status === 'closed', 'label-primary':actDetail.activity.status === 'open'}">Open</div>
 		<h3 class="panel-title">{{ actDetail.activity.name }}</h3>
 	</div>
 	<div class="panel-body" ng-show="actDetail.activityToggle[actDetail.activity._id]">
@@ -18,11 +18,11 @@
 <div class="row">
 
 	<div class="col-md-3 col-lg-3">
-		<tmpl-eao-activity-tasks x-tasks="actDetail.activity.tasks"></tmpl-eao-activity-tasks>
+		<tmpl-eao-activity-tasks x-project="actDetail.project" x-activity="actDetail.activity"></tmpl-eao-activity-tasks>
 	</div> <!-- /col3 -->
 	
 	<div class="col-md-9 col-lg-9">
-		<tmpl-eao-activity-processes x-processes="actDetail.activity.processes"></tmpl-eao-activity-processes>
+		<tmpl-eao-activity-processes x-project="actDetail.project" x-activity="actDetail.activity"></tmpl-eao-activity-processes>
 	</div> <!-- /col6 -->
 
 </div>

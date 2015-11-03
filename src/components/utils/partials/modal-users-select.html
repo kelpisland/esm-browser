@@ -8,7 +8,7 @@
 			<label class="control-label">Contacts</label>
 			<p>
 				<select class="form-control input-sm" ng-model="utilUsers.form.filteredUsers">
-					<optgroup label="Project Team Members">
+					<optgroup label="Project Team Members" ng-if="utilUsers.config.allowTeam">
 						<option value>All</option>
 						<option ng-repeat="role in utilUsers.roles" value="{{ role }}">{{ role }}</option>
 					</optgroup>
@@ -20,8 +20,8 @@
 					</optgroup>
 				</select>
 			</p>
-			<div class="well well-small">
-				<ul class="list-unstyled task-list" ng-show="utilUsers.form.filteredUsers !== 'search' && utilUsers.form.filteredUsers !== 'add'">
+			<div class="well well-sm">
+				<ul class="list-unstyled task-list" ng-show="utilUsers.form.filteredUsers !== 'search' && utilUsers.form.filteredUsers !== 'add' && utilUsers.config.allowTeam">
 					<li ng-repeat="user in usersFiltered = (utilUsers.users | filter:{role: (utilUsers.form.filteredUsers || undefined)})">
 						<button class="btn btn-block btn-sm btn-layer" ng-click="utilUsers.addUserToSelected(user)" x-dynamic-class-when="utilUsers.inSelected(user)" x-dynamic-class="btn-primary">{{ user.name }} <em class="small">{{ user.role }}</em></button>
 					</li>
@@ -62,7 +62,7 @@
 						<label class="control-label">Name</label>
 						<input type="text" class="form-control" ng-model="utilUsers.userNew.name"/>
 					</div>
-					<div class="checkbox" ng-show="utilUsers.userNew.allowChoice">
+					<div class="checkbox" ng-show="utilUsers.config.allowChoice">
 						<label for="receiveViaEmail">
  						<input ng-model="utilUsers.userNew.viaEmail" type="checkbox" id="receiveViaEmail" class="checkbox"/>
 							<span>Contact Via Email</span>
@@ -74,7 +74,7 @@
 							<input type="text" class="form-control" ng-model="utilUsers.userNew.email"/>
 						</div>	
 					</div>
-					<div class="checkbox" ng-show="utilUsers.userNew.allowChoice">
+					<div class="checkbox" ng-show="utilUsers.config.allowChoice">
 						<label for="receiveViaMail">
  						<input ng-model="utilUsers.userNew.viaMail" type="checkbox" id="receiveViaMail" class="checkbox"/>
 							<span>Contact Via Mail</span>
@@ -117,11 +117,11 @@
 		<div class="col-sm-6">
 			<label class="control-label">Selected</label>
 			<p>
-				<select class="form-control input-sm" ng-model="utilUsers.form.filteredSelected" ng-options="role for role in utilUsers.roles">
+				<select class="form-control input-sm" ng-model="utilUsers.form.filteredSelected" ng-options="role for role in utilUsers.roles" ng-disabled="!utilUsers.config.allowTeam">
 					<option value>All</option>
 				</select>
 			</p>
-			<div class="well well-small">
+			<div class="well well-sm">
 				<ul class="list-unstyled task-list">
 					<li ng-repeat="user in selectedFiltered = (utilUsers.selected | filter:{role: (utilUsers.form.filteredSelected || undefined)})">
 						<button class="btn btn-block btn-sm btn-layer" ng-click="utilUsers.removeUserFromSelected(user)">{{ user.name }} <em class="small">{{ user.role || user.email }}</em></button>

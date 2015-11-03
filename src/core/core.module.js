@@ -9,7 +9,7 @@
         'fw.exception', 'fw.logger',
 
         // 3rd Party modules
-        'toastr', 'ui.bootstrap', 'ui.router', 'ngMap', 'd3', 'angularMoment', 'ngFileUpload'
+        'toastr', 'ui.bootstrap', 'ui.router', 'ngMap', 'd3', 'angularMoment', 'ngFileUpload', 'ui.bootstrap.datetimepicker',
     ]);
     
 	angular.module('d3', [])
