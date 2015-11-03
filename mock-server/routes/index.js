@@ -59,6 +59,10 @@ module.exports = function(app) {
     // common map layers
     app.get(api + '/v1/layers', getCommonLayers);   
 
+    // common map layers
+    app.get(api + '/v1/notificationTemplates', getNotificationTemplates);
+
+
     //
     // system wide widgets
     function getUtilsRecentActivity(req, res, next) {
@@ -144,13 +148,14 @@ module.exports = function(app) {
 
 
     function getProjectActivities(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'activities.json');
-        res.send(json);
+        var json = jsonfileservice.getJsonFromFile(data + 'primProject.json');
+        console.log(json);
+        res.send(json.activities);
     }
 
     function getProjectActivity(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'activity.json');
-        res.send(json);
+        var json = jsonfileservice.getJsonFromFile(data + 'primProject.json');
+        res.send(json.activities[0]);
     }
 
     function getResponseRevisions(req, res, next) {
@@ -237,5 +242,11 @@ module.exports = function(app) {
         res.send(json);
     }    
 
+    //
+    // Notifications
+    function getNotificationTemplates(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'sysNotificationTemplates.json');
+        res.send(json);
+    }    
 
 };

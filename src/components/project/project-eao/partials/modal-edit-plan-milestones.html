@@ -7,7 +7,7 @@
 		<div class="col-sm-6">
 		
 			<label class="control-label">Possible Milestones</label>
-			<div class="well well-small">
+			<div class="well well-sm">
 				<ul class="list-unstyled task-list">
 					<li ng-repeat="milestone in pestag.allMilestones">
 						<button class="btn btn-block btn-sm btn-layer" ng-click="pestag.addMilestoneToProject(milestone)" x-dynamic-class-when="pestag.inProject(milestone)" x-dynamic-class="btn-primary">{{ milestone.name }}</button>
@@ -19,7 +19,7 @@
 		<div class="col-sm-6">
 		
 			<label class="control-label">Project Milestones</label>
-			<div class="well well-small">
+			<div class="well well-sm">
 				<ul class="list-unstyled task-list">
 					<li ng-repeat="milestone in pestag.projectMilestones track by $index">
 						<button class="btn btn-block btn-sm btn-layer" ng-click="pestag.removeMilestoneFromProject($index)">{{ milestone.name }}</button>

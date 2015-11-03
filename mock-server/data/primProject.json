@@ -1,251 +1,4020 @@
 {
-	"_id":"123",
-	"name":"project name",
-	"proponent":{},
-	"type":"sysProjectTypes",
-	"description":"description",
-	"region":"region",
-	"location":"location",
-	"dateCurrentPhase":"intake",
-	"dateCurrentPhaseEstimatedStart": "2015-11-01T23:58:15.181Z",
-	"dateCurrentPhaseEstimatedEnd": "2015-11-01T23:58:15.181Z",
-	"nextPhase":"pre-app",
-	"dateNextPhaseEstimatedStart": "2015-03-01T23:58:15.181Z",
-	"currentCommentPeriod":{
-		"code":"tag each comment as this",
-		"dateOpen": "2015-09-28T12:00:00.181Z",
-		"dateClosed": "2015-10-28T12:00:00.181Z",
-	},
-	"overallProgress":85,
-	"lat":50.752097,
-	"long":-128.322029,
-	"intake": [
-		{
-			"q": "question1",
-			"a": "answer1"
-		}
-	],
-	"phases": {
-		"intake":{
-			"code": "intake",
-			"name":"Intake",
-			"completion":80,
-			"dateEstimatedStart":"2001-06-01T23:58:15.181Z",
-			"dateEstimatedEnd":"2002-06-02T23:58:15.181Z",
-			"dateActualStart":"2004-04-10T23:58:15.181Z",
-			"dateActualEnd":"2004-04-10T23:58:15.181Z"
-		}
-	},
-	"milestones": [
-		{
-			"code":"",
-			"name":"",
-			"phases":["an array of phase codes or ids"],
-			"dateEstimatedStart":"2001-06-01T23:58:15.181Z",
-			"dateEstimatedEnd":"2002-06-02T23:58:15.181Z",
-			"dateActualStart":"2004-04-10T23:58:15.181Z",
-			"dateActualEnd":"2004-04-10T23:58:15.181Z",
-			"access":{
-				"notification":[
-					{"type":"group", "value":"name of group"},
-					{"type":"email", "email":"email@email.com", "name":"recipient name"}
-				],
-				"visibility":[
-					{"type":"group", "value":"name of group"},
-					{"type":"email", "email":"email@email.com", "name":"recipient name"}
-				],
-				"approval":[
-					{"type":"group", "value":"name of group"},
-					{"type":"email", "email":"email@email.com", "name":"recipient name"}
-				]
-			},
-			"preMetRequirements":["comma delimeted list of requirement codes, each needs to be met to transition to this milestone"],
-			"activities": [
-				{
-					"_id":"a1234",
-					"name":"Activity Name",
-					"description":"",
-					"dateStart":"2004-04-10T23:58:15.181Z",
-					"dateEnd":"2004-04-10T23:58:15.181Z",
-					"dateUpdated":"2004-04-10T23:58:15.181Z",
-					"updatedBy": {"user":"user name"},
-					"preMetRequirements":["rcomma delimeted requirement codes each needs to be met to start this activity"],
-					"tasks": {
-						"t1234":{
-							"_id":"t1234",
-							"code":"taskname all lowercase",
-							"name":"Long Name",
-							"currentStatusTitle":"Not Started",
-							"processCode":"process code value",
-							"statusValues": [
-								{
-									"title":"Not Started"
-								},
-								{
-									"title":"In Progress",
-									"preCanComplete":["projectRole"]
-								},
-								{
-									"title":"Complete",
-									"preCanComplete":["comma delimeted, project role codes that can transition to this value"],
-									"preMetRequirements":["comma delimeted requirement codes each needs to be met to transition to this"],
-									"postMetRequirements":["comma delimeted requirement codes each needs to met when this value is transitioned to"],
-									"alerts":[
-										{"_id":"alerts"}
-									]
-								},
-								{
-									"title":"Not Applicable"
-								}
-							],
-							"data":{"":"variable object based on what type of process this is."}
-						}
-					}
-				}
-			],
-			"requirements":[{}],
-			"buckets": ["list of buckets that this milestone enables"]
-		}
-	],
-	"team": [
-		{
-			"_id":"123",
-			"name": "user name",
-			"systemRole": ["comma delimeted roles"],
-			"projectRole": ["comma delimeted roles"]
-		}
-	],
-	"deliverables": [
-		{
-			"_id":"123",
-			"name": "document name",
-			"synopsys": "",
-			"type":"document|shapefile|?",
-			"buckets":["list of buckets this can go in"]
-		}
-	],
-	"buckets": [
-		{
-			"code":"bats",
-			"name":"Bats",
-			"isValueComponment":true,
-			"status":"open|closed",
-			"progress": 100,
-			"requirements":["comma delimeted subset of requirement codes needed for this bucket"],
-			"data":{"":"data based on the process"}
-		}
-	],
-	"requirements":[
-		{
-			"code": "unique short string identifier",
-			"type":"document|approval",
-			"name":"Section 10-1c",
-			"bucket":"name of bucket grouping this belongs to",
-			"dateComplete": "2004-04-10T23:58:15.181Z",
-			"completedBy": {"_id": "user"},
-			"deliverable":"optional embed element",
-			"completingTask":"milestoneShortId+taskID"
-		}
-	],
-	"spatial": [
-		{
-			"_id":"",
-			"layerName":"",
-			"type":"poly|line|point",
-			"coords":""
-		}
-	],
-	"data":{
-		"audit": [
-			{
-				"taskId":"",
-				"value":"value",
-				"dateValue":"2004-04-10T23:58:15.181Z",
-				"user": {}
-			}
-		],
-		"publicComments":[
-			{
-				"_id":"commentId",
-				"author": "",
-				"instance": "currentCommentPeriod code",
-				"comment": "",
-				"isSpam": false,
-				"dateCreated":"2004-04-10T23:58:15.181Z",
-				"vettedBy": {"user":"username"},
-				"dataVetted": "2004-04-10T23:58:15.181Z",
-				"buckets":[{"_id":"associated bucket object"}],
-				"issues":[{"_id":"link to issues that this comment started or is related to"}]
-			}
-		],
-		"notifications":[
-			{
-				"milestone": "milestone",
-				"status":"pending|queued|sent",
-				"dateSent":"2004-04-10T23:58:15.181Z",
-				"dateQueued":"2004-04-10T23:58:15.181Z",
-				"mailContent":"",
-				"documents":[
-					"comma separated list of documents objects attach"
-				],
-				"recipientsDigital":[
-					{"name":"name", "email":"email"}
-				],
-				"recipientsPhysical":[
-					{
-						"name":"name",
-						"address":"address",
-						"city":"city",
-						"prov":"prov",
-						"postal":"postal",
-						"tracking":"tracking",
-						"dateSent":"2004-04-10T23:58:15.181Z",
-					}
-				],
-			}
-		],
-		"issues":[
-			{
-				"_id":"",
-				"description":"",
-				"buckets":[{"_id":"list of associated buckets"}],
-				"identifiedBy":[{"_id":"user"}],
-				"dateCreated":"2004-04-10T23:58:15.181Z",
-				"response":[{"_id": "response data object"}],
-				"status":"open|closed",
-				"revision":1,
-				"publicComments":[{"_id":"associated public comments"}],
-				"responses":[
-					{
-						"_id":"referredToId",
-						"assigned":{"_id":"user"},
-						"comment":"comment from working group memeber",
-						"dateAssigned":"2004-04-10T23:58:15.181Z",
-						"dateReplied":"2004-04-10T23:58:15.181Z",
-						"deliverables":[
-							{"_id":"link to document"}
-						]
-					}
-				]
-			}
-		],
-		"approvals":[
-			{
-				"_id":"approvalId",
-				"dateApproved":"2004-04-10T23:58:15.181Z",
-				"approvedBy":{"_id":"user"},
-				"comment":""
-			}
-		],
-		"conditions":[
-			{
-				"_id":"approvalId",
-				"dateCondition":"2004-04-10T23:58:15.181Z",
-				"createdBy":{"_id":"user"},
-				"condition":"",
-				"status": "draft|approved|denied",
-				"inspections":[{"_id":"future inspections"}]
-			}
-		]
-	}
+    "_id": "knob",
+    "activities": [
+        {
+            "_id": "inproj",
+            "access": [],
+            "dateEnd": "2014-06-18T00:00:00.000Z",
+            "dateStart": "2014-06-18T00:00:00.000Z",
+            "dateUpdated": "2014-06-18T00:00:00.000Z",
+            "description": "Initiate Project",
+            "name": "Initiate Project",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "reprol",
+                    "code": "reprol",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Review project description (high Level)",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "deapp10",
+                    "code": "deapp10",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Determine appropriate Project Process - Section 10",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "gedefon",
+                    "code": "gedefon",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Generate Default Project Template based on above selection",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "kpplaER",
+                    "code": "kpi placeholder",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "KPI PLACEHOLDER",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "seupps",
+            "access": [],
+            "dateEnd": "2014-06-18T00:00:00.000Z",
+            "dateStart": "2014-06-18T00:00:00.000Z",
+            "dateUpdated": "2014-06-18T00:00:00.000Z",
+            "description": "Set up Project Space",
+            "name": "Set up Project Space",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "reandan",
+                    "code": "reandan",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Review and Modify Tasks in Plan",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "admilan",
+                    "code": "admilan",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Add Milestone Dates to the Plan",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "crproem",
+                    "code": "create project team and assign roles in system",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Create Project Team and Assign roles in System",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "reandem",
+                    "code": "review and populate stakeholder members in system",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Review and populate Stakeholder Members in System",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "coandem",
+                    "code": "confirm and modify value components created in system",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Confirm and Modify Value Components created in system",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "poisses",
+                    "code": "populate issue tracking table with known issues",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Populate Issue Tracking Table with known issues",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "pofnits",
+                    "code": "populate fni tracking table with known interests",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Populate FNI Tracking Table with known Interests",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "reandix",
+                    "code": "review and modify notification matrix",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Review and Modify Notification Matrix",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "approew",
+                    "code": "approve projectspace for proponent view",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Approve ProjectSpace for Proponent View",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "noprontps",
+                    "code": "notify proponent about project space",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Notify Proponent about Project Space",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "soc",
+            "access": [],
+            "dateEnd": "2014-07-11T00:00:00.000Z",
+            "dateStart": "2014-06-18T00:00:00.000Z",
+            "dateUpdated": "2014-07-11T00:00:00.000Z",
+            "description": "Begin Strength of Claim Process",
+            "name": "Begin Strength of Claim Process",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "idfirn ",
+                    "code": "identify first nations for consultation ",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Identify First Nations for Consultation ",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "refirim",
+                    "code": "research first nations strength of claim",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Research First Nations Strength of Claim",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "seconel",
+                    "code": "set consultation level",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Set Consultation level",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "amstast",
+                    "code": "amend stakeholder list",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Amend Stakeholder List",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "popcont",
+            "access": [],
+            "dateEnd": "2014-07-03T00:00:00.000Z",
+            "dateStart": "2014-06-18T00:00:00.000Z",
+            "dateUpdated": "2014-07-03T00:00:00.000Z",
+            "description": "Populate Content",
+            "name": "Populate Content",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "crdra10",
+                    "code": "create draft section 10",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Create Draft Section 10",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "crdraem",
+                    "code": "create draft section 11 document and upload to the system",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Create Draft Section 11 Document and Upload to the System",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "ininint",
+                    "code": "input initial value component content",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Input Initial Value Component Content",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "inknoes",
+                    "code": "input known issues",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Input known Issues",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "adfnist",
+                    "code": "add fni items to fni list",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Add FNI items to FNI List",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "crprojdesc",
+            "access": [],
+            "dateEnd": "2014-08-02T00:00:00.000Z",
+            "dateStart": "2014-06-18T00:00:00.000Z",
+            "dateUpdated": "2014-08-02T00:00:00.000Z",
+            "description": "Create Project Description",
+            "name": "Create Project Description",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "reprdesc",
+                    "code": "revise project description",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Revise Project Description",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "apprdesc",
+                    "code": "approve project description",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Approve Project Description",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "puprdesc",
+                    "code": "publish project description",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Publish Project Description",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "crs101c",
+            "access": [],
+            "dateEnd": "2014-08-25T00:00:00.000Z",
+            "dateStart": "2014-08-02T00:00:00.000Z",
+            "dateUpdated": "2014-08-25T00:00:00.000Z",
+            "description": "Create Section 10(1)c",
+            "name": "Create Section 10(1)c",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "fiprs101c",
+                    "code": "finalize section 10.1c",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Finalize Section 10.1C",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "apprs101c",
+                    "code": "approve section 10.1c",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Approve Section 10.1C",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "noprs101c",
+                    "code": "notify section 10.1c",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Notify Section 10.1C",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "s11",
+            "access": [],
+            "dateEnd": "2014-10-31T00:00:00.000Z",
+            "dateStart": "2014-08-25T00:00:00.000Z",
+            "dateUpdated": "2014-10-31T00:00:00.000Z",
+            "description": "Create and Finalize Section 11 Document",
+            "name": "Create and Finalize Section 11 Document",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "ifnotad",
+                    "code": "if not already complete, create draft s11 and upload",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "If not already complete, Create Draft S11 and Upload",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "sufornt",
+                    "code": "submit for first nations' comment",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Submit for First Nations' Comment",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "s11rev",
+                    "code": "section 11 review",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Section 11 Review",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "fiandnt",
+                    "code": "finalize and approve document",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Finalize and Approve Document",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "crvalte",
+                    "code": "create value components as appropriate",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Create Value Components as appropriate",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "nopront",
+                    "code": "notify proponent",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Notify Proponent",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "setors",
+                    "code": "send to proponent and identified stakeholders",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Send to Proponent and identified Stakeholders",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "valcommm",
+            "access": [],
+            "dateEnd": "2014-09-19T00:00:00.000Z",
+            "dateStart": "2014-08-25T00:00:00.000Z",
+            "dateUpdated": "2014-09-19T00:00:00.000Z",
+            "description": "Enter Value Component Mandatory Minimum",
+            "name": "Enter Value Component Mandatory Minimum",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "adval11",
+                    "code": "add value components based on information provided through s11",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Add Value Components based on information provided through S11",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "enmannt",
+                    "code": "enter mandatory minimum information within each value component",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Enter Mandatory Minimum information within each Value Component",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "alstars",
+                    "code": "alert stakeholders",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Alert stakeholders",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "revalts",
+                    "code": "review value components",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Review Value Components",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "asvalrs",
+                    "code": "assign value components to working group members",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Assign Value Components to Working Group Members",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "apvalep",
+                    "code": "approve value component content - in order to progress to next step",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Approve Value Component Content - in order to progress to next step",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "crvalnt",
+                    "code": "create value component document",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Create Value Component Document",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "wgpart",
+            "access": [],
+            "dateEnd": "2014-09-09T00:00:00.000Z",
+            "dateStart": "2014-08-25T00:00:00.000Z",
+            "dateUpdated": "2014-09-09T00:00:00.000Z",
+            "description": "Confirm Working Group Participation",
+            "name": "Confirm Working Group Participation",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "sereqts",
+                    "code": "send request to desired working group participants",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Send request to desired Working Group Participants",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "coparon",
+                    "code": "confirm participation",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Confirm Participation",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "upstaes",
+                    "code": "update stakeholder list with confirmed names",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Update Stakeholder List with confirmed names",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "enworts",
+                    "code": "ensure working group members are assigned to relevant value components",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Ensure Working Group members are assigned to relevant Value Components",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "drftair",
+            "access": [],
+            "dateEnd": "2014-09-28T00:00:00.000Z",
+            "dateStart": "2014-08-25T00:00:00.000Z",
+            "dateUpdated": "2014-09-28T00:00:00.000Z",
+            "description": "Create Draft AIR",
+            "name": "Create Draft AIR",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "drairss",
+                    "code": "approve draft air",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Approve Draft AIR",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "inpubedair",
+                    "code": "initiate draft air public comment period if required",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Initiate Draft AIR Public Comment Period if Required",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "movaledair",
+                    "code": "modify value components, issues, etc. as required for draft air",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Modify Value Components, Issues, etc. as Required for Draft AIR",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "crdraedair",
+                    "code": "create draft conditions as required based on draft air",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Create Draft Conditions as Required based on Draft AIR",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "fiandrsair",
+                    "code": "finalize and publish draft air to identified stakeholders",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Finalize and Publish Draft AIR to identified stakeholders",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "crair",
+            "access": [],
+            "dateEnd": "2014-12-04T00:00:00.000Z",
+            "dateStart": "2014-09-28T00:00:00.000Z",
+            "dateUpdated": "2014-12-04T00:00:00.000Z",
+            "description": "Create AIR",
+            "name": "Create AIR",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "crairss",
+                    "code": "approve air",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Approve AIR",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "inpubed",
+                    "code": "initiate air public comment period if required",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Initiate AIR Public Comment Period if Required",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "movaled",
+                    "code": "modify value components, issues, etc. as required for air",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Modify Value Components, Issues, etc. as Required for AIR",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "crdraed",
+                    "code": "create draft conditions as required based on air",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Create Draft Conditions as Required based on AIR",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "fiandrs",
+                    "code": "finalize and publish air to identified stakeholders",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Finalize and Publish AIR to identified stakeholders",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "crapp",
+            "access": [],
+            "dateEnd": "2016-01-31T00:00:00.000Z",
+            "dateStart": "2014-12-04T00:00:00.000Z",
+            "dateUpdated": "2016-01-31T00:00:00.000Z",
+            "description": "Create Application ",
+            "name": "Create Application ",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "crappss",
+                    "code": "approve submission of application",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Approve Submission of Application",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "crtoc",
+            "access": [],
+            "dateEnd": "2016-02-28T00:00:00.000Z",
+            "dateStart": "2016-01-31T00:00:00.000Z",
+            "dateUpdated": "2016-02-28T00:00:00.000Z",
+            "description": "Create Table of Concordance",
+            "name": "Create Table of Concordance",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "tocSS",
+                    "code": "approve toco",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Approve ToCO",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "preappwrap",
+            "access": [],
+            "dateEnd": "2016-03-04T00:00:00.000Z",
+            "dateStart": "2016-02-28T00:00:00.000Z",
+            "dateUpdated": "2016-03-04T00:00:00.000Z",
+            "description": "Pre-Application Wrap-Up",
+            "name": "Pre-Application Wrap-Up",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "scevaodpre",
+                    "code": "schedule evaluation period",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Schedule Evaluation Period",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "noworodpre",
+                    "code": "notify working group of upcoming evaluation period",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Notify Working Group of upcoming Evaluation Period",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "scworedpre",
+                    "code": "schedule working group metings as required",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Schedule Working Group Metings as required",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "initeval",
+            "access": [],
+            "dateEnd": null,
+            "dateStart": "2016-03-04T00:00:00.000Z",
+            "dateUpdated": "2016-03-09T00:00:00.000Z",
+            "description": "Initate Evaluation Period",
+            "name": "Initate Evaluation Period",
+            "preMetRequirements": [],
+            "status": "open",
+            "tasks": [
+                {
+                    "_id": "foaccon",
+                    "code": "fomally accept application",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Fomally Accept Application",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "noswgrs",
+                    "code": "notify / send application, air, and table of concordance to working group members",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Notify / Send Application, AIR, and Table of Concordance to Working Group Members",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "seinvnt",
+                    "code": "send invoice to proponent",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Send Invoice to Proponent",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "coworlsinit",
+                    "code": "confirm working group application, air, and table of concordance",
+                    "currentStatusTitle": "Complete",
+                    "data": {},
+                    "name": "Confirm Working Group Application, AIR, and Table of Concordance",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "foiniod30",
+                    "code": "formally initiate 30 day evaluation period",
+                    "currentStatusTitle": "In Progress",
+                    "data": {},
+                    "name": "Formally Initiate 30 Day Evaluation Period",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "doappetoc",
+                    "code": "document approval process (table of concordance)",
+                    "currentStatusTitle": "In Progress",
+                    "data": {},
+                    "name": "DOCUMENT APPROVAL PROCESS (Table of Concordance)",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "evalwrap",
+            "access": [],
+            "dateEnd": null,
+            "dateStart": null,
+            "dateUpdated": null,
+            "description": "Evaluation Wrap-up",
+            "name": "Evaluation Wrap-up",
+            "preMetRequirements": [],
+            "status": null,
+            "tasks": [
+                {
+                    "_id": "scevaodwrap",
+                    "code": "schedule application evaluation period",
+                    "currentStatusTitle": "In Progress",
+                    "data": {},
+                    "name": "Schedule Application Evaluation Period",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "noworod",
+                    "code": "notify working group of upcoming review period",
+                    "currentStatusTitle": "In Progress",
+                    "data": {},
+                    "name": "Notify Working Group of upcoming Review Period",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "scwored",
+                    "code": "schedule working group application evaluation meetings as required",
+                    "currentStatusTitle": "In Progress",
+                    "data": {},
+                    "name": "Schedule Working Group Application Evaluation Meetings as required",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "initrev",
+            "access": [],
+            "dateEnd": null,
+            "dateStart": null,
+            "dateUpdated": null,
+            "description": "Initate Review Period",
+            "name": "Initate Review Period",
+            "preMetRequirements": [],
+            "status": null,
+            "tasks": [
+                {
+                    "_id": "nosrswg",
+                    "code": "notify / send application to working group members",
+                    "currentStatusTitle": "In Progress",
+                    "data": {},
+                    "name": "Notify / Send Application to Working Group Members",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "coworls",
+                    "code": "confirm working group received application package of materials",
+                    "currentStatusTitle": "Not Started",
+                    "data": {},
+                    "name": "Confirm Working Group received Application Package of Materials",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "foiniod",
+                    "code": "formally initiate 180 day review period",
+                    "currentStatusTitle": "Not Started",
+                    "data": {},
+                    "name": "Formally Initiate 180 Day Review Period",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "alproed",
+                    "code": "alert proponent/stakeholders 180 day review commenced",
+                    "currentStatusTitle": "Not Started",
+                    "data": {},
+                    "name": "Alert Proponent/Stakeholders 180 Day Review commenced",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "doappnrev",
+                    "code": "document approval process (application)",
+                    "currentStatusTitle": "Not Started",
+                    "data": {},
+                    "name": "DOCUMENT APPROVAL PROCESS (Application)",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "pubcomm",
+            "access": [],
+            "dateEnd": null,
+            "dateStart": null,
+            "dateUpdated": null,
+            "description": "Public Comment Period",
+            "name": "Public Comment Period",
+            "preMetRequirements": [],
+            "status": null,
+            "tasks": [
+                {
+                    "_id": "inpubss",
+                    "code": "initiate public comment period process",
+                    "currentStatusTitle": "Not Started",
+                    "data": {},
+                    "name": "initiate Public Comment Period Process",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "reandns",
+                    "code": "review and complete conditions",
+                    "currentStatusTitle": "Not Started",
+                    "data": {},
+                    "name": "Review and Complete Conditions",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                },
+                {
+                    "_id": "reandon",
+                    "code": "revise and finalize certified project description",
+                    "currentStatusTitle": "Not Started",
+                    "data": {},
+                    "name": "Revise and Finalize Certified Project Description",
+                    "processCode": "notifications",
+                    "statusValues": [
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Started",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "In Progress",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": [],
+                            "Title": "Complete",
+                            "alerts": [],
+                            "postMetRequirements": [],
+                            "preMetRequirements": []
+                        },
+                        {
+                            "CanComplete": null,
+                            "Title": "Not Applicable",
+                            "alerts": [],
+                            "postMetRequirements": null,
+                            "preMetRequirements": null
+                        }
+                    ]
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        }
+    ],
+    "buckets": [
+        {
+            "code": "bats",
+            "data": [],
+            "isValueComponment": true,
+            "name": "Bats",
+            "progress": "65",
+            "requirements": [],
+            "status": "open"
+        },
+        {
+            "code": "yellow-billedscissortail",
+            "data": [],
+            "isValueComponment": true,
+            "name": "Yellow-billed Scissortail",
+            "progress": "100",
+            "requirements": [],
+            "status": "complete"
+        },
+        {
+            "code": "section10.1c",
+            "data": [],
+            "isValueComponment": false,
+            "name": "Section 10.1C",
+            "progress": "100",
+            "requirements": [],
+            "status": "open"
+        },
+        {
+            "code": "section11",
+            "data": [],
+            "isValueComponment": false,
+            "name": "Section 11",
+            "progress": "100",
+            "requirements": [],
+            "status": "open"
+        },
+        {
+            "code": "draftair",
+            "data": [],
+            "isValueComponment": false,
+            "name": "Draft AIR",
+            "progress": "100",
+            "requirements": [],
+            "status": "open"
+        },
+        {
+            "code": "air",
+            "data": [],
+            "isValueComponment": false,
+            "name": "AIR",
+            "progress": "85",
+            "requirements": [],
+            "status": "open"
+        },
+        {
+            "code": "application",
+            "data": [],
+            "isValueComponment": false,
+            "name": "Application",
+            "progress": "25",
+            "requirements": [],
+            "status": "open"
+        },
+        {
+            "code": "squamishfninterests",
+            "data": [],
+            "isValueComponment": false,
+            "name": "Squamish FN Interests",
+            "progress": "25",
+            "requirements": [],
+            "status": "open"
+        },
+        {
+            "code": "bridgeoversi-phaletsriver",
+            "data": [],
+            "isValueComponment": false,
+            "name": "Bridge over Si-Phalets River",
+            "progress": "75",
+            "requirements": [],
+            "status": "open"
+        }
+    ],
+    "currentCommentPeriod": {
+        "code": "knobcomment",
+        "dateClosed": "2015-10-28T12:00:00.181Z",
+        "dateOpen": "2015-09-28T12:00:00.181Z"
+    },
+    "currentPhase": "eval",
+    "data123": [
+        {
+            "approvals": [
+                {
+                    "_id": "knob-appr0002",
+                    "approvedBy": {
+                        "_id": "CeciliaFBrown@gustr.com"
+                    },
+                    "comment": "Approved.",
+                    "dateApproved": "2014-07-15T00:00:00.000Z"
+                },
+                {
+                    "_id": "knob-appr0003",
+                    "approvedBy": {
+                        "_id": "RandyIConrad@dayrep.com"
+                    },
+                    "comment": "Approved.",
+                    "dateApproved": "2014-08-05T00:00:00.000Z"
+                }
+            ],
+            "audit": [
+                {
+                    "dateValue": "2014-07-15T00:00:00.000Z",
+                    "taskId": "apprdesc",
+                    "user": {
+                        "_id": "WilliamSButler@einrot.com"
+                    },
+                    "value": "Document Approved"
+                }
+            ],
+            "conditions": [
+                {
+                    "_id": "knob-cond0002",
+                    "condition": "Annual Salmon studies must be conducted each year to verify sustainability across each 5 year period",
+                    "createdBy": {
+                        "_id": "CeciliaFBrown@gustr.com"
+                    },
+                    "dateCondition": "2015-03-25T00:00:00.000Z",
+                    "inspections": {
+                        "_id": "2015Salmon"
+                    },
+                    "status": "approved"
+                }
+            ],
+            "issues": [
+                {
+                    "_id": "knob-iss0002",
+                    "buckets": [],
+                    "dateCreated": "2014-09-03T00:00:00.000Z",
+                    "description": "Bridge over Swansea River",
+                    "identifiedBy": [
+                        {
+                            "_id": "LiliLNorrell@fleckens.hu"
+                        }
+                    ],
+                    "publicComments": "knobcomments",
+                    "response": [],
+                    "responses": [
+                        {
+                            "_id": "knob-iss0002-resp0002",
+                            "assigned": {
+                                "_id": "RandyIConrad@dayrep.com"
+                            },
+                            "comment": "Comment from a Working Group member",
+                            "dateAssigned": "2014-09-14T00:00:00.000Z",
+                            "dateReplied": "2014-09-26T00:00:00.000Z",
+                            "deliverables": [
+                                {
+                                    "_id": "projectdescription"
+                                }
+                            ]
+                        },
+                        {
+                            "_id": "knob-iss0002-resp0003",
+                            "assigned": {
+                                "_id": "WilliamSButler@einrot.com"
+                            },
+                            "comment": "The Squamish FN would like input on this issue",
+                            "dateAssigned": "2014-10-18T00:00:00.000Z",
+                            "dateReplied": "2014-11-15T00:00:00.000Z",
+                            "deliverables": [
+                                {
+                                    "_id": "projectdescription"
+                                }
+                            ]
+                        }
+                    ],
+                    "revision": "1",
+                    "status": "open"
+                }
+            ],
+            "notifications": [
+                {
+                    "dateQueued": "2014-07-15T00:00:00.000Z",
+                    "dateSent": "2014-07-17T00:00:00.000Z",
+                    "documents": [
+                        "projectdescription"
+                    ],
+                    "mailContent": "The Knob Hill Wind Farm Project Description has been Officially Approved",
+                    "milestone": "projectdescriptioncomplete",
+                    "recipientsDigital": {
+                        "email": "SuzanneFBoyd@jourrapide.com",
+                        "name": "Suzanne Boyd"
+                    },
+                    "recipientsPhysical": null,
+                    "status": "sent"
+                },
+                {
+                    "dateQueued": "2014-07-15T00:00:00.000Z",
+                    "dateSent": "2014-07-17T00:00:00.000Z",
+                    "documents": [
+                        "projectdescription"
+                    ],
+                    "mailContent": "The Knob Hill Wind Farm Project Description has been Officially Approved",
+                    "milestone": "projectdescriptioncomplete",
+                    "recipientsDigital": null,
+                    "recipientsPhysical": {
+                        "address": "1019 Hardy Street",
+                        "city": "Kelowna",
+                        "dataSent": "2014-07-15T00:00:00.000Z",
+                        "name": "Christopher Lemon",
+                        "postal": "V1Y 8H2",
+                        "prov": "BC",
+                        "tracking": true
+                    },
+                    "status": "sent"
+                }
+            ],
+            "publicComments": [
+                {
+                    "_id": "com0002",
+                    "author": "Linda Peterson",
+                    "buckets": [],
+                    "comment": "This project will drastically impact the Bat Population in this region.",
+                    "dataVetted": "2014-10-16T00:00:00.000Z",
+                    "dateCreated": "2014-08-25T00:00:00.000Z",
+                    "instance": "knobcomment",
+                    "isSpam": false,
+                    "issues": [],
+                    "vettedBy": {
+                        "_id": "RandyIConrad@dayrep.com"
+                    }
+                }
+            ]
+        }
+    ],
+    "dateCurrentPhaseEstimatedEnd": "2015-12-24T00:00:00.000Z",
+    "dateCurrentPhaseEstimatedStart": "2014-07-30T00:00:00.000Z",
+    "dateNextPhaseEstimatedStart": "2015-12-24T00:00:00.000Z",
+    "deliverables": [
+        {
+            "_id": "projectdescription",
+            "buckets": [],
+            "name": "Project Description",
+            "synopsys": "The official Project Description for the Knob Hill Wind Project",
+            "type": "document"
+        },
+        {
+            "_id": "locationoutline",
+            "buckets": [],
+            "name": "Location Outline",
+            "synopsys": "Location Outline",
+            "type": "shapefile"
+        },
+        {
+            "_id": "section10.1c",
+            "buckets": [],
+            "name": "Section 10.1c",
+            "synopsys": "Section 10.1c",
+            "type": "document"
+        },
+        {
+            "_id": "section11",
+            "buckets": [],
+            "name": "Section 11",
+            "synopsys": "Section 11",
+            "type": "document"
+        },
+        {
+            "_id": "drafta.i.r.",
+            "buckets": [],
+            "name": "Draft A.I.R.",
+            "synopsys": "Draft A.I.R.",
+            "type": "document"
+        },
+        {
+            "_id": "a.i.r.",
+            "buckets": [],
+            "name": "A.I.R.",
+            "synopsys": "A.I.R.",
+            "type": "document"
+        },
+        {
+            "_id": "application",
+            "buckets": [],
+            "name": "Application",
+            "synopsys": "Application",
+            "type": "document"
+        }
+    ],
+    "description": "Construction of a new wind farm, with a nominal capacity of 70.5 MW with a preliminary layout of 47 turbines.",
+    "intake": [
+        {
+            "a": "Knob Hill Wind Farm Project",
+            "q": "Name"
+        },
+        {
+            "a": "Sea Winds Resources, Inc.",
+            "q": "Proponent"
+        },
+        {
+            "a": "Power and Industrial",
+            "q": "Type"
+        },
+        {
+            "a": "Construction of a new wind farm, with a nominal capacity of 70.5 MW with a preliminary layout of 47 turbines.",
+            "q": "Description"
+        },
+        {
+            "a": "Vancouver Island/Coast",
+            "q": "Region"
+        },
+        {
+            "a": "Knob Hill",
+            "q": "Location"
+        }
+    ],
+    "lat": "50.752097",
+    "location": "Knob Hil",
+    "long": "-128.322029",
+    "milestones": [
+        {
+            "access": [],
+            "buckets": [],
+            "code": "projectdescriptioncomplete",
+            "dateActualEnd": "2014-07-11T00:00:00.000Z",
+            "dateActualStart": "2014-06-18T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-07-09T00:00:00.000Z",
+            "dateEstimatedStart": "2014-06-18T00:00:00.000Z",
+            "name": "Project Description Complete",
+            "phases": [],
+            "preMetRequirements": [],
+            "requirements": []
+        },
+        {
+            "access": [],
+            "buckets": [],
+            "code": "section10complete",
+            "dateActualEnd": "2014-08-18T00:00:00.000Z",
+            "dateActualStart": "2014-07-17T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-08-20T00:00:00.000Z",
+            "dateEstimatedStart": "2014-07-09T00:00:00.000Z",
+            "name": "Section 10 Complete",
+            "phases": [],
+            "preMetRequirements": [],
+            "requirements": []
+        },
+        {
+            "access": [],
+            "buckets": [],
+            "code": "section11complete",
+            "dateActualEnd": "2014-10-23T00:00:00.000Z",
+            "dateActualStart": "2014-09-05T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-09-29T00:00:00.000Z",
+            "dateEstimatedStart": "2014-08-20T00:00:00.000Z",
+            "name": "Section 11 Complete",
+            "phases": [],
+            "preMetRequirements": [],
+            "requirements": []
+        },
+        {
+            "access": [],
+            "buckets": [],
+            "code": "draftaircomplete",
+            "dateActualEnd": "2014-12-13T00:00:00.000Z",
+            "dateActualStart": "2014-11-08T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-10-29T00:00:00.000Z",
+            "dateEstimatedStart": "2014-09-29T00:00:00.000Z",
+            "name": "Draft AIR Complete",
+            "phases": [],
+            "preMetRequirements": [],
+            "requirements": []
+        },
+        {
+            "access": [],
+            "buckets": [],
+            "code": "aircomplete",
+            "dateActualEnd": "2015-03-01T00:00:00.000Z",
+            "dateActualStart": "2014-12-23T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-12-18T00:00:00.000Z",
+            "dateEstimatedStart": "2014-10-29T00:00:00.000Z",
+            "name": "AIR Complete",
+            "phases": [],
+            "preMetRequirements": [],
+            "requirements": []
+        },
+        {
+            "access": [],
+            "buckets": [],
+            "code": "applicationsubmitted",
+            "dateActualEnd": null,
+            "dateActualStart": "2017-04-20T00:00:00.000Z",
+            "dateEstimatedEnd": "2016-12-17T00:00:00.000Z",
+            "dateEstimatedStart": "2016-11-17T00:00:00.000Z",
+            "name": "Application Submitted",
+            "phases": [],
+            "preMetRequirements": [],
+            "requirements": []
+        },
+        {
+            "access": [],
+            "buckets": [],
+            "code": "evaluationcomplete",
+            "dateActualEnd": null,
+            "dateActualStart": null,
+            "dateEstimatedEnd": null,
+            "dateEstimatedStart": null,
+            "name": "Evaluation Complete",
+            "phases": [],
+            "preMetRequirements": [],
+            "requirements": []
+        },
+        {
+            "access": [],
+            "buckets": [],
+            "code": "reviewcomplete",
+            "dateActualEnd": null,
+            "dateActualStart": null,
+            "dateEstimatedEnd": null,
+            "dateEstimatedStart": null,
+            "name": "Review Complete",
+            "phases": [],
+            "preMetRequirements": [],
+            "requirements": []
+        },
+        {
+            "access": [],
+            "buckets": [],
+            "code": "applicationprocesscomplete",
+            "dateActualEnd": null,
+            "dateActualStart": null,
+            "dateEstimatedEnd": null,
+            "dateEstimatedStart": null,
+            "name": "Application Process Complete",
+            "phases": [],
+            "preMetRequirements": [],
+            "requirements": []
+        }
+    ],
+    "name": "Knob Hill Wind Farm Project",
+    "nextPhase": "",
+    "overallProgress": "85",
+    "phases": [
+        {
+            "EstStartDate": "2014-06-18T00:00:00.000Z",
+            "code": "preea",
+            "completed": "100",
+            "dateActualEnd": "2014-09-07T00:00:00.000Z",
+            "dateActualStart": "2014-06-18T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-09-19T00:00:00.000Z",
+            "dateEstimatedStart": "2014-06-18T00:00:00.000Z",
+            "name": "Pre-EA"
+        },
+        {
+            "EstStartDate": "2014-06-18T00:00:00.000Z",
+            "code": "preapp",
+            "completed": "100",
+            "dateActualEnd": "2015-06-15T00:00:00.000Z",
+            "dateActualStart": "2014-09-07T00:00:00.000Z",
+            "dateEstimatedEnd": "2015-07-16T00:00:00.000Z",
+            "dateEstimatedStart": "2014-09-19T00:00:00.000Z",
+            "name": "Pre Application"
+        },
+        {
+            "EstStartDate": "2015-07-16T00:00:00.000Z",
+            "code": "eval",
+            "completed": "25",
+            "dateActualEnd": null,
+            "dateActualStart": "2015-06-15T00:00:00.000Z",
+            "dateEstimatedEnd": "2016-09-21T00:00:00.000Z",
+            "dateEstimatedStart": "2014-09-07T00:00:00.000Z",
+            "name": "Evaluation"
+        },
+        {
+            "EstStartDate": "2014-09-07T00:00:00.000Z",
+            "code": "rev",
+            "completed": "0",
+            "dateActualEnd": null,
+            "dateActualStart": null,
+            "dateEstimatedEnd": "2017-06-03T00:00:00.000Z",
+            "dateEstimatedStart": "2016-09-21T00:00:00.000Z",
+            "name": "Review"
+        }
+    ],
+    "proponent": "",
+    "region": "Vancouver Island/Coast",
+    "requirements": [
+        {
+            "bucket": [],
+            "code": "projectdescription",
+            "completedBy": {
+                "_id": "WilliamSButler@einrot.com"
+            },
+            "completingTask": {
+                "_id": "apprdesc"
+            },
+            "dateComplete": "2014-07-15T00:00:00.000Z",
+            "deliverable": {
+                "_id": "projectdescription"
+            },
+            "name": "Project Description",
+            "type": "document approval"
+        },
+        {
+            "bucket": [],
+            "code": "section10.1c",
+            "completedBy": {
+                "_id": "WilliamSButler@einrot.com"
+            },
+            "completingTask": {
+                "_id": "apprdesc"
+            },
+            "dateComplete": "2014-07-23T00:00:00.000Z",
+            "deliverable": {
+                "_id": "projectdescription"
+            },
+            "name": "Section 10.1c",
+            "type": "document approval"
+        }
+    ],
+    "spatial": [],
+    "team": [
+        {
+            "_id": "CaryXSechrist@jourrapide.com",
+            "address": "2262 Burdett Avenue",
+            "city": "Victoria",
+            "country": "Canada",
+            "email": "CaryXSechrist@jourrapide.com",
+            "name": "Cary Sechrist",
+            "postal": "V8Z 2J8",
+            "projectRole": [
+                {
+                    "role": "proponent"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "proponent"
+                }
+            ],
+            "viaEmail": true,
+            "viaMail": false
+        },
+        {
+            "_id": "RandyIConrad@dayrep.com",
+            "address": "223 Brew Creek Rd",
+            "city": "Whistler",
+            "country": "Canada",
+            "email": "RandyIConrad@dayrep.com",
+            "name": "Randy Conrad",
+            "postal": "V0N 1B0",
+            "projectRole": [
+                {
+                    "role": "proponent"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "proponent"
+                }
+            ],
+            "viaEmail": true,
+            "viaMail": false
+        },
+        {
+            "_id": "LiliLNorrell@fleckens.hu",
+            "address": "2310 Mesa Vista Drive",
+            "city": "Boston Bar",
+            "country": "Canada",
+            "email": "LiliLNorrell@fleckens.hu",
+            "name": "Lili Norrell",
+            "postal": "V0K 1C0",
+            "projectRole": [
+                {
+                    "role": "eao"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "eao"
+                }
+            ],
+            "viaEmail": true,
+            "viaMail": false
+        },
+        {
+            "_id": "WilliamSButler@einrot.com",
+            "address": "3795 Burdett Avenue",
+            "city": "Victoria",
+            "country": "Canada",
+            "email": "WilliamSButler@einrot.com",
+            "name": "William Butler",
+            "postal": "V8Y 1Y7",
+            "projectRole": [
+                {
+                    "role": "eao"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "eao"
+                }
+            ],
+            "viaEmail": true,
+            "viaMail": false
+        },
+        {
+            "_id": "CeciliaFBrown@gustr.com",
+            "address": "3746 Noble Rd",
+            "city": "Cortes Island",
+            "country": "Canada",
+            "email": "CeciliaFBrown@gustr.com",
+            "name": "Cecilia Brown",
+            "postal": "V0P 1T0",
+            "projectRole": [
+                {
+                    "role": "eao"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "eao"
+                }
+            ],
+            "viaEmail": false,
+            "viaMail": true
+        },
+        {
+            "_id": "RachelJWinston@superrito.com",
+            "address": "3617 Essendene Avenue",
+            "city": "Abbotsford",
+            "country": "Canada",
+            "email": "RachelJWinston@superrito.com",
+            "name": "Rachel Winston",
+            "postal": "V2S 2H7",
+            "projectRole": [
+                {
+                    "role": "eao"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "eao"
+                }
+            ],
+            "viaEmail": true,
+            "viaMail": false
+        },
+        {
+            "_id": "SuzanneFBoyd@jourrapide.com",
+            "address": "2426 Cordova Street",
+            "city": "Vancouver",
+            "country": "Canada",
+            "email": "SuzanneFBoyd@jourrapide.com",
+            "name": "Suzanne Boyd",
+            "postal": "V6B 1E1",
+            "projectRole": [
+                {
+                    "role": "wg"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "wg"
+                }
+            ],
+            "viaEmail": true,
+            "viaMail": false
+        },
+        {
+            "_id": "ChristopherCLemon@gustr.com",
+            "address": "1019 Hardy Street",
+            "city": "Kelowna",
+            "country": "Canada",
+            "email": "ChristopherCLemon@gustr.com",
+            "name": "Christopher Lemon",
+            "postal": "V1Y 8H2",
+            "projectRole": [
+                {
+                    "role": "proponent"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "wg"
+                }
+            ],
+            "viaEmail": false,
+            "viaMail": true
+        },
+        {
+            "_id": "LidiaSOtis@einrot.com",
+            "address": "1004 Robson St",
+            "city": "Vancouver",
+            "country": "Canada",
+            "email": "LidiaSOtis@einrot.com",
+            "name": "Lidia Otis",
+            "postal": "V6B 3K9",
+            "projectRole": [
+                {
+                    "role": "wg"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "public"
+                }
+            ],
+            "viaEmail": true,
+            "viaMail": false
+        },
+        {
+            "_id": "LindaRPeterson@dayrep.com",
+            "address": "3561 Wellington Ave",
+            "city": "Chilliwack",
+            "country": "Canada",
+            "email": "LindaRPeterson@dayrep.com",
+            "name": "Linda Peterson",
+            "postal": "V2P 2M1",
+            "projectRole": [
+                {
+                    "role": "public"
+                }
+            ],
+            "province": "BC",
+            "systemRole": [
+                {
+                    "role": "public"
+                }
+            ],
+            "viaEmail": true,
+            "viaMail": false
+        }
+    ],
+    "type": ""
 }

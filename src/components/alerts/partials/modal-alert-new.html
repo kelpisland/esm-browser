@@ -54,7 +54,7 @@
 				New Reminder
 			</p>
 
-			<div ng-repeat='rem in alertNew.alert.reminders' class="well well-small">
+			<div ng-repeat='rem in alertNew.alert.reminders' class="well well-sm">
 				<div ng-if="rem.type === 'before'" class="form-inline form-group">
 					<input type="text" class="form-control" size='3' max-length='3' ng-model="rem.duration"/>
 					&nbsp;
@@ -93,7 +93,7 @@
 
 				<div class="form-group">
 					<label class="control-label">Recipients - Individuals</label>
-					<users-select x-selected-users="rem.accessUsers"></users-select>
+					<users-select x-selected-users="rem.accessUsers" x-project='alertNew.project'></users-select>
 				</div>
 
 				<div class="text-right">
@@ -105,9 +105,6 @@
 		</div>
 
 	</div>
-
-
-
 
 </div>
 <div class="modal-footer">

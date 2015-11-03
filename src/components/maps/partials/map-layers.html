@@ -6,7 +6,7 @@
 			</div>
 			<div class='col-md-3 col-top-padding'>
 				<label class="control-label">Project Layers</label>
-				<div class="well well-small">
+				<div class="well well-sm">
 					<ul class="list-unstyled task-list">
 						<li ng-repeat="layer in mpl.projectLayers">
 							<button class="btn btn-block btn-sm btn-layer" ng-class="{'btn-success': mpl.formProjectLayers[layer._id]}" ng-click="mpl.formProjectLayers[layer._id] = !mpl.formProjectLayers[layer._id]">{{ layer.name }}</button>
@@ -14,7 +14,7 @@
 					</ul>
 				</div>
 				<label class="control-label">Shared Layers</label>
-				<div class="well well-small">
+				<div class="well well-sm">
 					<ul class="list-unstyled task-list">
 						<li ng-repeat="layer in mpl.sharedLayers">
 							<button class="btn btn-block btn-sm btn-layer" ng-class="{'btn-success': mpl.formSharedLayers[layer._id]}" ng-click="mpl.formSharedLayers[layer._id] = !mpl.formSharedLayers[layer._id]">{{ layer.name }}</button>

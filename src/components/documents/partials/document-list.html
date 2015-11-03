@@ -1,6 +1,6 @@
 <label class="control-label pull-right slight clickable" ng-if="docList.filterId" ng-click="docList.filterId = ''">All</label>
 <label class="control-label">Related Documents</label>
-<div class="well well-small clearfix">
+<div class="well well-sm clearfix">
 	<table class='table table-condensed small table-no-head'>
 		<tbody class="clickable">
 			<tr ng-repeat='file in docList.filterDocuments | filter:{"responses": docList.filterId }'>
