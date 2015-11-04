@@ -1,20 +1,20 @@
 {
-    "_id": "knob",
+    "_id": "2",
     "activities": [
         {
-            "_id": "inproj",
+            "_id": "1",
             "access": [],
-            "dateEnd": "2014-06-18T00:00:00.000Z",
-            "dateStart": "2014-06-18T00:00:00.000Z",
-            "dateUpdated": "2014-06-18T00:00:00.000Z",
+            "dateEnd": "2014-06-21T00:00:00.000Z",
+            "dateStart": "2014-06-21T00:00:00.000Z",
+            "dateUpdated": "2014-06-21T00:00:00.000Z",
             "description": "Initiate Project",
             "name": "Initiate Project",
             "preMetRequirements": [],
             "status": "complete",
             "tasks": [
                 {
-                    "_id": "reprol",
-                    "code": "review project description (high level)",
+                    "_id": "1",
+                    "code": "reprol",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Review project description (high Level)",
@@ -49,10 +49,64 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "_id": "deapp10",
-                    "code": "determine appropriate project process - section 10",
+                    "email": "CaryXSechrist@jourrapide.com",
+                    "name": "Cary Sechrist",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "2",
+            "access": [],
+            "dateEnd": "2014-06-21T00:00:00.000Z",
+            "dateStart": "2014-06-21T00:00:00.000Z",
+            "dateUpdated": "2014-06-21T00:00:00.000Z",
+            "description": "Set up Project Space",
+            "name": "Set up Project Space",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "2",
+                    "code": "deapp10",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Determine appropriate Project Process - Section 10",
@@ -87,10 +141,64 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "_id": "gedefon",
-                    "code": "generate default project template based on above selection",
+                    "email": "CaryXSechrist@jourrapide.com",
+                    "name": "Cary Sechrist",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "3",
+            "access": [],
+            "dateEnd": "2014-07-14T00:00:00.000Z",
+            "dateStart": "2014-06-21T00:00:00.000Z",
+            "dateUpdated": "2014-07-14T00:00:00.000Z",
+            "description": "Begin Strength of Claim Process",
+            "name": "Begin Strength of Claim Process",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "3",
+                    "code": "gedefon",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Generate Default Project Template based on above selection",
@@ -125,10 +233,64 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "_id": "kpplaER",
-                    "code": "kpi placeholder",
+                    "email": "CaryXSechrist@jourrapide.com",
+                    "name": "Cary Sechrist",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "4",
+            "access": [],
+            "dateEnd": "2014-07-06T00:00:00.000Z",
+            "dateStart": "2014-06-21T00:00:00.000Z",
+            "dateUpdated": "2014-07-06T00:00:00.000Z",
+            "description": "Populate Content",
+            "name": "Populate Content",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "4",
+                    "code": "kpplaER",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "KPI PLACEHOLDER",
@@ -166,66 +328,61 @@
                 }
             ],
             "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
+                "user": "4"
             },
             "visibility": [
                 {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "group": {
-                        "email": "Cary Sechrist",
-                        "name": "CaryXSechrist@jourrapide.com",
-                        "type": "email"
-                    }
+                    "email": "CaryXSechrist@jourrapide.com",
+                    "name": "Cary Sechrist",
+                    "type": "email",
+                    "value": null
                 },
                 {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
                 },
                 {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
                 },
                 {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
                 },
                 {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
                 }
             ]
         },
         {
-            "_id": "seupps",
+            "_id": "5",
             "access": [],
-            "dateEnd": "2014-06-18T00:00:00.000Z",
-            "dateStart": "2014-06-18T00:00:00.000Z",
-            "dateUpdated": "2014-06-18T00:00:00.000Z",
-            "description": "Set up Project Space",
-            "name": "Set up Project Space",
+            "dateEnd": "2014-08-05T00:00:00.000Z",
+            "dateStart": "2014-06-21T00:00:00.000Z",
+            "dateUpdated": "2014-08-05T00:00:00.000Z",
+            "description": "Create Project Description",
+            "name": "Create Project Description",
             "preMetRequirements": [],
             "status": "complete",
             "tasks": [
                 {
-                    "_id": "reandan",
-                    "code": "review and modify tasks in plan",
+                    "_id": "5",
+                    "code": "reandan",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Review and Modify Tasks in Plan",
@@ -260,10 +417,46 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "2"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "Proponent"
                 },
                 {
-                    "_id": "admilan",
-                    "code": "add milestone dates to the plan",
+                    "email": "Cary Sechrist",
+                    "name": "CaryXSechrist@jourrapide.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Randy Conrad",
+                    "name": "RandyIConrad@dayrep.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "6",
+            "access": [],
+            "dateEnd": "2014-08-28T00:00:00.000Z",
+            "dateStart": "2014-08-05T00:00:00.000Z",
+            "dateUpdated": "2014-08-28T00:00:00.000Z",
+            "description": "Create Section 10(1)c",
+            "name": "Create Section 10(1)c",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "6",
+                    "code": "admilan",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Add Milestone Dates to the Plan",
@@ -298,10 +491,64 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "_id": "crproem",
-                    "code": "create project team and assign roles in system",
+                    "email": "CaryXSechrist@jourrapide.com",
+                    "name": "Cary Sechrist",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "7",
+            "access": [],
+            "dateEnd": "2014-11-03T00:00:00.000Z",
+            "dateStart": "2014-08-28T00:00:00.000Z",
+            "dateUpdated": "2014-11-03T00:00:00.000Z",
+            "description": "Create and Finalize Section 11 Document",
+            "name": "Create and Finalize Section 11 Document",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "7",
+                    "code": "crproem",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Create Project Team and Assign roles in System",
@@ -336,10 +583,64 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "_id": "reandem",
-                    "code": "review and populate stakeholder members in system",
+                    "email": "CaryXSechrist@jourrapide.com",
+                    "name": "Cary Sechrist",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "8",
+            "access": [],
+            "dateEnd": "2014-09-22T00:00:00.000Z",
+            "dateStart": "2014-08-28T00:00:00.000Z",
+            "dateUpdated": "2014-09-22T00:00:00.000Z",
+            "description": "Enter Value Component Mandatory Minimum",
+            "name": "Enter Value Component Mandatory Minimum",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "8",
+                    "code": "reandem",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Review and populate Stakeholder Members in System",
@@ -374,10 +675,64 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "_id": "eaocoandem",
-                    "code": "eao confirm and modify value components created in system",
+                    "email": "CaryXSechrist@jourrapide.com",
+                    "name": "Cary Sechrist",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "9",
+            "access": [],
+            "dateEnd": "2014-09-12T00:00:00.000Z",
+            "dateStart": "2014-08-28T00:00:00.000Z",
+            "dateUpdated": "2014-09-12T00:00:00.000Z",
+            "description": "Confirm Working Group Participation",
+            "name": "Confirm Working Group Participation",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "9",
+                    "code": "eaocoandem",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "EAO Confirm and Modify Value Components created in system",
@@ -412,10 +767,64 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "_id": "propcoandem",
-                    "code": "proponent confirm and modify value components created in system",
+                    "email": "CaryXSechrist@jourrapide.com",
+                    "name": "Cary Sechrist",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "10",
+            "access": [],
+            "dateEnd": "2014-10-01T00:00:00.000Z",
+            "dateStart": "2014-08-28T00:00:00.000Z",
+            "dateUpdated": "2014-10-01T00:00:00.000Z",
+            "description": "Create Draft AIR",
+            "name": "Create Draft AIR",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "10",
+                    "code": "propcoandem",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Proponent Confirm and Modify Value Components created in system",
@@ -450,10 +859,46 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "Proponent"
                 },
                 {
-                    "_id": "poisses",
-                    "code": "populate issue tracking table with known issues",
+                    "email": "Cary Sechrist",
+                    "name": "CaryXSechrist@jourrapide.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Randy Conrad",
+                    "name": "RandyIConrad@dayrep.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "11",
+            "access": [],
+            "dateEnd": "2014-12-07T00:00:00.000Z",
+            "dateStart": "2014-10-01T00:00:00.000Z",
+            "dateUpdated": "2014-12-07T00:00:00.000Z",
+            "description": "Create AIR",
+            "name": "Create AIR",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "11",
+                    "code": "poisses",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Populate Issue Tracking Table with known issues",
@@ -488,10 +933,46 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "2"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "Proponent"
                 },
                 {
-                    "_id": "pofnits",
-                    "code": "populate fni tracking table with known interests",
+                    "email": "Cary Sechrist",
+                    "name": "CaryXSechrist@jourrapide.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Randy Conrad",
+                    "name": "RandyIConrad@dayrep.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "12",
+            "access": [],
+            "dateEnd": "2016-02-03T00:00:00.000Z",
+            "dateStart": "2014-12-07T00:00:00.000Z",
+            "dateUpdated": "2016-02-03T00:00:00.000Z",
+            "description": "Create Application ",
+            "name": "Create Application ",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "12",
+                    "code": "pofnits",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Populate FNI Tracking Table with known Interests",
@@ -526,10 +1007,46 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "2"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "Proponent"
                 },
                 {
-                    "_id": "reandix",
-                    "code": "review and modify notification matrix",
+                    "email": "Cary Sechrist",
+                    "name": "CaryXSechrist@jourrapide.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Randy Conrad",
+                    "name": "RandyIConrad@dayrep.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "13",
+            "access": [],
+            "dateEnd": "2016-03-02T00:00:00.000Z",
+            "dateStart": "2016-02-03T00:00:00.000Z",
+            "dateUpdated": "2016-03-02T00:00:00.000Z",
+            "description": "Create Table of Concordance",
+            "name": "Create Table of Concordance",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "13",
+                    "code": "reandix",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Review and Modify Notification Matrix",
@@ -564,10 +1081,64 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "_id": "approew",
-                    "code": "approve projectspace for proponent view",
+                    "email": "CaryXSechrist@jourrapide.com",
+                    "name": "Cary Sechrist",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "14",
+            "access": [],
+            "dateEnd": "2016-03-07T00:00:00.000Z",
+            "dateStart": "2016-03-02T00:00:00.000Z",
+            "dateUpdated": "2016-03-07T00:00:00.000Z",
+            "description": "Pre-Application Wrap-Up",
+            "name": "Pre-Application Wrap-Up",
+            "preMetRequirements": [],
+            "status": "complete",
+            "tasks": [
+                {
+                    "_id": "14",
+                    "code": "approew",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Approve ProjectSpace for Proponent View",
@@ -602,10 +1173,76 @@
                             "preMetRequirements": null
                         }
                     ]
+                }
+            ],
+            "updatedBy": {
+                "user": "4"
+            },
+            "visibility": [
+                {
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "_id": "noprontps",
-                    "code": "notify proponent about project space",
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "Proponent"
+                },
+                {
+                    "email": "Cary Sechrist",
+                    "name": "CaryXSechrist@jourrapide.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Randy Conrad",
+                    "name": "RandyIConrad@dayrep.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "_id": "15",
+            "access": [],
+            "dateEnd": null,
+            "dateStart": "2016-03-07T00:00:00.000Z",
+            "dateUpdated": "2016-03-12T00:00:00.000Z",
+            "description": "Initate Evaluation Period",
+            "name": "Initate Evaluation Period",
+            "preMetRequirements": [],
+            "status": "open",
+            "tasks": [
+                {
+                    "_id": "15",
+                    "code": "noprontps",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Notify Proponent about Project Space",
@@ -643,66 +1280,91 @@
                 }
             ],
             "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
+                "user": "4"
             },
             "visibility": [
                 {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "Proponent"
                 },
                 {
-                    "group": {
-                        "email": "Cary Sechrist",
-                        "name": "CaryXSechrist@jourrapide.com",
-                        "type": "email"
-                    }
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "EAO"
                 },
                 {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
+                    "email": null,
+                    "name": null,
+                    "type": "group",
+                    "value": "WG"
                 },
                 {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
+                    "email": "Suzanne Boyd",
+                    "name": "SuzanneFBoyd@jourrapide.com",
+                    "type": "email",
+                    "value": null
                 },
                 {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
+                    "email": "Lidia Otis",
+                    "name": "LidiaSOtis@einrot.com",
+                    "type": "email",
+                    "value": null
                 },
                 {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
+                    "email": "Cary Sechrist",
+                    "name": "CaryXSechrist@jourrapide.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Randy Conrad",
+                    "name": "RandyIConrad@dayrep.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Lili Norrell",
+                    "name": "LiliLNorrell@fleckens.hu",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "William Butler",
+                    "name": "WilliamSButler@einrot.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Cecilia Brown",
+                    "name": "CeciliaFBrown@gustr.com",
+                    "type": "email",
+                    "value": null
+                },
+                {
+                    "email": "Rachel Winston",
+                    "name": "RachelJWinston@superrito.com",
+                    "type": "email",
+                    "value": null
                 }
             ]
         },
         {
-            "_id": "soc",
+            "_id": "16",
             "access": [],
-            "dateEnd": "2014-07-11T00:00:00.000Z",
-            "dateStart": "2014-06-18T00:00:00.000Z",
-            "dateUpdated": "2014-07-11T00:00:00.000Z",
-            "description": "Begin Strength of Claim Process",
-            "name": "Begin Strength of Claim Process",
+            "dateEnd": null,
+            "dateStart": null,
+            "dateUpdated": null,
+            "description": "Evaluation Wrap-up",
+            "name": "Evaluation Wrap-up",
             "preMetRequirements": [],
-            "status": "complete",
+            "status": null,
             "tasks": [
                 {
-                    "_id": "idfirn ",
-                    "code": "identify first nations for consultation ",
+                    "_id": "16",
+                    "code": "idfirn ",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Identify First Nations for Consultation ",
@@ -737,10 +1399,25 @@
                             "preMetRequirements": null
                         }
                     ]
-                },
+                }
+            ],
+            "updatedBy": null,
+            "visibility": []
+        },
+        {
+            "_id": "17",
+            "access": [],
+            "dateEnd": null,
+            "dateStart": null,
+            "dateUpdated": null,
+            "description": "Initate Review Period",
+            "name": "Initate Review Period",
+            "preMetRequirements": [],
+            "status": null,
+            "tasks": [
                 {
-                    "_id": "refirim",
-                    "code": "research first nations strength of claim",
+                    "_id": "17",
+                    "code": "refirim",
                     "currentStatusTitle": "Complete",
                     "data": {},
                     "name": "Research First Nations Strength of Claim",
@@ -775,3037 +1452,13 @@
                             "preMetRequirements": null
                         }
                     ]
-                },
-                {
-                    "_id": "seconel",
-                    "code": "set consultation level",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Set Consultation level",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "amstast",
-                    "code": "amend stakeholder list",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Amend Stakeholder List",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "Cary Sechrist",
-                        "name": "CaryXSechrist@jourrapide.com",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "popcont",
-            "access": [],
-            "dateEnd": "2014-07-03T00:00:00.000Z",
-            "dateStart": "2014-06-18T00:00:00.000Z",
-            "dateUpdated": "2014-07-03T00:00:00.000Z",
-            "description": "Populate Content",
-            "name": "Populate Content",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "crdra10",
-                    "code": "create draft section 10",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Create Draft Section 10",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "crdraem",
-                    "code": "create draft section 11 document and upload to the system",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Create Draft Section 11 Document and Upload to the System",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "ininint",
-                    "code": "input initial value component content",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Input Initial Value Component Content",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "inknoes",
-                    "code": "input known issues",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Input known Issues",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "adfnist",
-                    "code": "add fni items to fni list",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Add FNI items to FNI List",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "Cary Sechrist",
-                        "name": "CaryXSechrist@jourrapide.com",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "crprojdesc",
-            "access": [],
-            "dateEnd": "2014-08-02T00:00:00.000Z",
-            "dateStart": "2014-06-18T00:00:00.000Z",
-            "dateUpdated": "2014-08-02T00:00:00.000Z",
-            "description": "Create Project Description",
-            "name": "Create Project Description",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "reprdesc",
-                    "code": "revise project description",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Revise Project Description",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "apprdesc",
-                    "code": "approve project description",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Approve Project Description",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "puprdesc",
-                    "code": "publish project description",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Publish Project Description",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "CaryXSechrist@jourrapide.com"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "Proponent"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CaryXSechrist@jourrapide.com",
-                        "name": "Cary Sechrist",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RandyIConrad@dayrep.com",
-                        "name": "Randy Conrad",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "crs101c",
-            "access": [],
-            "dateEnd": "2014-08-25T00:00:00.000Z",
-            "dateStart": "2014-08-02T00:00:00.000Z",
-            "dateUpdated": "2014-08-25T00:00:00.000Z",
-            "description": "Create Section 10(1)c",
-            "name": "Create Section 10(1)c",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "fiprs101c",
-                    "code": "finalize section 10.1c",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Finalize Section 10.1C",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "apprs101c",
-                    "code": "approve section 10.1c",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Approve Section 10.1C",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "noprs101c",
-                    "code": "notify section 10.1c",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Notify Section 10.1C",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "Cary Sechrist",
-                        "name": "CaryXSechrist@jourrapide.com",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "s11",
-            "access": [],
-            "dateEnd": "2014-10-31T00:00:00.000Z",
-            "dateStart": "2014-08-25T00:00:00.000Z",
-            "dateUpdated": "2014-10-31T00:00:00.000Z",
-            "description": "Create and Finalize Section 11 Document",
-            "name": "Create and Finalize Section 11 Document",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "ifnotad",
-                    "code": "if not already complete, create draft s11 and upload",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "If not already complete, Create Draft S11 and Upload",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "sufornt",
-                    "code": "submit for first nations' comment",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Submit for First Nations' Comment",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "s11rev",
-                    "code": "section 11 review",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Section 11 Review",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "fiandnt",
-                    "code": "finalize and approve document",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Finalize and Approve Document",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "crvalte",
-                    "code": "create value components as appropriate",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Create Value Components as appropriate",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "nopront",
-                    "code": "notify proponent",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Notify Proponent",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "setors",
-                    "code": "send to proponent and identified stakeholders",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Send to Proponent and identified Stakeholders",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "Cary Sechrist",
-                        "name": "CaryXSechrist@jourrapide.com",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "valcommm",
-            "access": [],
-            "dateEnd": "2014-09-19T00:00:00.000Z",
-            "dateStart": "2014-08-25T00:00:00.000Z",
-            "dateUpdated": "2014-09-19T00:00:00.000Z",
-            "description": "Enter Value Component Mandatory Minimum",
-            "name": "Enter Value Component Mandatory Minimum",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "adval11",
-                    "code": "add value components based on information provided through s11",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Add Value Components based on information provided through S11",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "enmannt",
-                    "code": "enter mandatory minimum information within each value component",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Enter Mandatory Minimum information within each Value Component",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "alstars",
-                    "code": "alert stakeholders",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Alert stakeholders",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "revalts",
-                    "code": "review value components",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Review Value Components",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "asvalrs",
-                    "code": "assign value components to working group members",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Assign Value Components to Working Group Members",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "apvalep",
-                    "code": "approve value component content - in order to progress to next step",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Approve Value Component Content - in order to progress to next step",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "crvalnt",
-                    "code": "create value component document",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Create Value Component Document",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "Cary Sechrist",
-                        "name": "CaryXSechrist@jourrapide.com",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "wgpart",
-            "access": [],
-            "dateEnd": "2014-09-09T00:00:00.000Z",
-            "dateStart": "2014-08-25T00:00:00.000Z",
-            "dateUpdated": "2014-09-09T00:00:00.000Z",
-            "description": "Confirm Working Group Participation",
-            "name": "Confirm Working Group Participation",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "sereqts",
-                    "code": "send request to desired working group participants",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Send request to desired Working Group Participants",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "coparon",
-                    "code": "confirm participation",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Confirm Participation",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "upstaes",
-                    "code": "update stakeholder list with confirmed names",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Update Stakeholder List with confirmed names",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "enworts",
-                    "code": "ensure working group members are assigned to relevant value components",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Ensure Working Group members are assigned to relevant Value Components",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "Cary Sechrist",
-                        "name": "CaryXSechrist@jourrapide.com",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "drftair",
-            "access": [],
-            "dateEnd": "2014-09-28T00:00:00.000Z",
-            "dateStart": "2014-08-25T00:00:00.000Z",
-            "dateUpdated": "2014-09-28T00:00:00.000Z",
-            "description": "Create Draft AIR",
-            "name": "Create Draft AIR",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "drairss",
-                    "code": "approve draft air",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Approve Draft AIR",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "inpubedair",
-                    "code": "initiate draft air public comment period if required",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Initiate Draft AIR Public Comment Period if Required",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "movaledair",
-                    "code": "modify value components, issues, etc. as required for draft air",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Modify Value Components, Issues, etc. as Required for Draft AIR",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "crdraedair",
-                    "code": "create draft conditions as required based on draft air",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Create Draft Conditions as Required based on Draft AIR",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "fiandrsair",
-                    "code": "finalize and publish draft air to identified stakeholders",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Finalize and Publish Draft AIR to identified stakeholders",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "Proponent"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CaryXSechrist@jourrapide.com",
-                        "name": "Cary Sechrist",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RandyIConrad@dayrep.com",
-                        "name": "Randy Conrad",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "crair",
-            "access": [],
-            "dateEnd": "2014-12-04T00:00:00.000Z",
-            "dateStart": "2014-09-28T00:00:00.000Z",
-            "dateUpdated": "2014-12-04T00:00:00.000Z",
-            "description": "Create AIR",
-            "name": "Create AIR",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "crairss",
-                    "code": "approve air",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Approve AIR",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "inpubed",
-                    "code": "initiate air public comment period if required",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Initiate AIR Public Comment Period if Required",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "movaled",
-                    "code": "modify value components, issues, etc. as required for air",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Modify Value Components, Issues, etc. as Required for AIR",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "crdraed",
-                    "code": "create draft conditions as required based on air",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Create Draft Conditions as Required based on AIR",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "fiandrs",
-                    "code": "finalize and publish air to identified stakeholders",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Finalize and Publish AIR to identified stakeholders",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "CaryXSechrist@jourrapide.com"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "Proponent"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CaryXSechrist@jourrapide.com",
-                        "name": "Cary Sechrist",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RandyIConrad@dayrep.com",
-                        "name": "Randy Conrad",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "crapp",
-            "access": [],
-            "dateEnd": "2016-01-31T00:00:00.000Z",
-            "dateStart": "2014-12-04T00:00:00.000Z",
-            "dateUpdated": "2016-01-31T00:00:00.000Z",
-            "description": "Create Application ",
-            "name": "Create Application ",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "crappss",
-                    "code": "approve submission of application",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Approve Submission of Application",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "CaryXSechrist@jourrapide.com"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "Proponent"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CaryXSechrist@jourrapide.com",
-                        "name": "Cary Sechrist",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RandyIConrad@dayrep.com",
-                        "name": "Randy Conrad",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "crtoc",
-            "access": [],
-            "dateEnd": "2016-02-28T00:00:00.000Z",
-            "dateStart": "2016-01-31T00:00:00.000Z",
-            "dateUpdated": "2016-02-28T00:00:00.000Z",
-            "description": "Create Table of Concordance",
-            "name": "Create Table of Concordance",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "tocSS",
-                    "code": "create toc",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Create ToC",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "Cary Sechrist",
-                        "name": "CaryXSechrist@jourrapide.com",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "preappwrap",
-            "access": [],
-            "dateEnd": "2016-03-04T00:00:00.000Z",
-            "dateStart": "2016-02-28T00:00:00.000Z",
-            "dateUpdated": "2016-03-04T00:00:00.000Z",
-            "description": "Pre-Application Wrap-Up",
-            "name": "Pre-Application Wrap-Up",
-            "preMetRequirements": [],
-            "status": "complete",
-            "tasks": [
-                {
-                    "_id": "scevaodpre",
-                    "code": "schedule evaluation period",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Schedule Evaluation Period",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "noworodpre",
-                    "code": "notify working group of upcoming evaluation period",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Notify Working Group of upcoming Evaluation Period",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "scworedpre",
-                    "code": "schedule working group metings as required",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Schedule Working Group Metings as required",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
-                },
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "Proponent"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CaryXSechrist@jourrapide.com",
-                        "name": "",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RandyIConrad@dayrep.com",
-                        "name": "",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "initeval",
-            "access": [],
-            "dateEnd": null,
-            "dateStart": "2016-03-04T00:00:00.000Z",
-            "dateUpdated": "2016-03-09T00:00:00.000Z",
-            "description": "Initate Evaluation Period",
-            "name": "Initate Evaluation Period",
-            "preMetRequirements": [],
-            "status": "open",
-            "tasks": [
-                {
-                    "_id": "foaccon",
-                    "code": "fomally accept application",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Fomally Accept Application",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "noswgrs",
-                    "code": "notify / send application, air, and table of concordance to working group members",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Notify / Send Application, AIR, and Table of Concordance to Working Group Members",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "seinvnt",
-                    "code": "send invoice to proponent",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Send Invoice to Proponent",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "coworlsinit",
-                    "code": "confirm working group application, air, and table of concordance",
-                    "currentStatusTitle": "Complete",
-                    "data": {},
-                    "name": "Confirm Working Group Application, AIR, and Table of Concordance",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "foiniod30",
-                    "code": "formally initiate 30 day evaluation period",
-                    "currentStatusTitle": "In Progress",
-                    "data": {},
-                    "name": "Formally Initiate 30 Day Evaluation Period",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "doappetoc",
-                    "code": "approve toc",
-                    "currentStatusTitle": "In Progress",
-                    "data": {},
-                    "name": "Approve ToC",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": {
-                "user": "LiliLNorrell@fleckens.hu"
-            },
-            "visibility": [
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "Proponent"
-                    }
-                },
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "EAO"
-                    }
-                },
-                {
-                    "group": {
-                        "type": "group",
-                        "value": "WG"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "SuzanneFBoyd@jourrapide.com",
-                        "name": "Suzanne Boyd",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LidiaSOtis@einrot.com",
-                        "name": "Lidia Otis",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CaryXSechrist@jourrapide.com",
-                        "name": "",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RandyIConrad@dayrep.com",
-                        "name": "",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "LiliLNorrell@fleckens.hu",
-                        "name": "Lili Norrell",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "WilliamSButler@einrot.com",
-                        "name": "William Butler",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "CeciliaFBrown@gustr.com",
-                        "name": "Cecilia Brown",
-                        "type": "email"
-                    }
-                },
-                {
-                    "group": {
-                        "email": "RachelJWinston@superrito.com",
-                        "name": "Rachel Winston",
-                        "type": "email"
-                    }
-                }
-            ]
-        },
-        {
-            "_id": "evalwrap",
-            "access": [],
-            "dateEnd": null,
-            "dateStart": null,
-            "dateUpdated": null,
-            "description": "Evaluation Wrap-up",
-            "name": "Evaluation Wrap-up",
-            "preMetRequirements": [],
-            "status": null,
-            "tasks": [
-                {
-                    "_id": "scevaodwrap",
-                    "code": "schedule application evaluation period",
-                    "currentStatusTitle": "In Progress",
-                    "data": {},
-                    "name": "Schedule Application Evaluation Period",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "noworod",
-                    "code": "notify working group of upcoming review period",
-                    "currentStatusTitle": "In Progress",
-                    "data": {},
-                    "name": "Notify Working Group of upcoming Review Period",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "scwored",
-                    "code": "schedule working group application evaluation meetings as required",
-                    "currentStatusTitle": "In Progress",
-                    "data": {},
-                    "name": "Schedule Working Group Application Evaluation Meetings as required",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
                 }
             ],
             "updatedBy": null,
             "visibility": []
         },
         {
-            "_id": "initrev",
-            "access": [],
-            "dateEnd": null,
-            "dateStart": null,
-            "dateUpdated": null,
-            "description": "Initate Review Period",
-            "name": "Initate Review Period",
-            "preMetRequirements": [],
-            "status": null,
-            "tasks": [
-                {
-                    "_id": "nosrswg",
-                    "code": "notify / send application to working group members",
-                    "currentStatusTitle": "In Progress",
-                    "data": {},
-                    "name": "Notify / Send Application to Working Group Members",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "coworls",
-                    "code": "confirm working group received application package of materials",
-                    "currentStatusTitle": "Not Started",
-                    "data": {},
-                    "name": "Confirm Working Group received Application Package of Materials",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "foiniod",
-                    "code": "formally initiate 180 day review period",
-                    "currentStatusTitle": "Not Started",
-                    "data": {},
-                    "name": "Formally Initiate 180 Day Review Period",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "alproed",
-                    "code": "alert proponent/stakeholders 180 day review commenced",
-                    "currentStatusTitle": "Not Started",
-                    "data": {},
-                    "name": "Alert Proponent/Stakeholders 180 Day Review commenced",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "doappnrev",
-                    "code": "approve application",
-                    "currentStatusTitle": "Not Started",
-                    "data": {},
-                    "name": "Approve Application",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                }
-            ],
-            "updatedBy": null,
-            "visibility": []
-        },
-        {
-            "_id": "pubcomm",
+            "_id": "18",
             "access": [],
             "dateEnd": null,
             "dateStart": null,
@@ -3816,87 +1469,11 @@
             "status": null,
             "tasks": [
                 {
-                    "_id": "inpubss",
-                    "code": "initiate public comment period process",
-                    "currentStatusTitle": "Not Started",
+                    "_id": "18",
+                    "code": "seconel",
+                    "currentStatusTitle": "Complete",
                     "data": {},
-                    "name": "initiate Public Comment Period Process",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "reandns",
-                    "code": "review and complete conditions",
-                    "currentStatusTitle": "Not Started",
-                    "data": {},
-                    "name": "Review and Complete Conditions",
-                    "processCode": "notifications",
-                    "statusValues": [
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Started",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "In Progress",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": [],
-                            "Title": "Complete",
-                            "alerts": [],
-                            "postMetRequirements": [],
-                            "preMetRequirements": []
-                        },
-                        {
-                            "CanComplete": null,
-                            "Title": "Not Applicable",
-                            "alerts": [],
-                            "postMetRequirements": null,
-                            "preMetRequirements": null
-                        }
-                    ]
-                },
-                {
-                    "_id": "reandon",
-                    "code": "revise and finalize certified project description",
-                    "currentStatusTitle": "Not Started",
-                    "data": {},
-                    "name": "Revise and Finalize Certified Project Description",
+                    "name": "Set Consultation level",
                     "processCode": "notifications",
                     "statusValues": [
                         {
@@ -4027,40 +1604,40 @@
         {
             "approvals": [
                 {
-                    "_id": "knob-appr0002",
+                    "_id": "0002",
                     "approvedBy": {
-                        "_id": "CeciliaFBrown@gustr.com"
+                        "_id": "6"
                     },
                     "comment": "Approved.",
-                    "dateApproved": "2014-07-15T00:00:00.000Z"
+                    "dateApproved": "2014-07-18T00:00:00.000Z"
                 },
                 {
-                    "_id": "knob-appr0003",
+                    "_id": "0003",
                     "approvedBy": {
-                        "_id": "RandyIConrad@dayrep.com"
+                        "_id": "3"
                     },
                     "comment": "Approved.",
-                    "dateApproved": "2014-08-05T00:00:00.000Z"
+                    "dateApproved": "2014-08-08T00:00:00.000Z"
                 }
             ],
             "audit": [
                 {
-                    "dateValue": "2014-07-15T00:00:00.000Z",
-                    "taskId": "apprdesc",
+                    "dateValue": "2014-07-18T00:00:00.000Z",
+                    "taskId": "26",
                     "user": {
-                        "_id": "WilliamSButler@einrot.com"
+                        "_id": "5"
                     },
                     "value": "Document Approved"
                 }
             ],
             "conditions": [
                 {
-                    "_id": "knob-cond0002",
+                    "_id": "0002",
                     "condition": "Annual Salmon studies must be conducted each year to verify sustainability across each 5 year period",
                     "createdBy": {
-                        "_id": "CeciliaFBrown@gustr.com"
+                        "_id": "6"
                     },
-                    "dateCondition": "2015-03-25T00:00:00.000Z",
+                    "dateCondition": "2015-03-28T00:00:00.000Z",
                     "inspections": {
                         "_id": "2015Salmon"
                     },
@@ -4069,26 +1646,26 @@
             ],
             "issues": [
                 {
-                    "_id": "knob-iss0002",
+                    "_id": "0002",
                     "buckets": [],
-                    "dateCreated": "2014-09-03T00:00:00.000Z",
+                    "dateCreated": "2014-09-06T00:00:00.000Z",
                     "description": "Bridge over Swansea River",
                     "identifiedBy": [
                         {
-                            "_id": "LiliLNorrell@fleckens.hu"
+                            "_id": "4"
                         }
                     ],
                     "publicComments": "knobcomments",
                     "response": [],
                     "responses": [
                         {
-                            "_id": "knob-iss0002-resp0002",
+                            "_id": "0002",
                             "assigned": {
-                                "_id": "RandyIConrad@dayrep.com"
+                                "_id": "3"
                             },
                             "comment": "Comment from a Working Group member",
-                            "dateAssigned": "2014-09-14T00:00:00.000Z",
-                            "dateReplied": "2014-09-26T00:00:00.000Z",
+                            "dateAssigned": "2014-09-17T00:00:00.000Z",
+                            "dateReplied": "2014-09-29T00:00:00.000Z",
                             "deliverables": [
                                 {
                                     "_id": "projectdescription"
@@ -4096,13 +1673,13 @@
                             ]
                         },
                         {
-                            "_id": "knob-iss0002-resp0003",
+                            "_id": "0003",
                             "assigned": {
-                                "_id": "WilliamSButler@einrot.com"
+                                "_id": "5"
                             },
                             "comment": "The Squamish FN would like input on this issue",
-                            "dateAssigned": "2014-10-18T00:00:00.000Z",
-                            "dateReplied": "2014-11-15T00:00:00.000Z",
+                            "dateAssigned": "2014-10-21T00:00:00.000Z",
+                            "dateReplied": "2014-11-18T00:00:00.000Z",
                             "deliverables": [
                                 {
                                     "_id": "projectdescription"
@@ -4116,8 +1693,8 @@
             ],
             "notifications": [
                 {
-                    "dateQueued": "2014-07-15T00:00:00.000Z",
-                    "dateSent": "2014-07-17T00:00:00.000Z",
+                    "dateQueued": "2014-07-18T00:00:00.000Z",
+                    "dateSent": "2014-07-20T00:00:00.000Z",
                     "documents": [
                         "projectdescription"
                     ],
@@ -4131,8 +1708,8 @@
                     "status": "sent"
                 },
                 {
-                    "dateQueued": "2014-07-15T00:00:00.000Z",
-                    "dateSent": "2014-07-17T00:00:00.000Z",
+                    "dateQueued": "2014-07-18T00:00:00.000Z",
+                    "dateSent": "2014-07-20T00:00:00.000Z",
                     "documents": [
                         "projectdescription"
                     ],
@@ -4142,7 +1719,7 @@
                     "recipientsPhysical": {
                         "address": "1019 Hardy Street",
                         "city": "Kelowna",
-                        "dataSent": "2014-07-15T00:00:00.000Z",
+                        "dataSent": "2014-07-18T00:00:00.000Z",
                         "name": "Christopher Lemon",
                         "postal": "V1Y 8H2",
                         "prov": "BC",
@@ -4153,25 +1730,25 @@
             ],
             "publicComments": [
                 {
-                    "_id": "com0002",
+                    "_id": "0002",
                     "author": "Linda Peterson",
                     "buckets": [],
                     "comment": "This project will drastically impact the Bat Population in this region.",
-                    "dataVetted": "2014-10-16T00:00:00.000Z",
-                    "dateCreated": "2014-08-25T00:00:00.000Z",
+                    "dataVetted": "2014-10-19T00:00:00.000Z",
+                    "dateCreated": "2014-08-28T00:00:00.000Z",
                     "instance": "knobcomment",
                     "isSpam": false,
                     "issues": [],
                     "vettedBy": {
-                        "_id": "RandyIConrad@dayrep.com"
+                        "_id": "3"
                     }
                 }
             ]
         }
     ],
-    "dateCurrentPhaseEstimatedEnd": "2015-12-24T00:00:00.000Z",
-    "dateCurrentPhaseEstimatedStart": "2014-07-30T00:00:00.000Z",
-    "dateNextPhaseEstimatedStart": "2015-12-24T00:00:00.000Z",
+    "dateCurrentPhaseEstimatedEnd": "2015-12-27T00:00:00.000Z",
+    "dateCurrentPhaseEstimatedStart": "2014-08-02T00:00:00.000Z",
+    "dateNextPhaseEstimatedStart": "2015-12-27T00:00:00.000Z",
     "deliverables": [
         {
             "_id": "projectdescription",
@@ -4258,10 +1835,10 @@
             "access": [],
             "buckets": [],
             "code": "projectdescriptioncomplete",
-            "dateActualEnd": "2014-07-11T00:00:00.000Z",
-            "dateActualStart": "2014-06-18T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-07-09T00:00:00.000Z",
-            "dateEstimatedStart": "2014-06-18T00:00:00.000Z",
+            "dateActualEnd": "2014-07-14T00:00:00.000Z",
+            "dateActualStart": "2014-06-21T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-07-12T00:00:00.000Z",
+            "dateEstimatedStart": "2014-06-21T00:00:00.000Z",
             "name": "Project Description Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -4271,10 +1848,10 @@
             "access": [],
             "buckets": [],
             "code": "section10complete",
-            "dateActualEnd": "2014-08-18T00:00:00.000Z",
-            "dateActualStart": "2014-07-17T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-08-20T00:00:00.000Z",
-            "dateEstimatedStart": "2014-07-09T00:00:00.000Z",
+            "dateActualEnd": "2014-08-21T00:00:00.000Z",
+            "dateActualStart": "2014-07-20T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-08-23T00:00:00.000Z",
+            "dateEstimatedStart": "2014-07-12T00:00:00.000Z",
             "name": "Section 10 Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -4284,10 +1861,10 @@
             "access": [],
             "buckets": [],
             "code": "section11complete",
-            "dateActualEnd": "2014-10-23T00:00:00.000Z",
-            "dateActualStart": "2014-09-05T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-09-29T00:00:00.000Z",
-            "dateEstimatedStart": "2014-08-20T00:00:00.000Z",
+            "dateActualEnd": "2014-10-26T00:00:00.000Z",
+            "dateActualStart": "2014-09-08T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-10-02T00:00:00.000Z",
+            "dateEstimatedStart": "2014-08-23T00:00:00.000Z",
             "name": "Section 11 Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -4297,10 +1874,10 @@
             "access": [],
             "buckets": [],
             "code": "draftaircomplete",
-            "dateActualEnd": "2014-12-13T00:00:00.000Z",
-            "dateActualStart": "2014-11-08T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-10-29T00:00:00.000Z",
-            "dateEstimatedStart": "2014-09-29T00:00:00.000Z",
+            "dateActualEnd": "2014-12-16T00:00:00.000Z",
+            "dateActualStart": "2014-11-11T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-11-01T00:00:00.000Z",
+            "dateEstimatedStart": "2014-10-02T00:00:00.000Z",
             "name": "Draft AIR Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -4310,10 +1887,10 @@
             "access": [],
             "buckets": [],
             "code": "aircomplete",
-            "dateActualEnd": "2015-03-01T00:00:00.000Z",
-            "dateActualStart": "2014-12-23T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-12-18T00:00:00.000Z",
-            "dateEstimatedStart": "2014-10-29T00:00:00.000Z",
+            "dateActualEnd": "2015-03-04T00:00:00.000Z",
+            "dateActualStart": "2014-12-26T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-12-21T00:00:00.000Z",
+            "dateEstimatedStart": "2014-11-01T00:00:00.000Z",
             "name": "AIR Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -4324,9 +1901,9 @@
             "buckets": [],
             "code": "applicationsubmitted",
             "dateActualEnd": null,
-            "dateActualStart": "2017-04-20T00:00:00.000Z",
-            "dateEstimatedEnd": "2016-12-17T00:00:00.000Z",
-            "dateEstimatedStart": "2016-11-17T00:00:00.000Z",
+            "dateActualStart": "2017-04-23T00:00:00.000Z",
+            "dateEstimatedEnd": "2016-12-20T00:00:00.000Z",
+            "dateEstimatedStart": "2016-11-20T00:00:00.000Z",
             "name": "Application Submitted",
             "phases": [],
             "preMetRequirements": [],
@@ -4377,43 +1954,43 @@
     "overallProgress": "85",
     "phases": [
         {
-            "EstStartDate": "2014-06-18T00:00:00.000Z",
+            "EstStartDate": "2014-06-21T00:00:00.000Z",
             "code": "preea",
             "completed": "100",
-            "dateActualEnd": "2014-09-07T00:00:00.000Z",
-            "dateActualStart": "2014-06-18T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-09-19T00:00:00.000Z",
-            "dateEstimatedStart": "2014-06-18T00:00:00.000Z",
+            "dateActualEnd": "2014-09-10T00:00:00.000Z",
+            "dateActualStart": "2014-06-21T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-09-22T00:00:00.000Z",
+            "dateEstimatedStart": "2014-06-21T00:00:00.000Z",
             "name": "Pre-EA"
         },
         {
-            "EstStartDate": "2014-06-18T00:00:00.000Z",
+            "EstStartDate": "2014-06-21T00:00:00.000Z",
             "code": "preapp",
             "completed": "100",
-            "dateActualEnd": "2015-06-15T00:00:00.000Z",
-            "dateActualStart": "2014-09-07T00:00:00.000Z",
-            "dateEstimatedEnd": "2015-07-16T00:00:00.000Z",
-            "dateEstimatedStart": "2014-09-19T00:00:00.000Z",
+            "dateActualEnd": "2015-06-18T00:00:00.000Z",
+            "dateActualStart": "2014-09-10T00:00:00.000Z",
+            "dateEstimatedEnd": "2015-07-19T00:00:00.000Z",
+            "dateEstimatedStart": "2014-09-22T00:00:00.000Z",
             "name": "Pre Application"
         },
         {
-            "EstStartDate": "2015-07-16T00:00:00.000Z",
+            "EstStartDate": "2015-07-19T00:00:00.000Z",
             "code": "eval",
             "completed": "25",
             "dateActualEnd": null,
-            "dateActualStart": "2015-06-15T00:00:00.000Z",
-            "dateEstimatedEnd": "2016-09-21T00:00:00.000Z",
-            "dateEstimatedStart": "2014-09-07T00:00:00.000Z",
+            "dateActualStart": "2015-06-18T00:00:00.000Z",
+            "dateEstimatedEnd": "2016-09-24T00:00:00.000Z",
+            "dateEstimatedStart": "2014-09-10T00:00:00.000Z",
             "name": "Evaluation"
         },
         {
-            "EstStartDate": "2014-09-07T00:00:00.000Z",
+            "EstStartDate": "2014-09-10T00:00:00.000Z",
             "code": "rev",
             "completed": "0",
             "dateActualEnd": null,
             "dateActualStart": null,
-            "dateEstimatedEnd": "2017-06-03T00:00:00.000Z",
-            "dateEstimatedStart": "2016-09-21T00:00:00.000Z",
+            "dateEstimatedEnd": "2017-06-06T00:00:00.000Z",
+            "dateEstimatedStart": "2016-09-24T00:00:00.000Z",
             "name": "Review"
         }
     ],
@@ -4424,12 +2001,12 @@
             "bucket": [],
             "code": "projectdescription",
             "completedBy": {
-                "_id": "WilliamSButler@einrot.com"
+                "_id": "5"
             },
             "completingTask": {
                 "_id": "apprdesc"
             },
-            "dateComplete": "2014-07-15T00:00:00.000Z",
+            "dateComplete": "2014-07-18T00:00:00.000Z",
             "deliverable": {
                 "_id": "projectdescription"
             },
@@ -4440,12 +2017,12 @@
             "bucket": [],
             "code": "section10.1c",
             "completedBy": {
-                "_id": "WilliamSButler@einrot.com"
+                "_id": "5"
             },
             "completingTask": {
                 "_id": "apprdesc"
             },
-            "dateComplete": "2014-07-23T00:00:00.000Z",
+            "dateComplete": "2014-07-26T00:00:00.000Z",
             "deliverable": {
                 "_id": "projectdescription"
             },
@@ -4456,7 +2033,7 @@
     "spatial": [],
     "team": [
         {
-            "_id": "CaryXSechrist@jourrapide.com",
+            "_id": "2",
             "address": "2262 Burdett Avenue",
             "city": "Victoria",
             "country": "Canada",
@@ -4478,7 +2055,7 @@
             "viaMailtrue": false
         },
         {
-            "_id": "RandyIConrad@dayrep.com",
+            "_id": "3",
             "address": "223 Brew Creek Rd",
             "city": "Whistler",
             "country": "Canada",
@@ -4500,7 +2077,7 @@
             "viaMailtrue": false
         },
         {
-            "_id": "LiliLNorrell@fleckens.hu",
+            "_id": "4",
             "address": "2310 Mesa Vista Drive",
             "city": "Boston Bar",
             "country": "Canada",
@@ -4522,7 +2099,7 @@
             "viaMailtrue": false
         },
         {
-            "_id": "WilliamSButler@einrot.com",
+            "_id": "5",
             "address": "3795 Burdett Avenue",
             "city": "Victoria",
             "country": "Canada",
@@ -4544,7 +2121,7 @@
             "viaMailtrue": false
         },
         {
-            "_id": "CeciliaFBrown@gustr.com",
+            "_id": "6",
             "address": "3746 Noble Rd",
             "city": "Cortes Island",
             "country": "Canada",
@@ -4566,7 +2143,7 @@
             "viaMailtrue": true
         },
         {
-            "_id": "RachelJWinston@superrito.com",
+            "_id": "7",
             "address": "3617 Essendene Avenue",
             "city": "Abbotsford",
             "country": "Canada",
@@ -4588,7 +2165,7 @@
             "viaMailtrue": false
         },
         {
-            "_id": "SuzanneFBoyd@jourrapide.com",
+            "_id": "8",
             "address": "2426 Cordova Street",
             "city": "Vancouver",
             "country": "Canada",
@@ -4610,7 +2187,7 @@
             "viaMailtrue": false
         },
         {
-            "_id": "ChristopherCLemon@gustr.com",
+            "_id": "9",
             "address": "1019 Hardy Street",
             "city": "Kelowna",
             "country": "Canada",
@@ -4632,7 +2209,7 @@
             "viaMailtrue": true
         },
         {
-            "_id": "LidiaSOtis@einrot.com",
+            "_id": "10",
             "address": "1004 Robson St",
             "city": "Vancouver",
             "country": "Canada",
@@ -4654,7 +2231,7 @@
             "viaMailtrue": false
         },
         {
-            "_id": "LindaRPeterson@dayrep.com",
+            "_id": "11",
             "address": "3561 Wellington Ave",
             "city": "Chilliwack",
             "country": "Canada",
