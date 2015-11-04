@@ -1,42 +1,49 @@
-File,type,email,value,name
-eaoonly,'group',,'EAO'
-eaoonly,'email','Cary Sechrist',,'CaryXSechrist@jourrapide.com'
-eaoprop,'group',,'EAO'
-eaoprop,'group',,'Proponent'
-eaowg,'group',,'EAO'
-eaowg,'group',,'WG'
-all,'group',,'Proponent'
-all,'group',,'EAO'
-all,'group',,'WG'
-proponly,'group',,'Proponent'
-proponly,'email','CaryXSechrist@jourrapide.com',,'Cary Sechrist'
-proponly,'email','RandyIConrad@dayrep.com',,'Randy Conrad'
-eaoonly,'email','LiliLNorrell@fleckens.hu',,'Lili Norrell'
-eaoonly,'email','WilliamSButler@einrot.com',,'William Butler'
-eaoonly,'email','CeciliaFBrown@gustr.com',,'Cecilia Brown'
-eaoonly,'email','RachelJWinston@superrito.com',,'Rachel Winston'
-eaoprop,'email','CaryXSechrist@jourrapide.com',,''
-eaoprop,'email','RandyIConrad@dayrep.com',,''
-eaoprop,'email','LiliLNorrell@fleckens.hu',,''
-eaoprop,'email','WilliamSButler@einrot.com',,''
-eaoprop,'email','CeciliaFBrown@gustr.com',,''
-eaoprop,'email','RachelJWinston@superrito.com',,''
-eaowg,'email','LiliLNorrell@fleckens.hu',,'Lili Norrell'
-eaowg,'email','WilliamSButler@einrot.com',,'William Butler'
-eaowg,'email','CeciliaFBrown@gustr.com',,'Cecilia Brown'
-eaowg,'email','RachelJWinston@superrito.com',,'Rachel Winston'
-eaowg,'email','SuzanneFBoyd@jourrapide.com',,'Suzanne Boyd'
-eaowg,'email','LidiaSOtis@einrot.com',,'Lidia Otis'
-all,'email','SuzanneFBoyd@jourrapide.com',,'Suzanne Boyd'
-all,'email','LidiaSOtis@einrot.com',,'Lidia Otis'
-all,'email','CaryXSechrist@jourrapide.com',,''
-all,'email','RandyIConrad@dayrep.com',,''
-all,'email','LiliLNorrell@fleckens.hu',,'Lili Norrell'
-all,'email','WilliamSButler@einrot.com',,'William Butler'
-all,'email','CeciliaFBrown@gustr.com',,'Cecilia Brown'
-all,'email','RachelJWinston@superrito.com',,'Rachel Winston'
--,'email','',,''
--,'email','',,''
--,'email','',,''
--,'email','',,''
--,'email','',,''
+File,type,value,name,email
+eaoonly,group,EAO,rg:None,rg:None
+eaoonly,email,rg:None,Cary Sechrist,CaryXSechrist@jourrapide.com
+eaoprop,group,EAO,rg:None,rg:None
+eaoprop,group,Proponent,rg:None,rg:None
+eaowg,group,EAO,rg:None,rg:None
+eaowg,group,WG,rg:None,rg:None
+all,group,Proponent,rg:None,rg:None
+all,group,EAO,rg:None,rg:None
+all,group,WG,rg:None,rg:None
+proponly,group,Proponent,rg:None,rg:None
+proponly,email,rg:None,CaryXSechrist@jourrapide.com,Cary Sechrist
+proponly,email,rg:None,RandyIConrad@dayrep.com,Randy Conrad
+eaoonly,email,rg:None,LiliLNorrell@fleckens.hu,Lili Norrell
+eaoonly,email,rg:None,WilliamSButler@einrot.com,William Butler
+eaoonly,email,rg:None,CeciliaFBrown@gustr.com,Cecilia Brown
+eaoonly,email,rg:None,RachelJWinston@superrito.com,Rachel Winston
+eaoprop,email,rg:None,CaryXSechrist@jourrapide.com,Cary Sechrist
+eaoprop,email,rg:None,RandyIConrad@dayrep.com,Randy Conrad
+eaoprop,email,rg:None,LiliLNorrell@fleckens.hu,Lili Norrell
+eaoprop,email,rg:None,WilliamSButler@einrot.com,William Butler
+eaoprop,email,rg:None,CeciliaFBrown@gustr.com,Cecilia Brown
+eaoprop,email,rg:None,RachelJWinston@superrito.com,Rachel Winston
+eaowg,email,rg:None,LiliLNorrell@fleckens.hu,Lili Norrell
+eaowg,email,rg:None,WilliamSButler@einrot.com,William Butler
+eaowg,email,rg:None,CeciliaFBrown@gustr.com,Cecilia Brown
+eaowg,email,rg:None,RachelJWinston@superrito.com,Rachel Winston
+eaowg,email,rg:None,SuzanneFBoyd@jourrapide.com,Suzanne Boyd
+eaowg,email,rg:None,LidiaSOtis@einrot.com,Lidia Otis
+all,email,rg:None,SuzanneFBoyd@jourrapide.com,Suzanne Boyd
+all,email,rg:None,LidiaSOtis@einrot.com,Lidia Otis
+all,email,rg:None,CaryXSechrist@jourrapide.com,Cary Sechrist
+all,email,rg:None,RandyIConrad@dayrep.com,Randy Conrad
+all,email,rg:None,LiliLNorrell@fleckens.hu,Lili Norrell
+all,email,rg:None,WilliamSButler@einrot.com,William Butler
+all,email,rg:None,CeciliaFBrown@gustr.com,Cecilia Brown
+all,email,rg:None,RachelJWinston@superrito.com,Rachel Winston
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0
+-,,rg:None,0,0

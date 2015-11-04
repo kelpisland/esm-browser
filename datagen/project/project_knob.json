@@ -3,10 +3,51 @@
     "activities": [
         {
             "_id": "1",
-            "access": [],
-            "dateEnd": "2014-06-21T00:00:00.000Z",
-            "dateStart": "2014-06-21T00:00:00.000Z",
-            "dateUpdated": "2014-06-21T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": "CaryXSechrist@jourrapide.com",
+                            "name": "Cary Sechrist",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-06-22T00:00:00.000Z",
+            "dateStart": "2014-06-22T00:00:00.000Z",
+            "dateUpdated": "2014-06-22T00:00:00.000Z",
             "description": "Initiate Project",
             "name": "Initiate Project",
             "preMetRequirements": [],
@@ -53,52 +94,55 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": "CaryXSechrist@jourrapide.com",
-                    "name": "Cary Sechrist",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "2",
-            "access": [],
-            "dateEnd": "2014-06-21T00:00:00.000Z",
-            "dateStart": "2014-06-21T00:00:00.000Z",
-            "dateUpdated": "2014-06-21T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": "CaryXSechrist@jourrapide.com",
+                            "name": "Cary Sechrist",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-06-22T00:00:00.000Z",
+            "dateStart": "2014-06-22T00:00:00.000Z",
+            "dateUpdated": "2014-06-22T00:00:00.000Z",
             "description": "Set up Project Space",
             "name": "Set up Project Space",
             "preMetRequirements": [],
@@ -145,52 +189,55 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": "CaryXSechrist@jourrapide.com",
-                    "name": "Cary Sechrist",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "3",
-            "access": [],
-            "dateEnd": "2014-07-14T00:00:00.000Z",
-            "dateStart": "2014-06-21T00:00:00.000Z",
-            "dateUpdated": "2014-07-14T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": "CaryXSechrist@jourrapide.com",
+                            "name": "Cary Sechrist",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-07-15T00:00:00.000Z",
+            "dateStart": "2014-06-22T00:00:00.000Z",
+            "dateUpdated": "2014-07-15T00:00:00.000Z",
             "description": "Begin Strength of Claim Process",
             "name": "Begin Strength of Claim Process",
             "preMetRequirements": [],
@@ -237,52 +284,55 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": "CaryXSechrist@jourrapide.com",
-                    "name": "Cary Sechrist",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "4",
-            "access": [],
-            "dateEnd": "2014-07-06T00:00:00.000Z",
-            "dateStart": "2014-06-21T00:00:00.000Z",
-            "dateUpdated": "2014-07-06T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": "CaryXSechrist@jourrapide.com",
+                            "name": "Cary Sechrist",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-07-07T00:00:00.000Z",
+            "dateStart": "2014-06-22T00:00:00.000Z",
+            "dateUpdated": "2014-07-07T00:00:00.000Z",
             "description": "Populate Content",
             "name": "Populate Content",
             "preMetRequirements": [],
@@ -329,52 +379,37 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": "CaryXSechrist@jourrapide.com",
-                    "name": "Cary Sechrist",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "5",
-            "access": [],
-            "dateEnd": "2014-08-05T00:00:00.000Z",
-            "dateStart": "2014-06-21T00:00:00.000Z",
-            "dateUpdated": "2014-08-05T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "Proponent"
+                        },
+                        {
+                            "email": "Cary Sechrist",
+                            "name": "CaryXSechrist@jourrapide.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Randy Conrad",
+                            "name": "RandyIConrad@dayrep.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-08-06T00:00:00.000Z",
+            "dateStart": "2014-06-22T00:00:00.000Z",
+            "dateUpdated": "2014-08-06T00:00:00.000Z",
             "description": "Create Project Description",
             "name": "Create Project Description",
             "preMetRequirements": [],
@@ -421,34 +456,55 @@
             ],
             "updatedBy": {
                 "user": "2"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "Proponent"
-                },
-                {
-                    "email": "Cary Sechrist",
-                    "name": "CaryXSechrist@jourrapide.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Randy Conrad",
-                    "name": "RandyIConrad@dayrep.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "6",
-            "access": [],
-            "dateEnd": "2014-08-28T00:00:00.000Z",
-            "dateStart": "2014-08-05T00:00:00.000Z",
-            "dateUpdated": "2014-08-28T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": "CaryXSechrist@jourrapide.com",
+                            "name": "Cary Sechrist",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-08-29T00:00:00.000Z",
+            "dateStart": "2014-08-06T00:00:00.000Z",
+            "dateUpdated": "2014-08-29T00:00:00.000Z",
             "description": "Create Section 10(1)c",
             "name": "Create Section 10(1)c",
             "preMetRequirements": [],
@@ -495,52 +551,55 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": "CaryXSechrist@jourrapide.com",
-                    "name": "Cary Sechrist",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "7",
-            "access": [],
-            "dateEnd": "2014-11-03T00:00:00.000Z",
-            "dateStart": "2014-08-28T00:00:00.000Z",
-            "dateUpdated": "2014-11-03T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": "CaryXSechrist@jourrapide.com",
+                            "name": "Cary Sechrist",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-11-04T00:00:00.000Z",
+            "dateStart": "2014-08-29T00:00:00.000Z",
+            "dateUpdated": "2014-11-04T00:00:00.000Z",
             "description": "Create and Finalize Section 11 Document",
             "name": "Create and Finalize Section 11 Document",
             "preMetRequirements": [],
@@ -587,52 +646,55 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": "CaryXSechrist@jourrapide.com",
-                    "name": "Cary Sechrist",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "8",
-            "access": [],
-            "dateEnd": "2014-09-22T00:00:00.000Z",
-            "dateStart": "2014-08-28T00:00:00.000Z",
-            "dateUpdated": "2014-09-22T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": "CaryXSechrist@jourrapide.com",
+                            "name": "Cary Sechrist",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-09-23T00:00:00.000Z",
+            "dateStart": "2014-08-29T00:00:00.000Z",
+            "dateUpdated": "2014-09-23T00:00:00.000Z",
             "description": "Enter Value Component Mandatory Minimum",
             "name": "Enter Value Component Mandatory Minimum",
             "preMetRequirements": [],
@@ -679,52 +741,55 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": "CaryXSechrist@jourrapide.com",
-                    "name": "Cary Sechrist",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "9",
-            "access": [],
-            "dateEnd": "2014-09-12T00:00:00.000Z",
-            "dateStart": "2014-08-28T00:00:00.000Z",
-            "dateUpdated": "2014-09-12T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": "CaryXSechrist@jourrapide.com",
+                            "name": "Cary Sechrist",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-09-13T00:00:00.000Z",
+            "dateStart": "2014-08-29T00:00:00.000Z",
+            "dateUpdated": "2014-09-13T00:00:00.000Z",
             "description": "Confirm Working Group Participation",
             "name": "Confirm Working Group Participation",
             "preMetRequirements": [],
@@ -771,52 +836,37 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": "CaryXSechrist@jourrapide.com",
-                    "name": "Cary Sechrist",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "10",
-            "access": [],
-            "dateEnd": "2014-10-01T00:00:00.000Z",
-            "dateStart": "2014-08-28T00:00:00.000Z",
-            "dateUpdated": "2014-10-01T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "Proponent"
+                        },
+                        {
+                            "email": "Cary Sechrist",
+                            "name": "CaryXSechrist@jourrapide.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Randy Conrad",
+                            "name": "RandyIConrad@dayrep.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-10-02T00:00:00.000Z",
+            "dateStart": "2014-08-29T00:00:00.000Z",
+            "dateUpdated": "2014-10-02T00:00:00.000Z",
             "description": "Create Draft AIR",
             "name": "Create Draft AIR",
             "preMetRequirements": [],
@@ -863,34 +913,37 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "Proponent"
-                },
-                {
-                    "email": "Cary Sechrist",
-                    "name": "CaryXSechrist@jourrapide.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Randy Conrad",
-                    "name": "RandyIConrad@dayrep.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "11",
-            "access": [],
-            "dateEnd": "2014-12-07T00:00:00.000Z",
-            "dateStart": "2014-10-01T00:00:00.000Z",
-            "dateUpdated": "2014-12-07T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "Proponent"
+                        },
+                        {
+                            "email": "Cary Sechrist",
+                            "name": "CaryXSechrist@jourrapide.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Randy Conrad",
+                            "name": "RandyIConrad@dayrep.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2014-12-08T00:00:00.000Z",
+            "dateStart": "2014-10-02T00:00:00.000Z",
+            "dateUpdated": "2014-12-08T00:00:00.000Z",
             "description": "Create AIR",
             "name": "Create AIR",
             "preMetRequirements": [],
@@ -937,34 +990,37 @@
             ],
             "updatedBy": {
                 "user": "2"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "Proponent"
-                },
-                {
-                    "email": "Cary Sechrist",
-                    "name": "CaryXSechrist@jourrapide.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Randy Conrad",
-                    "name": "RandyIConrad@dayrep.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "12",
-            "access": [],
-            "dateEnd": "2016-02-03T00:00:00.000Z",
-            "dateStart": "2014-12-07T00:00:00.000Z",
-            "dateUpdated": "2016-02-03T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "Proponent"
+                        },
+                        {
+                            "email": "Cary Sechrist",
+                            "name": "CaryXSechrist@jourrapide.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Randy Conrad",
+                            "name": "RandyIConrad@dayrep.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2016-02-04T00:00:00.000Z",
+            "dateStart": "2014-12-08T00:00:00.000Z",
+            "dateUpdated": "2016-02-04T00:00:00.000Z",
             "description": "Create Application ",
             "name": "Create Application ",
             "preMetRequirements": [],
@@ -1011,34 +1067,55 @@
             ],
             "updatedBy": {
                 "user": "2"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "Proponent"
-                },
-                {
-                    "email": "Cary Sechrist",
-                    "name": "CaryXSechrist@jourrapide.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Randy Conrad",
-                    "name": "RandyIConrad@dayrep.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "13",
-            "access": [],
-            "dateEnd": "2016-03-02T00:00:00.000Z",
-            "dateStart": "2016-02-03T00:00:00.000Z",
-            "dateUpdated": "2016-03-02T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": "CaryXSechrist@jourrapide.com",
+                            "name": "Cary Sechrist",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2016-03-03T00:00:00.000Z",
+            "dateStart": "2016-02-04T00:00:00.000Z",
+            "dateUpdated": "2016-03-03T00:00:00.000Z",
             "description": "Create Table of Concordance",
             "name": "Create Table of Concordance",
             "preMetRequirements": [],
@@ -1085,52 +1162,67 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": "CaryXSechrist@jourrapide.com",
-                    "name": "Cary Sechrist",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "14",
-            "access": [],
-            "dateEnd": "2016-03-07T00:00:00.000Z",
-            "dateStart": "2016-03-02T00:00:00.000Z",
-            "dateUpdated": "2016-03-07T00:00:00.000Z",
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "Proponent"
+                        },
+                        {
+                            "email": "Cary Sechrist",
+                            "name": "CaryXSechrist@jourrapide.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Randy Conrad",
+                            "name": "RandyIConrad@dayrep.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
+            "dateEnd": "2016-03-08T00:00:00.000Z",
+            "dateStart": "2016-03-03T00:00:00.000Z",
+            "dateUpdated": "2016-03-08T00:00:00.000Z",
             "description": "Pre-Application Wrap-Up",
             "name": "Pre-Application Wrap-Up",
             "preMetRequirements": [],
@@ -1177,64 +1269,85 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "Proponent"
-                },
-                {
-                    "email": "Cary Sechrist",
-                    "name": "CaryXSechrist@jourrapide.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Randy Conrad",
-                    "name": "RandyIConrad@dayrep.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "15",
-            "access": [],
+            "access": {
+                "visibility": [
+                    [
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "Proponent"
+                        },
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "EAO"
+                        },
+                        {
+                            "email": null,
+                            "name": null,
+                            "type": "group",
+                            "value": "WG"
+                        },
+                        {
+                            "email": "Suzanne Boyd",
+                            "name": "SuzanneFBoyd@jourrapide.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lidia Otis",
+                            "name": "LidiaSOtis@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cary Sechrist",
+                            "name": "CaryXSechrist@jourrapide.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Randy Conrad",
+                            "name": "RandyIConrad@dayrep.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Lili Norrell",
+                            "name": "LiliLNorrell@fleckens.hu",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "William Butler",
+                            "name": "WilliamSButler@einrot.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Cecilia Brown",
+                            "name": "CeciliaFBrown@gustr.com",
+                            "type": "email",
+                            "value": null
+                        },
+                        {
+                            "email": "Rachel Winston",
+                            "name": "RachelJWinston@superrito.com",
+                            "type": "email",
+                            "value": null
+                        }
+                    ]
+                ]
+            },
             "dateEnd": null,
-            "dateStart": "2016-03-07T00:00:00.000Z",
-            "dateUpdated": "2016-03-12T00:00:00.000Z",
+            "dateStart": "2016-03-08T00:00:00.000Z",
+            "dateUpdated": "2016-03-13T00:00:00.000Z",
             "description": "Initate Evaluation Period",
             "name": "Initate Evaluation Period",
             "preMetRequirements": [],
@@ -1281,79 +1394,11 @@
             ],
             "updatedBy": {
                 "user": "4"
-            },
-            "visibility": [
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "Proponent"
-                },
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "EAO"
-                },
-                {
-                    "email": null,
-                    "name": null,
-                    "type": "group",
-                    "value": "WG"
-                },
-                {
-                    "email": "Suzanne Boyd",
-                    "name": "SuzanneFBoyd@jourrapide.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lidia Otis",
-                    "name": "LidiaSOtis@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cary Sechrist",
-                    "name": "CaryXSechrist@jourrapide.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Randy Conrad",
-                    "name": "RandyIConrad@dayrep.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Lili Norrell",
-                    "name": "LiliLNorrell@fleckens.hu",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "William Butler",
-                    "name": "WilliamSButler@einrot.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Cecilia Brown",
-                    "name": "CeciliaFBrown@gustr.com",
-                    "type": "email",
-                    "value": null
-                },
-                {
-                    "email": "Rachel Winston",
-                    "name": "RachelJWinston@superrito.com",
-                    "type": "email",
-                    "value": null
-                }
-            ]
+            }
         },
         {
             "_id": "16",
-            "access": [],
+            "access": "rg[]",
             "dateEnd": null,
             "dateStart": null,
             "dateUpdated": null,
@@ -1401,12 +1446,11 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": null
         },
         {
             "_id": "17",
-            "access": [],
+            "access": "rg[]",
             "dateEnd": null,
             "dateStart": null,
             "dateUpdated": null,
@@ -1454,12 +1498,11 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": null
         },
         {
             "_id": "18",
-            "access": [],
+            "access": "rg[]",
             "dateEnd": null,
             "dateStart": null,
             "dateUpdated": null,
@@ -1507,8 +1550,7 @@
                     ]
                 }
             ],
-            "updatedBy": null,
-            "visibility": []
+            "updatedBy": null
         }
     ],
     "buckets": [
@@ -1746,9 +1788,9 @@
             ]
         }
     ],
-    "dateCurrentPhaseEstimatedEnd": "2015-12-27T00:00:00.000Z",
-    "dateCurrentPhaseEstimatedStart": "2014-08-02T00:00:00.000Z",
-    "dateNextPhaseEstimatedStart": "2015-12-27T00:00:00.000Z",
+    "dateCurrentPhaseEstimatedEnd": "2015-12-28T00:00:00.000Z",
+    "dateCurrentPhaseEstimatedStart": "2014-08-03T00:00:00.000Z",
+    "dateNextPhaseEstimatedStart": "2015-12-28T00:00:00.000Z",
     "deliverables": [
         {
             "_id": "projectdescription",
@@ -1835,10 +1877,10 @@
             "access": [],
             "buckets": [],
             "code": "projectdescriptioncomplete",
-            "dateActualEnd": "2014-07-14T00:00:00.000Z",
-            "dateActualStart": "2014-06-21T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-07-12T00:00:00.000Z",
-            "dateEstimatedStart": "2014-06-21T00:00:00.000Z",
+            "dateActualEnd": "2014-07-15T00:00:00.000Z",
+            "dateActualStart": "2014-06-22T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-07-13T00:00:00.000Z",
+            "dateEstimatedStart": "2014-06-22T00:00:00.000Z",
             "name": "Project Description Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -1848,10 +1890,10 @@
             "access": [],
             "buckets": [],
             "code": "section10complete",
-            "dateActualEnd": "2014-08-21T00:00:00.000Z",
-            "dateActualStart": "2014-07-20T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-08-23T00:00:00.000Z",
-            "dateEstimatedStart": "2014-07-12T00:00:00.000Z",
+            "dateActualEnd": "2014-08-22T00:00:00.000Z",
+            "dateActualStart": "2014-07-21T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-08-24T00:00:00.000Z",
+            "dateEstimatedStart": "2014-07-13T00:00:00.000Z",
             "name": "Section 10 Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -1861,10 +1903,10 @@
             "access": [],
             "buckets": [],
             "code": "section11complete",
-            "dateActualEnd": "2014-10-26T00:00:00.000Z",
-            "dateActualStart": "2014-09-08T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-10-02T00:00:00.000Z",
-            "dateEstimatedStart": "2014-08-23T00:00:00.000Z",
+            "dateActualEnd": "2014-10-27T00:00:00.000Z",
+            "dateActualStart": "2014-09-09T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-10-03T00:00:00.000Z",
+            "dateEstimatedStart": "2014-08-24T00:00:00.000Z",
             "name": "Section 11 Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -1874,10 +1916,10 @@
             "access": [],
             "buckets": [],
             "code": "draftaircomplete",
-            "dateActualEnd": "2014-12-16T00:00:00.000Z",
-            "dateActualStart": "2014-11-11T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-11-01T00:00:00.000Z",
-            "dateEstimatedStart": "2014-10-02T00:00:00.000Z",
+            "dateActualEnd": "2014-12-17T00:00:00.000Z",
+            "dateActualStart": "2014-11-12T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-11-02T00:00:00.000Z",
+            "dateEstimatedStart": "2014-10-03T00:00:00.000Z",
             "name": "Draft AIR Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -1887,10 +1929,10 @@
             "access": [],
             "buckets": [],
             "code": "aircomplete",
-            "dateActualEnd": "2015-03-04T00:00:00.000Z",
-            "dateActualStart": "2014-12-26T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-12-21T00:00:00.000Z",
-            "dateEstimatedStart": "2014-11-01T00:00:00.000Z",
+            "dateActualEnd": "2015-03-05T00:00:00.000Z",
+            "dateActualStart": "2014-12-27T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-12-22T00:00:00.000Z",
+            "dateEstimatedStart": "2014-11-02T00:00:00.000Z",
             "name": "AIR Complete",
             "phases": [],
             "preMetRequirements": [],
@@ -1901,9 +1943,9 @@
             "buckets": [],
             "code": "applicationsubmitted",
             "dateActualEnd": null,
-            "dateActualStart": "2017-04-23T00:00:00.000Z",
-            "dateEstimatedEnd": "2016-12-20T00:00:00.000Z",
-            "dateEstimatedStart": "2016-11-20T00:00:00.000Z",
+            "dateActualStart": "2017-04-24T00:00:00.000Z",
+            "dateEstimatedEnd": "2016-12-21T00:00:00.000Z",
+            "dateEstimatedStart": "2016-11-21T00:00:00.000Z",
             "name": "Application Submitted",
             "phases": [],
             "preMetRequirements": [],
@@ -1954,43 +1996,43 @@
     "overallProgress": "85",
     "phases": [
         {
-            "EstStartDate": "2014-06-21T00:00:00.000Z",
+            "EstStartDate": "2014-06-22T00:00:00.000Z",
             "code": "preea",
             "completed": "100",
-            "dateActualEnd": "2014-09-10T00:00:00.000Z",
-            "dateActualStart": "2014-06-21T00:00:00.000Z",
-            "dateEstimatedEnd": "2014-09-22T00:00:00.000Z",
-            "dateEstimatedStart": "2014-06-21T00:00:00.000Z",
+            "dateActualEnd": "2014-09-11T00:00:00.000Z",
+            "dateActualStart": "2014-06-22T00:00:00.000Z",
+            "dateEstimatedEnd": "2014-09-23T00:00:00.000Z",
+            "dateEstimatedStart": "2014-06-22T00:00:00.000Z",
             "name": "Pre-EA"
         },
         {
-            "EstStartDate": "2014-06-21T00:00:00.000Z",
+            "EstStartDate": "2014-06-22T00:00:00.000Z",
             "code": "preapp",
             "completed": "100",
-            "dateActualEnd": "2015-06-18T00:00:00.000Z",
-            "dateActualStart": "2014-09-10T00:00:00.000Z",
-            "dateEstimatedEnd": "2015-07-19T00:00:00.000Z",
-            "dateEstimatedStart": "2014-09-22T00:00:00.000Z",
+            "dateActualEnd": "2015-06-19T00:00:00.000Z",
+            "dateActualStart": "2014-09-11T00:00:00.000Z",
+            "dateEstimatedEnd": "2015-07-20T00:00:00.000Z",
+            "dateEstimatedStart": "2014-09-23T00:00:00.000Z",
             "name": "Pre Application"
         },
         {
-            "EstStartDate": "2015-07-19T00:00:00.000Z",
+            "EstStartDate": "2015-07-20T00:00:00.000Z",
             "code": "eval",
             "completed": "25",
             "dateActualEnd": null,
-            "dateActualStart": "2015-06-18T00:00:00.000Z",
-            "dateEstimatedEnd": "2016-09-24T00:00:00.000Z",
-            "dateEstimatedStart": "2014-09-10T00:00:00.000Z",
+            "dateActualStart": "2015-06-19T00:00:00.000Z",
+            "dateEstimatedEnd": "2016-09-25T00:00:00.000Z",
+            "dateEstimatedStart": "2014-09-11T00:00:00.000Z",
             "name": "Evaluation"
         },
         {
-            "EstStartDate": "2014-09-10T00:00:00.000Z",
+            "EstStartDate": "2014-09-11T00:00:00.000Z",
             "code": "rev",
             "completed": "0",
             "dateActualEnd": null,
             "dateActualStart": null,
-            "dateEstimatedEnd": "2017-06-06T00:00:00.000Z",
-            "dateEstimatedStart": "2016-09-24T00:00:00.000Z",
+            "dateEstimatedEnd": "2017-06-07T00:00:00.000Z",
+            "dateEstimatedStart": "2016-09-25T00:00:00.000Z",
             "name": "Review"
         }
     ],
