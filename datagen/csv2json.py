@@ -65,6 +65,20 @@ def process_file(filename):
     # clean up
     return data
 
+def named_datasets(name, dataset_defs):
+
+    datasets = {}
+    data = []
+
+    datasets[name] = data
+
+    for dataset_def in dataset_defs:
+        filename, dataset_name = dataset_def
+        current_dataset = dataset(filename, dataset_name)
+        data.append(current_dataset)
+
+    return datasets
+
 def dataset(filename, dataset_name):
     all_data = process_file(filename)
     datasets = make_datasets(all_data)
