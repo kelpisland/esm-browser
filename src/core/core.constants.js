@@ -3,7 +3,7 @@
 (function() {
     'use strict';
 
-    var apiPath = 'http://' + window.location.hostname + '/api';
+    var apiPath = 'http://' + window.location.hostname + ':7203/api';
 
     console.debug("API Path is " + apiPath);
 
