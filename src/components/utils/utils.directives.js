@@ -18,7 +18,11 @@
         .directive('dateField', directiveDateField)
         .directive('rolesSelect', directiveRolesSelect)
         .directive('usersSelect', directiveUsersSelect)
-        .directive('modalSelectUsers', directiveModalSelectUsers);        
+        .directive('modalSelectUsers', directiveModalSelectUsers)
+        .directive('modalUserList', directiveModalUserList)
+        .directive('tmplRequirementChecklist', directiveRequirementChecklist)
+        .directive('modalUserContactInfo', directiveModalUserContactInfo)
+        .directive('selectOnClick', directiveSelectOnClick);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -449,4 +453,112 @@
         };
         return directive;
     }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Modal User List
+	//
+    // -----------------------------------------------------------------------------------
+    directiveModalUserList.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalUserList($modal) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	users: '='
+            },
+			link : function(scope, element, attrs) {
+				element.on('click', function() {
+					var modalUserList = $modal.open({
+						animation: true,
+						templateUrl: 'components/utils/partials/modal-user-list.html',
+						controller: 'controllerModalUserList',
+						controllerAs: 'utilUserList',
+						size: 'lg',
+						resolve: {
+							rUsers: function() {
+								return scope.users || [];
+							}
+						}
+					});
+					modalUserList.result.then(function () {}, function () {});
+				});
+			}
+        };
+        return directive;
+    }    
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Requirement Checklist
+	//
+    // -----------------------------------------------------------------------------------
+    directiveRequirementChecklist.$inject = [];
+    /* @ngInject */
+    function directiveRequirementChecklist() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/utils/partials/requirement-checklist.html',
+            controller: 'controllerRequirementChecklist',
+            controllerAs: 'reqChecklist',
+            scope : {
+            	required: '=',
+            	project: '='
+            }
+        };
+        return directive;
+    }   
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Modal User List
+	//
+    // -----------------------------------------------------------------------------------
+    directiveModalUserContactInfo.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalUserContactInfo($modal) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	user: '='
+            },
+			link : function(scope, element, attrs) {
+				element.on('click', function() {
+					var modalUserInfo = $modal.open({
+						animation: true,
+						templateUrl: 'components/utils/partials/modal-user-contact-info.html',
+						controller: 'controllerModalUserContactInfo',
+						controllerAs: 'utilUserContactInfo',
+						size: 'sm',
+						resolve: {
+							rUser: function() {
+								return scope.user || {};
+							}
+						}
+					});
+					modalUserInfo.result.then(function () {}, function () {});
+				});
+			}
+        };
+        return directive;
+    }    
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Select On Click
+	//
+    // -----------------------------------------------------------------------------------
+    directiveSelectOnClick.$inject = ['$window'];
+    /* @ngInject */
+    function directiveSelectOnClick($window) {
+    	var directive = {
+	        restrict: 'A',
+	        link: function (scope, element, attrs) {
+	            element.on('click', function () {
+	                if (!$window.getSelection().toString()) {
+	                    // Required for mobile Safari
+	                    this.setSelectionRange(0, this.value.length)
+	                }
+	            });
+	        }
+	    };
+	    return directive;
+	}
+
 })();

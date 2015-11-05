@@ -22,8 +22,6 @@ module.exports = function(app) {
 	
 	app.get(api + '/v1/responseRevisions/:id', getResponseRevisions);		
 
-	app.get(api + '/v1/item/:id', getItem);		
-
     // System Alerts
     app.get(api + '/v1/alertNew', getAlertPrim);  
     app.get(api + '/v1/alerts/user', getAlertsUser);
@@ -61,6 +59,13 @@ module.exports = function(app) {
 
     // common map layers
     app.get(api + '/v1/notificationTemplates', getNotificationTemplates);
+
+
+    // General Task Data 
+    app.get(api + '/v1/task/:code/:id', getTaskData);
+
+    // Notification
+    app.get(api + '/v1/notificationNew', getNotificationPrim); 
 
 
     //
@@ -112,7 +117,6 @@ module.exports = function(app) {
         var json = jsonfileservice.getJsonFromFile(data + 'primProject.json');
         res.send(json);
     }
-
     function getProjectBuckets(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'projectBuckets.json'); // should load project.artifacts
         res.send(json);
@@ -165,8 +169,8 @@ module.exports = function(app) {
 
 
 
-    function getItem(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'item.json');
+    function getTaskData(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'primNotification.json');
         res.send(json);
     }
 
@@ -248,5 +252,12 @@ module.exports = function(app) {
         var json = jsonfileservice.getJsonFromFile(data + 'sysNotificationTemplates.json');
         res.send(json);
     }    
+
+    function getNotificationPrim(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'primNotification.json');
+        res.send(json);
+    }
+
+
 
 };

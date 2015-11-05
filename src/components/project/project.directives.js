@@ -7,7 +7,7 @@
         .directive('tmplProjectTombstoneHorizontal', directiveProjectTombstoneHorizontal)
         .directive('tmplProjectTombstoneVertical', directiveProjectTombstoneVertical)
         .directive('tmplProjectTimeline', directiveProjectTimeline)
-        .directive('tmplProjectEntryTombstoneHorizontal', directiveProjectEntryTombstone)
+        .directive('tmplProjectEntryTombstone', directiveProjectEntryTombstone)
         .directive('tmplProjectBucketListing', directiveProjectBucketListing)
         .directive('tmplProjectResearch', directiveProjectResearch);
        
@@ -113,7 +113,10 @@
             restrict: 'E',
             templateUrl: 'components/project/partials/project-entry-tombstone.html',
             controller: 'controllerProjectEntryTombstone',
-            controllerAs: 'pets'            
+            controllerAs: 'projectEntryTS',
+            scope: {
+                project: '='
+            }            
         };
         return directive;
     }

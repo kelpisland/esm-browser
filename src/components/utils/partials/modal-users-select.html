@@ -62,43 +62,39 @@
 						<label class="control-label">Name</label>
 						<input type="text" class="form-control" ng-model="utilUsers.userNew.name"/>
 					</div>
-					<div class="checkbox" ng-show="utilUsers.config.allowChoice">
-						<label for="receiveViaEmail">
- 						<input ng-model="utilUsers.userNew.viaEmail" type="checkbox" id="receiveViaEmail" class="checkbox"/>
-							<span>Contact Via Email</span>
-						</label>
+					<div class="form-group">
+						<label class="control-label">Email</label>
+						<input type="text" class="form-control" ng-model="utilUsers.userNew.email"/>
+					</div>	
+					<div class="form-group">
+						<label class="control-label">Address</label>
+						<input type="text" class="form-control" ng-model="utilUsers.userNew.address"/>
 					</div>
-					<div ng-show="utilUsers.userNew.viaEmail">
-						<div class="form-group">
-							<label class="control-label">Email</label>
-							<input type="text" class="form-control" ng-model="utilUsers.userNew.email"/>
+					<div class="row">
+						<div class="form-group col-sm-5">
+							<label class="control-label">City</label>
+							<input type="text" class="form-control" ng-model="utilUsers.userNew.city"/>
+						</div>	
+						<div class="form-group col-sm-3">
+							<label class="control-label">Province</label>
+							<input type="text" class="form-control" ng-model="utilUsers.userNew.province"/>
+						</div>	
+						<div class="form-group col-sm-4">
+							<label class="control-label">Postal</label>
+							<input type="text" class="form-control" ng-model="utilUsers.userNew.postal"/>
 						</div>	
 					</div>
-					<div class="checkbox" ng-show="utilUsers.config.allowChoice">
+					<div class="checkbox">
 						<label for="receiveViaMail">
  						<input ng-model="utilUsers.userNew.viaMail" type="checkbox" id="receiveViaMail" class="checkbox"/>
-							<span>Contact Via Mail</span>
+							<span>Notify Via Mail</span>
 						</label>
 					</div>
-					<div ng-show="utilUsers.userNew.viaMail">
-						<div class="form-group">
-							<label class="control-label">Address</label>
-							<input type="text" class="form-control" ng-model="utilUsers.userNew.address"/>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-5">
-								<label class="control-label">City</label>
-								<input type="text" class="form-control" ng-model="utilUsers.userNew.city"/>
-							</div>	
-							<div class="form-group col-sm-3">
-								<label class="control-label">Province</label>
-								<input type="text" class="form-control" ng-model="utilUsers.userNew.province"/>
-							</div>	
-							<div class="form-group col-sm-4">
-								<label class="control-label">Postal</label>
-								<input type="text" class="form-control" ng-model="utilUsers.userNew.postal"/>
-							</div>	
-						</div>
+					<div class="checkbox">
+						<label for="receiveViaEmail">
+ 						<input ng-model="utilUsers.userNew.viaEmail" type="checkbox" id="receiveViaEmail" class="checkbox"/>
+							<span>Notify Via Email</span>
+						</label>
 					</div>
 					<div class="checkbox">
 						<label for="inviteToRegister">
@@ -126,7 +122,7 @@
 					<li ng-repeat="user in selectedFiltered = (utilUsers.selected | filter:{role: (utilUsers.form.filteredSelected || undefined)})">
 						<button class="btn btn-block btn-sm btn-layer" ng-click="utilUsers.removeUserFromSelected(user)">{{ user.name }} <em class="small">{{ user.role || user.email }}</em></button>
 					</li>
-					<li ng-if="selectedFiltered.length === 0" class="small">
+					<li class='no-lower-padding' ng-if="selectedFiltered.length === 0" class="small">
 						Select users on the left.
 					</li>
 				</ul>

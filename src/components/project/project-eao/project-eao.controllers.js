@@ -16,13 +16,14 @@
 	// CONTROLLER: EAO Project Detail
 	//
     // -----------------------------------------------------------------------------------
-    controllerEAOProject.$inject = ['Project', '$stateParams'];
+    controllerEAOProject.$inject = ['$scope', 'Project', '$stateParams'];
 	//
-	function controllerEAOProject(Project, $stateParams) {
+	function controllerEAOProject($scope, Project, $stateParams) {
 		var vm = this;
 		
 		// show activities first
 		vm.mainView = 'activity';
+		vm.activityView = 'open';
 		vm.artifactView = 'inprogress';
 		//
 		// Get Project
@@ -30,16 +31,21 @@
 			vm.project = res.data;
 		});
 
+		// vm.filterActivity = function(filter) {
+		// 	vm.activityView = filter;
+		// 	$scope.$broadcast('filterActivityList', {'filterValue':filter});
+		// };
+
     }
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: ERAO Project New
 	//
     // -----------------------------------------------------------------------------------    
-    controllerEAOProjectNew.$inject = ['logger'];
+    controllerEAOProjectNew.$inject = [];
 	//
-	function controllerEAOProjectNew(logger) {
-		var vm = this;
+	function controllerEAOProjectNew() {
+		var projectNew = this;
     };
     // -----------------------------------------------------------------------------------
 	//

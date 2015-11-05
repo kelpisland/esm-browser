@@ -59,15 +59,15 @@
             })
             .state('proponent.projects', {
                 url: '/projects',
-                template: '<tmpl-proponent-projects></tmpl-proponent-projects>'
+                template: '<tmpl-eao-projects></tmpl-eao-projects>'
             })
             .state('proponent.project', {
                 url: '/project/:id',
-                template: '<tmpl-proponent-project></tmpl-proponent-project>'
+                template: '<tmpl-eao-project></tmpl-eao-project>'
             })
             .state('proponent.newproject', {
                 url: '/newproject/',
-                template: '<tmpl-proponent-project-new></tmpl-proponent-project-new>'
+                template: '<tmpl-eao-project-new></tmpl-eao-project-new>'
             })
             .state('proponent.register', {
                 url: '/register/',
@@ -95,14 +95,10 @@
                 url: '/project/:id',
                 template: '<tmpl-eao-project></tmpl-eao-project>'
             })
-//             .state('eao.newproject', {
-//                 url: '/newproject/',
-//                 template: '<tmpl-proponent-project-new></tmpl-proponent-project-new>'
-//             })
-//             .state('eao.register', {
-//                 url: '/register/',
-//                 template: '<tmpl-proponent-register></tmpl-proponent-register>'
-//             })         
+            .state('eao.newproject', {
+                url: '/newproject/',
+                template: '<tmpl-eao-project-new></tmpl-eao-project-new>'
+            })
             .state('eao.activity', {
                 url: '/activity/:id',
                 template: '<tmpl-eao-activity></tmpl-eao-activity>'

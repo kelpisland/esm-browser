@@ -20,11 +20,15 @@
 
 		al.panelSort = [
 			{'field': 'name', 'name':'Title'},
-			{'field': 'Phase', 'name':'Phase'},
-			{'field': 'requirement', 'name':'Requires'},
+			{'field': 'phase', 'name':'Phase'},
+			{'field': 'status', 'name':'Status'},
 			{'field': 'updatedDate', 'name':'Date Updated'},
 			{'field': 'createDate', 'name':'Date Created'},			
 		];
+
+		$scope.$watch('filter', function() {
+			al.activityFilterStatus = $scope.filter;
+		});
 
 		//
 		// Get Project Activity

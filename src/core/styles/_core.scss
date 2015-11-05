@@ -297,7 +297,8 @@ nav {
 	margin-bottom: 14px;
 }
 
-.well .table {
+.well .table,
+.no-lower-margin {
 	margin-bottom: 0;
 }
 .well .table tr:first-child td {
@@ -424,7 +425,9 @@ nav {
 	}
 
 
-
+.no-lower-padding {
+	padding-bottom: 0 !important;
+}
 
 
 

@@ -20,7 +20,8 @@
             controller: 'controllerActivityList',
             controllerAs: 'al',
 			scope : {
-             	project: '='
+             	project: '=',
+                filter: '='
 			}
         };
         return directive;

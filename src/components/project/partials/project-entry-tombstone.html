@@ -1,15 +1,14 @@
-{{ pets.project | json }}
 <div class="row">
 	<div class="col-sm-8">
 		<div class="form-group">
 			<label for="title" class="control-label">Title</label>
-			<input id="title" type="text" class="form-control input-sm" ng-model="pets.project.title">
+			<input id="title" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.title">
 		</div>
 	</div>
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="type" class="control-label">Type</label>
-			<select ng-model='pets.project.type' class="form-control input-sm" ng-options="type as type for type in pets.types"></select>
+			<select ng-model='projectEntryTS.project.type' class="form-control input-sm" ng-options="type as type for type in projectEntryTS.types"></select>
 		</div>
 	</div>
 </div>
@@ -18,7 +17,7 @@
 	<div class="col-sm-12">
 		<div class="form-group">
 			<label for="shortDesc" class="control-label">Short Description</label>
-			<textarea id="shortDesc" type="text" class="form-control input-sm" ng-model="pets.project.description"></textarea>
+			<textarea id="shortDesc" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.description"></textarea>
 		</div>
 	</div>
 </div>
@@ -27,7 +26,7 @@
 	<div class="col-sm-12">
 		<div class="form-group">
 			<label for="location" class="control-label">Location Description</label>
-			<input id="location" type="text" class="form-control input-sm" ng-model="pets.project.location">
+			<input id="location" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.location">
 		</div>
 	</div>
 </div>
@@ -38,7 +37,7 @@
 	<div class="col-sm-12">
 		<div class="form-group">
 			<label for="location" class="control-label">Proponent</label>
-			<p class="form-control-static">{{ pets.project.proponent }}</p>
+			<p class="form-control-static">{{ projectEntryTS.project.proponent }}</p>
 		</div>
 	</div>
 </div>
@@ -47,13 +46,13 @@
 	<div class="col-sm-6">
 		<div class="form-group">
 			<label for="contact" class="control-label">Contact Name</label>
-			<input id="contact" type="text" class="form-control input-sm" ng-model="pets.project.contact.name">
+			<input id="contact" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.contact.name">
 		</div>
 	</div>
 	<div class="col-sm-6">
 		<div class="form-group">
 			<label for="contactTitle" class="control-label">Title</label>
-			<input id="contactTitle" type="text" class="form-control input-sm" ng-model="pets.project.contact.title">
+			<input id="contactTitle" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.contact.title">
 		</div>
 	</div>
 </div>
@@ -62,19 +61,19 @@
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="contact" class="control-label">Email</label>
-			<input id="contact" type="email" class="form-control input-sm" ng-model="pets.project.contact.email">
+			<input id="contact" type="email" class="form-control input-sm" ng-model="projectEntryTS.project.contact.email">
 		</div>
 	</div>
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="contactTitle" class="control-label">Phone</label>
-			<input id="contactTitle" type="tel" class="form-control input-sm" ng-model="pets.project.contact.phone">
+			<input id="contactTitle" type="tel" class="form-control input-sm" ng-model="projectEntryTS.project.contact.phone">
 		</div>
 	</div>
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="website" class="control-label">Website</label>
-			<input id="website" type="text" class="form-control input-sm" ng-model="pets.project.website">
+			<input id="website" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.website">
 		</div>
 	</div>
 </div>

@@ -3791,7 +3791,26 @@
             },
             "name": "Section 10.1c",
             "type": "document approval"
+        },
+        {
+            "bucket": [],
+            "code": "section101cuploaded",
+            "completedBy": {
+                "_id": "WilliamSButler@einrot.com"
+            },
+            "completingTask": {
+                "_id": "apprdesc"
+            },
+            "dateComplete": "2014-07-23T00:00:00.000Z",
+            "deliverable": {
+                "_id": "projectdescription"
+            },
+            "name": "Section 10.1c",
+            "type": "document approval"
         }
+
+
+
     ],
     "spatial": [],
     "team": [
@@ -4016,5 +4035,5 @@
             "viaMail": false
         }
     ],
-    "type": ""
+    "type": "Project Type"
 }
