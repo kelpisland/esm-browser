@@ -14,7 +14,7 @@ RUN npm install -g node-inspector bower gulp
 
 RUN useradd node -p xyz123
 
-RUN chown -R node:node /src
+RUN chown -R node:0 /src && chmod -R 770 /src
 
 USER node
 
@@ -22,6 +22,7 @@ ENV HOME=/tmp TEMP=/tmp
 
 RUN npm install
 
-ADD . /src/
+ADD . /src
+EXPOSE 3000 7203
 
 CMD ["gulp", "serve-dev"]
