@@ -5,6 +5,7 @@
     angular.module('app.project')
         .directive('tmplEaoProject', directiveEAOProject)
         .directive('tmplEaoProjectNew', directiveEAOProjectNew)
+        .directive('modalProjectEdit', directiveModalProjectEdit)
 		.directive('modalProjectEditPlanMilestones', directiveModalProjectEditPlanMilestones)
 		.directive('modalProjectEditPlanSchedule', directiveModalProjectEditPlanSchedule)
 		.directive('modalProjectEditPlanActivities', directiveModalProjectEditPlanActivities)     
@@ -42,6 +43,48 @@
         };
         return directive;
     }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Modal Edit Project
+	//
+    // -----------------------------------------------------------------------------------
+    directiveModalProjectEdit.$inject = ['$modal', 'Project'];
+    /* @ngInject */
+    function directiveModalProjectEdit($modal, Project) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	project: '='
+            },
+			link : function(scope, element, attrs) {
+
+				var originalProject = angular.copy(scope.project);
+
+				element.on('click', function() {
+					var modalMilestoneView = $modal.open({
+						animation: true,
+						templateUrl: 'components/project/project-eao/partials/modal-edit-project.html',
+						controller: 'controllerModalProjectEdit',
+						controllerAs: 'projectEdit',
+						resolve: {
+							rProject: function () {
+								return scope.project;
+							}
+						},
+						size: 'lg'
+					});
+					modalMilestoneView.result.then(function (project) {
+						// on ok, save new
+						Project.saveProject(scope.project);
+					}, function () {
+						// on cancel, restore original
+						scope.project = angular.copy(originalProject);
+					});
+				});
+			}
+        };
+        return directive;
+    }    
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Modal Edit Project Phases

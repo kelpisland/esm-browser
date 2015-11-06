@@ -5,31 +5,54 @@
     angular.module('app.documents')
         .controller('controllerDocumentUploadGeneral', controllerDocumentUploadGeneral)
         .controller('controllerDocumentList', controllerDocumentList)
-		.controller('controllerModalDocumentViewer', controllerModalDocumentViewer);
+		.controller('controllerModalDocumentViewer', controllerModalDocumentViewer)
+		.controller('controllerModalDocumentBuckets', controllerModalDocumentBuckets);
 
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Document Upload General
 	//
     // -----------------------------------------------------------------------------------
-    controllerDocumentUploadGeneral.$inject = ['$scope', 'Upload', '$timeout', 'API'];
+    controllerDocumentUploadGeneral.$inject = ['$scope', 'Upload', '$timeout', 'API', 'Document'];
     /* @ngInject */
-    function controllerDocumentUploadGeneral($scope, Upload, $timeout, API) {
-		var dug = this;
-		
-		$scope.$watch('files', function () {
-			dug.upload($scope.files);
-		});
-		$scope.$watch('file', function () {
-			if (dug.file !== null) {
-				dug.upload([dug.file]);
+    function controllerDocumentUploadGeneral($scope, Upload, $timeout, API, Document) {
+		var docUpload = this;
+
+		docUpload.fileList = [];
+
+		$scope.$watch('project', function(newValue) {
+			if (newValue) {
+				docUpload.project = newValue;
 			}
 		});
-		dug.log = '';
 
-		dug.upload = function (files) {
-			if (files && files.length) {
-				for (var i = 0; i < files.length; i++) {
+		// get types for dropdown.
+		Document.getDocumentTypes().then(function(res){
+			docUpload.docTypes = res.data;
+		});
+
+		$scope.$watch('files', function (newValue) {
+			if (newValue) {
+				_.each( newValue, function(file, idx) {
+					docUpload.fileList.push(file);				
+				});
+			}
+			// add the file to our central list.
+			// click the upload buton to actually upload this list.
+
+			//docUpload.upload($scope.files);
+		});
+	
+		$scope.$watch('file', function () {
+			if (docUpload.file) {
+				docUpload.upload([docUpload.file]);
+			}
+		});
+		docUpload.log = '';
+
+		docUpload.upload = function () {
+			if (docUpload.fileList && docUpload.fileList.length) {
+				for (var i = 0; i < docUpload.fileList.length; i++) {
 					var file = files[i];
 					if (!file.$error) {
 						Upload.upload({
@@ -40,9 +63,9 @@
                 			file: file
         				}).progress(function (evt) {
                 			var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                			dug.log = 'progress: ' + progressPercentage + '% ' + evt.config.file.name + '\n' + dug.log;
+                			docUpload.log = 'progress: ' + progressPercentage + '% ' + evt.config.file.name + '\n' + docUpload.log;
 						}).success(function (data, status, headers, config) {
-							dug.log = 'file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n' + dug.log;
+							docUpload.log = 'file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n' + docUpload.log;
 						});
 					}
 				}
@@ -80,4 +103,16 @@
 		md.ok = function () { $modalInstance.close(); };
 		md.cancel = function () { $modalInstance.dismiss('cancel'); };
 	}
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: View Documents Comment
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalDocumentBuckets.$inject = ['$modalInstance'];
+    //
+    function controllerModalDocumentBuckets($modalInstance) { 
+		var docBuckets = this;
+		docBuckets.ok = function () { $modalInstance.close(); };
+		docBuckets.cancel = function () { $modalInstance.dismiss('cancel'); };
+	}	
 })();

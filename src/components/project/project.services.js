@@ -17,7 +17,7 @@
 			return $http({method:'GET',url: SERVERAPI + '/project/new'});
     	};
 
-    	var getProject = function(req) {
+		var getProject = function(req) {
 			return $http({method:'GET',url: API + '/v1/project/' + req.id});
 		};
 
@@ -27,11 +27,12 @@
 		// };
 
 		var addProject = function(req) {
-			return $http({method:'POST',url: SERVERAPI + '/project/' + req.id});
+			return $http({method:'POST',url: SERVERAPI + '/project', data: req});
 		};
 
 		var saveProject = function(req) {
-			return $http({method:'PUT',url: SERVERAPI + '/project/' + req.id});
+			console.log(req);
+			return $http({method:'PUT',url: SERVERAPI + '/project/' + req.id, data: req});
 		};
 
 
@@ -69,6 +70,7 @@
 		return {
 			getNewProject: getNewProject,
 			getProject: getProject,
+			addProject: addProject,
 			saveProject: saveProject,
 			getProjectTypes: getProjectTypes,
 			getProjectIntakeQuestions, getProjectIntakeQuestions

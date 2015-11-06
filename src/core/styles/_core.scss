@@ -271,9 +271,10 @@ label.control-label {
     border: 3px dashed #DDD;
     text-align: center;
     padding: 25px;
+    margin-bottom: 15px;
 }
 .dragover {
-    border: 5px dashed blue;
+    border: 3px dotted #449d44;
 }
 
 
@@ -297,7 +298,6 @@ nav {
 	margin-bottom: 14px;
 }
 
-.well .table,
 .no-lower-margin {
 	margin-bottom: 0;
 }

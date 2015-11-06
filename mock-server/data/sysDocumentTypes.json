@@ -1,0 +1,17 @@
+[
+	{
+		"code":"intakeoverview",
+		"name":"Project Overview",
+		"group":"intake"
+	},
+	{
+		"code":"intakeshape",
+		"name":"Shape File",
+		"group":"intake"
+	},
+	{
+		"code":"intakemisc",
+		"name":"Supporting File",
+		"group":"intake"
+	}
+]

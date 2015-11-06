@@ -5,7 +5,8 @@
     angular.module('app.documents')
         .directive('tmplDocumentsUploadGeneral', directiveDocumentsUploadGeneral)
         .directive('tmplDocumentsList', directiveDocumentsList)        
-        .directive('modalDocumentViewer', directiveModalDocumentViewer);
+        .directive('modalDocumentViewer', directiveModalDocumentViewer)
+        .directive('modalDocumentBuckets', directiveModalDocumentBuckets);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -18,9 +19,10 @@
             restrict: 'E',
             templateUrl: 'components/documents/partials/document-upload-general.html',
             scope: {
+                project: '='
             },
             controller: 'controllerDocumentUploadGeneral',
-            controllerAs: 'dug'
+            controllerAs: 'docUpload'
         };
 
         return directive;
@@ -70,4 +72,40 @@
         };
         return directive;
     }
+    // -----------------------------------------------------------------------------------
+    //
+    // DIRECTIVE: Modal document Tags
+    //
+    // -----------------------------------------------------------------------------------
+    directiveModalDocumentBuckets.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalDocumentBuckets($modal) {
+        var directive = {
+            restrict:'A',
+            scope: {
+                doc: '=',
+                project: '='
+            }
+            link : function(scope, element, attrs) {
+                element.on('click', function() {
+                    var modalDocBuckets = $modal.open({
+                        animation: true,
+                        templateUrl: 'components/documents/partials/modal_document_buckets.html',
+                        controller: 'controllerModalDocumentBuckets',
+                        controllerAs: 'docBuckets',
+                        size: 'md',
+                        resolve: {
+                            rDoc: function() { return scope.doc },
+                            rProject: function() { return scope.project }
+                        }
+                    });
+                    modalDocBuckets.result.then(function (data) {
+                        console.log('data', data)
+                        scope.doc = data;
+                    }, function () {});
+                });
+            }
+        };
+        return directive;
+    }    
 })();

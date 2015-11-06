@@ -1,11 +1,13 @@
 <section id="projects-view">
 
-	<div class='col-sm-9'>
+	<div class='col-sm-9' ng-init="vm.view = 'schedule'">
 	
 		<tmpl-projects-filter-bar x-filter="vm"></tmpl-projects-filter-bar>
 
 		<panel-sort x-fields="vm.panelSort" x-data="vm.projects"></panel-sort>
 
+
+		<tmpl-projects-schedule x-projects='vm.projects' ng-show="vm.view === 'schedule'"></tmpl-projects-schedule>
 		<tmpl-projects-list x-projects='vm.projects' ng-show="vm.view === 'list'"></tmpl-projects-list>
 		<tmpl-projects-panels x-projects='vm.projects' ng-show="vm.view === 'preview'"></tmpl-projects-panels>
 		<tmpl-projects-map x-projects='vm.projects' ng-show="vm.view === 'map'"></tmpl-projects-map>

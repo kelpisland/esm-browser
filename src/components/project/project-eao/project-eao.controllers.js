@@ -6,6 +6,7 @@
     	// EAO
         .controller('controllerEAOProject', controllerEAOProject)
 		.controller('controllerEAOProjectNew', controllerEAOProjectNew)
+		.controller('controllerModalProjectEdit', controllerModalProjectEdit)
 		.controller('controllerModalProjectEditPlanMilestones', controllerModalProjectEditPlanMilestones)
 		.controller('controllerModalProjectEditPlanSchedule', controllerModalProjectEditPlanSchedule)
 		.controller('controllerModalProjectEditPlanActivities', controllerModalProjectEditPlanActivities)
@@ -51,12 +52,34 @@
 			projectNew.questions = res.data;			
 		});
 
-
+		// Get blank project
 		Project.getNewProject().then( function(res) {
 			projectNew.project = res.data;
 		});
 
+		projectNew.saveProject = function() {
+			Project.addProject(projectNew.project).then( function(res) {
+				console.log(res);
+			});
+		};
+
     };
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: View Project Schedule
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalProjectEdit.$inject = ['$modalInstance', 'rProject', 'Utils'];
+    //
+    function controllerModalProjectEdit($modalInstance, rProject, Utils) { 
+		var projectEdit = this;
+		
+		// set local var to passed project
+		projectEdit.project = rProject;
+
+		projectEdit.cancel = function () { $modalInstance.dismiss('cancel'); };
+		projectEdit.ok = function () { $modalInstance.close(); };
+	};
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Modal: View Project Schedule

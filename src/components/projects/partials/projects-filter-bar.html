@@ -4,12 +4,13 @@
 		<ul class="nav navbar-nav navbar-left" role="view-selection">
 			<li>
 				<div class="navbar-form btn-group btn-group-sm">
+					<button class="btn btn-default" ng-click="filter.view = 'schedule'"	ng-class="{'btn-primary': filter.view === 'schedule'}">Schedule</button>	
 					<button class="btn btn-default" ng-click="filter.view = 'map'"		ng-class="{'btn-primary': filter.view === 'map'}">Map</button>
 					<button class="btn btn-default" ng-click="filter.view = 'list'"		ng-class="{'btn-primary': filter.view === 'list'}">List</button>
-					<button class="btn btn-default" ng-click="filter.view = 'preview'"	ng-class="{'btn-primary': filter.view === 'preview'}">Preview</button>				
+					<button class="btn btn-default" ng-click="filter.view = 'preview'"	ng-class="{'btn-primary': filter.view === 'preview'}">Preview</button>	
 				</div>
 			</li>
-			<li ng-if="fbc.userType === 'EAO'">
+			<li ng-if="fbc.userType === 'eao'">
 				<div class="navbar-form btn-group btn-group-sm">
 					<button class="btn btn-default" ng-click="filter.group = 'all'"			ng-class="{'btn-primary': filter.group === 'all'}">All</button>
 					<button class="btn btn-default" ng-click="filter.group = 'assigned'"	ng-class="{'btn-primary': filter.group === 'assigned'}">Assigned</button>
@@ -27,7 +28,7 @@
 					</div>
 				</div>
 			</li>
-			<li ng-if="fbc.userType === 'EAO'">
+			<li ng-if="fbc.userType === 'eao'">
 				<div class="navbar-form">
 					<div class="form-group">
 						<label class="control-label">Type</label>
@@ -38,7 +39,7 @@
 					</div>
 				</div>	
 			</li>	
-			<li ng-if="fbc.userType === 'EAO'">
+			<li ng-if="fbc.userType === 'eao'">
 				<div class="navbar-form">
 					<div class="form-group">
 						<label class="control-label">Phase</label>

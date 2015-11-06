@@ -1,5 +1,5 @@
 <h1 class="page-title">
-	<a href ui-sref='proponent.projects' class='pull-right return-link'>Return to Project List</a>
+	<a href ui-sref='eao.projects' class='pull-right return-link'>Return to Project List</a>
 	Project Entry
 </h1>
 <section id="project-view" class="container-fluid">
@@ -52,7 +52,7 @@
 				</div> <!-- /panelbody -->
 
 				<div class="panel-footer text-right">
-					<a class="btn btn-default" href ng-click="projectNew.saveTask()">Save</a>
+					<a class="btn btn-default" href ng-click="projectNew.saveProject()">Save</a>
 					<a class="btn btn-primary" href ng-show="form.curTab === 'Project Information'" ng-click="form.curTab = 'Intake Profile'">Next</a>
 					<a class="btn btn-primary" href ng-show="form.curTab === 'Intake Profile'" ng-click="form.curTab = 'Document Upload'">Next</a>	
 					<a class="btn btn-success" href ng-show="form.curTab === 'Document Upload'">Submit</a>		

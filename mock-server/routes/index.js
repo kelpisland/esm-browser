@@ -54,6 +54,7 @@ module.exports = function(app) {
     app.get(api + '/v1/projectPhases', getSysProjectPhases);
     app.get(api + '/v1/projectMilestones', getSysProjectMilestones); 
     app.get(api + '/v1/projectIntakeQuestions', getSysProjectIntakeQuestions); 
+    app.get(api + '/v1/documentTypes', getSysDocumentTypes); 
 
     // common map layers
     app.get(api + '/v1/layers', getCommonLayers);   
@@ -249,6 +250,10 @@ module.exports = function(app) {
         res.send(json);
     }
 
+    function getSysDocumentTypes(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'sysDocumentTypes.json');
+        res.send(json);
+    }
 
 
 
