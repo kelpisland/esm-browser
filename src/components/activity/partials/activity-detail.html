@@ -3,7 +3,7 @@
 			'panel-success': ad.activity.valueComponents, 'panel-info': !ad.activity.valueComponents
 		}">
 	<div class="panel-heading">
-		<div class="label pull-right" ng-class="{'label-success':ad.activity.status === 'Closed', 'label-primary':ad.activity.status === 'Open'}">Open</div>
+		<div class="close close-adjust-top">{{ ad.activity.status | uppercase }}</div>
 		<h3 class="panel-title">{{ ad.activity.name }}</h3>
 	</div>
 	<div class="panel-body">
