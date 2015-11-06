@@ -2,7 +2,7 @@
 	<div class="pull-right form-inline">
 		<div class="form-group">
 			<input ng-model="alertsView.filterKeyword" type="text" class="form-control" placeholder="Filter">
-			<a class="btn btn-default" x-modal-alert-new>Add</a>
+			<a class="btn btn-default" x-modal-alert-new ng-if="alertsView.project" x-project="alertsView.project">Add</a>
 		</div>
 	</div>
 	<h3 class="modal-title">Alerts</h3>

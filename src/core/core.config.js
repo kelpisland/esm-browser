@@ -16,9 +16,25 @@
 		timezone: 'America/Los_Angelas'
 	});
 
+    // set the constants on every reload from cookie to keep session
+    configRunner.$inject = ['ipCookie', 'Global'];
+
+    function configRunner(ipCookie, Global) {
+        Global.user.name = ipCookie('EAO_user');
+        Global.public = ipCookie('EAO_user') === 'public';
+        Global.user.type = ipCookie('EAO_user');
+    }
+
+    core.run( configRunner );
+
+
+
+
     // Configure the app
     core.config(configFunction);
 
+
+    
     configFunction.$inject =
         ['$compileProvider', '$logProvider', 'exceptionHandlerProvider'];
 

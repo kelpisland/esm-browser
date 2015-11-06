@@ -19,7 +19,7 @@
             restrict: 'E',
             templateUrl: 'components/projects/partials/projects-list.html',
 			controller: 'controllerProjectsList',
-			controllerAs: 'pl',
+			controllerAs: 'projectList',
             scope: {
             	projects: '='
             }

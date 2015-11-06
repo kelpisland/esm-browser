@@ -33,9 +33,11 @@
         var tn = this;
         tn.isCollapsed = true;
         
-        $rootScope.$on('loggedIn', function() {
-        	tn.user = Global.user;
-        });
+        tn.user = Global.user;
+        
+        // $rootScope.$on('loggedIn', function() {
+        	
+        // });
         
     }
 

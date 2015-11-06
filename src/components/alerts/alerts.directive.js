@@ -19,7 +19,8 @@
         var directive = {
             restrict:'A',
             scope : {
-                divider: '='
+                divider: '=',
+                project: '='
             },                         
 			link : function(scope, element, attrs) {
 
@@ -36,7 +37,8 @@
     						controllerAs: 'alertsView',
     						size: 'lg',
                             resolve: {
-                                rAlerts: function() {return res.data}
+                                rAlerts: function() { return res.data; },
+                                rProject: function() { return scope.project; }
                             }
     					});
     					modalAlertsView.result.then(function () {}, function () {});
@@ -90,6 +92,9 @@
     function directiveModalAlertNew($modal) {
         var directive = {
             restrict:'A',
+            scope : {
+                project: '='
+            },       
             link : function(scope, element, attrs) {
                 element.on('click', function() {
                     var modalAlertNew = $modal.open({
@@ -97,7 +102,10 @@
                         templateUrl: 'components/alerts/partials/modal-alert-new.html',
                         controller: 'controllerModalAlertNew',
                         controllerAs: 'alertNew',
-                        size: 'md'
+                        size: 'md',
+                        resolve: {
+                            rProject: function() { return scope.project }
+                        }
                     });
                     modalAlertNew.result.then(function () {}, function () {});
                 });
@@ -117,7 +125,10 @@
             restrict:'E',
             templateUrl: 'components/alerts/partials/alert-list.html',
             controller: 'controllerAlertList',
-            controllerAs: 'alertList'
+            controllerAs: 'alertList',
+            scope : {
+                project: '='
+            }
         };
         return directive;
     }

@@ -35,18 +35,15 @@
     controllerProjectsList.$inject = ['$scope', '$state', 'Global'];
     /* @ngInject */
     function controllerProjectsList($scope, $state, Global) {
-		var pl = this;
+		var projectList = this;
 		
 		$scope.$watch('projects', function(newValue) {
-			pl.projects = newValue;
+			projectList.projects = newValue;
 		});
 		
-		pl.goToProject = function(projectId) {
-			console.log(Global.user.type);
-			if (Global.user.type === 'EAO') {
+		projectList.goToProject = function(projectId) {
+			if (Global.user.type === 'eao') {
 				$state.go('eao.project', {id:projectId});
-			} else if (Global.user.type === 'Proponent') {
-				$state.go('proponent.project', {id:projectId});			
 			} else {
 				$state.go('public.project', ({id:projectId}));
 			}

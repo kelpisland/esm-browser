@@ -6,19 +6,15 @@
 				<div class='panel-body' ng-if="!projTomb.tombstone">
 					<div class='row project-small-tombstone'>
 
-						<div class='col-sm-3'>
-							<div><label class="control-label">Type</label><p>{{ projTomb.project.type }}</p></div>
-						</div>
-		
-						<div class='col-sm-3'>
+						<div class='col-sm-4'>
 							<div><label class="control-label">Location</label><p>{{ projTomb.project.location }}</p></div>
 						</div>
 
-						<div class='col-sm-3'>
+						<div class='col-sm-4'>
 							<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="projTomb.project.currentPhase">{{ projTomb.project.phases[projTomb.project.currentPhase].name }}</p></div>
 						</div>
 
-						<div class='col-sm-3'>
+						<div class='col-sm-4'>
 							<div><label class="control-label">Estimated Phase Completion</label><p>{{ projTomb.project.dateCurrentPhaseEstimatedEnd | amDateFormat:'MMM Do YYYY' }}</p></div>
 						</div>
 						

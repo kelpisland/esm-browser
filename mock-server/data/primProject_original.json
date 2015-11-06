@@ -1,7 +1,11 @@
 {
 	"_id":"123",
 	"name":"project name",
-	"proponent":{},
+	"proponent":{
+		"name":"",
+		"contact": {}
+	},
+	"isTermsAgreed":false,
 	"type":"sysProjectTypes",
 	"description":"description",
 	"region":"region",

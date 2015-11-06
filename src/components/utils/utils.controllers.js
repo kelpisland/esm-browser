@@ -167,7 +167,15 @@
 	function controllerUsersSelect($scope, $modal) {
 		var utilUsersSelect = this;
 
-		utilUsersSelect.users = $scope.selectedUsers || [];
+		utilUsersSelect.users = [];
+
+		$scope.$watch('selectedUsers', function(newValue) {
+			utilUsersSelect.users = newValue;
+		});
+
+		$scope.$watch('project', function(newValue) {
+			utilUsersSelect.project = newValue;
+		});
 
 		utilUsersSelect.userChooser = function() {
 			var modalUsersView = $modal.open({

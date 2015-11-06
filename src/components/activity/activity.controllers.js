@@ -47,11 +47,7 @@
 		var ai = this;
 		
 		ai.goToActivity = function(activityId) {
-			if (Global.user.type === 'EAO') {
-				$state.go('eao.activity', {id:activityId});
-			} else if (Global.user.type === 'Proponent') {
-				$state.go('proponent.activity', {id:activityId});			
-			}
+			$state.go('eao.activity', {id:activityId});
 		};		
 
 		ai.activity = $scope.activity;

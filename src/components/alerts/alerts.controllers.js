@@ -13,9 +13,9 @@
 	// CONTROLLER: Modal: View Alerts Comment
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalAlertsViewer.$inject = ['$modalInstance', 'rAlerts'];
+    controllerModalAlertsViewer.$inject = ['$modalInstance', 'rAlerts', 'rProject'];
     //
-    function controllerModalAlertsViewer($modalInstance, rAlerts) { 
+    function controllerModalAlertsViewer($modalInstance, rAlerts, rProject) { 
 		var alertsView = this;
 
 		alertsView.panelSort = [
@@ -24,6 +24,8 @@
   		];
 
 		alertsView.alerts = rAlerts;
+
+		alertsView.project = rProject;
 
 		alertsView.ok = function () { $modalInstance.close(); };
 		alertsView.cancel = function () { $modalInstance.dismiss('cancel'); };
@@ -48,9 +50,9 @@
 	// CONTROLLER: Modal: View Alert Comment
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalAlertNew.$inject = ['$scope', '$modalInstance', 'Alerts', '$location'];
+    controllerModalAlertNew.$inject = ['$scope', '$modalInstance', 'Alerts', '$location', 'rProject'];
     //
-    function controllerModalAlertNew($scope, $modalInstance, Alerts, $location) { 
+    function controllerModalAlertNew($scope, $modalInstance, Alerts, $location, rProject) { 
 		var alertNew = this;
 
 		alertNew.form = {newReminder:null};
@@ -58,6 +60,8 @@
 		Alerts.getNew().then( function(res) {
 			alertNew.alert = res.data;
 		});
+
+		alertNew.project = rProject;
 
 		$scope.pageLocation = $location.url();
 
@@ -115,13 +119,18 @@
 	// CONTROLLER: Alert List
 	//
     // -----------------------------------------------------------------------------------
-    controllerAlertList.$inject = ['Alerts'];
+    controllerAlertList.$inject = ['$scope', 'Alerts'];
     //
-    function controllerAlertList(Alerts) { 
+    function controllerAlertList($scope, Alerts) { 
 		var alertList = this;
 
 		Alerts.getAlerts().then( function(res) {
 			alertList.alerts = res.data;
+		});
+
+		$scope.$watch('project', function(newValue) {
+			console.log('alert projecgt', newValue);
+			alertList.project = newValue;
 		});
 
 	}	

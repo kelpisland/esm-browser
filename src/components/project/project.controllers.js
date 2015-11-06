@@ -63,7 +63,7 @@
 	function controllerProjectEntryTombstone($scope, Projects) {
 		var projectEntryTS = this;
 		
-		$scope.$watch('project').then(function(newValue){
+		$scope.$watch('project', function(newValue){
 			projectEntryTS.project = newValue; 	
 		});
 		

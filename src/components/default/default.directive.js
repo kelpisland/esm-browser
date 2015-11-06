@@ -30,35 +30,42 @@
     /* @ngInject */
     function controllerDefault(Global, $state, $rootScope) {
     	var def = this;
-		def.publicUser = function() {
- 			Global.user.name = 'Public';
- 			Global.public = true;
- 			Global.user.type = 'Public';
 
- 			$rootScope.$emit('loggedIn');
+        // detect login, if no session, go to login
+        $state.go('login');
+        // otherwise go to appropriate project space
 
- 			$state.go('public.projects');
-		};
 
-		def.proponentUser = function() {
- 			Global.user.name = 'Proponent';
- 			Global.public = false;
- 			Global.user.type = 'Proponent';
 
- 			$rootScope.$emit('loggedIn');
+		// def.publicUser = function() {
+ 	// 		Global.user.name = 'Public';
+ 	// 		Global.public = true;
+ 	// 		Global.user.type = 'Public';
+
+ 	// 		$rootScope.$emit('loggedIn');
+
+ 	// 		$state.go('public.projects');
+		// };
+
+		// def.proponentUser = function() {
+ 	// 		Global.user.name = 'Proponent';
+ 	// 		Global.public = false;
+ 	// 		Global.user.type = 'Proponent';
+
+ 	// 		$rootScope.$emit('loggedIn');
  			
-  			$state.go('proponent.projects');
-		};
+  // 			$state.go('proponent.projects');
+		// };
 
-		def.eaoUser = function() {
- 			Global.user.name = 'EAO';
- 			Global.public = false;
- 			Global.user.type = 'EAO';
+		// def.eaoUser = function() {
+ 	// 		Global.user.name = 'EAO';
+ 	// 		Global.public = false;
+ 	// 		Global.user.type = 'EAO';
  			
- 			$rootScope.$emit('loggedIn');
+ 	// 		$rootScope.$emit('loggedIn');
   			
-  			$state.go('eao.projects');
-		};
+  // 			$state.go('eao.projects');
+		// };
     
     }
 

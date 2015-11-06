@@ -104,7 +104,7 @@
 					};
 				}, function (newValue, oldValue) {
 					var bh = box[0].offsetHeight
-					box.css({'margin-top': parseInt((newValue.h - bh)/2) + 'px'});
+					box.css({'margin-top': (parseInt((newValue.h - bh)/2)-100) + 'px'});
 				}, true);
 
 				w.bind('resize', function () {

@@ -37,16 +37,23 @@
 				<div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
 					<div class="form-group">
 						<label class="control-label" for="scheduledDate">Send On</label>
-						<input type="datetime" id="scheduledDate" class="form-control text-center" ng-model="taskNotifications.taskData.dateQueued"/>
+						<input type="datetime" id="scheduledDate" class="form-control text-center" ng-model="taskNotifications.taskData.dateQueued" ng-disabled="taskNotifications.taskData.status !== 'pending'"/>
 					</div>
-					<div class="well well-sm text-center">
+					<div class="well well-sm text-center" ng-if="taskNotifications.taskData.status === 'pending'">
 						<datetimepicker ng-model="taskNotifications.taskData.dateQueued" data-datetimepicker-config="{}"/>
 					</div>
-					<div class="form-group text-center">
-						<a class="btn btn-primary" href ng-if="taskNotifications.taskData.status !== 'pending'" ng-click="taskNotifications.taskData.status = 'pending'">Pending</a>
-						<a class="btn btn-success" href ng-if="taskNotifications.taskData.status !== 'sent' && taskNotifications.taskData.dateQueued" ng-click="taskNotifications.taskData.status = 'queued'">Send</a>
+					<div class="form-group text-center" ng-if="taskNotifications.taskData.status === 'pending' && taskNotifications.taskData.dateQueued" >
+						<a class="btn btn-success" href ng-click="taskNotifications.taskData.status = 'queued'">Add to Queue</a>
+					</div>
+
+					<div class="form-group text-center" ng-if="taskNotifications.taskData.status === 'queued'" >
+						<a class="btn btn-warning" href ng-click="taskNotifications.taskData.status = 'pending'">Remove from Queue</a>
+					</div>
+
+					<div class="form-group text-center" ng-if="taskNotifications.taskData.status === 'sent'" >
 						<p ng-if="taskNotifications.taskData.status === 'sent'">Sent on {{ taskNotifications.taskData.dateSent  | amDateFormat:'MMM Do, YYYY hh:mm a' }}</p>
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -94,7 +101,7 @@
 
 	</div>
 	<div class="panel-footer text-right">
-		<div class="pull-left form-control-static" ng-show="taskNotifications.taskData.dateQueued && !taskNotifications.taskData.dateSent">
+		<div class="pull-left form-control-static" ng-show="taskNotifications.taskData.status === 'queued' && taskNotifications.taskData.dateQueued && !taskNotifications.taskData.dateSent">
 			Date Queued: {{ taskNotifications.taskData.dateQueued  | amDateFormat:'MMM Do, YYYY hh:mm a' }}
 		</div>
 		<div class="pull-left form-control-static" ng-show="taskNotifications.taskData.dateSent">
@@ -103,6 +110,6 @@
 		<a class="btn btn-default" href ng-click="taskNotifications.saveTask()">Save</a>
 		<a class="btn btn-primary" href ng-show="form.curTab === 'Content'" ng-click="form.curTab = 'Schedule'">Next</a>
 		<a class="btn btn-primary" href ng-show="form.curTab === 'Schedule'" ng-click="form.curTab = 'Recipients'">Next</a>	
-		<a class="btn btn-success" href ng-show="form.curTab === 'Recipients'">Send</a>		
+		<a class="btn btn-success" href ng-show="form.curTab === 'Recipients' && taskNotifications.taskData.status === 'pending' && taskNotifications.taskData.dateQueued">Add to Queue</a>		
 	</div>
 </div>

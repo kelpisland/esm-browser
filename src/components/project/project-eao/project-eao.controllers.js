@@ -42,10 +42,20 @@
 	// CONTROLLER: ERAO Project New
 	//
     // -----------------------------------------------------------------------------------    
-    controllerEAOProjectNew.$inject = [];
+    controllerEAOProjectNew.$inject = ['Project'];
 	//
-	function controllerEAOProjectNew() {
+	function controllerEAOProjectNew(Project) {
 		var projectNew = this;
+
+		Project.getProjectIntakeQuestions().then( function(res) {
+			projectNew.questions = res.data;			
+		});
+
+
+		Project.getNewProject().then( function(res) {
+			projectNew.project = res.data;
+		});
+
     };
     // -----------------------------------------------------------------------------------
 	//

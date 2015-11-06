@@ -1,6 +1,6 @@
 <h1 class="page-title">
 	<a href ui-sref='proponent.projects' class='pull-right return-link'>Return to Project List</a>
-	EAO Project Entry
+	Project Entry
 </h1>
 <section id="project-view" class="container-fluid">
 	<div class='row'>
@@ -9,45 +9,55 @@
 		<div class='col-sm-8 col-md-7 col-lg-6'>
 
 			<div class="panel panel-default">
-			
+			 
 				<div class='panel-heading'>
 					<h3 class='panel-title'>New Project <small class="pull-right form-control-static"><em>Short Form</em></small></h3>
 				</div>			
 			
 				<div class='panel-body'>
 
-					<form>
 
+					<ul class="nav nav-pills nav-justified" ng-init="form.curTab = 'Project Information'">
+						<li ng-class="{'active':form.curTab === 'Project Information'}"><a href ng-click="form.curTab = 'Project Information'">Project Information</a></li>
+						<li ng-class="{'active':form.curTab === 'Intake Profile'}"><a href ng-click="form.curTab = 'Intake Profile'">Intake Profile</a></li>
+						<li ng-class="{'active':form.curTab === 'Document Upload'}"><a href ng-click="form.curTab = 'Document Upload'">Document Upload</a></li>
+					</ul>
+					<hr/>
+					<div ng-if="form.curTab === 'Project Information'">
 						<tmpl-project-entry-tombstone x-project="projectNew.project"></tmpl-project-entry-tombstone>
-					
 						<hr/>
-					
-						<tmpl-documents-upload-general x-project="projectNew.project"></tmpl-documents-upload-general>					
-
-						<hr/>
-
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" ng-model="projectNew.acceptance">
+										<input type="checkbox" ng-model="projectNew.project.isTermsAgreed">
 										I agree to the terms and conditions.
 									</label>
 								</div>
 							</div>
 						</div>
+					</div>
 
-						<hr/>
-
-						<div class="row">
-							<div class="col-sm-12 text-center">
-								<button class="btn btn-success" ng-disabled="!projectNew.acceptance">Submit</textarea>
-							</div>
+					<div ng-if="form.curTab === 'Intake Profile'">
+						<div ng-repeat="question in projectNew.questions" class="form-group">
+							<label class="control-label">{{ question.content }}</label>
+							<textarea class="form-control" ng-model="projectNew.intake[question.code]"></textarea>
 						</div>
+					</div>
 
-					</form>
+					<div ng-if="form.curTab === 'Document Upload'">
+						<tmpl-documents-upload-general x-project="projectNew.project"></tmpl-documents-upload-general>					
+					</div>
 
 				</div> <!-- /panelbody -->
+
+				<div class="panel-footer text-right">
+					<a class="btn btn-default" href ng-click="projectNew.saveTask()">Save</a>
+					<a class="btn btn-primary" href ng-show="form.curTab === 'Project Information'" ng-click="form.curTab = 'Intake Profile'">Next</a>
+					<a class="btn btn-primary" href ng-show="form.curTab === 'Intake Profile'" ng-click="form.curTab = 'Document Upload'">Next</a>	
+					<a class="btn btn-success" href ng-show="form.curTab === 'Document Upload'">Submit</a>		
+				</div>
+
 			</div> <!-- /panel -->
 		</div> <!-- /col9 -->
 		

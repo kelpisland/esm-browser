@@ -9,13 +9,13 @@
 			</tr>
 		</thead>	
 		<tbody>
-			<tr ng-click="pl.goToProject( project._id );" ng-repeat="project in filteredProjects = (pl.projects | filter:vm.filterKeyword | filter:vm.filterObject)" ng-if='filteredProjects.length > 0' class='clickable'>
+			<tr ng-click="projectList.goToProject( project._id );" ng-repeat="project in filteredProjects = (projectList.projects | filter:vm.filterKeyword | filter:vm.filterObject)" ng-if='filteredProjects.length > 0' class='clickable'>
 				<td>{{ project.name }}</td>
 				<td>{{ project.region }}</td>
 				<td>{{ project.phase }}</td>
 				<td>
 					<div class="progress">
-						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ project.progress }}%;">
+						<div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ project.progress }}%;">
 							{{ project.progress }}%
 						</div>
 					</div>

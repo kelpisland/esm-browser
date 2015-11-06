@@ -36,8 +36,8 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="form-group">
-			<label for="location" class="control-label">Proponent</label>
-			<p class="form-control-static">{{ projectEntryTS.project.proponent }}</p>
+			<label for="proponent" class="control-label">Proponent</label>
+			<input id="proponent" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.proponent.name">
 		</div>
 	</div>
 </div>
@@ -46,13 +46,13 @@
 	<div class="col-sm-6">
 		<div class="form-group">
 			<label for="contact" class="control-label">Contact Name</label>
-			<input id="contact" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.contact.name">
+			<input id="contact" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.proponent.contact.name">
 		</div>
 	</div>
 	<div class="col-sm-6">
 		<div class="form-group">
 			<label for="contactTitle" class="control-label">Title</label>
-			<input id="contactTitle" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.contact.title">
+			<input id="contactTitle" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.proponent.contact.title">
 		</div>
 	</div>
 </div>
@@ -61,19 +61,19 @@
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="contact" class="control-label">Email</label>
-			<input id="contact" type="email" class="form-control input-sm" ng-model="projectEntryTS.project.contact.email">
+			<input id="contact" type="email" class="form-control input-sm" ng-model="projectEntryTS.project.proponent.contact.email">
 		</div>
 	</div>
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="contactTitle" class="control-label">Phone</label>
-			<input id="contactTitle" type="tel" class="form-control input-sm" ng-model="projectEntryTS.project.contact.phone">
+			<input id="contactTitle" type="tel" class="form-control input-sm" ng-model="projectEntryTS.project.proponent.contact.phone">
 		</div>
 	</div>
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="website" class="control-label">Website</label>
-			<input id="website" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.website">
+			<input id="website" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.proponent.website">
 		</div>
 	</div>
 </div>

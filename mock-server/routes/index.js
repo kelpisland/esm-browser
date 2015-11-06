@@ -53,6 +53,7 @@ module.exports = function(app) {
     app.get(api + '/v1/projectTypes', getSysProjectTypes);
     app.get(api + '/v1/projectPhases', getSysProjectPhases);
     app.get(api + '/v1/projectMilestones', getSysProjectMilestones); 
+    app.get(api + '/v1/projectIntakeQuestions', getSysProjectIntakeQuestions); 
 
     // common map layers
     app.get(api + '/v1/layers', getCommonLayers);   
@@ -117,6 +118,10 @@ module.exports = function(app) {
         var json = jsonfileservice.getJsonFromFile(data + 'primProject.json');
         res.send(json);
     }
+
+
+
+
     function getProjectBuckets(req, res, next) {
         var json = jsonfileservice.getJsonFromFile(data + 'projectBuckets.json'); // should load project.artifacts
         res.send(json);
@@ -238,6 +243,14 @@ module.exports = function(app) {
         var json = jsonfileservice.getJsonFromFile(data + 'sysActivities.json');
         res.send(json);
     }
+
+    function getSysProjectIntakeQuestions(req, res, next) {
+        var json = jsonfileservice.getJsonFromFile(data + 'sysProjectIntakeQuestions.json');
+        res.send(json);
+    }
+
+
+
 
     //
     // Common Layers

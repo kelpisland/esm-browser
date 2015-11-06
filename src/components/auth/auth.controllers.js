@@ -12,10 +12,10 @@
 	// CONTROLLER: Login
 	//
     // -----------------------------------------------------------------------------------
-    controllerLogin.$inject = [];
+    controllerLogin.$inject = ['$scope', '$state', 'ipCookie'];
 
     /* @ngInject */
-    function controllerLogin() {
+    function controllerLogin($scope, $state, ipCookie) {
 		var loginPanel = this;
 
 		loginPanel.error = null;
@@ -24,6 +24,20 @@
 			loginPanel.error = "Incorrect Login";
 		};
 		
+        loginPanel.loginEAO = function(){
+            ipCookie('EAO_user', 'eao');
+            $scope.$emit('loggedIn', 'eao');
+            $state.go('eao.projects');
+        }
+
+        loginPanel.loginPublic = function(){
+            ipCookie('EAO_user', 'public');
+            $scope.$emit('loggedIn', 'public');
+            $state.go('public.projects');
+        }
+
+
+
     }
     // -----------------------------------------------------------------------------------
 	//
