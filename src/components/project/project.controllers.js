@@ -58,15 +58,17 @@
 	// CONTROLLER: Project Entry Tombstone
 	//
     // -----------------------------------------------------------------------------------    
-    controllerProjectEntryTombstone.$inject = ['logger', 'Projects'];
+    controllerProjectEntryTombstone.$inject = ['$scope', 'Projects'];
 	//
-	function controllerProjectEntryTombstone(logger, Projects) {
-		var pets = this;
+	function controllerProjectEntryTombstone($scope, Projects) {
+		var projectEntryTS = this;
 		
-		pets.project = {contact:{}};  // TODO: Replace this with a blank model pulled from the database.
+		$scope.$watch('project').then(function(newValue){
+			projectEntryTS.project = newValue; 	
+		});
 		
 		Projects.getProjectTypes().then( function(res) {
-			pets.types = res.data;
+			projectEntryTS.types = res.data;
 		});
     }
     // -----------------------------------------------------------------------------------

@@ -10,7 +10,10 @@
         .controller('controllerModalResearchDetail', controllerModalResearchDetail)
         .controller('controllerRolesSelect', controllerRolesSelect)
         .controller('controllerUsersSelect', controllerUsersSelect)
-        .controller('controllerModalUsersSelect', controllerModalUsersSelect);
+        .controller('controllerModalUsersSelect', controllerModalUsersSelect)
+        .controller('controllerRequirementChecklist', controllerRequirementChecklist)
+        .controller('controllerModalUserList', controllerModalUserList)
+        .controller('controllerModalUserContactInfo', controllerModalUserContactInfo);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -239,13 +242,13 @@
 			utilUsers.form.filteredUsers = 'add';
 		}
 		utilUsers.newUser = {};
-		utilUsers.newUser.viaEmail = utilUsers.config.viaEmail || false;
-		utilUsers.newUser.viaMail = utilUsers.config.viaMail || false;
+		utilUsers.newUser.viaEmail = angular.copy(utilUsers.config.viaEmail) || false;
+		utilUsers.newUser.viaMail = angular.copy(utilUsers.config.viaMail) || false;
 
 		// add a new 
 		utilUsers.addNewUser = function() {
 			// TODO: validate user record.
-			utilUsers.selected.push(utilUsers.userNew);
+			utilUsers.selected.push( angular.copy(utilUsers.userNew) );
 			// if new user is invited to register, flag that with a token.
 			// and resolve later on.
 		};
@@ -265,4 +268,83 @@
 		// 	}
 		// };
 	}
+
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: Add Anon Comment
+	//
+    // -----------------------------------------------------------------------------------
+    controllerRequirementChecklist.$inject = ['$scope'];
+	//
+    function controllerRequirementChecklist($scope) { 
+		var reqChecklist = this;
+		reqChecklist.reqs = [];
+
+		var indicateRequirements = function() {
+			if (reqChecklist.requiredList && reqChecklist.project) {
+				_.each(reqChecklist.requiredList, function(req, idx) {
+					var found = _.findWhere(reqChecklist.project.requirements, { 'code': req });
+					if (found) {
+						reqChecklist.reqs.push( _.findWhere(reqChecklist.project.requirements, { 'code': req }) );
+					} else {
+						reqChecklist.reqs.push({'code':req, 'status':'invalid'});
+					}
+				});
+				console.log('reqs', reqChecklist.reqs);
+
+			}
+		};
+
+		$scope.$watch('required', function(newValue) {
+			reqChecklist.requiredList = newValue;
+			indicateRequirements();
+		});
+
+		$scope.$watch('project', function(newValue) {
+			reqChecklist.project = newValue;
+			indicateRequirements();
+		});
+
+
+
+		// search through the project requirements and see if the requirements passed in by the task have been met.
+
+	};
+
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: Show a list of user records and allow them to be copied
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalUserList.$inject = ['$modalInstance', 'rUsers'];
+	//
+    function controllerModalUserList($modalInstance, rUsers) { 
+		var utilUserList = this;
+
+		// put all the users into a string and display in a textarea
+		utilUserList.users='';
+
+		_.each(rUsers, function(user, idx) {
+			utilUserList.users += '"' + user.name + '","' + user.address + '","' + user.city + '","' + user.province + '","' + user.postal + '"\n';
+		});
+
+		utilUserList.ok = function () { $modalInstance.close(); };
+		utilUserList.cancel = function () { $modalInstance.dismiss('cancel'); };
+	};
+
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: Show a list of user records and allow them to be copied
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalUserContactInfo.$inject = ['$modalInstance', 'rUser'];
+	//
+    function controllerModalUserContactInfo($modalInstance, rUser) { 
+		var utilUserContactInfo = this;
+
+		utilUserContactInfo.user = rUser;
+
+		utilUserContactInfo.cancel = function () { $modalInstance.dismiss('cancel'); };
+	};
+
 })();

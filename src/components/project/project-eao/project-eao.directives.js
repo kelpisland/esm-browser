@@ -4,6 +4,7 @@
 
     angular.module('app.project')
         .directive('tmplEaoProject', directiveEAOProject)
+        .directive('tmplEaoProjectNew', directiveEAOProjectNew)
 		.directive('modalProjectEditPlanMilestones', directiveModalProjectEditPlanMilestones)
 		.directive('modalProjectEditPlanSchedule', directiveModalProjectEditPlanSchedule)
 		.directive('modalProjectEditPlanActivities', directiveModalProjectEditPlanActivities)     
@@ -22,6 +23,22 @@
             templateUrl: 'components/project/project-eao/project-eao.html',
             controller: 'controllerEAOProject',
             controllerAs: 'vm'
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: EAO Project Main
+	//
+    // -----------------------------------------------------------------------------------
+    directiveEAOProjectNew.$inject = [];
+    /* @ngInject */
+    function directiveEAOProjectNew() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/project/project-eao/project-eao-new.html',
+            controller: 'controllerEAOProjectNew',
+            controllerAs: 'projectNew'
         };
         return directive;
     }
