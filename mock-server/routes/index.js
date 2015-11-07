@@ -106,10 +106,10 @@ module.exports = function(app) {
 
 
     //
-    // projects
+    // projects (this should be a call to get all projects, not just this one.)
     function getProjects(req, res, next) {
-        var json = jsonfileservice.getJsonFromFile(data + 'projects.json');
-        res.send(json);
+        var json = jsonfileservice.getJsonFromFile(data + 'primProject.json');
+        res.send([json]);
     }
 
 
