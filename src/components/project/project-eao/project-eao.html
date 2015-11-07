@@ -52,9 +52,9 @@
 
 			<tmpl-activity-listing x-project="vm.project" x-filter="vm.activityView" ng-if="vm.mainView === 'activity'"></tmpl-activity-listing>
 
-			<tmpl-project-bucket-listing x-project="vm.project._id" x-filter="vm.artifactView" ng-if="vm.mainView === 'artifact'"></tmpl-project-bucket-listing>
+			<tmpl-project-bucket-listing x-project="vm.project" x-filter="vm.artifactView" ng-if="vm.mainView === 'artifact'"></tmpl-project-bucket-listing>
 
-			<tmpl-project-research x-project="vm.project._id" ng-if="vm.mainView === 'research'"></tmpl-project-research>
+			<tmpl-project-research x-project="vm.project" ng-if="vm.mainView === 'research'"></tmpl-project-research>
 
 		</div> <!-- /col12 -->
 	</div>		

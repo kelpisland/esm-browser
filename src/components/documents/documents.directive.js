@@ -85,7 +85,7 @@
             scope: {
                 doc: '=',
                 project: '='
-            }
+            },
             link : function(scope, element, attrs) {
                 element.on('click', function() {
                     var modalDocBuckets = $modal.open({

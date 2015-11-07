@@ -133,7 +133,7 @@
             restrict: 'E',
             templateUrl: 'components/project/partials/project-bucket-listing.html',
             controller: 'controllerProjectBucketListing',
-            controllerAs: 'pbl',
+            controllerAs: 'projBuckets',
             scope: {
             	project: '=',
             	filter: '='

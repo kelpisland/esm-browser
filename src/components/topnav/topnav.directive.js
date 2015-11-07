@@ -19,7 +19,7 @@
             scope: {
             },
             controller: 'controllerTopNav',
-            controllerAs: 'tn'
+            controllerAs: 'tNav'
         };
 
         return directive;
@@ -30,15 +30,8 @@
 
     /* @ngInject */
     function controllerTopNav($rootScope, Global) {
-        var tn = this;
-        tn.isCollapsed = true;
-        
-        tn.user = Global.user;
-        
-        // $rootScope.$on('loggedIn', function() {
-        	
-        // });
-        
+        var tNav = this;
+        tNav.user = Global.user;
     }
 
 })();

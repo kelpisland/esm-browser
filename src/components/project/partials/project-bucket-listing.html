@@ -1,51 +1,35 @@
-<panel-sort x-fields="pbl.panelSort" x-data="pbl.bucketsFiltered"></panel-sort>
+<panel-sort x-fields="projBuckets.panelSort" x-data="projBuckets.bucketsFiltered"></panel-sort>
 
-<section ng-repeat="bucket in pbl.bucketsFiltered" class="">
+<section ng-repeat="bucket in projBuckets.bucketsFiltered" class="">
 
-	<div class="panel" ng-class="{'panel-warning': bucket.type === 'component', 'panel-default': bucket.type === 'Phase'}" x-expand-panel='pbl.bucketToggle[bucket._id]'>
+	<div class="panel" ng-class="{'panel-info': bucket.isValueComponment, 'panel-default': !isValueComponment}" x-expand-panel='projBuckets.bucketToggle[$index]'>
 		<div class="panel-heading">
 			<div class="pull-right col-lg-2 col-md-3 col-xs-4">
 				<tmpl-progress-bar x-percentage="bucket.progress"></tmpl-progress-bar>
 			</div>
-			<h3 class="panel-title">{{ bucket.name }}</h3>
+			<h3 class="panel-title"><span ng-if="bucket.isValueComponment">Value Component:&nbsp;</span>{{ bucket.name }}</h3>
 		</div>
-		<div class="panel-body" ng-show="pbl.bucketToggle[bucket._id]">
+		<div class="panel-body" ng-show="projBuckets.bucketToggle[$index]">
 			<div class="row">
-				<div class="col-md-3 col-sm-6">
-					<label class="control-label">Open Activities <span>({{ bucket.activities.length || 0 }})</span></label>
-					<div ng-if="bucket.activities">
-						<div class="bucket-content-activity small" ng-repeat="activity in bucket.activities"><a href ><em class="pull-right">{{ activity.progress }}%</em>{{ activity.title }}</a>
-							<div ng-if="activity.tasks">
-								In Progress
-								<ul>
-									<li ng-repeat="task in activity.tasks">{{ task }}</li>
-								</ul>
-							</div>
-						</div>
-					</div>					
-					<div ng-if="!bucket.activities">
-						No open activities.
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-4 col-sm-12">
 					<label class="control-label">Issues <span>({{ bucket.issues.length || 0 }})</span></label>
 					<div ng-if="!bucket.issues" class="small">
 						No open issues.
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6">
+				<div class="col-md-4 col-sm-6">
 					<label class="control-label">Comments <span>({{ bucket.comments.length || 0 }})</span></label>
 					<div ng-if="!bucket.comments" class="small">
 						No comments.
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 small">
-					<label class="control-label">Assets <span>({{ bucket.assets.length || 0 }})</span></label>
+				<div class="col-md-4 col-sm-6">
+					<label class="control-label">Requirements <span>({{ bucket.requirements.length || 0 }})</span></label>
 					<div ng-if="bucket.assets">
-						<div ng-repeat="asset in bucket.assets"><a href ><span class='glyphicon glyphicon-file'></span> {{ asset.title }}</a></div>
+						<tmpl-requirement-checklist x-project="projBuckets.project" x-required="bucket.requirements"></tmpl-requirements-checklist>
 					</div>
 					<div ng-if="!bucket.assets">
-						No assets.
+						No requirements.
 					</div>
 					
 				</div>

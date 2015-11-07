@@ -79,9 +79,9 @@
     controllerProjectBucketListing.$inject = ['$scope', 'Project', '$filter'];
 	//
 	function controllerProjectBucketListing($scope, Project, $filter) {
-		var pbl = this;
+		var projBuckets = this;
 
-		pbl.panelSort = [
+		projBuckets.panelSort = [
 			{'field': 'name', 'name':'Name'},
 			{'field': 'type', 'name':'Type'},
 			{'field': 'progress', 'name':'Complete'}
@@ -90,9 +90,9 @@
 		$scope.$watch('filter', function(newValue) {
 			// wait for project and get related buckets
 			if (newValue === 'inprogress') {
-				pbl.bucketsFiltered = $filter('projectBucketNotComplete')(pbl.buckets);
+				projBuckets.bucketsFiltered = $filter('projectBucketNotComplete')(projBuckets.buckets);
 			} else {
-				pbl.bucketsFiltered = pbl.buckets;
+				projBuckets.bucketsFiltered = projBuckets.buckets;
 			}
 		});
 
@@ -100,10 +100,9 @@
 
 		$scope.$watch('project', function(newValue) {
 			// wait for project and get related buckets
-			Project.getProjectBuckets(newValue).then( function(res) {
-				pbl.buckets = res.data;
-				pbl.bucketsFiltered = $filter('projectBucketNotComplete')(pbl.buckets);
-			});
+			projBuckets.buckets = newValue.buckets;
+			console.log(newValue);
+			projBuckets.bucketsFiltered = $filter('projectBucketNotComplete')(newValue.buckets);
 		});
 
 
