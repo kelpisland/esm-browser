@@ -22,7 +22,8 @@
         .directive('modalUserList', directiveModalUserList)
         .directive('tmplRequirementChecklist', directiveRequirementChecklist)
         .directive('modalUserContactInfo', directiveModalUserContactInfo)
-        .directive('selectOnClick', directiveSelectOnClick);
+        .directive('selectOnClick', directiveSelectOnClick)
+        .directive('modalSelectItems', directiveModalSelectItems);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -560,5 +561,47 @@
 	    };
 	    return directive;
 	}
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Modal Select Items
+	//
+    // -----------------------------------------------------------------------------------
+    directiveModalSelectItems.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalSelectItems($modal) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	allItems: '=',
+            	selectedItems: '=',
+            	itemName: '@'
+            },
+			link : function(scope, element, attrs) {
+				element.on('click', function() {
+					var modalSelectItems = $modal.open({
+						animation: true,
+						templateUrl: 'components/utils/partials/modal-select-items.html',
+						controller: 'controllerModalSelectItems',
+						controllerAs: 'selectItems',
+						resolve: {
+							rAllItems: function () { // all possible options
+								return scope.allItems;
+							},
+							rSelectedItems: function () { //
+								return scope.selectedItems;
+							},
+							rItemName: function () { //
+								return scope.itemName;
+							}							
+						},
+						size: 'lg'
+					});
+					modalSelectItems.result.then(function () {}, function () {});
+				});
+			}
+        };
+        return directive;
+    }
+
 
 })();

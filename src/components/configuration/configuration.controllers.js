@@ -13,7 +13,7 @@
     function controllerConfiguration() {
     	var configData = this;
         // load all configurations
-        configData.config = {};
+        configData.config = {requirements:[{buckets:[]}], buckets:['one', 'two']};
     }
 
     // The base controller loads the entire context of the project configuration.
@@ -26,13 +26,13 @@
     function controllerConfigManageElement($scope) {
         var configDataElement = this;
 
+        configDataElement.records = [];
+
         $scope.$watch('config', function(newValue) {
             if (newValue) {
                 configDataElement.config = newValue;
             }
         });
-
-        configDataElement.records = [];
 
         $scope.$watch('records', function(newValue) {
             if (newValue) {
@@ -42,25 +42,28 @@
 
         configDataElement.activeRecord = undefined;
 
-        // ----- Add a new record -----
+        // ----- New record template -----
         configDataElement.newRecord = function() {
             configDataElement.activeRecord = angular.copy({});
             configDataElement.activeRecordNew = true;
         };
 
-
+        // ----- Edit a new record -----
         configDataElement.editRecord = function(selectedRecord) {
             configDataElement.activeRecordOriginal = selectedRecord;
             configDataElement.activeRecord = angular.copy(selectedRecord);
             configDataElement.activeRecordNew = false;
         };
 
+        // ----- Add a new record -----
         configDataElement.addRecord = function() {
             configDataElement.records.push( angular.copy( configDataElement.activeRecord ));
+            console.log( 'active', configDataElement.activeRecord );
             configDataElement.msg = 'Record Added';
             configDataElement.activeRecord = undefined;
         };
 
+        // ----- Save existing record -----
         configDataElement.saveRecord = function() {
             _.assign(configDataElement.activeRecordOriginal, configDataElement.activeRecord);
             configDataElement.msg = 'Record Saved';

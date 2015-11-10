@@ -13,7 +13,8 @@
         .controller('controllerModalUsersSelect', controllerModalUsersSelect)
         .controller('controllerRequirementChecklist', controllerRequirementChecklist)
         .controller('controllerModalUserList', controllerModalUserList)
-        .controller('controllerModalUserContactInfo', controllerModalUserContactInfo);
+        .controller('controllerModalUserContactInfo', controllerModalUserContactInfo)
+        .controller('controllerModalSelectItems', controllerModalSelectItems);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -354,5 +355,47 @@
 
 		utilUserContactInfo.cancel = function () { $modalInstance.dismiss('cancel'); };
 	};
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: View Select Items
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalSelectItems.$inject = ['$modalInstance', 'rAllItems', 'rSelectedItems', 'rItemName'];
+    //
+    function controllerModalSelectItems($modalInstance, rAllItems, rSelectedItems, rItemName) { 
+		var selectItems = this;
+
+		// remove a milestone from the temporary list.
+		selectItems.removeItemFromSelection = function(idx) {
+			selectItems.selectedItems.splice(idx, 1);
+		};
+
+		// add the milestone to the project
+		selectItems.addItemToSelection = function(item) {
+			selectItems.selectedItems.push(item);
+		};
+
+	
+		// is the milestone already in the project?
+		selectItems.inSelection = function(item) {
+			return _.includes(selectItems.selectedItems, item);
+		};
+		
+		// TODO: manually sort the milestone list.
+		
+		// set local var to passed project
+		selectItems.itemList = rAllItems || [];
+		selectItems.itemName = rItemName;
+
+		// copy the milestones so we can cancel the changes.
+		selectItems.selectedItems = rSelectedItems;
+
+		selectItems.cancel = function () { $modalInstance.dismiss('cancel'); };
+		selectItems.ok = function () { 
+			// saving so write the new data.
+			console.log(selectItems.selectedItems, rSelectedItems);
+			$modalInstance.close();
+		};
+	};	
 
 })();

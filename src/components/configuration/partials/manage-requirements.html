@@ -5,7 +5,7 @@
 		<div class="col-sm-7">
 
 			<table class="table table-condensed table-striped table-hover">
-				<thead>
+				<thead class="small">
 					<th width="25%">Code</th>
 					<th width="25%">Type</th>
 					<th width="25%">Name</th>
@@ -16,10 +16,12 @@
 						<td>{{ req.code }}</td>
 						<td>{{ req.type }}</td>
 						<td>{{ req.name }}</td>
-						<td>{{ req.bucket }}</td>
+						<td>
+							<span ng-repeat="bucket in req.buckets"><span ng-if="!$first">,&nbsp;</span>{{ bucket }}</span>
+						</td>
 					</tr>
 					<tr ng-if="configDataElement.records.length === 0">
-						<td colspan=4>No requirements defined. <a href ng-click="configDataElement.newRecord()">Click here</a> to create a new one.</td>
+						<td colspan=4>No requirements defined.</td>
 					</tr>
 				</tbody>
 			</table>
@@ -27,6 +29,9 @@
 		</div>
 		<div class="col-sm-5">
 			<div class="well">
+
+				<h4 ng-if="configDataElement.msg">{{configDataElement.msg}}</h4>
+
 				<div ng-show="!configDataElement.activeRecord">Select an item in the table or <a href ng-click="configDataElement.newRecord()">click here</a> to create a new one.</div>
 
 				<div ng-show="configDataElement.activeRecord">
@@ -46,7 +51,12 @@
 
 					<div class="form-group">
 						<label class="control-label">Bucket</label>
-						<input class="form-control" type="text" ng-model="configDataElement.activeRecord.bucket">
+						<a href x-modal-select-items x-all-items="configDataElement.config.buckets" x-selected-items="configDataElement.activeRecord.buckets" x-item-name="Buckets">
+							
+							<span ng-if="configDataElement.activeRecord.buckets.length === 0 || !configDataElement.activeRecord.buckets">Click here to select</span>
+
+							<span ng-repeat="bucket in configDataElement.activeRecord.buckets"><span ng-if="!$first">,&nbsp;</span>{{ bucket }}</span>
+						</a>
 					</div>
 
 					<div class="form-group" ng-if="configDataElement.activeRecordNew">

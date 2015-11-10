@@ -283,10 +283,16 @@ label.control-label {
 }
 
 
-.well h3 {
+.well > h3 {
 	margin-top: 0;
 	margin-bottom: 20px;
 }
+.well > h4 {
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+
 nav {
 	cursor: default;
 }
