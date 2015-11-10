@@ -1,0 +1,63 @@
+<h1 class="page-title">
+	<a href ui-sref='eao.projects' class='pull-right return-link'>Return to Project List</a>
+	System Information Configuration
+</h1>
+<section id="project-view" class="container-fluid">
+
+	<div class='row'>
+		<div class='col-sm-12'>
+
+			
+			<div class="panel panel-default">
+			 
+				<div class='panel-body'>
+
+					<ul class="nav nav-pills nav-justified" ng-init="form.curTab = 'Project Information'">
+						<li ng-class="{'active':form.curTab === 'requirements'}"><a href ng-click="form.curTab = 'requirements'">Requirements</a></li>
+						<li ng-class="{'active':form.curTab === 'phases'}"><a href ng-click="form.curTab = 'phases'">Phases</a></li>
+						<li ng-class="{'active':form.curTab === 'buckets'}"><a href ng-click="form.curTab = 'buckets'">Buckets</a></li>
+						<li ng-class="{'active':form.curTab === 'milestones'}"><a href ng-click="form.curTab = 'milestones'">Milestones</a></li>
+						<li ng-class="{'active':form.curTab === 'streams'}"><a href ng-click="form.curTab = 'streams'">Streams</a></li>
+						<li ng-class="{'active':form.curTab === 'activities'}"><a href ng-click="form.curTab = 'activities'">Activities</a></li>
+						<li ng-class="{'active':form.curTab === 'tasks'}"><a href ng-click="form.curTab = 'tasks'">Tasks</a></li>
+					</ul>
+
+					<div ng-if="form.curTab === 'requirements'">
+						<tmpl-config-requirements x-config="configData.config" x-records="configData.config.requirements"></tmpl-config-requirements>
+					</div>
+
+					<div ng-if="form.curTab === 'phases'">
+						<tmpl-config-phases x-config="configData.config" x-records="configData.config.phases"></tmpl-config-phases>
+					</div>
+
+					<div ng-if="form.curTab === 'buckets'">
+						<tmpl-config-buckets x-config="configData.config" x-records="configData.config.buckets"></tmpl-config-buckets>
+					</div>
+
+					<div ng-if="form.curTab === 'milestones'">
+						<tmpl-config-milestones x-config="configData.config" x-records="configData.config.milestones"></tmpl-config-milestones>
+					</div>
+
+					<div ng-if="form.curTab === 'streams'">
+						<tmpl-config-streams x-config="configData.config" x-records="configData.config.streams"></tmpl-config-streams>
+					</div>
+
+					<div ng-if="form.curTab === 'activities'">
+						<tmpl-config-activities x-config="configData.config" x-records="configData.config.activities"></tmpl-config-activities>
+					</div>
+
+					<div ng-if="form.curTab === 'tasks'">
+						<tmpl-config-tasks x-config="configData.config" x-records="configData.config.tasks"></tmpl-config-tasks>
+					</div>
+
+				</div> <!-- /panelbody -->
+
+			</div> <!-- /panel -->			
+
+
+
+
+		</div> <!-- /col12 -->
+	</div>		
+
+</section>

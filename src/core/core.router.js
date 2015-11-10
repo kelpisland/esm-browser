@@ -13,6 +13,11 @@
         $locationProvider.html5Mode(true);
 
         $stateProvider
+            .state('configuration', {
+                url: '/configuration',
+                template: '<tmpl-configuration></tmpl-configuration>'
+            })
+
             .state('default', {
                 url: '/',
                 template: '<tmpl-default></tmpl-default>'

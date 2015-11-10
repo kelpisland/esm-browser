@@ -45,12 +45,17 @@
 			scope: {
 				percentage: '=',
 				subtext: '@',
-				maxWidth: '@'
+				maxWidth: '@',
+				instance: '='
 			},
-			template: '<svg id="svg_completeness"></svg>',
+			template: '<svg class="d3-progress-circle" id="svg-completeness-{{ inst }}"></svg>',
 			link: function (scope, element, attrs) {
-			
-				if (!scope.percentage) scope.percentage = 50;
+
+				scope.$watch('instance', function(newValue) {
+					scope.inst = newValue;
+				});
+
+				if (!scope.completeness) scope.completeness = 40;
 
 				d3Service.d3().then(function(d3) {
 				
@@ -76,7 +81,7 @@
 							});					
 					};
 					
-					var arc = function (tag, id, options, data) {
+					var arc = function (elem, id, options, data) {
 						//
 						// ensure no surprises
 						//
@@ -99,9 +104,17 @@
 						//
 						// select the initial svg element as passed in
 						//
-						var vis = d3.select(tag)
-									.attr("width", opts.width)
-									.attr("height", opts.width);
+						console.log(elem);
+						var vis = d3.select(elem)
+							//responsive SVG needs these 2 attributes and no width and height attr
+							.attr('preserveAspectRatio', 'xMinYMin meet')
+							.attr('perc', ''+ scope.completeness)
+							.attr('caption', scope.subtext)
+							//class to make it responsive
+							.classed("svg-content-responsive", true); 
+
+									// .attr("width", opts.width)
+									// .attr("height", opts.width);
 
 						//
 						// this caches the selection to allow for multiple appends
@@ -124,7 +137,7 @@
 							});
 						
 							vis.append("text")
-							.attr("id","mainText")
+							.attr("class","mainText")
 							.attr("text-anchor", "middle")
 							.style("font-size","40px")
 							.style("font-weight","bold")
@@ -132,11 +145,11 @@
 							.attr("x", opts.centre[0])
 							.attr("y", opts.centre[1])
 							.attr("dy", ".35em")
-							.text(scope.percentage + '%');
+							.text(scope.completeness + '%');
 
 							if (scope.subtext) {
 								vis.append("text")
-								.attr("id","subText")
+								.attr("class","subText")
 								.attr("text-anchor", "middle")
 								.style("font-size","10px")
 								.style("font-weight","normal")
@@ -154,58 +167,87 @@
 					// -----------------------------------------------------------------------------------
 
 					function resize() {
-						var box = angular.element(element);
-						var grw = box[0].parentNode;
 
-						var bw = grw.offsetWidth-30;
-						var bwr = parseInt(bw / 2);
+						var box, grw, i;
 
-						d3.select(tag)
-							.attr("width", bw)
-							.attr("height", bw);
-					
-						d3.select(tag).selectAll('path')
-							.attr('transform', 'translate(' + bwr + ',' + bwr + ')')
-							.attr("d", pie(bw));
+						var elems = document.getElementsByClassName('d3-progress-circle');
 
-						d3.select('#mainText')
-							.attr('x', bwr)
-							.attr('y', bwr);
+						for(i = 0; i < elems.length; i++) {
+							box = angular.element(elems[i]);
+							grw = box[0].parentNode;
 
-						d3.select('#subText')
-							.attr('x', bwr)
-							.attr('y', bwr + 25);
+							console.log(box, grw);
+
+							var bw = grw.offsetWidth-30;
+							var bwr = parseInt(bw / 2);
+
+							d3.select(elems[i])
+								.attr("width", bw)
+								.attr("height", bw);
+						
+							d3.select(elems[i]).selectAll('path')
+								.attr('transform', 'translate(' + bwr + ',' + bwr + ')')
+								.attr("d", pie(bw));
+
+							d3.select(elems[i]).selectAll('.mainText')
+								.attr('x', bwr)
+								.attr('y', bwr);
+
+							d3.select(elems[i]).selectAll('.subText')
+								.attr('x', bwr)
+								.attr('y', bwr + 25);
+						}
 					
 					}
 
-					d3.select(window).on('resize', resize); 
-					
 
-					// Get the window and parent elements.				
-					var box = angular.element(element);
-					var grw = box[0].parentNode;
- 					var bw = grw.offsetWidth-30;
- 					
- 					if (bw < 0) bw = 0;
- 					
- 					if (scope.maxWidth && scope.maxWidth < bw) {
- 						bw = scope.maxWidth;
- 					}
- 					
- 					var tag = ('#' + angular.element(element).attr('id'));
- 					
- 					var bwr = parseInt(bw / 2);
- 					
- 					
-					arc (tag, 'arcs', {
-						centre:[bwr,bwr],
-						scale:[0,100],
-						radius:(bwr),
-						width:(bw)
-					},[
-						[0, scope.percentage, "#5cb85c"],
-						[scope.percentage, 100, "#c0c0c0"]
-					]); 					
+					//function runFirst(newValue) {
+
+						var box, grw, i, bw;
+
+						//var elems = document.getElementsByClassName('d3-progress-circle');
+
+						// for(i = 0; i < elems.length; i++) {
+							// box = angular.element(elems[i]);
+							// grw = box[0].parentNode;
+
+
+						// Get the window and parent elements.				
+						var box = angular.element(element);
+						var grw = box[0].parentNode;
+	 				// 	var bw = grw.offsetWidth-30;
+	 						bw = grw.offsetWidth-30;
+	 					
+		 					if (bw < 0) bw = 0;
+		 					
+		 					if (scope.maxWidth && scope.maxWidth < bw) {
+		 						bw = scope.maxWidth;
+		 					}
+
+		 					var bwr = parseInt(bw / 2);
+		 					
+		 					
+							arc (box[0], 'arcs', {
+								centre:[bwr,bwr],
+								scale:[0,100],
+								radius:(bwr),
+								width:(bw)
+							},[
+								[0, scope.completeness, "#5cb85c"],
+								[scope.completeness, 100, "#c0c0c0"]
+							]);
+
+						//}
+
+
+					//}
+
+					d3.select(window).on('resize', resize); 
+
+					// scope.$watch('percentage', function(newValue) {
+					// 	console.log('done');
+					// 	runFirst(newValue);
+					// });
 
 				});
 

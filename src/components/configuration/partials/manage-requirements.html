@@ -1,0 +1,64 @@
+<section>
+	<hr>
+	<div class="row">
+
+		<div class="col-sm-7">
+
+			<table class="table table-condensed table-striped table-hover">
+				<thead>
+					<th width="25%">Code</th>
+					<th width="25%">Type</th>
+					<th width="25%">Name</th>
+					<th width="25%">Bucket</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="req in configDataElement.records" ng-click='configDataElement.editRecord(req)' class="clickable">
+						<td>{{ req.code }}</td>
+						<td>{{ req.type }}</td>
+						<td>{{ req.name }}</td>
+						<td>{{ req.bucket }}</td>
+					</tr>
+					<tr ng-if="configDataElement.records.length === 0">
+						<td colspan=4>No requirements defined. <a href ng-click="configDataElement.newRecord()">Click here</a> to create a new one.</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+		<div class="col-sm-5">
+			<div class="well">
+				<div ng-show="!configDataElement.activeRecord">Select an item in the table or <a href ng-click="configDataElement.newRecord()">click here</a> to create a new one.</div>
+
+				<div ng-show="configDataElement.activeRecord">
+					<div class="form-group">
+						<label class="control-label">Code</label>
+						<input class="form-control" type="text" ng-model="configDataElement.activeRecord.code">
+					</div>
+					<div class="form-group">
+						<label class="control-label">Name</label>
+						<input class="form-control" type="text" ng-model="configDataElement.activeRecord.name">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label">Type</label>
+						<input class="form-control" type="text" ng-model="configDataElement.activeRecord.type">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label">Bucket</label>
+						<input class="form-control" type="text" ng-model="configDataElement.activeRecord.bucket">
+					</div>
+
+					<div class="form-group" ng-if="configDataElement.activeRecordNew">
+						<button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>
+					</div>
+
+					<div ng-if="!configDataElement.activeRecordNew">
+						<button class="btn btn-primary" ng-click="configDataElement.saveRecord()">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>

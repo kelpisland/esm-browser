@@ -1,0 +1,56 @@
+<section>
+	<hr>
+	<div class="row">
+
+		<div class="col-sm-7">
+
+			<table class="table table-condensed">
+				<thead>
+					<th>Code</th>
+					<th>Type</th>
+					<th>Name</th>
+					<th>Bucket</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="req in configDataRequirements.requirements" ng-click='configDataRequirements.editRecord(req)'>
+						<td>{{ req.code }}</td>
+						<td>{{ req.type }}</td>
+						<td>{{ req.name }}</td>
+						<td>{{ req.bucket }}</td>
+					</tr>
+					<tr ng-if="configDataRequirements.requirements">
+						<td colspan=4>No requirements defined. <a href ng-click="configDataRequirements.newRecord()">Click here</a> to create a new one.</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+		<div class="col-sm-5">
+
+			<div ng-show="!activeRecord">Select an item in the table or <a href ng-click="configDataRequirements.newRecord()">click here</a> to create a new one.</div>
+
+			<div ng-show="activeRecord">
+				<div class="form-control">
+					<label>Code</label>
+					<input class="form-control" type="text" ng-model="configDataRequirements.activeRecord.code">
+				</div>
+				<div class="form-control">
+					<label class="control-label">Name</label>
+					<input class="form-control" type="text" ng-model="configDataRequirements.activeRecord.name">
+				</div>
+
+				<div class="form-control">
+					<label class="control-label">Type</label>
+					<input class="form-control" type="text" ng-model="configDataRequirements.activeRecord.type">
+				</div>
+
+				<div class="form-control">
+					<label class="control-label">Bucket</label>
+					<input class="form-control" type="text" ng-model="configDataRequirements.activeRecord.bucket">
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</section>

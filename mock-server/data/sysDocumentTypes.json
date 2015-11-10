@@ -2,16 +2,16 @@
 	{
 		"code":"intakeoverview",
 		"name":"Project Overview",
-		"group":"intake"
+		"bucket":"intake"
 	},
 	{
 		"code":"intakeshape",
 		"name":"Shape File",
-		"group":"intake"
+		"bucket":"intake"
 	},
 	{
 		"code":"intakemisc",
 		"name":"Supporting File",
-		"group":"intake"
+		"bucket":"intake"
 	}
 ]

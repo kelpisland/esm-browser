@@ -12,6 +12,8 @@
         'app.approot',
         'app.auth',
 
+        'app.configuration',
+
         'app.default',
         'app.documents',
 
