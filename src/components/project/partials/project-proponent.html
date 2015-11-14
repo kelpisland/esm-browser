@@ -1,0 +1,174 @@
+<p class="lead">Company</p>
+
+<div class="row">
+	<div class="col-sm-8">
+		<div class="form-group">
+			<label for="proponent" class="control-label">Company (Doing Business As)</label>
+			<input id="proponent" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.company">
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="form-group">
+			<label for="website" class="control-label">Website</label>
+			<input id="website" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.website">
+		</div>
+	</div>		
+</div>
+
+<div class="row">
+	<div class="col-sm-8">
+		<div class="form-group">
+			<label for="companylegal" class="control-label">Company Legal Name</label>
+			<input id="companylegal" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.companyLegal">
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="form-group">
+			<label for="website" class="control-label">Registered In</label>
+			<select class="form-control input-sm" ng-model="projectProponent.project.proponent.registeredIn" ng-options="key as value for (key, value) in projectProponent.provs"></select>
+		</div>
+	</div>	
+</div>
+
+<div class="row">
+	<div class="col-sm-8">
+		<div class="form-group">
+			<label for="proponent" class="control-label">Parent Company (if applicable)</label>
+			<input id="proponent" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.parentCompany">
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="form-group">
+			<label for="companytype" class="control-label">Type</label>
+			<select id="companytype" ng-model='projectProponent.project.proponent.type' class="form-control input-sm">
+				<option value="public">Publically Traded</option>
+				<option value="private">Privately Owned</option>
+			</select>
+		</div>
+	</div>		
+</div>
+
+<div class="well well-sm">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<label for="address1" class="control-label">Address (Line 1)</label>
+				<input id="address1" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.address1">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<label for="address2" class="control-label">Address (Line 2)</label>
+				<input id="address2" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.address2">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="city" class="control-label">City</label>
+				<input id="city" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.city">
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="province" class="control-label">Province</label>
+				<select class="form-control input-sm" ng-model="projectProponent.project.proponent.province" ng-options="key as value for (key, value) in projectProponent.provs"></select>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="postal" class="control-label">Postal</label>
+				<input id="postal" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.postal">
+			</div>
+		</div>	
+	</div>
+</div>
+
+<hr>
+
+<p class="lead">Primary Contact</p>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="contact" class="control-label">Contact Name</label>
+			<input id="contact" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.contact.name">
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label for="contactTitle" class="control-label">Title</label>
+			<input id="contactTitle" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.contact.title">
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-4">
+		<div class="form-group">
+			<label for="email" class="control-label">Email</label>
+			<input id="email" type="email" class="form-control input-sm" ng-model="projectProponent.project.proponent.contact.email">
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="form-group">
+			<label for="phone" class="control-label">Phone</label>
+			<input id="phone" type="tel" class="form-control input-sm" ng-model="projectProponent.project.proponent.contact.phone">
+		</div>
+	</div>
+</div>
+
+<div class="well well-sm">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<label for="contactaddress1" class="control-label">Address (Line 1)</label>
+				<input id="contactaddress1" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.contact.address1">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<label for="contactaddress2" class="control-label">Address (Line 2)</label>
+				<input id="contactaddress2" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.contact.address2">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="contactcity" class="control-label">City</label>
+				<input id="contactcity" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.contact.city">
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="contactprovince" class="control-label">Province</label>
+				<select id="contactprovince" class="form-control input-sm" ng-model="projectProponent.project.proponent.contact.province" ng-options="key as value for (key, value) in projectProponent.provs"></select>				
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="contactpostal" class="control-label">Postal</label>
+				<input id="contactpostal" type="text" class="form-control input-sm" ng-model="projectProponent.project.proponent.contact.postal">
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+
+
+
