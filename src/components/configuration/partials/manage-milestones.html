@@ -1,3 +1,86 @@
-<section id="dashboard-view" class="container-fluid">
+<section>
+    <hr>
+    <div class="row">
+        <div class="col-sm-7">
+            <table class="table table-condensed table-striped table-hover">
+                <thead class="small">
+                <th width="14%">Code</th>
+                <th width="14%">Name</th>
+                <th width="14%">Phase</th>
+                <th width="14%">Estimated Start Date</th>
+                <th width="14%">Estimated End Date</th>
+                <th width="14%">Actual Start Date</th>
+                <th width="14%">Actual End Date</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="milestone in configDataElement.records" ng-click='configDataElement.editRecord(milestone)' class="clickable">
+                    <td>{{ milestone.code }}</td>
+                    <td>{{ milestone.name }}</td>
+                    <td>{{ milestone.phase }}</td>
+                    <td>{{ milestone.dateEstimatedStart | date:'MMM d, yyyy' }}</td>
+                    <td>{{ milestone.dateEstimatedEnd | date:'MMM d, yyyy' }}</td>
+                    <td>{{ milestone.dateActualStart | date:'MMM d, yyyy' }}</td>
+                    <td>{{ milestone.dateActualEnd | date:'MMM d, yyyy' }}</td>
+                </tr>
+                <tr ng-if="configDataElement.records.length === 0">
+                    <td colspan="9">No milestones defined.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-5">
+            <div class="well">
+                <h4 ng-if="configDataElement.msg">{{configDataElement.msg}}</h4>
 
+                <div ng-show="!configDataElement.activeRecord">Select an item in the table or <a href ng-click="configDataElement.newRecord()">click here</a> to create a new one.</div>
+
+                <div ng-show="configDataElement.activeRecord">
+
+                    <div class="form-group">
+                        <label class="control-label">Code</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.code">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.name">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Phase</label>
+                        <select class="form-control" ng-model="configDataElement.activeRecord.phase">
+                            <option value="">---Please select ---</option>
+                            <option value="this">this</option>
+                            <option value="that">that</option>
+                            <option value="the other">the other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Estimated Start Date</label>
+                        <input class="form-control" type="date" ng-model="configDataElement.activeRecord.dateEstimatedStart">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Estimated End Date</label>
+                        <input class="form-control" type="date" ng-model="configDataElement.activeRecord.dateEstimatedEnd">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Actual Start Date</label>
+                        <input class="form-control" type="date" ng-model="configDataElement.activeRecord.dateActualStart">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Actual End Date</label>
+                        <input class="form-control" type="date" ng-model="configDataElement.activeRecord.dateActualEnd">
+                    </div>
+
+                    <div class="form-group" ng-if="configDataElement.activeRecordNew">
+                        <button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>
+                    </div>
+
+                    <div ng-if="!configDataElement.activeRecordNew">
+                        <button class="btn btn-primary" ng-click="configDataElement.saveRecord()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </section>
