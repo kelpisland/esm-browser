@@ -1,3 +1,98 @@
-<section id="dashboard-view" class="container-fluid">
+<section>
+    <hr>
+    <div class="row">
 
+        <div class="col-sm-7">
+
+            <table class="table table-condensed table-striped table-hover">
+                <thead class="small">
+                <th width="11%">Code</th>
+                <th width="11%">Name</th>
+                <th width="11%">Description</th>
+                <th width="11%">Project</th>
+                <th width="11%">Stream</th>
+                <th width="11%">Value Component</th>
+                <th width="11%">Progress</th>
+                <th width="11%">Status</th>
+                <th width="11%">Mandatory Duration (days)</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="phase in configDataElement.records" ng-click='configDataElement.editRecord(phase)' class="clickable">
+                    <td>{{ phase.code }}</td>
+                    <td>{{ phase.name }}</td>
+                    <td>{{ phase.description }}</td>
+                    <td>{{ phase.project }}</td>
+                    <td>{{ phase.stream }}</td>
+                    <td>{{ phase.isValueComponent }}</td>
+                    <td>{{ phase.progress }}</td>
+                    <td>{{ phase.status }}</td>
+                    <td>{{ phase.mandatoryDurationDays }}</td>
+                </tr>
+                <tr ng-if="configDataElement.records.length === 0">
+                    <td colspan="9">No phases defined.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-5">
+            <div class="well">
+
+
+                <h4 ng-if="configDataElement.msg">{{configDataElement.msg}}</h4>
+
+                <div ng-show="!configDataElement.activeRecord">Select an item in the table or <a href ng-click="configDataElement.newRecord()">click here</a> to create a new one.</div>
+
+                <div ng-show="configDataElement.activeRecord">
+                    <div class="form-group">
+                        <label class="control-label">Code</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.code">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.name">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <textarea class="form-control" ng-model="configDataElement.activeRecord.description">{{ configDataElement.activeRecord.description }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Project</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.project">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Stream</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.stream">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Value Component</label>
+
+                        <input class="form-control" type="checkbox" ng-model="configDataElement.activeRecord.isValueComponent">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Progress</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.progress">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Status</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.status">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Mandatory Duration (days)</label>
+                        <input class="form-control" type="number" ng-model="configDataElement.activeRecord.mandatoryDurationDays">
+                    </div>
+
+
+                    <div class="form-group" ng-if="configDataElement.activeRecordNew">
+                        <button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>
+                    </div>
+
+                    <div ng-if="!configDataElement.activeRecordNew">
+                        <button class="btn btn-primary" ng-click="configDataElement.saveRecord()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </section>
