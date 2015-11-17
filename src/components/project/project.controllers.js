@@ -8,6 +8,7 @@
         .controller('controllerProjectTombstone', controllerProjectTombstone)
         .controller('controllerProjectTimeline', controllerProjectTimeline)        
         .controller('controllerProjectEntryTombstone', controllerProjectEntryTombstone)
+        .controller('controllerProjectProponent', controllerProjectProponent)        
         .controller('controllerProjectBucketListing', controllerProjectBucketListing)
 		.controller('controllerProjectResearch', controllerProjectResearch);
 		
@@ -58,11 +59,13 @@
 	// CONTROLLER: Project Entry Tombstone
 	//
     // -----------------------------------------------------------------------------------    
-    controllerProjectEntryTombstone.$inject = ['$scope', 'Projects'];
+    controllerProjectEntryTombstone.$inject = ['$scope', 'Projects', 'REGIONS'];
 	//
-	function controllerProjectEntryTombstone($scope, Projects) {
+	function controllerProjectEntryTombstone($scope, Projects, REGIONS) {
 		var projectEntryTS = this;
 		
+		projectEntryTS.regions = REGIONS;
+
 		$scope.$watch('project', function(newValue){
 			projectEntryTS.project = newValue; 	
 		});
@@ -71,6 +74,22 @@
 			projectEntryTS.types = res.data;
 		});
     }
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Project Timeline
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerProjectProponent.$inject = ['$scope', 'PROVINCES'];
+	//
+	function controllerProjectProponent($scope, PROVINCES) {
+		var projectProponent = this;
+		
+		projectProponent.provs = PROVINCES;
+
+		$scope.$watch('project', function(newValue) {
+			projectProponent.project = newValue;		
+		});
+    }        
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Project Bucket Listing

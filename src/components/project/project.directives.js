@@ -8,6 +8,7 @@
         .directive('tmplProjectTombstoneVertical', directiveProjectTombstoneVertical)
         .directive('tmplProjectTimeline', directiveProjectTimeline)
         .directive('tmplProjectEntryTombstone', directiveProjectEntryTombstone)
+        .directive('tmplProjectProponent', directiveProjectProponent)        
         .directive('tmplProjectBucketListing', directiveProjectBucketListing)
         .directive('tmplProjectResearch', directiveProjectResearch);
        
@@ -120,7 +121,25 @@
         };
         return directive;
     }
-
+    // -----------------------------------------------------------------------------------
+    //
+    // DIRECTIVE: Project proponent
+    //
+    // -----------------------------------------------------------------------------------
+    directiveProjectProponent.$inject = [];
+    /* @ngInject */
+    function directiveProjectProponent() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/project/partials/project-proponent.html',
+            controller: 'controllerProjectProponent',
+            controllerAs: 'projectProponent',
+            scope: {
+                project: '='
+            }            
+        };
+        return directive;
+    }
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Project bucket listing
