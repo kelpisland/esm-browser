@@ -6,22 +6,20 @@
 
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
-                <th width="11%">Code</th>
-                <th width="11%">Name</th>
-                <th width="11%">Description</th>
-                <th width="11%">Project</th>
-                <th width="11%">Stream</th>
-                <th width="11%">Value Component</th>
-                <th width="11%">Progress</th>
-                <th width="11%">Status</th>
-                <th width="11%">Mandatory Duration (days)</th>
+                <th width="12%">Code</th>
+                <th width="16%">Name</th>
+                <th width="12%">Description</th>
+                <th width="12%">Stream</th>
+                <th width="12%">Value Component</th>
+                <th width="12%">Progress</th>
+                <th width="12%">Status</th>
+                <th width="12%">Mandatory Duration (days)</th>
                 </thead>
                 <tbody>
                 <tr ng-repeat="phase in configDataElement.records" ng-click='configDataElement.editRecord(phase)' class="clickable">
                     <td>{{ phase.code }}</td>
                     <td>{{ phase.name }}</td>
                     <td>{{ phase.description }}</td>
-                    <td>{{ phase.project }}</td>
                     <td>{{ phase.stream }}</td>
                     <td><span ng-if="phase.isValueComponent">Yes</span><span ng-if="!phase.isValueComponent">No</span></td>
                     <td>{{ phase.progress }}</td>
@@ -29,7 +27,7 @@
                     <td>{{ phase.mandatoryDurationDays }}</td>
                 </tr>
                 <tr ng-if="configDataElement.records.length === 0">
-                    <td colspan="9">No phases defined.</td>
+                    <td colspan="8">No phases defined.</td>
                 </tr>
                 </tbody>
             </table>
@@ -50,41 +48,32 @@
                         <label class="control-label">Name</label>
                         <input class="form-control" type="text" ng-model="configDataElement.activeRecord.name">
                     </div>
+
                     <div class="form-group">
                         <label class="control-label">Description</label>
-                        <textarea class="form-control" ng-model="configDataElement.activeRecord.description">{{ configDataElement.activeRecord.description }}</textarea>
+                        <textarea class="form-control" ng-model="configDataElement.activeRecord.description"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label">Project</label>
-                        <select class="form-control" ng-model="configDataElement.activeRecord.project">
-                            <option value="">---Please select ---</option>
-                            <option value="this">this</option>
-                            <option value="that">that</option>
-                            <option value="the other">the other</option>
-                        </select>
-                    </div>
+
                     <div class="form-group">
                         <label class="control-label">Stream</label>
-                        <select class="form-control" ng-model="configDataElement.activeRecord.stream">
-                            <option value="">---Please select ---</option>
-                            <option value="this">this</option>
-                            <option value="that">that</option>
-                            <option value="the other">the other</option>
-                        </select>
+                        <a href x-modal-select-items x-all-items="configDataElement.config.streams" x-single='true' x-selected-items="configDataElement.activeRecord.stream" x-item-name="Stream">
+                            
+                            <span ng-if="configDataElement.activeRecord.stream === ''">Click here to select</span>
+                            <span ng-if="configDataElement.activeRecord.stream !== ''">{{ configDataElement.activeRecord.stream }}</span>
+                        </a>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label">Value Component</label>
 
-                        <input class="form-control" type="checkbox" ng-model="configDataElement.activeRecord.isValueComponent">
-                    </div>
                     <div class="form-group">
-                        <label class="control-label">Progress</label>
-                        <input class="form-control" type="number" ng-model="configDataElement.activeRecord.progress">
+                        <div class="checkbox">
+                            <label><input type="checkbox" ng-model="configDataElement.activeRecord.isValueComponent">Value Component</label>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label class="control-label">Status</label>
+                        <label class="control-label">Default Status</label>
                         <input class="form-control" type="text" ng-model="configDataElement.activeRecord.status">
                     </div>
+
                     <div class="form-group">
                         <label class="control-label">Mandatory Duration (days)</label>
                         <input class="form-control" type="number" ng-model="configDataElement.activeRecord.mandatoryDurationDays">

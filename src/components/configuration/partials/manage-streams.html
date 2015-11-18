@@ -19,12 +19,12 @@
 					<td>{{ stream.code }}</td>
 					<td>{{ stream.name }}</td>
 					<td>{{ stream.description }}</td>
-					<td><span ng-repeat="phase in stream.phases"><span ng-if="!$first">,&nbsp;</span>{{ phase }}</span></td>
-					<td><span ng-repeat="activity in stream.activities"><span ng-if="!$first">,&nbsp;</span>{{ activity }}</span></td>
-					<td><span ng-repeat="task in stream.tasks"><span ng-if="!$first">,&nbsp;</span>{{ task }}</span></td>
-					<td><span ng-repeat="milestone in stream.milestones"><span ng-if="!$first">,&nbsp;</span>{{ milestone }}</span></td>
-					<td><span ng-repeat="bucket in stream.buckets"><span ng-if="!$first">,&nbsp;</span>{{ bucket }}</span></td>
-					<td><span ng-repeat="requirement in stream.requirements"><span ng-if="!$first">,&nbsp;</span>{{ requirement }}</span></td>
+					<td><span ng-repeat="phase in stream.phases"><br ng-if="!$first">{{ phase }}</span></td>
+					<td><span ng-repeat="activity in stream.activities"><br ng-if="!$first">{{ activity }}</span></td>
+					<td><span ng-repeat="task in stream.tasks"><br ng-if="!$first">{{ task }}</span></td>
+					<td><span ng-repeat="milestone in stream.milestones"><br ng-if="!$first">{{ milestone }}</span></td>
+					<td><span ng-repeat="bucket in stream.buckets"><br ng-if="!$first">{{ bucket }}</span></td>
+					<td><span ng-repeat="requirement in stream.requirements"><br ng-if="!$first">{{ requirement }}</span></td>
 				</tr>
 				<tr ng-if="configDataElement.records.length === 0">
 					<td colspan="9">No streams defined.</td>
@@ -60,8 +60,8 @@
 						<a href x-modal-select-items x-all-items="configDataElement.config.phases" x-selected-items="configDataElement.activeRecord.phases" x-item-name="Phases">
 
 							<span ng-if="configDataElement.activeRecord.phases.length === 0 || !configDataElement.activeRecord.phases">Click here to select</span>
+							<span ng-repeat="phase in configDataElement.activeRecord.phases"><br ng-if="!$first">{{ phase }}</span>
 
-							<span ng-repeat="phase in configDataElement.activeRecord.phases"><span ng-if="!$first">,&nbsp;</span>{{ phase }}</span>
 						</a>
 					</div>
 
@@ -70,8 +70,8 @@
 						<a href x-modal-select-items x-all-items="configDataElement.config.activities" x-selected-items="configDataElement.activeRecord.activities" x-item-name="Activities">
 
 							<span ng-if="configDataElement.activeRecord.activities.length === 0 || !configDataElement.activeRecord.activities">Click here to select</span>
+							<span ng-repeat="activity in configDataElement.activeRecord.activities"><br ng-if="!$first">{{ activity }}</span>
 
-							<span ng-repeat="activity in configDataElement.activeRecord.activities"><span ng-if="!$first">,&nbsp;</span>{{ activity }}</span>
 						</a>
 					</div>
 
@@ -80,8 +80,8 @@
 						<a href x-modal-select-items x-all-items="configDataElement.config.tasks" x-selected-items="configDataElement.activeRecord.tasks" x-item-name="Tasks">
 
 							<span ng-if="configDataElement.activeRecord.tasks.length === 0 || !configDataElement.activeRecord.tasks">Click here to select</span>
+							<span ng-repeat="task in configDataElement.activeRecord.tasks"><br ng-if="!$first">{{ task }}</span>
 
-							<span ng-repeat="task in configDataElement.activeRecord.tasks"><span ng-if="!$first">,&nbsp;</span>{{ task }}</span>
 						</a>
 					</div>
 
@@ -90,8 +90,8 @@
 						<a href x-modal-select-items x-all-items="configDataElement.config.milestones" x-selected-items="configDataElement.activeRecord.milestones" x-item-name="Milestones">
 
 							<span ng-if="configDataElement.activeRecord.milestones.length === 0 || !configDataElement.activeRecord.milestones">Click here to select</span>
+							<span ng-repeat="milestone in configDataElement.activeRecord.milestones"><br ng-if="!$first">{{ milestone }}</span>
 
-							<span ng-repeat="milestone in configDataElement.activeRecord.milestones"><span ng-if="!$first">,&nbsp;</span>{{ milestone }}</span>
 						</a>
 					</div>
 
@@ -100,8 +100,8 @@
 						<a href x-modal-select-items x-all-items="configDataElement.config.buckets" x-selected-items="configDataElement.activeRecord.buckets" x-item-name="Buckets">
 
 							<span ng-if="configDataElement.activeRecord.buckets.length === 0 || !configDataElement.activeRecord.buckets">Click here to select</span>
+							<span ng-repeat="bucket in configDataElement.activeRecord.buckets"><br ng-if="!$first">{{ bucket }}</span>
 
-							<span ng-repeat="bucket in configDataElement.activeRecord.buckets"><span ng-if="!$first">,&nbsp;</span>{{ bucket }}</span>
 						</a>
 					</div>
 
@@ -110,8 +110,8 @@
 						<a href x-modal-select-items x-all-items="configDataElement.config.requirements" x-selected-items="configDataElement.activeRecord.requirements" x-item-name="Requirements">
 
 							<span ng-if="configDataElement.activeRecord.requirements.length === 0 || !configDataElement.activeRecord.requirements">Click here to select</span>
+							<span ng-repeat="requirement in configDataElement.activeRecord.requirements"><br ng-if="!$first">{{ requirement }}</span>
 
-							<span ng-repeat="requirement in configDataElement.activeRecord.requirements"><span ng-if="!$first">,&nbsp;</span>{{ requirement }}</span>
 						</a>
 					</div>
 

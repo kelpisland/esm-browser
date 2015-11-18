@@ -5,7 +5,7 @@
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
                 <th width="11%">Code</th>
-                <th width="11%">Name</th>
+                <th width="12%">Name</th>
                 <th width="11%">Description</th>
                 <th width="11%">Activity</th>
                 <th width="11%">Status</th>
@@ -22,12 +22,12 @@
                     <td>{{ stream.activity }}</td>
                     <td>{{ stream.status }}</td>
                     <td>{{ stream.processCode }}</td>
-                    <td><span ng-repeat="prerequisite in stream.prerequisites"><span ng-if="!$first">,&nbsp;</span>{{ prerequisite }}</span></td>
+                    <td><span ng-repeat="prerequisite in stream.prerequisites"><br ng-if="!$first">{{ prerequisite }}</span></td>
                     <td>{{ stream.requirement }}</td>
-                    <td><span ng-repeat="status in stream.statuses"><span ng-if="!$first">,&nbsp;</span>{{ status }}</span></td>
+                    <td><span ng-repeat="status in stream.statuses"><br ng-if="!$first">{{ status }}</span></td>
                 </tr>
                 <tr ng-if="configDataElement.records.length === 0">
-                    <td colspan="9">No streams defined.</td>
+                    <td colspan="9">No tasks defined.</td>
                 </tr>
                 </tbody>
             </table>
@@ -55,65 +55,63 @@
                         <textarea class="form-control" ng-model="configDataElement.activeRecord.description">{{ configDataElement.activeRecord.description }}</textarea>
                     </div>
 
-                    <div class="form-group">
+                   <div class="form-group">
                         <label class="control-label">Activity</label>
-                        <select class="form-control" ng-model="configDataElement.activeRecord.activity">
-                            <option value="">---Please select ---</option>
-                            <option value="this">this</option>
-                            <option value="that">that</option>
-                            <option value="the other">the other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label">Status</label>
-                        <select class="form-control" ng-model="configDataElement.activeRecord.status">
-                            <option value="">---Please select ---</option>
-                            <option value="this">this</option>
-                            <option value="that">that</option>
-                            <option value="the other">the other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label">Process Code</label>
-                        <select class="form-control" ng-model="configDataElement.activeRecord.processCode">
-                            <option value="">---Please select ---</option>
-                            <option value="this">this</option>
-                            <option value="that">that</option>
-                            <option value="the other">the other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label">Prerequisites</label>
-                        <a href x-modal-select-items x-all-items="configDataElement.config.prerequisites" x-selected-items="configDataElement.activeRecord.prerequisites" x-item-name="Prerequisites">
+                        <a href x-modal-select-items x-all-items="configDataElement.config.activities" x-single=true x-selected-items="configDataElement.activeRecord.activity" x-item-name="Activity">
 
                             <span ng-if="configDataElement.activeRecord.prerequisites.length === 0 || !configDataElement.activeRecord.prerequisites">Click here to select</span>
+                            <span ng-repeat="prerequisite in configDataElement.activeRecord.prerequisites"><br ng-if="!$first">{{ prerequisite }}</span>
 
-                            <span ng-repeat="prerequisite in configDataElement.activeRecord.prerequisites"><span ng-if="!$first">,&nbsp;</span>{{ prerequisite }}</span>
                         </a>
                     </div>
 
-                    <div class="form-group">
-                        <label class="control-label">Requirement</label>
-                        <select class="form-control" ng-model="configDataElement.activeRecord.requirement">
-                            <option value="">---Please select ---</option>
-                            <option value="this">this</option>
-                            <option value="that">that</option>
-                            <option value="the other">the other</option>
-                        </select>
-                    </div>
 
                     <div class="form-group">
                         <label class="control-label">Statuses</label>
                         <a href x-modal-select-items x-all-items="configDataElement.config.statuses" x-selected-items="configDataElement.activeRecord.statuses" x-item-name="Statuses">
 
                             <span ng-if="configDataElement.activeRecord.statuses.length === 0 || !configDataElement.activeRecord.statuses">Click here to select</span>
-
-                            <span ng-repeat="status in configDataElement.activeRecord.statuses"><span ng-if="!$first">,&nbsp;</span>{{ status }}</span>
+                            <span ng-repeat="status in configDataElement.activeRecord.statuses"><br ng-if="!$first">{{ status }}</span>
                         </a>
                     </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label">Default Status</label>
+                        <a href x-modal-select-items x-all-items="configDataElement.config.statuses" x-single=true x-selected-items="configDataElement.activeRecord.status" x-item-name="Default Status">
+                            
+                            <span ng-if="configDataElement.activeRecord.status === ''">Click here to select</span>
+                            <span ng-if="configDataElement.activeRecord.status !== ''">{{ configDataElement.activeRecord.status }}</span>
+                        </a>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label">Process Code</label>
+                        <select class="form-control" ng-model="configDataElement.activeRecord.processCode" ng-options="item.code as item.name for item in configDataElement.processCodes">
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label">Prerequisites</label>
+                        <a href x-modal-select-items x-all-items="configDataElement.config.prerequisites" x-selected-items="configDataElement.activeRecord.prerequisites" x-item-name="Prerequisites">
+
+                            <span ng-if="configDataElement.activeRecord.prerequisites.length === 0 || !configDataElement.activeRecord.prerequisites">Click here to select</span>
+                            <span ng-repeat="prerequisite in configDataElement.activeRecord.prerequisites"><br ng-if="!$first">{{ prerequisite }}</span>
+
+                        </a>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Requirement</label>
+                        <a href x-modal-select-items x-all-items="configDataElement.config.requirements" x-single=true x-selected-items="configDataElement.activeRecord.requirement" x-item-name="Requirement">
+                            
+                            <span ng-if="configDataElement.activeRecord.requirement === ''">Click here to select</span>
+                            <span ng-if="configDataElement.activeRecord.requirement !== ''">{{ configDataElement.activeRecord.requirement }}</span>
+                        </a>
+                    </div>
+
 
 
                     <div class="form-group" ng-if="configDataElement.activeRecordNew">
