@@ -1,38 +1,38 @@
 <section>
     <hr>
     <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-8">
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
-                <th width="11%">Code</th>
-                <th width="12%">Name</th>
-                <th width="11%">Description</th>
-                <th width="11%">Activity</th>
-                <th width="11%">Status</th>
-                <th width="11%">Process Code</th>
-                <th width="11%">Prerequisites</th>
-                <th width="11%">Requirement</th>
-                <th width="11%">Statuses</th>
+                    <th width="11%">Code</th>
+                    <th width="12%">Name</th>
+                    <th width="11%">Description</th>
+                    <th width="11%">Activity</th>
+                    <th width="11%">Status</th>
+                    <th width="11%">Process Code</th>
+                    <th width="11%">Prerequisites</th>
+                    <th width="11%">Requirement</th>
+                    <th width="11%">Statuses</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="stream in configDataElement.records" ng-click='configDataElement.editRecord(stream)' class="clickable">
-                    <td>{{ stream.code }}</td>
-                    <td>{{ stream.name }}</td>
-                    <td>{{ stream.description }}</td>
-                    <td>{{ stream.activity }}</td>
-                    <td>{{ stream.status }}</td>
-                    <td>{{ stream.processCode }}</td>
-                    <td><span ng-repeat="prerequisite in stream.prerequisites"><br ng-if="!$first">{{ prerequisite }}</span></td>
-                    <td>{{ stream.requirement }}</td>
-                    <td><span ng-repeat="status in stream.statuses"><br ng-if="!$first">{{ status }}</span></td>
+                <tr ng-repeat="task in configDataElement.data.tasks" ng-click='configDataElement.editRecord(task)' class="clickable">
+                    <td>{{ task.code }}</td>
+                    <td>{{ task.name }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>{{ task.activity }}</td>
+                    <td>{{ task.status }}</td>
+                    <td>{{ task.processCode }}</td>
+                    <td><span ng-repeat="prerequisite in task.prerequisites"><br ng-if="!$first">{{ prerequisite }}</span></td>
+                    <td>{{ task.requirement }}</td>
+                    <td><span ng-repeat="status in task.statuses"><br ng-if="!$first">{{ status }}</span></td>
                 </tr>
-                <tr ng-if="configDataElement.records.length === 0">
+                <tr ng-if="configDataElement.data.tasks.length === 0">
                     <td colspan="9">No tasks defined.</td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <div class="well">
                 <h4 ng-if="configDataElement.msg">{{configDataElement.msg}}</h4>
 
@@ -116,10 +116,12 @@
 
                     <div class="form-group" ng-if="configDataElement.activeRecordNew">
                         <button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>                        
                     </div>
 
                     <div ng-if="!configDataElement.activeRecordNew">
                         <button class="btn btn-primary" ng-click="configDataElement.saveRecord()">Save</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>
                     </div>
                 </div>
             </div>

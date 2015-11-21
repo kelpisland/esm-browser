@@ -15,16 +15,25 @@
     function controllerEAOProjects($scope, $state, Projects, Global) {
 		var vm = this;
 
+		vm.intakes = [];
+		vm.projects = [];
+		vm.filter = {};
+		
 		// get projects form the mock server storage
 		Projects.getLocalProjects().then( function(res) {
 			vm.projects = res.data;
-			console.log('projects', vm.projects);
 		});
 
 		// get projects
 		Projects.getProjects().then( function(res) {
 			_.each( res.data, function( project, idx ) {
-				vm.projects.push(project);
+				if (!project.stream || project.stream === '') {
+					// the project becomes an intake and the stream needs to be defined.
+					vm.intakes.push(project)
+				} else {
+					// the project is already in a stream, show in the ongoing list.
+					vm.projects.push(project);
+				}
 			});
 		});
 

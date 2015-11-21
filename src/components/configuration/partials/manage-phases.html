@@ -1,38 +1,30 @@
 <section>
     <hr>
     <div class="row">
-
-        <div class="col-sm-7">
-
+        <div class="col-sm-8">
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
-                <th width="12%">Code</th>
-                <th width="16%">Name</th>
-                <th width="12%">Description</th>
-                <th width="12%">Stream</th>
-                <th width="12%">Value Component</th>
-                <th width="12%">Progress</th>
-                <th width="12%">Status</th>
-                <th width="12%">Mandatory Duration (days)</th>
+                    <th width="20%">Code</th>
+                    <th width="20%">Name</th>
+                    <th width="20%">Description</th>
+                    <th width="20%">Default Status</th>                
+                    <th width="20%">Mandatory Duration (days)</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="phase in configDataElement.records" ng-click='configDataElement.editRecord(phase)' class="clickable">
+                <tr ng-repeat="phase in configDataElement.data.phases" ng-click='configDataElement.editRecord(phase)' class="clickable">
                     <td>{{ phase.code }}</td>
                     <td>{{ phase.name }}</td>
                     <td>{{ phase.description }}</td>
-                    <td>{{ phase.stream }}</td>
-                    <td><span ng-if="phase.isValueComponent">Yes</span><span ng-if="!phase.isValueComponent">No</span></td>
-                    <td>{{ phase.progress }}</td>
                     <td>{{ phase.status }}</td>
                     <td>{{ phase.mandatoryDurationDays }}</td>
                 </tr>
-                <tr ng-if="configDataElement.records.length === 0">
-                    <td colspan="8">No phases defined.</td>
+                <tr ng-if="configDataElement.data.phases.length === 0">
+                    <td colspan="4">No phases defined.</td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <div class="well">
                 <h4 ng-if="configDataElement.msg">{{configDataElement.msg}}</h4>
 
@@ -55,21 +47,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label">Stream</label>
-                        <a href x-modal-select-items x-all-items="configDataElement.config.streams" x-single='true' x-selected-items="configDataElement.activeRecord.stream" x-item-name="Stream">
-                            
-                            <span ng-if="configDataElement.activeRecord.stream === ''">Click here to select</span>
-                            <span ng-if="configDataElement.activeRecord.stream !== ''">{{ configDataElement.activeRecord.stream }}</span>
-                        </a>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label><input type="checkbox" ng-model="configDataElement.activeRecord.isValueComponent">Value Component</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label class="control-label">Default Status</label>
                         <input class="form-control" type="text" ng-model="configDataElement.activeRecord.status">
                     </div>
@@ -79,13 +56,14 @@
                         <input class="form-control" type="number" ng-model="configDataElement.activeRecord.mandatoryDurationDays">
                     </div>
 
-
                     <div class="form-group" ng-if="configDataElement.activeRecordNew">
                         <button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>                        
                     </div>
 
                     <div ng-if="!configDataElement.activeRecordNew">
                         <button class="btn btn-primary" ng-click="configDataElement.saveRecord()">Save</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>                        
                     </div>
                 </div>
             </div>

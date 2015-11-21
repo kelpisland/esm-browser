@@ -21,6 +21,11 @@
 
 		Projects.getProjects().then( function(res) {
 			vm.projects = res.data;
+			// THIS CAN BE REMOVED WHEN LOCAL SERVER IS REMOVED
+			Projects.getLocalProjects().then( function(res) {
+				vm.projects = vm.projects.concat(res.data);
+			});
+			//
 		});
 
 		//

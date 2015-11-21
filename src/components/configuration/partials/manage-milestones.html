@@ -4,19 +4,19 @@
         <div class="col-sm-7">
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
-                <th width="35%">Code</th>
-                <th width="35%">Name</th>
-                <th width="30%">Phase</th>
+                    <th width="35%">Code</th>
+                    <th width="35%">Name</th>
+                    <th width="30%">Phase</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="milestone in configDataElement.records" ng-click='configDataElement.editRecord(milestone)' class="clickable">
-                    <td>{{ milestone.code }}</td>
-                    <td>{{ milestone.name }}</td>
-                    <td>{{ milestone.phase }}</td>
-                </tr>
-                <tr ng-if="configDataElement.records.length === 0">
-                    <td colspan="3">No milestones defined.</td>
-                </tr>
+                    <tr ng-repeat="milestone in configDataElement.data.milestones" ng-click='configDataElement.editRecord(milestone)' class="clickable">
+                        <td>{{ milestone.code }}</td>
+                        <td>{{ milestone.name }}</td>
+                        <td>{{ milestone.phase }}</td>
+                    </tr>
+                    <tr ng-if="configDataElement.data.milestones.length === 0">
+                        <td colspan="3">No milestones defined.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -49,10 +49,12 @@
 
                     <div class="form-group" ng-if="configDataElement.activeRecordNew">
                         <button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>                        
                     </div>
 
                     <div ng-if="!configDataElement.activeRecordNew">
                         <button class="btn btn-primary" ng-click="configDataElement.saveRecord()">Save</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>                        
                     </div>
                 </div>
             </div>

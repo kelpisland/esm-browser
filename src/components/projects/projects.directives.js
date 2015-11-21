@@ -7,6 +7,7 @@
         .directive('tmplProjectsSchedule', directiveProjectsSchedule)
         .directive('tmplProjectsPanels', directiveProjectsPanels)        
         .directive('tmplProjectsMap', directiveProjectsMap)
+        .directive('tmplProjectsIntake', directiveProjectsIntake)        
         .directive('tmplProjectsFilterBar', directiveProjectsFilterBar);
     // -----------------------------------------------------------------------------------
 	//
@@ -22,7 +23,7 @@
 			controller: 'controllerProjectsList',
 			controllerAs: 'projectList',
             scope: {
-            	projects: '='
+                projects: '='
             }
         };
         return directive;
@@ -58,7 +59,7 @@
             restrict: 'E',
             templateUrl: 'components/projects/partials/projects-panels.html',
 			controller: 'controllerProjectsList',
-			controllerAs: 'pl',
+			controllerAs: 'projectList',
             scope: {
             	projects: '='
             }
@@ -77,9 +78,28 @@
             restrict: 'E',
             templateUrl: 'components/projects/partials/projects-map.html',
 			controller: 'controllerProjectsList',
-			controllerAs: 'pl',
+			controllerAs: 'projectList',
             scope: {
-            	projects: '='
+                projects: '='
+            }
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+    //
+    // DIRECTIVE: Projects Intake
+    //
+    // -----------------------------------------------------------------------------------
+    directiveProjectsIntake.$inject = [];
+    /* @ngInject */
+    function directiveProjectsIntake() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/projects/partials/projects-intake.html',
+            controller: 'controllerProjectsIntake',
+            controllerAs: 'projectIntakeList',
+            scope: {
+                projects: '='
             }
         };
         return directive;
@@ -96,18 +116,11 @@
             restrict: 'E',
             replace: true,
             scope: {
-            	filter: '='
+                data: '='
             },
             templateUrl: 'components/projects/partials/projects-filter-bar.html',
             controller: 'controllerProjectsFilterBar',
-            controllerAs: 'fbc',
-            link: function (scope, element, attrs) {
-				scope.filter.filterKeyword = '';
-				scope.filter.filterObject = {};
-				if (!scope.filter.view) {
-					scope.filter.view = 'list';
-				}
-            }
+            controllerAs: 'fbc'
         };
         return directive;
     }

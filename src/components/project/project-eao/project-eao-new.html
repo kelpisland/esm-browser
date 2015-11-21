@@ -6,7 +6,7 @@
 	<div class='row'>
 
 
-		<div class='col-sm-8 col-md-7 col-lg-6'>
+		<div class='col-sm-8 col-md-7'>
 
 			<div class="panel panel-default">
 			 
@@ -15,7 +15,6 @@
 				</div>			
 			
 				<div class='panel-body'>
-
 
 					<ul class="nav nav-pills nav-justified" ng-init="form.curTab = 'Project Information'">
 						<li ng-class="{'active':form.curTab === 'Project Information'}"><a href ng-click="form.curTab = 'Project Information'">Project Information</a></li>
@@ -97,7 +96,7 @@
 		</div> <!-- /col9 -->
 		
 		
-		<div class='col-sm-4 col-md-5 col-lg-6'>
+		<div class='col-sm-4 col-md-5'>
 			<div class="panel panel-default project-info-panel">
 		
 				<div class='panel-body'>
@@ -106,26 +105,26 @@
 
 					<dl class="dl-vertical" ng-if="form.curTab === 'Project Information'">
 
-					    <dt ng-hide="projectNew.project.name">Project Name</dt>
-					    <dd ng-hide="projectNew.project.name">Enter a simple, descriptive title.</dd>
+					    <dt class="control-label" ng-class="{'text-ghost': !!projectNew.project.name}">Project Name</dt>
+					    <dd ng-class="{'text-ghost': !!projectNew.project.name}">Enter a simple, descriptive title.</dd>
 
-					    <dt ng-hide="projectNew.project.type">Project Type</dt>
-					    <dd ng-hide="projectNew.project.type">Select the project type from the list provided that best matches your project.</dd>
+					    <dt ng-class="{'text-ghost': projectNew.project.type}">Project Type</dt>
+					    <dd ng-class="{'text-ghost': projectNew.project.type}">Select the project type from the list provided that best matches your project.</dd>
 
-					    <dt ng-hide="projectNew.project.description">Short Description</dt>
-					    <dd ng-hide="projectNew.project.description">Provide a brief description of the project with key elements such as: the purpose; what the project invovles; size of the area affected (hectares or linear distance where applicable); production capacity, etc. Please limit to one paragraph. </dd>
+					    <dt ng-class="{'text-ghost': projectNew.project.description}">Short Description</dt>
+					    <dd ng-class="{'text-ghost': projectNew.project.description}">Provide a brief description of the project with key elements such as: the purpose; what the project invovles; size of the area affected (hectares or linear distance where applicable); production capacity, etc. Please limit to one paragraph. </dd>
 
-					    <dt ng-hide="projectNew.project.location">Location Description</dt>
-					    <dd ng-hide="projectNew.project.location">A brief description of the location. (e.g.: 15kms west of town X)</dd>
+					    <dt ng-class="{'text-ghost': projectNew.project.location}">Location Description</dt>
+					    <dd ng-class="{'text-ghost': projectNew.project.location}">A brief description of the location. (e.g.: 15kms west of town X)</dd>
 
-					    <dt ng-hide="projectNew.project.region">Region</dt>
-					    <dd ng-hide="projectNew.project.region">Enter a simple, descriptive title.</dd>
+					    <dt ng-class="{'text-ghost': projectNew.project.region}">Region</dt>
+					    <dd ng-class="{'text-ghost': projectNew.project.region}">Enter a simple, descriptive title.</dd>
 
-					    <dt ng-hide="projectNew.project.lat">Latitude</dt>
-					    <dd ng-hide="projectNew.project.lat">Latidude of the approximate center of operations for the project.</dd>
+					    <dt ng-class="{'text-ghost': projectNew.project.lat}">Latitude</dt>
+					    <dd ng-class="{'text-ghost': projectNew.project.lat}">Latidude of the approximate center of operations for the project.</dd>
 
-					    <dt ng-hide="projectNew.project.lat">Longitude</dt>
-					    <dd ng-hide="projectNew.project.lat">Longitude of the approximate center of operations for the project.</dd>
+					    <dt ng-class="{'text-ghost': projectNew.project.lon}">Longitude</dt>
+					    <dd ng-class="{'text-ghost': projectNew.project.lon}">Longitude of the approximate center of operations for the project.</dd>
 
 					</dl>
 
@@ -133,8 +132,6 @@
 
 					<dl class="dl-vertical" ng-if="form.curTab === 'Proponent'">
 
-					    <dt ng-hide="projectNew.project.name">Project Name</dt>
-					    <dd ng-hide="projectNew.project.name">Enter a simple, descriptive title.</dd>
 
 					</dl>
 
@@ -142,17 +139,12 @@
 
 					<dl class="dl-vertical" ng-if="form.curTab === 'Intake Profile'">
 
-					    <dt ng-hide="projectNew.project.name">Project Name</dt>
-					    <dd ng-hide="projectNew.project.name">Enter a simple, descriptive title.</dd>
-
 					</dl>
 
 
 
 					<dl class="dl-vertical" ng-if="form.curTab === 'Document Upload'">
 
-					    <dt ng-hide="projectNew.project.name">Project Name</dt>
-					    <dd ng-hide="projectNew.project.name">Enter a simple, descriptive title.</dd>
 
 					</dl>
 

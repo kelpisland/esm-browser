@@ -360,10 +360,13 @@
 	// CONTROLLER: Modal: View Select Items
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalSelectItems.$inject = ['$modalInstance', 'rAllItems', 'rSelectedItems', 'rItemName'];
+    controllerModalSelectItems.$inject = ['$modalInstance', 'rAllItems', 'rSelectedItems', 'rItemName', 'rSingle'];
     //
-    function controllerModalSelectItems($modalInstance, rAllItems, rSelectedItems, rItemName) { 
+    function controllerModalSelectItems($modalInstance, rAllItems, rSelectedItems, rItemName, rSingle) { 
 		var selectItems = this;
+
+		// constrain selection to just one.  Directive needs to have x-single=true
+		selectedItems.modeSingle = rSingle;
 
 		// remove a milestone from the temporary list.
 		selectItems.removeItemFromSelection = function(idx) {
@@ -372,10 +375,13 @@
 
 		// add the milestone to the project
 		selectItems.addItemToSelection = function(item) {
-			selectItems.selectedItems.push(item);
+			if (selectedItems.modeSingle) {
+				selectItems.selectedItems = [item];
+			} else {
+				selectItems.selectedItems.push(item);
+			}
 		};
 
-	
 		// is the milestone already in the project?
 		selectItems.inSelection = function(item) {
 			return _.includes(selectItems.selectedItems, item);

@@ -14,17 +14,16 @@
     function serviceProject($http, API, SERVERAPI) {
 
     	var getNewProject = function(req) {
-			return $http({method:'GET',url: SERVERAPI + '/project/new'});
+			return $http({method:'GET',url: SERVERAPI + '/new/project/'});
     	};
 
-		var getProject = function(req) {
+		var getLocalProject = function(req) {
 			return $http({method:'GET',url: API + '/v1/project/' + req.id});
 		};
 
-		
-		// var getProject = function(req) {
-		// 	return $http({method:'GET',url: SERVERAPI + '/project/' + req.id});
-		// };
+		var getProject = function(req) {
+			return $http({method:'GET',url: SERVERAPI + '/project/' + req.id});
+		};
 
 		var addProject = function(req) {
 			return $http({method:'POST',url: SERVERAPI + '/project', data: req});
@@ -69,6 +68,7 @@
 
 		return {
 			getNewProject: getNewProject,
+			getLocalProject: getLocalProject,
 			getProject: getProject,
 			addProject: addProject,
 			saveProject: saveProject,

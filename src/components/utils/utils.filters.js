@@ -6,8 +6,9 @@
         .filter('projectPhaseContributor', filterProjectPhaseContributor)
         .filter('kebab', filterKebab)
 		.filter('contains', filterContains)
-		.filter('projectBucketNotComplete', filterProjectBucketNotComplete);
-        
+		.filter('projectBucketNotComplete', filterProjectBucketNotComplete)
+		.filter('projects', filterProjects);
+
     // -----------------------------------------------------------------------------------
 	//
 	// FILTER: Projects Phases - mark up the project to show what group owns it.
@@ -68,5 +69,20 @@
 			return output;
 		}
     }
-    
+    // -----------------------------------------------------------------------------------
+	//
+	// FILTER: Projects Page, filter  TODO: actually filter something
+	//
+    // -----------------------------------------------------------------------------------
+    filterProjects.$inject = [];
+    /* @ngInject */
+    function filterProjects() {
+		return function(input) {
+			var output = [];
+			_.each(input, function(item) {
+				output.push(item);
+			});
+			return output;
+		}
+    }    
 })();

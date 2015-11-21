@@ -6,6 +6,7 @@
     	// EAO
         .controller('controllerEAOProject', controllerEAOProject)
 		.controller('controllerEAOProjectNew', controllerEAOProjectNew)
+		.controller('controllerEAOProjectIntake', controllerEAOProjectIntake)
 		.controller('controllerModalProjectEdit', controllerModalProjectEdit)
 		.controller('controllerModalProjectEditPlanMilestones', controllerModalProjectEditPlanMilestones)
 		.controller('controllerModalProjectEditPlanSchedule', controllerModalProjectEditPlanSchedule)
@@ -64,6 +65,31 @@
 		};
 
     };
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: ERAO Project New
+	//
+    // -----------------------------------------------------------------------------------    
+    controllerEAOProjectIntake.$inject = ['$state', 'Project'];
+	//
+	function controllerEAOProjectIntake($state, Project) {
+		var projectIntake = this;
+
+		Project.getProjectIntakeQuestions().then( function(res) {
+			projectIntake.questions = res.data;			
+		});
+
+		Project.getProject($state.params.id).then( function(res) {
+			projectIntake.project = res.data;
+		})
+
+		projectIntake.saveProject = function() {
+			Project.saveProject(projectIntake.project).then( function(res) {
+				console.log(res);
+			});
+		};
+
+    };    
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Modal: View Project Schedule

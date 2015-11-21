@@ -574,8 +574,9 @@
             scope : {
             	allItems: '=',
             	selectedItems: '=',
-            	itemName: '@'
-            },
+            	itemName: '@',
+            	single: '='
+			},
 			link : function(scope, element, attrs) {
 				element.on('click', function() {
 					var modalSelectItems = $modal.open({
@@ -592,7 +593,10 @@
 							},
 							rItemName: function () { //
 								return scope.itemName;
-							}							
+							},
+							rSingle: function () { //
+								return (scope.single || false);
+							}	
 						},
 						size: 'lg'
 					});

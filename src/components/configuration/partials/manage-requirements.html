@@ -1,9 +1,7 @@
 <section>
 	<hr>
 	<div class="row">
-
-		<div class="col-sm-7">
-
+		<div class="col-sm-8">
 			<table class="table table-condensed table-striped table-hover">
 				<thead class="small">
 					<th width="10%">Code</th>
@@ -15,10 +13,10 @@
 					<th width="10%">Activity</th>
 					<th width="10%">Task</th>
 					<th width="10%">Milestone</th>
-					<th width="10%">Bucket</th>					
+					<th width="10%">Bucket</th>
 				</thead>
 				<tbody>
-					<tr ng-repeat="req in configDataElement.records" ng-click='configDataElement.editRecord(req)' class="clickable">
+					<tr ng-repeat="req in configDataElement.data.requirements" ng-click='configDataElement.editRecord(req)' class="clickable">
 						<td>{{ req.code }}</td>
 						<td>{{ req.name }}</td>
 						<td>{{ req.description }}</td>
@@ -30,14 +28,14 @@
 						<td>{{ req.milestone }}</td>
 						<td>{{ req.bucket }}</td>
 					</tr>
-					<tr ng-if="configDataElement.records.length === 0">
+					<tr ng-if="configDataElement.data.requirements.length === 0">
 						<td colspan="10">No requirements defined.</td>
 					</tr>
 				</tbody>
 			</table>
 
 		</div>
-		<div class="col-sm-5">
+		<div class="col-sm-4">
 			<div class="well">
 
 				<h4 ng-if="configDataElement.msg">{{configDataElement.msg}}</h4>
@@ -122,10 +120,12 @@
 					
 					<div class="form-group" ng-if="configDataElement.activeRecordNew">
 						<button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>						
 					</div>
 
 					<div ng-if="!configDataElement.activeRecordNew">
 						<button class="btn btn-primary" ng-click="configDataElement.saveRecord()">Save</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>						
 					</div>
 				</div>
 			</div>

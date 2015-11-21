@@ -51,7 +51,7 @@
 		var ptime = this;
 		
 		$scope.$watch('project', function(newValue) {
-			ptime.project = newValue;		
+			ptime.project = newValue;
 		});
     }    
     // -----------------------------------------------------------------------------------

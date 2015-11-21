@@ -1,9 +1,7 @@
 <section>
     <hr>
     <div class="row">
-
         <div class="col-sm-7">
-
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
                 <th width="25%">Code</th>
@@ -12,13 +10,13 @@
                 <th width="25%">Introduced on Phase</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="activity in configDataElement.records" ng-click='configDataElement.editRecord(activity)' class="clickable">
+                <tr ng-repeat="activity in configDataElement.data.activities" ng-click='configDataElement.editRecord(activity)' class="clickable">
                     <td>{{ activity.code }}</td>
                     <td>{{ activity.name }}</td>
                     <td>{{ activity.description }}</td>
                     <td>{{ activity.visibleAtPhase }}</td>
                 </tr>
-                <tr ng-if="configDataElement.records.length === 0">
+                <tr ng-if="configDataElement.data.activities.length === 0">
                     <td colspan="9">No activities defined.</td>
                 </tr>
                 </tbody>
@@ -58,13 +56,14 @@
                         </a>
                     </div>
 
-
-                    <div class="form-group" ng-if="configDataElement.activeRecordNew">
+                    <div ng-if="configDataElement.activeRecordNew">
                         <button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>                        
                     </div>
 
                     <div ng-if="!configDataElement.activeRecordNew">
                         <button class="btn btn-primary" ng-click="configDataElement.saveRecord()">Save</button>
+                        <button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>                        
                     </div>
                 </div>
             </div>

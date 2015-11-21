@@ -8,7 +8,6 @@
         .directive('tmplConfigPhases', directiveConfigPhases)
         .directive('tmplConfigBuckets', directiveConfigBuckets)
         .directive('tmplConfigMilestones', directiveConfigMilestones)
-        .directive('tmplConfigStreams', directiveConfigStreams)
         .directive('tmplConfigActivities', directiveConfigActivities)
         .directive('tmplConfigTasks', directiveConfigTasks);
 
@@ -41,7 +40,7 @@
             controllerAs: 'configDataElement',
             scope: {
                 config: '=',
-                records: '='
+                context: '@'
             }
         };
 
@@ -61,7 +60,7 @@
             controllerAs: 'configDataElement',
             scope: {
                 config: '=',
-                records: '='
+                context: '@'
             }
         };
 
@@ -81,28 +80,8 @@
             controllerAs: 'configDataElement',
             scope: {
                 config: '=',
-                records: '='
+                context: '@'
             }           
-        };
-
-        return directive;
-    }
-
-    // ----- directiveFunction -----
-    directiveConfigStreams.$inject = [];
-
-    /* @ngInject */
-    function directiveConfigStreams() {
-
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'components/configuration/partials/manage-streams.html',
-            controller: 'controllerConfigManageElement',
-            controllerAs: 'configDataElement',
-            scope: {
-                config: '=',
-                records: '='
-            }
         };
 
         return directive;
@@ -121,7 +100,7 @@
             controllerAs: 'configDataElement',
             scope: {
                 config: '=',
-                records: '='
+                context: '@'
             }
         };
 
@@ -141,7 +120,7 @@
             controllerAs: 'configDataElement',
             scope: {
                 config: '=',
-                records: '='
+                context: '@'
             }
         };
 
@@ -161,7 +140,7 @@
             controllerAs: 'configDataElement',
             scope: {
                 config: '=',
-                records: '='
+                context: '@'
             }
         };
 

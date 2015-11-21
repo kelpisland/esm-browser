@@ -104,6 +104,10 @@
                 url: '/newproject/',
                 template: '<tmpl-eao-project-new></tmpl-eao-project-new>'
             })
+            .state('eao.intakeproject', {
+                url: '/intakeproject/:id',
+                template: '<tmpl-eao-project-intake></tmpl-eao-project-intake>'
+            })            
             .state('eao.activity', {
                 url: '/activity/:id',
                 template: '<tmpl-eao-activity></tmpl-eao-activity>'

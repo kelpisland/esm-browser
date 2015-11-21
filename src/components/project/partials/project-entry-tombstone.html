@@ -20,14 +20,14 @@
 	<div class="col-sm-6">
 		<div class="form-group">
 			<label for="type" class="control-label">Type</label>
-			<select ng-model='projectEntryTS.project.type' class="form-control input-sm" ng-options="type as type for type in projectEntryTS.types"></select>
+			<select id="type" ng-model='projectEntryTS.project.type' class="form-control input-sm" ng-options="type as type for type in projectEntryTS.types"></select>
 		</div>
 	</div>
 
 	<div class="col-sm-6">
 		<div class="form-group">
-			<label for="type" class="control-label">Project Nature</label>
-			<select ng-model='projectEntryTS.project.build' class="form-control input-sm">
+			<label for="build" class="control-label">Project Nature</label>
+			<select id="build" ng-model='projectEntryTS.project.build' class="form-control input-sm">
 				<option value="new">New Construction</option>
 				<option value="modification">Modification of Existing</option>
 				<option value="dismantling">Dismantling or Abandonment</option>
@@ -49,24 +49,23 @@
 	</div>
 	<div class="col-sm-4">
 		<div class="form-group">
-			<label for="location" class="control-label">Region</label>
-			<select ng-model='projectEntryTS.project.region' class="form-control input-sm" ng-options="key as value for (key, value) in projectEntryTS.regions"></select>
+			<label for="region" class="control-label">Region</label>
+			<select if="region" ng-model='projectEntryTS.project.region' class="form-control input-sm" ng-options="key as value for (key, value) in projectEntryTS.regions"></select>
 		</div>
 	</div>
-
 </div>
 
 <div class="row">
 	<div class="col-sm-6">
 		<div class="form-group">
-			<label for="location" class="control-label">Latitude</label>
-			<input id="location" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.lat">
+			<label for="latitude" class="control-label">Latitude</label>
+			<input id="latitude" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.lat">
 		</div>
 	</div>
 	<div class="col-sm-6">
 		<div class="form-group">
-			<label for="location" class="control-label">Longitude</label>
-			<input id="location" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.lon">
+			<label for="longitude" class="control-label">Longitude</label>
+			<input id="longitude" type="text" class="form-control input-sm" ng-model="projectEntryTS.project.lon">
 		</div>
 	</div>
 </div>
