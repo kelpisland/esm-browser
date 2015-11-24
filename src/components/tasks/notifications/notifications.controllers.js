@@ -10,10 +10,12 @@
 	// CONTROLLER: Task for Simple Complete
 	//
     // -----------------------------------------------------------------------------------
-    controllerTaskNotifications.$inject = ['$scope', '$rootScope', 'Task', 'Notification', '$q'];
+    controllerTaskNotifications.$inject = ['$scope', '$rootScope', 'Task', 'Notification', '$q', 'ProcessCodes'];
  	//
-	function controllerTaskNotifications($scope, $rootScope, Task, Notification, $q) {
+	function controllerTaskNotifications($scope, $rootScope, Task, Notification, $q, ProcessCodes) {
 		var taskNotifications = this;
+
+		ProcessCodes.push('notifications');
 
 		taskNotifications.mailOut = [];
 

@@ -29,7 +29,7 @@
 		vm.artifactView = 'inprogress';
 		//
 		// Get Project
-		Project.getProject({id: $stateParams.id}).then(function(res) {
+		Project.getLocalProject({id: $stateParams.id}).then(function(res) {
 			vm.project = res.data;
 		});
 

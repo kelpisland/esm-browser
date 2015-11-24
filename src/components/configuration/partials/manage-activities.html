@@ -14,7 +14,7 @@
                     <td>{{ activity.code }}</td>
                     <td>{{ activity.name }}</td>
                     <td>{{ activity.description }}</td>
-                    <td>{{ activity.visibleAtPhase }}</td>
+                    <td>{{ activity.visibleAtPhase | resolveProjectItemNameById:configDataElement.data.phases}}</td>
                 </tr>
                 <tr ng-if="configDataElement.data.activities.length === 0">
                     <td colspan="9">No activities defined.</td>

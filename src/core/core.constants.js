@@ -44,6 +44,6 @@
         .value('Global', {
 			user:{name:{}, _id:undefined},
 			public: true
-		});
-
+		})
+        .value('ProcessCodes', []);        
 })();

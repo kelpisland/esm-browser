@@ -23,7 +23,7 @@
 			actBase.activity = res.data;
 			//
 			// Get Project
-			Project.getProject({id: res.data.projectId}).then(function(res) {
+			Project.getLocalProject({id: res.data.projectId}).then(function(res) {
 				actBase.project = res.data;
 			});			
 		});

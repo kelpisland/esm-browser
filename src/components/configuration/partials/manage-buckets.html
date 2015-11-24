@@ -13,7 +13,7 @@
                     <tr ng-repeat="bucket in configDataElement.data.buckets" ng-click='configDataElement.editRecord(bucket)' class="clickable">
                         <td>{{ bucket.code }}</td>
                         <td>{{ bucket.name }}</td>
-                        <td>{{ bucket.visibleAtPhase }}</td>
+                        <td>{{ bucket.visibleAtPhase | resolveProjectItemNameById:configDataElement.data.phases}}</td>
                         <td class="text-center"><span ng-if="bucket.isValueComponent">Yes</span><span ng-if="!bucket.isValueComponent">No</span></td>
                     </tr>
                     <tr ng-if="configDataElement.data.buckets.length === 0">

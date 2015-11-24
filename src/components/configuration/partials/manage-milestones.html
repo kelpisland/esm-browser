@@ -12,7 +12,7 @@
                     <tr ng-repeat="milestone in configDataElement.data.milestones" ng-click='configDataElement.editRecord(milestone)' class="clickable">
                         <td>{{ milestone.code }}</td>
                         <td>{{ milestone.name }}</td>
-                        <td>{{ milestone.phase }}</td>
+                        <td>{{ milestone.phase | resolveProjectItemNameById:configDataElement.data.phases }}</td>
                     </tr>
                     <tr ng-if="configDataElement.data.milestones.length === 0">
                         <td colspan="3">No milestones defined.</td>

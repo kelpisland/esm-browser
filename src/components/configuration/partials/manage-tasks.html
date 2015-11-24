@@ -19,11 +19,11 @@
                     <td>{{ task.code }}</td>
                     <td>{{ task.name }}</td>
                     <td>{{ task.description }}</td>
-                    <td>{{ task.activity }}</td>
+                    <td>{{ task.activity | resolveProjectItemNameById:configDataElement.data.activities }}</td>
                     <td>{{ task.status }}</td>
                     <td>{{ task.processCode }}</td>
-                    <td><span ng-repeat="prerequisite in task.prerequisites"><br ng-if="!$first">{{ prerequisite }}</span></td>
-                    <td>{{ task.requirement }}</td>
+                    <td><span ng-repeat="prerequisite in task.prerequisites"><br ng-if="!$first">{{ prerequisite | resolveProjectItemNameById:configDataElement.data.requirements}}</span></td>
+                    <td>{{ task.requirement | resolveProjectItemNameById:configDataElement.data.requirements}}</td>
                     <td><span ng-repeat="status in task.statuses"><br ng-if="!$first">{{ status }}</span></td>
                 </tr>
                 <tr ng-if="configDataElement.data.tasks.length === 0">

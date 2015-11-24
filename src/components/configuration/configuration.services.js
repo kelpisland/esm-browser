@@ -11,56 +11,34 @@
     serviceConfiguration.$inject = ['$http', 'SERVERAPI'];
     /* @ngInject */
     function serviceConfiguration($http, SERVERAPI) {
-        var getStreams = function(req) {
-            return $http({method:'GET',url: SERVERAPI + '/stream'});
+
+        // Generalized config items.
+        // the context defines the url.
+        var getConfig = function() {
+            return $http({method:'GET',url: SERVERAPI + '/sys/configs'});
         };
-    	var newStream = function(req) {
-			return $http({method:'GET',url: SERVERAPI + '/new/stream'});
-		};
-        var addStream = function(req) {
-            return $http({method:'POST',url: SERVERAPI + '/stream', data: req});
+        var getConfigItem = function(context) {
+            console.log('context', context);
+            return $http({method:'GET',url: SERVERAPI + '/' + context});
+        };
+        var newConfigItem = function(context) {
+            return $http({method:'GET',url: SERVERAPI + '/new/' + context});
+        };
+        var addConfigItem = function(req, context) {
+            console.log(req, context);
+            return $http({method:'POST',url: SERVERAPI + '/' + context, data: req});
         }
-        var saveStream = function(req) {
-            return $http({method:'PUT',url: SERVERAPI + '/stream', data: req});
+        var saveConfigItem = function(req, context) {
+            return $http({method:'PUT',url: SERVERAPI + '/' + context + '/' + req._id, data: req});
         }
-
-        // New Sub Items
-        var newActivity = function(req) {
-            return $http({method:'GET',url: SERVERAPI + '/new/activity'});
-        };
-
-        var newBucket = function(req) {
-            return $http({method:'GET',url: SERVERAPI + '/new/bucket'});
-        };
-
-        var newMilestone = function(req) {
-            return $http({method:'GET',url: SERVERAPI + '/new/milestone'});
-        };
-
-        var newPhase = function(req) {
-            return $http({method:'GET',url: SERVERAPI + '/new/phase'});
-        };
-
-        var newRequirement = function(req) {
-            return $http({method:'GET',url: SERVERAPI + '/new/requirement'});
-        };
-
-        var newTask = function(req) {
-            return $http({method:'GET',url: SERVERAPI + '/new/task'});
-        };
 
         return {
-            getStreams: getStreams,
-            newStream: newStream,
-            addStream: addStream,
-            saveStream: saveStream,
-            
-            newActivity: newActivity,
-            newBucket: newBucket,
-            newMilestone: newMilestone,
-            newPhase: newPhase,
-            newRequirement: newRequirement,
-            newTask: newTask
+            getConfig: getConfig,
+
+            getConfigItem: getConfigItem,
+            newConfigItem: newConfigItem,
+            addConfigItem: addConfigItem,
+            saveConfigItem: saveConfigItem
 		};
     }    
 })();
