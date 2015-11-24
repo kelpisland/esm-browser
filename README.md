@@ -1,7 +1,7 @@
 # esm-browser
 A Project of the Environmental Assessment Office (EAO), BC Ministry of the Environment.
 
-This application is a tool to support the work of EAO staff, project proponents, and other stakeholders as environmental assessments are conducted on projects in BC.
+This application is a tool to support the work of EAO staff, project proponents, and other stakeholders as environmental assessments are conducted.
 
 ## Features
 
