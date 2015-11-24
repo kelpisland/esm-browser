@@ -1,7 +1,7 @@
 # esm-browser
-A Project of the Environmental Assessment Office
+A Project of the Environmental Assessment Office (EAO), BC Ministry of the Environment.
 
-This readme serves as an example readme for a government open source project. A brief description of your project would go here.
+This application is a tool to support the work of EAO staff, project proponents, and other stakeholders as environmental assessments are conducted.
 
 ## Features
 
