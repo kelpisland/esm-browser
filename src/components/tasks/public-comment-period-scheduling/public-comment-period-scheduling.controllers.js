@@ -3,22 +3,22 @@
     'use strict';
 
     angular.module('app.tasks')
-		.controller('controllerTaskCommentPeriodScheduling', controllerTaskCommentPeriodScheduling);
+		.controller('controllerTaskPublicCommentPeriodScheduling', controllerTaskPublicCommentPeriodScheduling);
 
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Task for Simple Complete
 	//
     // -----------------------------------------------------------------------------------
-    controllerTaskCommentPeriodScheduling.$inject = ['$scope', '$rootScope', 'Tasks'];
+    controllerTaskPublicCommentPeriodScheduling.$inject = ['$scope', '$rootScope', 'Tasks'];
  	//
-	function controllerTaskCommentPeriodScheduling($scope, $rootScope, Tasks) {
-		var taskCps = this;
+	function controllerTaskPublicCommentPeriodScheduling($scope, $rootScope, Tasks) {
+		var taskPubComSched = this;
 
 		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('anchor', function(newValue) {
 			if (newValue) {
-				taskCps.anchor = newValue;
+				taskPubComSched.anchor = newValue;
 			}
 		});
 
@@ -27,18 +27,18 @@
 			// get item for title
 			if (newValue) {
 				console.log('task', newValue);
-				taskCps.itemId = newValue.item._id;
-				taskCps.item = newValue.item;
+				taskPubComSched.itemId = newValue.item._id;
+				taskPubComSched.item = newValue.item;
 			}
 
 		});
 
-		taskCps.completeTask = function() {
+		taskPubComSched.completeTask = function() {
 			// validate
 			// when ok, broadcast
-			console.log('complete', taskCps.item);
-			taskCps.item.value = 'Complete';
-			$rootScope.$broadcast('resolveItem', {itemId: taskCps.itemId});
+			console.log('complete', taskPubComSched.item);
+			taskPubComSched.item.value = 'Complete';
+			$rootScope.$broadcast('resolveItem', {itemId: taskPubComSched.itemId});
 		}
 		
     }    
