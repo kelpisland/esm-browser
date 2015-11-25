@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+    <title></title>
+</head>
+<body>
+
+<div class="container">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ taskCnc.item.title }} {{ taskCnc.item.value}}
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6"><label>Start Date</label><br><input type="date"/></div>
+                    <div class="col-sm-6"><label>End Date</label><br><input type="date"/></div>
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Scope</th>
+                                <th>Topic</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Value</td>
+                                <td>Value</td>
+                            </tr>
+                            <tr>
+                                <td>Value</td>
+                                <td>Value</td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2"><button class="btn btn-success pull-right">Add</button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Important Dates</label>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Post Ad</td>
+                                <td>[start-7days]</td>
+                            </tr>
+                            <tr>
+                                <td>Provide Info</td>
+                                <td>[start-7days]</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Open House</label>
+                        <dl class="dl-horizontal">
+                            <dt>Date/Time</dt>
+                            <dd>[datetime]</dd>
+                            <dt>Location</dt>
+                            <dd>[address]</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
