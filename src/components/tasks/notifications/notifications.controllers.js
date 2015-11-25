@@ -13,9 +13,9 @@
     controllerTaskNotifications.$inject = ['$scope', '$rootScope', 'Task', 'Notification', '$q', 'ProcessCodes'];
  	//
 	function controllerTaskNotifications($scope, $rootScope, Task, Notification, $q, ProcessCodes) {
-		var taskNotifications = this;
+		
 
-		ProcessCodes.push('notifications');
+		var taskNotifications = this;
 
 		taskNotifications.mailOut = [];
 

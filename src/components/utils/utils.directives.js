@@ -575,7 +575,8 @@
             	allItems: '=',
             	selectedItems: '=',
             	itemName: '@',
-            	single: '='
+            	single: '=',
+            	callback: '='
 			},
 			link : function(scope, element, attrs) {
 				element.on('click', function() {
@@ -600,7 +601,11 @@
 						},
 						size: 'lg'
 					});
-					modalSelectItems.result.then(function () {}, function () {});
+					modalSelectItems.result.then(function () {
+						if (scope.callback) {
+							scope.callback(scope.selectedItems);
+						}
+					}, function () {});
 				});
 			}
         };

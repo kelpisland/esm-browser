@@ -4,32 +4,18 @@
 		<div class="col-sm-7">
 			<table class="table table-condensed table-striped table-hover">
 				<thead class="small">
-				<th width="10%">Code</th>
-				<th width="10%">Name</th>
-				<th width="10%">Description</th>
-				<th class="text-center" width="10%">Phases</th>
-				<th class="text-center" width="10%">Activities</th>
-				<th class="text-center" width="10%">Tasks</th>
-				<th class="text-center" width="10%">Milestones</th>
-				<th class="text-center" width="10%">Buckets</th>
-				<th class="text-center" width="10%">Requirements</th>
-				<th class="text-center" width="10%"></th>
+					<th width="30%">Code</th>
+					<th width="30%">Name</th>
+					<th width="40%">Description</th>
 				</thead>
 				<tbody>
-				<tr ng-repeat="stream in configDataElement.records" ng-click='configDataElement.editRecord(stream)' class="clickable">
+				<tr ng-repeat="stream in configDataElement.data.streams" ng-click='configDataElement.editRecord(stream)' class="clickable">
 					<td>{{ stream.code }}</td>
 					<td>{{ stream.name }}</td>
 					<td>{{ stream.description }}</td>
-					<td class="text-center">{{ stream.phases.length }}</td>
-					<td class="text-center">{{ stream.activities.length }}</td>
-					<td class="text-center">{{ stream.tasks.length }}</td>
-					<td class="text-center">{{ stream.milestones.length }}</td>
-					<td class="text-center">{{ stream.buckets.length }}</td>
-					<td class="text-center">{{ stream.requirements.length }}</td>
-					<td><a href ng-click="configDataElement.selectStream(stream)">Edit</a></td>
 				</tr>
-				<tr ng-if="configDataElement.records.length === 0">
-					<td colspan="10">No streams defined.</td>
+				<tr ng-if="configDataElement.data.streams.length === 0">
+					<td colspan="3">No streams defined.</td>
 				</tr>
 				</tbody>
 			</table>
@@ -42,88 +28,39 @@
 
 				<div ng-show="configDataElement.activeRecord">
 
-					<div class="form-group">
-						<label class="control-label">Code</label>
-						<input class="form-control" type="text" ng-model="configDataElement.activeRecord.code">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Name</label>
+								<input class="form-control" type="text" ng-model="configDataElement.activeRecord.name" ng-blur="configDataElement.kebabNameToCode()">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Code</label>
+								<input class="form-control" type="text" ng-model="configDataElement.activeRecord.code">
+							</div>
+						</div>
 					</div>
 
-					<div class="form-group">
-						<label class="control-label">Name</label>
-						<input class="form-control" type="text" ng-model="configDataElement.activeRecord.name">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label class="control-label">Description</label>
+								<textarea class="form-control" ng-model="configDataElement.activeRecord.description"></textarea>
+							</div>
+						</div>
 					</div>
-
-					<div class="form-group">
-						<label class="control-label">Description</label>
-						<textarea class="form-control" ng-model="configDataElement.activeRecord.description">{{ configDataElement.activeRecord.description }}</textarea>
-					</div>
-
-<!-- 					<div class="form-group">
-						<label class="control-label">Phases</label>
-						<a href x-modal-select-items x-all-items="configDataElement.config.phases" x-selected-items="configDataElement.activeRecord.phases" x-item-name="Phases">
-
-							<span ng-if="configDataElement.activeRecord.phases.length === 0 || !configDataElement.activeRecord.phases">Click here to select</span>
-							<span ng-repeat="phase in configDataElement.activeRecord.phases"><br ng-if="!$first">{{ phase }}</span>
-
-						</a>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label">Activities</label>
-						<a href x-modal-select-items x-all-items="configDataElement.config.activities" x-selected-items="configDataElement.activeRecord.activities" x-item-name="Activities">
-
-							<span ng-if="configDataElement.activeRecord.activities.length === 0 || !configDataElement.activeRecord.activities">Click here to select</span>
-							<span ng-repeat="activity in configDataElement.activeRecord.activities"><br ng-if="!$first">{{ activity }}</span>
-
-						</a>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label">Tasks</label>
-						<a href x-modal-select-items x-all-items="configDataElement.config.tasks" x-selected-items="configDataElement.activeRecord.tasks" x-item-name="Tasks">
-
-							<span ng-if="configDataElement.activeRecord.tasks.length === 0 || !configDataElement.activeRecord.tasks">Click here to select</span>
-							<span ng-repeat="task in configDataElement.activeRecord.tasks"><br ng-if="!$first">{{ task }}</span>
-
-						</a>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label">Milestones</label>
-						<a href x-modal-select-items x-all-items="configDataElement.config.milestones" x-selected-items="configDataElement.activeRecord.milestones" x-item-name="Milestones">
-
-							<span ng-if="configDataElement.activeRecord.milestones.length === 0 || !configDataElement.activeRecord.milestones">Click here to select</span>
-							<span ng-repeat="milestone in configDataElement.activeRecord.milestones"><br ng-if="!$first">{{ milestone }}</span>
-
-						</a>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label">Buckets</label>
-						<a href x-modal-select-items x-all-items="configDataElement.config.buckets" x-selected-items="configDataElement.activeRecord.buckets" x-item-name="Buckets">
-
-							<span ng-if="configDataElement.activeRecord.buckets.length === 0 || !configDataElement.activeRecord.buckets">Click here to select</span>
-							<span ng-repeat="bucket in configDataElement.activeRecord.buckets"><br ng-if="!$first">{{ bucket }}</span>
-
-						</a>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label">Requirements</label>
-						<a href x-modal-select-items x-all-items="configDataElement.config.requirements" x-selected-items="configDataElement.activeRecord.requirements" x-item-name="Requirements">
-
-							<span ng-if="configDataElement.activeRecord.requirements.length === 0 || !configDataElement.activeRecord.requirements">Click here to select</span>
-							<span ng-repeat="requirement in configDataElement.activeRecord.requirements"><br ng-if="!$first">{{ requirement }}</span>
-
-						</a>
-					</div> -->
-
 
 					<div class="form-group" ng-if="configDataElement.activeRecordNew">
 						<button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>
+						<button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>
 					</div>
 
 					<div ng-if="!configDataElement.activeRecordNew">
 						<button class="btn btn-primary" ng-click="configDataElement.saveRecord()">Save</button>
+						<button class="btn btn-default" ng-click="configDataElement.cancelRecord()">Cancel</button>
+						<button class="btn btn-success" ng-click="configDataElement.activeRecord.configureStream = true">Configure</button>
 					</div>
 				</div>
 			</div>
@@ -132,4 +69,5 @@
 	</div>
 </section>
 
+<tmpl-config-stream x-config="configDataElement.data" x-stream="configDataElement.activeRecord" ng-if="configDataElement.activeRecord.configureStream"></tmpl-config-stream>
 

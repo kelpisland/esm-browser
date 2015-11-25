@@ -4,17 +4,15 @@
         <div class="col-sm-7">
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
-                <th width="25%">Code</th>
-                <th width="25%">Name</th>
-                <th width="25%">Description</th>
-                <th width="25%">Introduced on Phase</th>
+                <th width="30%">Code</th>
+                <th width="30%">Name</th>
+                <th width="40%">Description</th>
                 </thead>
                 <tbody>
                 <tr ng-repeat="activity in configDataElement.data.activities" ng-click='configDataElement.editRecord(activity)' class="clickable">
                     <td>{{ activity.code }}</td>
                     <td>{{ activity.name }}</td>
                     <td>{{ activity.description }}</td>
-                    <td>{{ activity.visibleAtPhase | resolveProjectItemNameById:configDataElement.data.phases}}</td>
                 </tr>
                 <tr ng-if="configDataElement.data.activities.length === 0">
                     <td colspan="9">No activities defined.</td>
@@ -29,15 +27,16 @@
                 <div ng-show="!configDataElement.activeRecord">Select an item in the table or <a href ng-click="configDataElement.newRecord()">click here</a> to create a new one.</div>
 
                 <div ng-show="configDataElement.activeRecord">
+
                     <div class="form-group">
-                        <label class="control-label">Code</label>
-                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.code">
+                        <label class="control-label">Name</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.name"  ng-blur="configDataElement.kebabNameToCode()">
                     </div>
 
 
                     <div class="form-group">
-                        <label class="control-label">Name</label>
-                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.name">
+                        <label class="control-label">Code</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.code">
                     </div>
 
 
@@ -46,15 +45,6 @@
                         <textarea class="form-control" ng-model="configDataElement.activeRecord.description">{{ configDataElement.activeRecord.description }}</textarea>
                     </div>
 
-
-                    <div class="form-group">
-                        <label class="control-label">Introduced on Phase</label>
-                        <a href x-modal-select-items x-all-items="configDataElement.config.phases" x-single='true' x-selected-items="configDataElement.activeRecord.visibleAtPhase" x-item-name="Phase">
-                            
-                            <span ng-if="configDataElement.activeRecord.visibleAtPhase === ''">Click here to select</span>
-                            <span ng-if="configDataElement.activeRecord.visibleAtPhase !== ''">{{ configDataElement.activeRecord.visibleAtPhase }}</span>
-                        </a>
-                    </div>
 
                     <div ng-if="configDataElement.activeRecordNew">
                         <button class="btn btn-primary" ng-click="configDataElement.addRecord()">Add</button>

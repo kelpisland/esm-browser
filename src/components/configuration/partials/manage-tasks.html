@@ -41,14 +41,15 @@
                 <div ng-show="configDataElement.activeRecord">
 
                     <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.name" ng-blur="configDataElement.kebabNameToCode()">
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label">Code</label>
                         <input class="form-control" type="text" ng-model="configDataElement.activeRecord.code">
                     </div>
 
-                    <div class="form-group">
-                        <label class="control-label">Name</label>
-                        <input class="form-control" type="text" ng-model="configDataElement.activeRecord.name">
-                    </div>
 
                     <div class="form-group">
                         <label class="control-label">Description</label>
@@ -88,7 +89,7 @@
 
                     <div class="form-group">
                         <label class="control-label">Process Code</label>
-                        <select class="form-control" ng-model="configDataElement.activeRecord.processCode" ng-options="item.code as item.name for item in configDataElement.processCodes">
+                        <select class="form-control" ng-model="configDataElement.activeRecord.processCode" ng-options="(item | kebab) as item for item in configDataElement.processCodes">
                         </select>
                     </div>
 

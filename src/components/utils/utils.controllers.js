@@ -366,7 +366,7 @@
 		var selectItems = this;
 
 		// constrain selection to just one.  Directive needs to have x-single=true
-		selectedItems.modeSingle = rSingle;
+		selectItems.modeSingle = rSingle;
 
 		// remove a milestone from the temporary list.
 		selectItems.removeItemFromSelection = function(idx) {
@@ -375,7 +375,7 @@
 
 		// add the milestone to the project
 		selectItems.addItemToSelection = function(item) {
-			if (selectedItems.modeSingle) {
+			if (selectItems.modeSingle) {
 				selectItems.selectedItems = [item];
 			} else {
 				selectItems.selectedItems.push(item);
@@ -393,8 +393,12 @@
 		selectItems.itemList = rAllItems || [];
 		selectItems.itemName = rItemName;
 
-		// copy the milestones so we can cancel the changes.
-		selectItems.selectedItems = rSelectedItems;
+		// copy the original values so we can cancel the changes and revert back.
+		if (!rSelectedItems) {
+			selectItems.selectedItems = [];
+		} else {
+			selectItems.selectedItems = rSelectedItems;			
+		}
 
 		selectItems.cancel = function () { $modalInstance.dismiss('cancel'); };
 		selectItems.ok = function () { 

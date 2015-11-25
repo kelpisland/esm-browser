@@ -4,12 +4,15 @@
 
     angular.module('app.configuration')
         .directive('tmplConfiguration', directiveConfiguration)
+        .directive('tmplConfigStreams', directiveConfigStreams)
+        .directive('tmplConfigStream', directiveConfigStream)
         .directive('tmplConfigRequirements', directiveConfigRequirements)
         .directive('tmplConfigPhases', directiveConfigPhases)
         .directive('tmplConfigBuckets', directiveConfigBuckets)
         .directive('tmplConfigMilestones', directiveConfigMilestones)
         .directive('tmplConfigActivities', directiveConfigActivities)
         .directive('tmplConfigTasks', directiveConfigTasks);
+
 
     // ----- directiveFunction -----
     directiveConfiguration.$inject = [];
@@ -26,6 +29,49 @@
 
         return directive;
     }
+
+
+    // ----- directiveFunction -----
+    directiveConfigStreams.$inject = [];
+
+    /* @ngInject */
+    function directiveConfigStreams() {
+
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/configuration/partials/manage-streams.html',
+            controller: 'controllerConfigManageElement',
+            controllerAs: 'configDataElement',
+            scope: {
+                config: '=',
+                context: '@'
+            }
+        };
+
+        return directive;
+    }
+
+
+    // ----- directiveFunction -----
+    directiveConfigStream.$inject = [];
+
+    /* @ngInject */
+    function directiveConfigStream() {
+
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/configuration/partials/manage-configure-stream.html',
+            controller: 'controllerConfigStream',
+            controllerAs: 'configStream',
+            scope: {
+                config: '=',
+                stream: '='
+            }
+        };
+
+        return directive;
+    }
+
 
     // ----- directiveFunction -----
     directiveConfigRequirements.$inject = [];
