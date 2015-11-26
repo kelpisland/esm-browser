@@ -375,12 +375,20 @@ nav {
 	top: -10px;
 	left: -8px;
 	color: #ffffff;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
 }
 .panel-toggle:hover {
 	font-size: 24px;
 	color: #ffffff;
 	top: -20px;
-	left: -14px;	
+	left: -14px;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
 }
 .navbar-form .form-group .control-label,
 .form-inline .form-group .control-label {

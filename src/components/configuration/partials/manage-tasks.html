@@ -4,30 +4,24 @@
         <div class="col-sm-8">
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
-                    <th width="11%">Code</th>
-                    <th width="12%">Name</th>
-                    <th width="11%">Description</th>
-                    <th width="11%">Activity</th>
-                    <th width="11%">Status</th>
-                    <th width="11%">Process Code</th>
-                    <th width="11%">Prerequisites</th>
-                    <th width="11%">Requirement</th>
-                    <th width="11%">Statuses</th>
+                    <th width="16%">Code</th>
+                    <th width="16%">Name</th>
+                    <th width="20%">Description</th>
+                    <th width="16%">Status</th>
+                    <th width="16%">Process Code</th>
+                    <th width="16%">Statuses</th>
                 </thead>
                 <tbody>
                 <tr ng-repeat="task in configDataElement.data.tasks" ng-click='configDataElement.editRecord(task)' class="clickable">
                     <td>{{ task.code }}</td>
                     <td>{{ task.name }}</td>
                     <td>{{ task.description }}</td>
-                    <td>{{ task.activity | resolveProjectItemNameById:configDataElement.data.activities }}</td>
                     <td>{{ task.status }}</td>
                     <td>{{ task.processCode }}</td>
-                    <td><span ng-repeat="prerequisite in task.prerequisites"><br ng-if="!$first">{{ prerequisite | resolveProjectItemNameById:configDataElement.data.requirements}}</span></td>
-                    <td>{{ task.requirement | resolveProjectItemNameById:configDataElement.data.requirements}}</td>
                     <td><span ng-repeat="status in task.statuses"><br ng-if="!$first">{{ status }}</span></td>
                 </tr>
                 <tr ng-if="configDataElement.data.tasks.length === 0">
-                    <td colspan="9">No tasks defined.</td>
+                    <td colspan="6">No tasks defined.</td>
                 </tr>
                 </tbody>
             </table>
@@ -56,16 +50,6 @@
                         <textarea class="form-control" ng-model="configDataElement.activeRecord.description">{{ configDataElement.activeRecord.description }}</textarea>
                     </div>
 
-                   <div class="form-group">
-                        <label class="control-label">Activity</label>
-                        <a href x-modal-select-items x-all-items="configDataElement.config.activities" x-single=true x-selected-items="configDataElement.activeRecord.activity" x-item-name="Activity">
-
-                            <span ng-if="configDataElement.activeRecord.prerequisites.length === 0 || !configDataElement.activeRecord.prerequisites">Click here to select</span>
-                            <span ng-repeat="prerequisite in configDataElement.activeRecord.prerequisites"><br ng-if="!$first">{{ prerequisite }}</span>
-
-                        </a>
-                    </div>
-
 
                     <div class="form-group">
                         <label class="control-label">Statuses</label>
@@ -91,26 +75,6 @@
                         <label class="control-label">Process Code</label>
                         <select class="form-control" ng-model="configDataElement.activeRecord.processCode" ng-options="(item | kebab) as item for item in configDataElement.processCodes">
                         </select>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="control-label">Prerequisites</label>
-                        <a href x-modal-select-items x-all-items="configDataElement.config.prerequisites" x-selected-items="configDataElement.activeRecord.prerequisites" x-item-name="Prerequisites">
-
-                            <span ng-if="configDataElement.activeRecord.prerequisites.length === 0 || !configDataElement.activeRecord.prerequisites">Click here to select</span>
-                            <span ng-repeat="prerequisite in configDataElement.activeRecord.prerequisites"><br ng-if="!$first">{{ prerequisite }}</span>
-
-                        </a>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label">Requirement</label>
-                        <a href x-modal-select-items x-all-items="configDataElement.config.requirements" x-single=true x-selected-items="configDataElement.activeRecord.requirement" x-item-name="Requirement">
-                            
-                            <span ng-if="configDataElement.activeRecord.requirement === ''">Click here to select</span>
-                            <span ng-if="configDataElement.activeRecord.requirement !== ''">{{ configDataElement.activeRecord.requirement }}</span>
-                        </a>
                     </div>
 
 

@@ -1,4 +1,4 @@
-<section class='panel panel-default panel-project-summary clickable'  ng-repeat="project in projectIntakeList.projects" ng-if="projectIntakeList.projects.length > 0" ui-sref="eao.intakeproject(project._id)">
+<section class='panel panel-default panel-project-summary clickable'  ng-repeat="project in projectIntakeList.projects" ng-if="projectIntakeList.projects.length > 0" ui-sref="eao.intakeproject({id:project._id})">
 	<div class='panel-body'>
 		<div class='row'>
 			<div class='col-sm-12'>

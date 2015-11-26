@@ -22,6 +22,11 @@
             return $http({method:'GET',url: SERVERAPI + '/stream'});
         };
 
+        var getStream = function(req) {
+            return $http({method:'GET',url: SERVERAPI + '/stream/' + req._id});
+        };
+
+
         var getConfigItem = function(context) {
             console.log('context', context);
             return $http({method:'GET',url: SERVERAPI + '/' + context});
@@ -30,7 +35,6 @@
             return $http({method:'GET',url: SERVERAPI + '/new/' + context});
         };
         var addConfigItem = function(req, context) {
-            console.log(req, context);
             return $http({method:'POST',url: SERVERAPI + '/' + context, data: req});
         }
         var saveConfigItem = function(req, context) {
@@ -38,43 +42,43 @@
         }
 
 
-        var addBucketToStream = function(stream, bucket) {
-            return $http({method:'PUT',url: SERVERAPI + '/stream/' + stream._id + '/add/bucket/' + bucket._id, data: bucket});
+        var addBucketToStream = function(streamId, bucketId) {
+            return $http({method:'PUT',url: SERVERAPI + '/stream/' + streamId + '/add/bucket/' + bucketId});
         }
 
-        var addPhaseToStream = function(stream, phase) {
-            console.log('save', stream, phase);
-            return $http({method:'PUT',url: SERVERAPI + '/stream/' + stream._id + '/add/phase/' + phase._id, data: phase});
+        var addPhaseToStream = function(streamId, phaseId) {
+            return $http({method:'PUT',url: SERVERAPI + '/stream/' + streamId + '/add/phase/' + phaseId});
         }
 
-        var addMilestoneToPhase = function(phase, milestone) {
-            return $http({method:'PUT',url: SERVERAPI + '/stream/phase/' + phase._id + '/add/milestone/' + milestone._id, data: milestone});
+        var addMilestoneToPhase = function(phaseId, milestoneId) {
+            return $http({method:'PUT',url: SERVERAPI + '/stream/phase/' + phaseId + '/add/milestone/' + milestoneId});
         }
 
-        var addActivityToPhase = function(phase, activity) {
-            return $http({method:'PUT',url: SERVERAPI + '/stream/phase/' + phase._id + '/add/activity/' + activity._id, data: activity});
+        var addActivityToPhase = function(phaseId, activityId) {
+            return $http({method:'PUT',url: SERVERAPI + '/stream/phase/' + phaseId + '/add/activity/' + activityId});
         }
 
-        var addTaskToActivity = function(phase, task) {
-            return $http({method:'PUT',url: SERVERAPI + '/stream/activity/' + activity._id + '/add/task/' + task._id, data: task});
+        var addTaskToActivity = function(activityId, taskId) {
+            return $http({method:'PUT',url: SERVERAPI + '/stream/activity/' + activityId + '/add/task/' + taskId});
         }
 
-        var addRequirementToTask = function(task, requirement) {
-            return $http({method:'PUT',url: SERVERAPI + '/stream/task/' + task._id + '/add/requirement/' + requirement._id, data: requirement});
+        var addRequirementToTask = function(taskId, requirementId) {
+            return $http({method:'PUT',url: SERVERAPI + '/stream/task/' + taskId + '/add/requirement/' + requirementId});
         }
 
-        var addRequirementToMilestone = function(milestone, requirement) {
-            return $http({method:'PUT',url: SERVERAPI + '/stream/milestone/' + milestone._id + '/add/stream/requirement/' + requirement._id, data: requirement});
+        var addRequirementToMilestone = function(milestoneId, requirementId) {
+            return $http({method:'PUT',url: SERVERAPI + '/stream/milestone/' + milestoneId + '/add/stream/requirement/' + requirementId});
         }
 
-        var addRequirementToBucket= function(bucket, requirement) {
-            return $http({method:'PUT',url: SERVERAPI + '/stream/bucket/' + bucket._id + '/add/stream/requirement/' + requirement._id, data: requirement});
+        var addRequirementToBucket= function(bucketId, requirementId) {
+            return $http({method:'PUT',url: SERVERAPI + '/stream/bucket/' + bucketId + '/add/stream/requirement/' + requirementId});
         }
 
 
         return {
             getConfig: getConfig,
             getStreams: getStreams,
+            getStream: getStream,
 
             getConfigItem: getConfigItem,
             newConfigItem: newConfigItem,

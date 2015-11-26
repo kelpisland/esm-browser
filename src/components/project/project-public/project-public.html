@@ -50,7 +50,7 @@
 
 		<div class='col-sm-9'>
 
-			<div class="alert alert-info clickable text-center" x-modal-add-public-comment>
+			<div class="alert alert-info clickable text-center" x-modal-add-public-comment ng-if="vm.project.commentOpen">
 				<p>Public Comments Open from <strong>{{ vm.project.commentOpen | amDateFormat:'MMM Do, YYYY'}}</strong> to <strong>{{ vm.project.commentClose | amDateFormat:'MMM Do, YYYY' }}</strong></p>
 				<p>Click here to contribute a comment</p>
 				<hr>
@@ -120,12 +120,12 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<p class="navbar-text">Search</p>
+							<p class="navbar-text">Filter</p>
 						</li>
 						<li>
 							<form class="navbar-form" role="filter1">
 								<div class="form-group">
-									<input ng-model="vm.filterKeyword" type="text" class="form-control" placeholder="Search">
+									<input ng-model="vm.filterKeyword" type="text" class="form-control" placeholder="Filter Map">
 								</div>
 							</form>
 						</li>

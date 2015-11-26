@@ -70,23 +70,28 @@
 	// CONTROLLER: ERAO Project New
 	//
     // -----------------------------------------------------------------------------------    
-    controllerEAOProjectIntake.$inject = ['$state', 'Project'];
+    controllerEAOProjectIntake.$inject = ['$state', 'Project', 'Configuration'];
 	//
-	function controllerEAOProjectIntake($state, Project) {
+	function controllerEAOProjectIntake($state, Project, Configuration) {
 		var projectIntake = this;
 
 		Project.getProjectIntakeQuestions().then( function(res) {
 			projectIntake.questions = res.data;			
 		});
 
-		Project.getProject($state.params.id).then( function(res) {
+		Project.getProject({id: $state.params.id}).then( function(res) {
+			console.log('get project', res.data);
 			projectIntake.project = res.data;
 		})
 
-		projectIntake.saveProject = function() {
-			Project.saveProject(projectIntake.project).then( function(res) {
-				console.log(res);
-			});
+		Configuration.getStreams().then(function(res){
+			projectIntake.streams = res.data;
+		});
+
+		projectIntake.setProjectStream = function() {
+			if ((!projectIntake.project.stream || projectIntake.project.stream === '') && projectIntake.newStream) {
+				Project.setProjectStream(projectIntake.project._id, projectIntake.newStream);
+			}
 		};
 
     };    

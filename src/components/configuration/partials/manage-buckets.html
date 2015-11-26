@@ -4,20 +4,21 @@
         <div class="col-sm-7">
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
-                    <th width="25%">Code</th>
-                    <th width="25%">Name</th>
-                    <th width="25%">Introduced on Phase</th>
-                    <th width="25%" class="text-center">Value Component</th>
+                    <th width="30%">Code</th>
+                    <th width="40%">Name</th>
+                    <th width="30%" class="text-center">Value Component</th>
                 </thead>
                 <tbody>
                     <tr ng-repeat="bucket in configDataElement.data.buckets" ng-click='configDataElement.editRecord(bucket)' class="clickable">
                         <td>{{ bucket.code }}</td>
                         <td>{{ bucket.name }}</td>
-                        <td>{{ bucket.visibleAtPhase | resolveProjectItemNameById:configDataElement.data.phases}}</td>
-                        <td class="text-center"><span ng-if="bucket.isValueComponent">Yes</span><span ng-if="!bucket.isValueComponent">No</span></td>
+                        <td class="text-center">
+                            <span ng-if="bucket.isValueComponent">Yes</span>
+                            <span ng-if="!bucket.isValueComponent">No</span>
+                        </td>
                     </tr>
                     <tr ng-if="configDataElement.data.buckets.length === 0">
-                        <td colspan="4">No buckets defined.</td>
+                        <td colspan="3">No buckets defined.</td>
                     </tr>
                 </tbody>
             </table>
@@ -39,16 +40,6 @@
                     <div class="form-group">
                         <label class="control-label">Code</label>
                         <input class="form-control" type="text" ng-model="configDataElement.activeRecord.code">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="control-label">Introduced on Phase</label>
-                        <a href x-modal-select-items x-all-items="configDataElement.config.phases" x-single='true' x-selected-items="configDataElement.activeRecord.visibleAtPhase" x-item-name="Phase">
-                            
-                            <span ng-if="configDataElement.activeRecord.visibleAtPhase === ''">Click here to select</span>
-                            <span ng-if="configDataElement.activeRecord.visibleAtPhase !== ''">{{ configDataElement.activeRecord.visibleAtPhase }}</span>
-                        </a>
                     </div>
 
 

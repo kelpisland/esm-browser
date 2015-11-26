@@ -30,12 +30,13 @@
 		};
 
 		var saveProject = function(req) {
-			console.log(req);
 			return $http({method:'PUT',url: SERVERAPI + '/project/' + req.id, data: req});
 		};
 
 
-
+		var setProjectStream = function(projectId, streamId) {
+			return $http({method:'PUT',url: SERVERAPI + '/project/' + projectId + '/set/stream/' + streamId});
+		};
 
 
     	var getProjectTypes = function(req) {
@@ -72,6 +73,7 @@
 			getProject: getProject,
 			addProject: addProject,
 			saveProject: saveProject,
+			setProjectStream, setProjectStream,
 			getProjectTypes: getProjectTypes,
 			getProjectIntakeQuestions, getProjectIntakeQuestions
 			// getProjectBuckets: getProjectBuckets,

@@ -16,8 +16,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="ms in ps.project.schedule" ng-class="{'success': !!ms.completed}">
-				<td>{{ ms.milestone }}</td>
+			<tr ng-repeat="ms in ps.project.milestones" ng-class="{'success': !!ms.completed}">
+				<td>{{ ms.name }}</td>
 				<td class='text-center'>{{ ms.start | amDateFormat:'MMM Do, YYYY' }}</td>
 				<td class='text-center'>{{ ms.target | amDateFormat:'MMM Do, YYYY' }}</td>
 				<td class='text-center'>{{ ms.completed | amDateFormat:'MMM Do, YYYY' }}</td>
