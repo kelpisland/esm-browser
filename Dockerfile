@@ -20,11 +20,9 @@ RUN chown -R node:0 /src && chmod -R 770 /src
 
 USER node
 
-RUN git config --global url."https://".insteadOf git://
-
 ENV HOME=/tmp TEMP=/tmp
 
-RUN npm install
+RUN git config --global url."https://".insteadOf git:// && npm install
 
 ADD . /src
 EXPOSE 3000 7203
