@@ -10,6 +10,8 @@ ADD package.json bower.json /src/
 
 WORKDIR /src
 
+RUN git config --global url."https://".insteadOf git://
+
 RUN npm install -g node-inspector bower gulp
 
 RUN useradd node -p 123XYZ
@@ -17,6 +19,8 @@ RUN useradd node -p 123XYZ
 RUN chown -R node:0 /src && chmod -R 770 /src
 
 USER node
+
+RUN git config --global url."https://".insteadOf git://
 
 ENV HOME=/tmp TEMP=/tmp
 
