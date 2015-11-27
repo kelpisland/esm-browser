@@ -1,0 +1,80 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		{{ taskPubComClassProp.item.title }} {{ taskPubComClassProp.item.value}}
+	</div>
+	<div class="panel-body">
+
+		<!-- COMMENT TEXT -->
+		<div class="row">
+			<div class="col-sm-12">
+				<label class="control-label">Comment Text</label>
+				<textarea class="form-control" ng-model="taskPubComClassProp.data.commentText"></textarea>
+			</div>
+		</div>
+
+		<!-- ISSUES LISTED -->
+		<div class="row">
+			<div class="col-sm-6">
+				<label class="control-label">{{ taskPubComClassProp.data.author }}</label>
+			</div>
+			<div class="col-sm-6 text-right">
+				<label class="control-label pull-right">{{ taskPubComClassProp.data.date }}</label>
+			</div>
+
+			<div class="col-sm-4">
+				<label class="control-label">Value Components</label>
+				<div class="list-group">
+					<button ng-repeat="button in taskPubComClassProp.data.valueComponents" type="button" class="list-group-item">{{ button }}</button>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<label class="control-label">Association</label>
+				<div class="list-group">
+					<button ng-repeat="button in taskPubComClassProp.data.associations" type="button" class="list-group-item">{{ button }}</button>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<label class="control-label">Issues</label>
+				<div class="list-group">
+					<button ng-repeat="button in taskPubComClassProp.data.issues" type="button" class="list-group-item">{{ button }}</button>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<button class="btn btn-success pull-right">Next</button>
+			</div>
+		</div>
+
+		<!-- COMMENT TABLE -->
+		<table class="table table-condensed">
+			<thead>
+			<tr>
+				<th>Comment</th>
+				<th>Date</th>
+				<th>Author</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="row in taskPubComClassProp.data.comments">
+				<td>{{ row.comment }}</td>
+				<td>{{ row.date }}</td>
+				<td>{{ row.author }}</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<!-- PAGINATION -->
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</button>
+					<button type="button" class="btn btn-default">Left</button>
+					<button type="button" class="btn btn-default">Middle</button>
+					<button type="button" class="btn btn-default">Right</button>
+					<button type="button" class="btn btn-success">Previous<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+				</div>
+			</div>
+		</div>
+
+		</div>
+	</div>
+</div>

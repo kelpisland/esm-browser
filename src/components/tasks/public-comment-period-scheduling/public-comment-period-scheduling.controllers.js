@@ -28,6 +28,12 @@
 			showScopeTopicAddButton: true
 		};
 
+		$scope.addRowToScopeTopics = function() {
+			taskPubComSched.data.scopeTopics.push(taskPubComSched.data.newScopeTopic);
+			taskPubComSched.data.newScopeTopic = "";
+			taskPubComSched.data.showScopeTopicAddButton = true;
+		}
+
 		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('anchor', function(newValue) {
 			if (newValue) {
