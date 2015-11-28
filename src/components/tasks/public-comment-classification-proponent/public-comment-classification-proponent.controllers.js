@@ -45,12 +45,6 @@
 
 		};
 
-		$scope.addRowToScopeTopics = function() {
-			taskPubComClassProp.data.scopeTopics.push(taskPubComClassProp.data.newScopeTopic);
-			taskPubComClassProp.data.newScopeTopic = "";
-			taskPubComClassProp.data.showScopeTopicAddButton = true;
-		}
-
 		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('anchor', function(newValue) {
 			if (newValue) {
