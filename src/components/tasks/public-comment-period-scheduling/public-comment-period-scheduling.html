@@ -3,67 +3,104 @@
 		{{ taskPubComSched.item.title }} {{ taskPubComSched.item.value}}
 	</div>
 	<div class="panel-body">
-		<div class="row">
-			<div class="col-sm-6">
-				<label class="control-label">Start Date</label>
-				<input type="date" class="form-control" ng-model="taskPubComSched.data.startDate"/>
-			</div>
-			<div class="col-sm-6">
-				<label class="control-label">End Date</label>
-				<input type="date" class="form-control" ng-model="taskPubComSched.data.endDate"/>
-			</div>
-			<div class="col-md-12">
-				<table class="table table-condensed">
-					<thead>
-					<tr>
-						<th>Scope/Topic</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr ng-repeat="(key,value) in taskPubComSched.data.scopeTopics">
-						<td>{{ value }}</td>
-					</tr>
-					<tr ng-if="!taskPubComSched.data.showScopeTopicAddButton">
-						<td>
-							<textarea class="form-control" ng-model="taskPubComSched.data.newScopeTopic"></textarea>
 
-							<button class="btn btn-success pull-right" ng-click="addRowToScopeTopics()">OK</button>
-							<button class="btn btn-default pull-right" ng-click="taskPubComSched.data.showScopeTopicAddButton=true">Cancel</button></td>
-					</tr>
-					<tr ng-if="taskPubComSched.data.showScopeTopicAddButton">
-						<td><button class="btn btn-success pull-right" ng-click="taskPubComSched.data.showScopeTopicAddButton=false">Add</button></td>
-					</tr>
-					</tbody>
-				</table>
+		<!-- START/END DATE -->
+		<div class="well well-sm">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">Start Date</label>
+						<input type="date" class="form-control" ng-model="taskPubComSched.data.startDate"/>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">End Date</label>
+						<input type="date" class="form-control" ng-model="taskPubComSched.data.endDate"/>
+					</div>
+				</div>
 			</div>
+		</div>
+
+		<!-- SCOPE/TOPIC TABLE -->
+		<div class="row">
+				<div class="col-md-12">
+					<p class="lead">Scope/Topic</p>
+					<table class="table table-condensed">
+						<thead>
+						<tr>
+							<th>Table Head</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="(key,value) in taskPubComSched.data.scopeTopics">
+							<td>{{ value }}</td>
+						</tr>
+						<tr ng-if="!taskPubComSched.data.showScopeTopicAddButton">
+							<td>
+								<div class="form-group">
+								<textarea class="form-control" ng-model="taskPubComSched.data.newScopeTopic"></textarea>
+								</div>
+								<div class="text-right">
+									<button class="btn btn-success" ng-click="addRowToScopeTopics()">OK</button>
+									<button class="btn btn-default" ng-click="taskPubComSched.data.showScopeTopicAddButton=true">Cancel</button>
+								</div>
+							</td>
+						</tr>
+						<tr ng-if="taskPubComSched.data.showScopeTopicAddButton">
+							<td><button class="btn btn-success pull-right" ng-click="taskPubComSched.data.showScopeTopicAddButton=false">Add</button></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+
+		<!-- IMPORTANT DATES -->
+		<div class="row">
 			<div class="col-md-12">
-				<label class="control-label">Important Dates</label>
-				<table class="table table-condensed">
-					<thead>
-					<tr>
-						<th>Task</th>
-						<th>Date</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr ng-repeat="(key,value) in taskPubComSched.data.importantDates">
-						<td>{{ value[0] }}</td>
-						<td>{{ value[1] }}</td>
-					</tr>
-					</tbody>
-				</table>
+				<div class="form-group">
+					<p class="lead">Important Dates</p>
+					<table class="table table-condensed">
+						<thead>
+						<tr>
+							<th>Task</th>
+							<th>Date</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="(key,value) in taskPubComSched.data.importantDates">
+							<td>{{ value[0] }}</td>
+							<td>{{ value[1] }}</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-			<div class="col-md-12" ng-if="1 == 1"><!-- if EAO user... -->
-				<label class="control-label">Open House</label>
-				<div class="row">
-					<div class="col-md-6">
-						<label class="control-label">Date/Time</label>
-						<datetimepicker ng-model="taskPubComSched.data.openHouseDate" data-datetimepicker-config="{}"/>
+		</div>
+
+		<!-- OPEN HOUSE -->
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-12" ng-if="1 == 1"><!-- if EAO user... -->
+					<p class="lead">Open House</p>
+					<div class="well well-sm">
+						<div class="row">
+							<div class="col-md-6">
+
+								<div class="form-group">
+									<label class="control-label">Date/Time</label>
+									<datetimepicker ng-model="taskPubComSched.data.openHouseDate" data-datetimepicker-config="{}"/>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Location</label>
+									<textarea class="form-control" ng-model="taskPubComSched.data.openHouseLocation"></textarea>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-6">
-						<label class="control-label">Location</label>
-						<textarea class="form-control" ng-model="taskPubComSched.data.openHouseLocation"></textarea>
-					</div>
+
 				</div>
 			</div>
 		</div>
