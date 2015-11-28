@@ -1,7 +1,7 @@
 <section>
 <hr>
 <h3>Select Buckets</h3>
-<a href x-modal-select-items x-all-items="configStream.data.buckets" x-single='false' x-selected-items="configStream.activeRecord.buckets" x-item-name="Buckets" x-callback="configStream.addBuckets">
+<a href x-modal-select-items x-all-items="configStream.data.buckets" x-single='false' x-selected-items="configStream.tree.buckets" x-item-name="Buckets" x-callback="configStream.addBuckets">
     <span ng-if="configStream.activeRecord.buckets.length === 0 || !configStream.activeRecord.buckets">Click here to select</span>
     <span ng-repeat="bucket in configStream.activeRecord.buckets track by $index"><span ng-if="!$first">,&nbsp;</span>{{ bucket.name }}</span>
 </a>
@@ -10,7 +10,7 @@
 <section>
 <hr>
 <h3>Select Phases</h3>
-<a href x-modal-select-items x-all-items="configStream.data.phases" x-single='false' x-selected-items="configStream.activeRecord.phases" x-item-name="Phases" x-callback="configStream.addPhases">
+<a href x-modal-select-items x-all-items="configStream.data.phases" x-single='false' x-selected-items="configStream.tree.phases" x-item-name="Phases" x-callback="configStream.addPhases">
     <span ng-if="configStream.activeRecord.phases.length === 0 || !configStream.activeRecord.phases">Click here to select</span>
     <span ng-repeat="phase in configStream.activeRecord.phases track by $index"><span ng-if="!$first">,&nbsp;</span>{{ phase.name }}</span>
 </a>

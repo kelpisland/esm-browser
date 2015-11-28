@@ -26,15 +26,16 @@
 			{'field': 'createDate', 'name':'Date Created'},			
 		];
 
-		$scope.$watch('filter', function() {
-			al.activityFilterStatus = $scope.filter;
+		$scope.$watch('project', function(newValue) {
+			if (newValue) {
+				al.activities = newValue.activities;
+			}
 		});
 
-		//
-		// Get Project Activity
-		Activity.getProjectActivities({id: $scope.projectId}).then(function(res) {
-			al.activities = res.data;
+		$scope.$watch('filter', function(newValue) {
+			al.activityFilterStatus = newValue;
 		});
+
     }
     // -----------------------------------------------------------------------------------
 	//

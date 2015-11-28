@@ -29,7 +29,7 @@
 		vm.artifactView = 'inprogress';
 		//
 		// Get Project
-		Project.getLocalProject({id: $stateParams.id}).then(function(res) {
+		Project.getProject({id: $stateParams.id}).then(function(res) {
 			vm.project = res.data;
 		});
 
@@ -82,7 +82,7 @@
 		Project.getProject({id: $state.params.id}).then( function(res) {
 			console.log('get project', res.data);
 			projectIntake.project = res.data;
-		})
+		});
 
 		Configuration.getStreams().then(function(res){
 			projectIntake.streams = res.data;

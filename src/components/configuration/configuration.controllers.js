@@ -72,12 +72,18 @@
             configStream.tree.requirementsByTask = {};
             configStream.tree.requirementsByMilestone = {};
 
+            configStream.tree.buckets = [];
+            configStream.tree.phases = [];
+
+            _.each(configStream.activeRecord.buckets, function(bucket) {
+                configStream.tree.buckets.push(bucket);           
+            });
 
             _.each(configStream.activeRecord.phases, function(phase) {
+                configStream.tree.phases.push(phase);
                 configStream.tree.milestonesByPhase[phase._id] = [];
                 configStream.tree.activitiesByPhase[phase._id] = [];               
             });
-
 
             // process milestones
             _.each(configStream.activeRecord.milestones, function(milestone) {
@@ -138,8 +144,8 @@
         // add the new phases to the stream.
         configStream.addBuckets = function() {
             // add a holder for each milestone and activity
-            var i = configStream.activeRecord.buckets.length;
-            _.each(configStream.activeRecord.buckets, function(bucket) {
+            var i = configStream.tree.buckets.length;
+            _.each(configStream.tree.buckets, function(bucket) {
                 i--;
                 if( !_.some( configStream.activeRecord.buckets, {'_id': bucket._id}) ) {
                     Configuration.addBucketToStream(configStream.activeRecord._id, bucket._id).then( function(res) {
@@ -150,11 +156,12 @@
         }
 
         // add the new phases to the stream.
-        configStream.addPhases = function() {
+        configStream.addPhases = function(newItems) {
             // add a holder for each milestone and activity
-            var i = configStream.activeRecord.phases.length;
-            _.each(configStream.activeRecord.phases, function(phase) {
+            var i = configStream.tree.phases.length;
+            _.each(configStream.tree.phases, function(phase) {
                 i--;
+                console.log( 'add phase', phase, configStream.activeRecord.phases, !_.some( configStream.activeRecord.phases, {'_id': phase._id}) )
                 if( !_.some( configStream.activeRecord.phases, {'_id': phase._id}) ) {
                     Configuration.addPhaseToStream(configStream.activeRecord._id, phase._id).then( function(res) {
                         if (i === 0) reloadStream();
@@ -165,9 +172,8 @@
 
         // add the new milestones to the stream phases.
         configStream.milestonesToPhase = function() {
-            
             var i = 0;
-            _.each(configStream.activeRecord.phases, function(phase) {
+            _.each(configStream.tree.phases, function(phase) {
                 i += configStream.tree.milestonesByPhase[phase._id].length;
                 _.each(configStream.tree.milestonesByPhase[phase._id], function(milestone) {
                     i--;
@@ -182,10 +188,10 @@
         };
 
         // add the new activities to the stream phase.
-        configStream.activitiesToPhase = function() {
+        configStream.activitiesToPhase = function(newItems) {
             var i = 0;
             _.each(configStream.activeRecord.phases, function(phase) {
-                i += configStream.tree.milestonesByPhase[phase._id].length;
+                i += configStream.tree.activitiesByPhase[phase._id].length;
                 _.each(configStream.tree.activitiesByPhase[phase._id], function(activity) {
                     i--;
                     if( !_.some( configStream.activeRecord.activities, {'_id': activity._id}) ) {

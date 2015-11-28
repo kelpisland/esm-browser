@@ -601,9 +601,9 @@
 						},
 						size: 'lg'
 					});
-					modalSelectItems.result.then(function () {
+					modalSelectItems.result.then(function (newItems) {
 						if (scope.callback) {
-							scope.callback(scope.selectedItems);
+							scope.callback(newItems);
 						}
 					}, function () {});
 				});

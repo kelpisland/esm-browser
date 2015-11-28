@@ -58,7 +58,8 @@
             controllerAs: 'actTasks',
 			scope : {
              	project: '=',
-                activity: '='
+                activity: '=',
+                tasks: '='
 			}
         };
         return directive;
@@ -78,7 +79,8 @@
             controllerAs: 'actProcs',
 			scope : {
              	project: '=',
-                activity: '='
+                activity: '=',
+                tasks: '='                
 			}
         };
         return directive;

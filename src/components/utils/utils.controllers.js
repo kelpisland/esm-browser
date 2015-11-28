@@ -365,6 +365,8 @@
     function controllerModalSelectItems($modalInstance, rAllItems, rSelectedItems, rItemName, rSingle) { 
 		var selectItems = this;
 
+		console.log('selected items', rSelectedItems);
+
 		// constrain selection to just one.  Directive needs to have x-single=true
 		selectItems.modeSingle = rSingle;
 
@@ -380,6 +382,7 @@
 			} else {
 				selectItems.selectedItems.push(item);
 			}
+			console.log('selected add', selectItems.selectedItems);
 		};
 
 		// is the milestone already in the project?
@@ -403,8 +406,9 @@
 		selectItems.cancel = function () { $modalInstance.dismiss('cancel'); };
 		selectItems.ok = function () { 
 			// saving so write the new data.
-			console.log(selectItems.selectedItems, rSelectedItems);
-			$modalInstance.close();
+			console.log('original items', rSelectedItems);
+			console.log('selected items', selectItems.selectedItems);
+			$modalInstance.close(selectItems.selectedItems);
 		};
 	};	
 

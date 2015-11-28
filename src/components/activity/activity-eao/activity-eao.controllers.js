@@ -12,20 +12,19 @@
 	// CONTROLLER: Activity EAO
 	//
     // -----------------------------------------------------------------------------------
-    controllerEAOActivity.$inject = ['$scope', 'logger', '$modal', 'Activity', 'Project', '$stateParams'];
+    controllerEAOActivity.$inject = ['$scope', '$state', '$modal', 'Activity', 'Project', '$stateParams'];
 	//
-	function controllerEAOActivity($scope, logger, $modal, Activity, Project, $stateParams) {
+	function controllerEAOActivity($scope, $state, $modal, Activity, Project, $stateParams) {
 		var actBase = this;
 		//
 		// Get Activity
-
-		Activity.getProjectActivity({id: $stateParams.id}).then(function(res) {
+		Activity.getProjectActivity({id: $state.params.id}).then(function(res) {
 			actBase.activity = res.data;
 			//
 			// Get Project
-			Project.getLocalProject({id: res.data.projectId}).then(function(res) {
+			Project.getProject({id: res.data.project}).then(function(res) {
 				actBase.project = res.data;
-			});			
+			});
 		});
     }
     // -----------------------------------------------------------------------------------
@@ -37,24 +36,29 @@
 	//
 	function controllerEAOActivityDetail($scope) {
 		var actDetail = this;
+		actDetail.tasks = {};
 
-		// actDetail.toggleDocumentFilter = function(idx) {
-		// 	if (actDetail.filteredDocumentsFor === undefined || actDetail.filteredDocumentsFor !== idx) {
-		// 		actDetail.filterDocumentsBy = 'resp1235';
-		// 		actDetail.filteredDocumentsFor = idx;
-		// 	} else {
-		// 		actDetail.filterDocumentsBy = '';
-		// 		actDetail.filteredDocumentsFor = undefined;
-		// 	}
-		// }
+		var getTasks = function() {
+			if (actDetail.activity && actDetail.project) {
+				_.each(actDetail.project.tasks, function(task) {
+					if (task.activity === actDetail.activity._id) {
+						actDetail.tasks[task._id] = task;
+					}
+				});
+				console.log('task list', actDetail.tasks);
+			}
+		}
 
 		$scope.$watch('activity', function(newValue) {
 			actDetail.activity = newValue;
+			getTasks();
 		});
 		
 		$scope.$watch('project', function(newValue) {
 			actDetail.project = newValue;
+			getTasks();
 		});
+
     }
     // -----------------------------------------------------------------------------------
 	//
@@ -66,6 +70,11 @@
 	function controllerEAOActivityTasks($scope, $rootScope, $filter) {
 		var actTasks = this;
 		actTasks.form = {};
+		actTasks.tasks = {};
+
+		$scope.$watch('tasks', function(newValue) {
+			actTasks.tasks = newValue;
+		});
 
 		$scope.$watch('activity', function(newValue) {
 			actTasks.activity = newValue;
@@ -77,9 +86,11 @@
 
 		// add new tasks or processes when a click or event is sent to this controller
 		actTasks.updateTaskList = function(item, project, idx) {
-			console.log(idx);
-			item.currentStatusTitle = item.statusValues[idx].title;
 
+			if (item.statusValues) {
+				item.currentStatusTitle = item.statusValues[idx].title;
+			}
+			console.log(item.processCode);
 			// Show any other processes
 			if (item.processCode) {
 				$rootScope.$broadcast('taskAddProcess', {'procCode': item.processCode, 'item': item, 'project': project});
@@ -153,9 +164,15 @@
 
 		// key the task to the originating item so we can have multiple instances of the same panel
 		$rootScope.$on('taskAddProcess', function(event, args) {
-			//var newKey = (args.item._id + '_' + args.procCode);
-			//actProcs.process = {'anchor': newKey, 'tmpl': _.kebabCase('tmpl-' + args.procCode), 'item':args.item, 'project':args.project};
+			console.log(args);
+			var newKey = (args.item._id + '_' + args.procCode);
+			actProcs.process = {'anchor': newKey, 'tmpl': _.kebabCase('tmpl-' + args.procCode), 'item':args.item, 'project':args.project};
  		});
+
+
+		$scope.$watch('tasks', function(newValue) {
+			actProcs.tasks = newValue;
+		});
 
 		$scope.$watch('activity', function(newValue) {
 			actProcs.activity = newValue;
