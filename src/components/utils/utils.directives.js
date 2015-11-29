@@ -6,6 +6,7 @@
         .directive('tmplQuickLinks', directiveQuickLinks)
         .directive('tmplRecentActivity', directiveRecentNews)
         .directive('modalAddPublicComment', directiveModalAddPublicComment)
+        .directive('modalDatePicker', directiveModalDatePicker)
         .directive('centerVertical', directiveCenterVertical)
         .directive('countdownClock',directiveCountdownClock)
         .directive('panelSort',directivePanelSort)
@@ -611,6 +612,44 @@
         };
         return directive;
     }
-
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Date Pickerwindow
+	//
+    // -----------------------------------------------------------------------------------
+    directiveModalDatePicker.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalDatePicker($modal) {
+        var directive = {
+            restrict:'A',
+            scope: {
+            	selectedDate: '=',
+            	title: '@'
+            },
+			link : function(scope, element, attrs) {
+				element.on('click', function() {
+					var modalAddComment = $modal.open({
+						animation: true,
+						templateUrl: 'components/utils/partials/modal-date-picker.html',
+						controller: 'controllerModalDatePicker',
+						controllerAs: 'modalDatePick',
+						size: 'md',
+						resolve: {
+			            	rChosenDate: function() {
+			            		return scope.selectedDate;
+            				},
+            				rTitle: function() {
+            					return scope.title;
+            				}
+						}
+					});
+					modalAddComment.result.then(function (chosenDate) {
+						scope.selectedDate = chosenDate;
+					}, function () {});
+				});
+			}
+        };
+        return directive;
+    }
 
 })();

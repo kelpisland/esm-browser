@@ -1,23 +1,21 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		{{ taskPubComVet.item.title }} {{ taskPubComVet.item.value}}
+		Public Comments Vetting: {{ taskPubComVet.task.name }} <em class="small">{{ taskPubComVet.task.currentStatusTitle }}</em>
 	</div>
 	<div class="panel-body">
 
 		<!-- START/END DATE -->
-		<div class="well well-sm">
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="form-group">
-						<label class="control-label">Start Date</label>
-						<input type="date" class="form-control" ng-model="taskPubComVet.data.startDate"/>
-					</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label">Start Date</label>
+					<input type="date" class="form-control" ng-model="taskPubComVet.data.startDate"/>
 				</div>
-				<div class="col-sm-6">
-					<div class="form-group">
-						<label class="control-label">End Date</label>
-						<input type="date" class="form-control" ng-model="taskPubComVet.data.endDate"/>
-					</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label">End Date</label>
+					<input type="date" class="form-control" ng-model="taskPubComVet.data.endDate"/>
 				</div>
 			</div>
 		</div>
@@ -25,13 +23,8 @@
 		<!-- SCOPE/TOPIC TABLE -->
 		<div class="row">
 				<div class="col-md-12">
-					<p class="lead">Scope/Topic</p>
+					<h3>Scope / Topics</h3>
 					<table class="table table-condensed">
-						<thead>
-						<tr>
-							<th>Table Head</th>
-						</tr>
-						</thead>
 						<tbody>
 						<tr ng-repeat="(key,value) in taskPubComVet.data.scopeTopics">
 							<td>{{ value }}</td>
@@ -83,20 +76,25 @@
 			<div class="form-group">
 				<div class="col-md-12" ng-if="1 == 1"><!-- if EAO user... -->
 					<p class="lead">Open House</p>
-					<div class="well well-sm">
+					
 						<div class="row">
 							<div class="col-md-6">
-
-								<div class="form-group">
-									<label class="control-label">Date/Time</label>
-									<datetimepicker ng-model="taskPubComVet.data.openHouseDate" data-datetimepicker-config="{}"/>
+								<div class="well well-sm">
+									<div class="form-group">
+										<label class="control-label">Date/Time</label>
+										<input type="text" class="form-control text-center" ng-model="taskPubComVet.data.openHouseDate" ng-disabled="1"/>
+										<button x-modal-date-picker x-selected-date="taskPubComVet.data.openHouseDate">Date</button>
+										<div class="input-group-addon">.00</div>
+									</div>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="form-group">
-									<label class="control-label">Location</label>
-									<textarea class="form-control" ng-model="taskPubComVet.data.openHouseLocation"></textarea>
-								</div>
+								<div class="well well-sm">
+									<div class="form-group">
+										<label class="control-label">Location</label>
+										<textarea class="form-control" ng-model="taskPubComVet.data.openHouseLocation"></textarea>
+									</div>
+								</div>									
 							</div>
 						</div>
 					</div>

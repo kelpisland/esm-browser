@@ -19,7 +19,7 @@
 			value: "Value"
 		};
 		taskPubComSched.data = {
-			scopeTopics: [ 'value 1','value 2'],
+			scopeTopics: ['value 1','value 2'],
 			importantDates: [
 				['row 1 col 1', 'row 1 col 2'],
 				['row 2 col 1', 'row 2 col 2'],

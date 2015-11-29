@@ -14,7 +14,8 @@
         .controller('controllerRequirementChecklist', controllerRequirementChecklist)
         .controller('controllerModalUserList', controllerModalUserList)
         .controller('controllerModalUserContactInfo', controllerModalUserContactInfo)
-        .controller('controllerModalSelectItems', controllerModalSelectItems);
+        .controller('controllerModalSelectItems', controllerModalSelectItems)
+        .controller('controllerModalDatePicker', controllerModalDatePicker);
         
     // -----------------------------------------------------------------------------------
 	//
@@ -411,5 +412,19 @@
 			$modalInstance.close(selectItems.selectedItems);
 		};
 	};	
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal: Add Anon Comment
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalDatePicker.$inject = ['$modalInstance', 'rChosenDate'];
+	//
+    function controllerModalDatePicker($modalInstance, rChosenDate) { 
+		var modalDatePick = this;
+		
+		modalDatePick.chosenDate = rChosenDate;
 
+		modalDatePick.ok = function () { $modalInstance.close(modalDatePick.chosenDate); };
+		modalDatePick.cancel = function () { $modalInstance.dismiss('cancel'); };
+	};
 })();

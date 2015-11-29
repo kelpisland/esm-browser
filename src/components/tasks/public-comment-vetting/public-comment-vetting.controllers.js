@@ -14,10 +14,7 @@
  	//
 	function controllerTaskPublicCommentVetting($scope, $rootScope) {
 		var taskPubComVet = this;
-		taskPubComVet.item = {
-			title: "Title",
-			value: "Value"
-		};
+
 		taskPubComVet.data = {
 			scopeTopics: [ 'value 1','value 2'],
 			importantDates: [
@@ -42,12 +39,12 @@
 		});
 
 		// get the spec item
-		$scope.$watch('item', function(newValue) {
+		$scope.$watch('task', function(newValue) {
 			// get item for title
+			console.log('task', newValue);
 			if (newValue) {
-				console.log('task', newValue);
-				taskPubComVet.itemId = newValue.item._id;
-				taskPubComVet.item = newValue.item;
+				taskPubComVet.taskId = newValue._id;
+				taskPubComVet.task = newValue;
 			}
 		});
 
