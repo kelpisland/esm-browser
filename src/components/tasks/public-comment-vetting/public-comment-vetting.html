@@ -4,103 +4,43 @@
 	</div>
 	<div class="panel-body">
 
-		<!-- START/END DATE -->
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label class="control-label">Start Date</label>
-					<input type="date" class="form-control" ng-model="taskPubComVet.data.startDate"/>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label class="control-label">End Date</label>
-					<input type="date" class="form-control" ng-model="taskPubComVet.data.endDate"/>
-				</div>
-			</div>
-		</div>
-
-		<!-- SCOPE/TOPIC TABLE -->
-		<div class="row">
-				<div class="col-md-12">
-					<h3>Scope / Topics</h3>
-					<table class="table table-condensed">
-						<tbody>
-						<tr ng-repeat="(key,value) in taskPubComVet.data.scopeTopics">
-							<td>{{ value }}</td>
-						</tr>
-						<tr ng-if="!taskPubComVet.data.showScopeTopicAddButton">
-							<td>
-								<div class="form-group">
-								<textarea class="form-control" ng-model="taskPubComVet.data.newScopeTopic"></textarea>
-								</div>
-								<div class="text-right">
-									<button class="btn btn-success" ng-click="addRowToScopeTopics()">OK</button>
-									<button class="btn btn-default" ng-click="taskPubComVet.data.showScopeTopicAddButton=true">Cancel</button>
-								</div>
-							</td>
-						</tr>
-						<tr ng-if="taskPubComVet.data.showScopeTopicAddButton">
-							<td><button class="btn btn-success pull-right" ng-click="taskPubComVet.data.showScopeTopicAddButton=false">Add</button></td>
-						</tr>
-						</tbody>
-					</table>
-				</div>
-		</div>
-
-		<!-- IMPORTANT DATES -->
-		<div class="row">
-			<div class="col-md-12">
-				<div class="form-group">
-					<p class="lead">Important Dates</p>
-					<table class="table table-condensed">
-						<thead>
-						<tr>
-							<th>Task</th>
-							<th>Date</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr ng-repeat="(key,value) in taskPubComVet.data.importantDates">
-							<td>{{ value[0] }}</td>
-							<td>{{ value[1] }}</td>
-						</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-
-		<!-- OPEN HOUSE -->
-		<div class="row">
+		<!-- COMMENT -->
+		<div ng-if="taskPubComVet.data.showComment">
+			<h3>Comment</h3>
 			<div class="form-group">
-				<div class="col-md-12" ng-if="1 == 1"><!-- if EAO user... -->
-					<p class="lead">Open House</p>
-					
-						<div class="row">
-							<div class="col-md-6">
-								<div class="well well-sm">
-									<div class="form-group">
-										<label class="control-label">Date/Time</label>
-										<input type="text" class="form-control text-center" ng-model="taskPubComVet.data.openHouseDate" ng-disabled="1"/>
-										<button x-modal-date-picker x-selected-date="taskPubComVet.data.openHouseDate">Date</button>
-										<div class="input-group-addon">.00</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="well well-sm">
-									<div class="form-group">
-										<label class="control-label">Location</label>
-										<textarea class="form-control" ng-model="taskPubComVet.data.openHouseLocation"></textarea>
-									</div>
-								</div>									
-							</div>
-						</div>
-					</div>
+				<label class="control-label">Author</label>
+				<p>{{ taskPubComVet.data.comment.author }}</p>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Date</label>
+				<p>{{ taskPubComVet.data.comment.date }}</p>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Comment</label>
+				<p>{{ taskPubComVet.data.comment.text }}</p>
+			</div>
 
-				</div>
+			<div class="text-right">
+				<button class="btn btn-danger" ng-click="flagComment()"><span class="glyphicon glyphicon-flag"></span> Inappropriate</button>
+				<button class="btn btn-success" ng-click="vetComment()"><span class="glyphicon glyphicon-ok"></span> OK</button>
+			</div>
+			<hr>
+		</div>
+
+		<!-- INAPPROPRIATE COMMENT FORM -->
+
+		<div ng-if="taskPubComVet.data.showInappropriateCommentForm">
+			<h3>Inappropriate Comment</h3>
+			<div class="form-group">
+				<label class="control-label">Coment</label>
+				<textarea class="form-control" ng-model="taskPubComVet.data.comment.text"></textarea>
+			</div>
+			<div class="text-right">
+				<button class="btn btn-success" ng-click="vetComment()"><span class="glyphicon glyphicon-ok"></span> Accept Edit</button>
+				<button class="btn btn-danger" ng-click="deleteComment()"><span class="glyphicon glyphicon-trash"></span> Delete Comment</button>
 			</div>
 		</div>
+
+
 	</div>
 </div>
