@@ -7,7 +7,9 @@
         .filter('kebab', filterKebab)
 		.filter('contains', filterContains)
 		.filter('projectBucketNotComplete', filterProjectBucketNotComplete)
-		.filter('projects', filterProjects);
+		.filter('projects', filterProjects)
+		.filter('isInTheFuture', filterIsInTheFuture)
+		.filter('isInThePast', filterIsInThePast);		
 
     // -----------------------------------------------------------------------------------
 	//
@@ -85,4 +87,33 @@
 			return output;
 		}
     }    
+    // -----------------------------------------------------------------------------------
+	//
+	// FILTER: Is in the future
+	//
+    // -----------------------------------------------------------------------------------
+    filterIsInTheFuture.$inject = [];
+    /* @ngInject */
+    // Just take it easy and you'll be fine... and be careful in the future.
+    function filterIsInTheFuture() {
+		return function(input) {
+			var today = moment();
+			return input > today;
+		}
+    }   
+    // -----------------------------------------------------------------------------------
+	//
+	// FILTER: Is in the future
+	//
+    // -----------------------------------------------------------------------------------
+    filterIsInThePast.$inject = [];
+    /* @ngInject */
+    // So tell me Future Boy, who's President of the United States in 1985?
+    function filterIsInThePast() {
+		return function(input) {
+			var today = moment();
+			return input < today;
+		}
+    }   
+
 })();

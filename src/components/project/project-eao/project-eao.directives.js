@@ -7,10 +7,7 @@
         .directive('tmplEaoProjectNew', directiveEAOProjectNew)
         .directive('tmplEaoProjectIntake', directiveEAOProjectIntake)
         .directive('modalProjectEdit', directiveModalProjectEdit)
-		.directive('modalProjectEditPlanMilestones', directiveModalProjectEditPlanMilestones)
-		.directive('modalProjectEditPlanSchedule', directiveModalProjectEditPlanSchedule)
-		.directive('modalProjectEditPlanActivities', directiveModalProjectEditPlanActivities)     
-		.directive('modalProjectEditPlanArtifacts', directiveModalProjectEditPlanArtifacts);
+		.directive('modalProjectEditPlanSchedule', directiveModalProjectEditPlanSchedule);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -65,18 +62,15 @@
 	// DIRECTIVE: Modal Edit Project
 	//
     // -----------------------------------------------------------------------------------
-    directiveModalProjectEdit.$inject = ['$modal', 'Project'];
+    directiveModalProjectEdit.$inject = ['$modal'];
     /* @ngInject */
-    function directiveModalProjectEdit($modal, Project) {
+    function directiveModalProjectEdit($modal) {
         var directive = {
             restrict:'A',
             scope : {
             	project: '='
             },
 			link : function(scope, element, attrs) {
-
-				var originalProject = angular.copy(scope.project);
-
 				element.on('click', function() {
 					var modalMilestoneView = $modal.open({
 						animation: true,
@@ -90,13 +84,7 @@
 						},
 						size: 'lg'
 					});
-					modalMilestoneView.result.then(function (project) {
-						// on ok, save new
-						Project.saveProject(scope.project);
-					}, function () {
-						// on cancel, restore original
-						scope.project = angular.copy(originalProject);
-					});
+					modalMilestoneView.result.then(function () {}, function () {});
 				});
 			}
         };
@@ -107,34 +95,34 @@
 	// DIRECTIVE: Modal Edit Project Phases
 	//
     // -----------------------------------------------------------------------------------
-    directiveModalProjectEditPlanMilestones.$inject = ['$modal'];
-    /* @ngInject */
-    function directiveModalProjectEditPlanMilestones($modal) {
-        var directive = {
-            restrict:'A',
-            scope : {
-            	project: '='
-            },
-			link : function(scope, element, attrs) {
-				element.on('click', function() {
-					var modalMilestoneView = $modal.open({
-						animation: true,
-						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-milestones.html',
-						controller: 'controllerModalProjectEditPlanMilestones',
-						controllerAs: 'pestag',
-						resolve: {
-							rProject: function () {
-								return scope.project;
-							}
-						},
-						size: 'lg'
-					});
-					modalMilestoneView.result.then(function () {}, function () {});
-				});
-			}
-        };
-        return directive;
-    }
+   //  directiveModalProjectEditPlanMilestones.$inject = ['$modal'];
+   //  /* @ngInject */
+   //  function directiveModalProjectEditPlanMilestones($modal) {
+   //      var directive = {
+   //          restrict:'A',
+   //          scope : {
+   //          	project: '='
+   //          },
+			// link : function(scope, element, attrs) {
+			// 	element.on('click', function() {
+			// 		var modalMilestoneView = $modal.open({
+			// 			animation: true,
+			// 			templateUrl: 'components/project/project-eao/partials/modal-edit-plan-milestones.html',
+			// 			controller: 'controllerModalProjectEditPlanMilestones',
+			// 			controllerAs: 'pestag',
+			// 			resolve: {
+			// 				rProject: function () {
+			// 					return scope.project;
+			// 				}
+			// 			},
+			// 			size: 'lg'
+			// 		});
+			// 		modalMilestoneView.result.then(function () {}, function () {});
+			// 	});
+			// }
+   //      };
+   //      return directive;
+   //  }
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Modal Edit Project Phases
@@ -173,67 +161,67 @@
 	// DIRECTIVE: Modal Edit Project Activities
 	//
     // -----------------------------------------------------------------------------------
-    directiveModalProjectEditPlanActivities.$inject = ['$modal'];
-    /* @ngInject */
-    function directiveModalProjectEditPlanActivities($modal) {
-        var directive = {
-            restrict:'A',
-            scope : {
-            	project: '='
-            },
-			link : function(scope, element, attrs) {
-				element.on('click', function() {
-					var modalDocView = $modal.open({
-						animation: true,
-						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-activities.html',
-						controller: 'controllerModalProjectEditPlanActivities',
-						controllerAs: 'peact',
-						resolve: {
-							rProject: function () {
-								return scope.project;
-							}
-						},
-						size: 'lg'
-					});
-					modalDocView.result.then(function () {}, function () {});
-				});
-			}
-        };
-        return directive;
-    }
+   //  directiveModalProjectEditPlanActivities.$inject = ['$modal'];
+   //  /* @ngInject */
+   //  function directiveModalProjectEditPlanActivities($modal) {
+   //      var directive = {
+   //          restrict:'A',
+   //          scope : {
+   //          	project: '='
+   //          },
+			// link : function(scope, element, attrs) {
+			// 	element.on('click', function() {
+			// 		var modalDocView = $modal.open({
+			// 			animation: true,
+			// 			templateUrl: 'components/project/project-eao/partials/modal-edit-plan-activities.html',
+			// 			controller: 'controllerModalProjectEditPlanActivities',
+			// 			controllerAs: 'peact',
+			// 			resolve: {
+			// 				rProject: function () {
+			// 					return scope.project;
+			// 				}
+			// 			},
+			// 			size: 'lg'
+			// 		});
+			// 		modalDocView.result.then(function () {}, function () {});
+			// 	});
+			// }
+   //      };
+   //      return directive;
+   //  }
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Modal Edit Project Artifacts
 	//
     // -----------------------------------------------------------------------------------
-    directiveModalProjectEditPlanArtifacts.$inject = ['$modal'];
-    /* @ngInject */
-    function directiveModalProjectEditPlanArtifacts($modal) {
-        var directive = {
-            restrict:'A',
-            scope : {
-            	project: '='
-            },
-			link : function(scope, element, attrs) {
-				element.on('click', function() {
-					var modalDocView = $modal.open({
-						animation: true,
-						templateUrl: 'components/project/project-eao/partials/modal-edit-plan-artifacts.html',
-						controller: 'controllerModalProjectEditPlanArtifacts',
-						controllerAs: 'peart',
-						resolve: {
-							rProject: function () {
-								return scope.project;
-							}
-						},
-						size: 'lg'
-					});
-					modalDocView.result.then(function () {}, function () {});
-				});
-			}
-        };
-        return directive;
-    }
+   //  directiveModalProjectEditPlanArtifacts.$inject = ['$modal'];
+   //  /* @ngInject */
+   //  function directiveModalProjectEditPlanArtifacts($modal) {
+   //      var directive = {
+   //          restrict:'A',
+   //          scope : {
+   //          	project: '='
+   //          },
+			// link : function(scope, element, attrs) {
+			// 	element.on('click', function() {
+			// 		var modalDocView = $modal.open({
+			// 			animation: true,
+			// 			templateUrl: 'components/project/project-eao/partials/modal-edit-plan-artifacts.html',
+			// 			controller: 'controllerModalProjectEditPlanArtifacts',
+			// 			controllerAs: 'peart',
+			// 			resolve: {
+			// 				rProject: function () {
+			// 					return scope.project;
+			// 				}
+			// 			},
+			// 			size: 'lg'
+			// 		});
+			// 		modalDocView.result.then(function () {}, function () {});
+			// 	});
+			// }
+   //      };
+   //      return directive;
+   //  }
 
 
 })();

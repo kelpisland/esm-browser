@@ -423,6 +423,15 @@
 		var modalDatePick = this;
 		
 		modalDatePick.chosenDate = rChosenDate;
+		modalDatePick.showSelector = true;
+
+		modalDatePick.onTimeSet = function() {
+			modalDatePick.showSelector = false;
+		};
+
+		modalDatePick.enableSelector = function() {
+			modalDatePick.showSelector = true;
+		};
 
 		modalDatePick.ok = function () { $modalInstance.close(modalDatePick.chosenDate); };
 		modalDatePick.cancel = function () { $modalInstance.dismiss('cancel'); };

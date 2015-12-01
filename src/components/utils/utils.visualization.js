@@ -21,7 +21,7 @@
 			},
 			link: function(scope, element, attrs) {
 				scope.$watch('percentage', function(newValue) {
-					if (newValue) {
+					if (newValue !== undefined) {
 						console.log(newValue, scope.percentage);
 						var el = $compile('<div class="progress"><div class="progress-bar progress-bar-success" role="progressbar" style="width: ' + newValue + '%;">Est. ' + newValue + '%</div></div>')(scope);
 						element.replaceWith(el);

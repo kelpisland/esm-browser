@@ -8,10 +8,10 @@
 		.controller('controllerEAOProjectNew', controllerEAOProjectNew)
 		.controller('controllerEAOProjectIntake', controllerEAOProjectIntake)
 		.controller('controllerModalProjectEdit', controllerModalProjectEdit)
-		.controller('controllerModalProjectEditPlanMilestones', controllerModalProjectEditPlanMilestones)
-		.controller('controllerModalProjectEditPlanSchedule', controllerModalProjectEditPlanSchedule)
-		.controller('controllerModalProjectEditPlanActivities', controllerModalProjectEditPlanActivities)
-		.controller('controllerModalProjectEditPlanArtifacts', controllerModalProjectEditPlanArtifacts);
+		//.controller('controllerModalProjectEditPlanMilestones', controllerModalProjectEditPlanMilestones);
+		.controller('controllerModalProjectEditPlanSchedule', controllerModalProjectEditPlanSchedule);
+		// .controller('controllerModalProjectEditPlanActivities', controllerModalProjectEditPlanActivities)
+		// .controller('controllerModalProjectEditPlanArtifacts', controllerModalProjectEditPlanArtifacts);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -25,7 +25,7 @@
 		
 		// show activities first
 		vm.mainView = 'activity';
-		vm.activityView = 'open';
+		//vm.activityView = 'all';
 		vm.artifactView = 'inprogress';
 		//
 		// Get Project
@@ -33,10 +33,6 @@
 			vm.project = res.data;
 		});
 
-		// vm.filterActivity = function(filter) {
-		// 	vm.activityView = filter;
-		// 	$scope.$broadcast('filterActivityList', {'filterValue':filter});
-		// };
 
     }
     // -----------------------------------------------------------------------------------
@@ -100,16 +96,22 @@
 	// CONTROLLER: Modal: View Project Schedule
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalProjectEdit.$inject = ['$modalInstance', 'rProject', 'Utils'];
+    controllerModalProjectEdit.$inject = ['$modalInstance', 'rProject', 'Utils', 'Project'];
     //
-    function controllerModalProjectEdit($modalInstance, rProject, Utils) { 
+    function controllerModalProjectEdit($modalInstance, rProject, Utils, Project) { 
 		var projectEdit = this;
 		
 		// set local var to passed project
-		projectEdit.project = rProject;
+		projectEdit.project = angular.copy(rProject);
 
-		projectEdit.cancel = function () { $modalInstance.dismiss('cancel'); };
-		projectEdit.ok = function () { $modalInstance.close(); };
+		projectEdit.cancel = function () {
+			$modalInstance.dismiss('cancel');
+		};
+		projectEdit.ok = function () {
+			rProject = angular.copy(projectEdit.project);
+			Project.saveProject(rProject);
+			$modalInstance.close();
+		};
 	};
     // -----------------------------------------------------------------------------------
 	//
@@ -161,18 +163,29 @@
 	// CONTROLLER: Modal: Edit Project Schedule
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalProjectEditPlanSchedule.$inject = ['$modalInstance', 'rProject'];
-    //
-    function controllerModalProjectEditPlanSchedule($modalInstance, rProject) { 
+	controllerModalProjectEditPlanSchedule.$inject = ['$modalInstance', 'rProject', 'Project'];
+	//
+	function controllerModalProjectEditPlanSchedule($modalInstance, rProject, Project) { 
 		var pesched = this;
 		
+		var original = angular.copy(rProject.milestones);
+
 		// set local var to passed project
 		pesched.project = rProject;
 
-		pesched.cancel = function () { $modalInstance.dismiss('cancel'); };
+		pesched.cancel = function () {
+			pesched.project.milestones = original;
+			$modalInstance.dismiss('cancel');
+		};
 		pesched.ok = function () { 
 			// saving so write the new data.
-			rProject = angular.copy(pesched.project);
+			_.each(pesched.project.milestones, function(milestone) {
+				console.log('this', milestone);
+				if (milestone.changed) {
+					Project.updateMilestone(milestone);
+				}
+			});
+
 			$modalInstance.close();
 		};	
 	};
@@ -181,51 +194,51 @@
 	// CONTROLLER: Modal: Edit Project Activities
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalProjectEditPlanActivities.$inject = ['$scope', '$modalInstance', 'rProject', 'Utils'];
-    //
-    function controllerModalProjectEditPlanActivities($scope, $modalInstance, rProject, Utils) { 
-		var peact = this;
+ //    controllerModalProjectEditPlanActivities.$inject = ['$scope', '$modalInstance', 'rProject', 'Utils'];
+ //    //
+ //    function controllerModalProjectEditPlanActivities($scope, $modalInstance, rProject, Utils) { 
+	// 	var peact = this;
 		
-		$scope._ = _;
+	// 	$scope._ = _;
 
-		// set local var to passed project
-		peact.project = rProject;
+	// 	// set local var to passed project
+	// 	peact.project = rProject;
 
-		peact.cancel = function () { $modalInstance.dismiss('cancel'); };
-		peact.ok = function () { 
-			// saving so write the new data.
-			rProject = angular.copy(peact.project);
-			$modalInstance.close();
-		};
-	};
+	// 	peact.cancel = function () { $modalInstance.dismiss('cancel'); };
+	// 	peact.ok = function () { 
+	// 		// saving so write the new data.
+	// 		rProject = angular.copy(peact.project);
+	// 		$modalInstance.close();
+	// 	};
+	// };
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Modal: Edit Project Components
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalProjectEditPlanArtifacts.$inject = ['$scope', '$modalInstance', 'rProject'];
-    //
-    function controllerModalProjectEditPlanArtifacts($scope, $modalInstance, rProject) { 
-		var peart = this;
+ //    controllerModalProjectEditPlanArtifacts.$inject = ['$scope', '$modalInstance', 'rProject'];
+ //    //
+ //    function controllerModalProjectEditPlanArtifacts($scope, $modalInstance, rProject) { 
+	// 	var peart = this;
 		
-		// set local var to passed project
-		peart.project = rProject;
+	// 	// set local var to passed project
+	// 	peart.project = rProject;
 	
-		$scope.filter = {
-			active: true,
-			value: true,
-			other: false,
-			inactive: false
-		};
+	// 	$scope.filter = {
+	// 		active: true,
+	// 		value: true,
+	// 		other: false,
+	// 		inactive: false
+	// 	};
 
 
-		peart.cancel = function () { $modalInstance.dismiss('cancel'); };
-		peart.ok = function () { 
-			// saving so write the new data.
-			rProject = angular.copy(peart.project);
-			$modalInstance.close();
-		};
-	};
+	// 	peart.cancel = function () { $modalInstance.dismiss('cancel'); };
+	// 	peart.ok = function () { 
+	// 		// saving so write the new data.
+	// 		rProject = angular.copy(peart.project);
+	// 		$modalInstance.close();
+	// 	};
+	// };
 
 	
 	

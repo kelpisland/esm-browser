@@ -22,6 +22,7 @@
 		};
 
 		var getProject = function(req) {
+			console.log('getproject', req.id);
 			return $http({method:'GET',url: SERVERAPI + '/project/' + req.id});
 		};
 
@@ -30,7 +31,7 @@
 		};
 
 		var saveProject = function(req) {
-			return $http({method:'PUT',url: SERVERAPI + '/project/' + req.id, data: req});
+			return $http({method:'PUT',url: SERVERAPI + '/project/' + req._id, data: req});
 		};
 
 
@@ -45,6 +46,11 @@
 
     	var getProjectIntakeQuestions = function(req) {
 			return $http({method:'GET',url: API + '/v1/projectIntakeQuestions'});
+		};
+
+		var updateMilestone = function(req) {
+			console.log('req update milestone', req);
+			return $http({method:'PUT',url: SERVERAPI + '/milestone/' + req._id, data: req});
 		};
 
 
@@ -75,7 +81,8 @@
 			saveProject: saveProject,
 			setProjectStream, setProjectStream,
 			getProjectTypes: getProjectTypes,
-			getProjectIntakeQuestions, getProjectIntakeQuestions
+			getProjectIntakeQuestions, getProjectIntakeQuestions,
+			updateMilestone: updateMilestone
 			// getProjectBuckets: getProjectBuckets,
 			// getProjectTags: getProjectTags,
 			// getProjectResearch: getProjectResearch,

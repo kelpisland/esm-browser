@@ -1,26 +1,42 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		Public Comments Period Scheduling: {{ taskPubComSched.task.name }} <em class="small">{{ taskPubComClassProp.task.currentStatusTitle }}</em>
+		Public Comments Period Scheduling: {{ taskPubComSched.task.name }} <em class="small pull-right form-control-static">{{ taskPubComSched.task.status }}</em>
 	</div>
-	<div class="panel-body">
+
+
+
+	<div class="panel-body" ng-show="taskPubComSched.task.status === 'In Progress'">
 
 		<!-- START/END DATE -->
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label class="control-label">Start Date</label>
-					<input type="date" class="form-control" ng-model="taskPubComSched.data.startDate"/>
+					<div class="input-group">
+						<input type="text" class="form-control text-center" ng-model="taskPubComSched.data.startDate" ng-disabled="1"/>
+						<div x-modal-date-picker x-selected-date="taskPubComSched.data.startDate" class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
+					</div>					
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label class="control-label">End Date</label>
-					<input type="date" class="form-control" ng-model="taskPubComSched.data.endDate"/>
+					<div class="input-group">
+						<input type="text" class="form-control text-center" ng-model="taskPubComSched.data.endDate" ng-disabled="1"/>
+						<div x-modal-date-picker x-selected-date="taskPubComSched.data.endDate" class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
+					</div>					
 				</div>
 			</div>
 		</div>
+		<div class="text-center" ng-if="taskPubComSched.data.startDate | isInTheFuture">
+			<small>Comment Period Starts In</small>
+			<countdown-clock x-end="taskPubComSched.data.startDate"></countdown-clock>
+		</div>
+		<div class="text-center" ng-if="(taskPubComSched.data.startDate | isInThePast) && (taskPubComSched.data.endDate | isInTheFuture)">
+			<small>Comment Period Ends In</small>
+			<countdown-clock x-end="taskPubComSched.data.endDate"></countdown-clock>
+		</div>
 		<hr>
-
 		<!-- SCOPE/TOPIC TABLE -->
 		<div class="row">
 			<div class="col-md-12">
@@ -49,62 +65,168 @@
 			</div>
 		</div>
 		<hr>
-
 		<!-- IMPORTANT DATES -->
-		<div class="row">
+		<div class="row" ng-show="taskPubComSched.data.startDate">
 			<div class="col-md-12">
 				<div class="form-group">
 					<h3>Important Dates</h3>
 					<table class="table table-condensed">
 						<thead>
-						<tr>
-							<th>Task</th>
-							<th>Date</th>
-						</tr>
+							<tr>
+								<th>Task</th>
+								<th>Date</th>
+							</tr>
 						</thead>
 						<tbody>
-						<tr ng-repeat="(key,value) in taskPubComSched.data.importantDates">
-							<td>{{ value[0] }}</td>
-							<td>{{ value[1] }}</td>
-						</tr>
+							<tr>
+								<td>Post Ad By</td>
+								<td>{{ taskPubComSched.data.startDate | amSubtract : '7' : 'days' | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a' }}</td>
+							</tr>
+							<tr>
+								<td>Provide Information By</td>
+								<td>{{ taskPubComSched.data.startDate | amSubtract : '7' : 'days' | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a' }}</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
-		<hr>
-
+		<hr ng-show="taskPubComSched.data.startDate">		
 		<!-- OPEN HOUSE -->
 		<div class="row">
 			<div class="form-group">
 				<div class="col-md-12" ng-if="1 == 1"><!-- if EAO user... -->
 					<h3>Open House</h3>
-					
-						<div class="row">
-							<div class="col-md-6">
-								<div class="well well-sm">
-									<div class="form-group">
-										<label class="control-label">Date / Time</label>
-										<div class="input-group">
-											<input type="text" class="form-control text-center" ng-model="taskPubComSched.data.openHouseDate" ng-disabled="1"/>
-											<div x-modal-date-picker x-selected-date="taskPubComSched.data.openHouseDate" class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
-										</div>
-									</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Date / Time</label>
+								<div class="input-group">
+									<input type="text" class="form-control text-center" ng-model="taskPubComSched.data.openHouseDate" ng-disabled="1"/>
+									<div x-modal-date-picker x-selected-date="taskPubComSched.data.openHouseDate" class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="well well-sm">
-									<div class="form-group">
-										<label class="control-label">Location</label>
-										<textarea class="form-control" ng-model="taskPubComSched.data.openHouseLocation"></textarea>
-									</div>
-								</div>									
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Location</label>
+								<textarea class="form-control" ng-model="taskPubComSched.data.openHouseLocation"></textarea>
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+	<div class="panel-body" ng-show="taskPubComSched.task.status !== 'In Progress'">
+
+		<!-- START/END DATE -->
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label">Start Date</label>
+					<div class="input-group">
+						<p class="form-control-static">{{ (taskPubComSched.data.startDate | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a') || 'No date defined' }}</p>
+					</div>					
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label">End Date</label>
+					<p class="form-control-static">{{ (taskPubComSched.data.endDate | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a') || 'No date defined' }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="text-center" ng-if="taskPubComSched.data.startDate | isInTheFuture">
+			<small>Comment Period Starts In</small>
+			<countdown-clock x-end="taskPubComSched.data.startDate"></countdown-clock>
+		</div>
+		<div class="text-center" ng-if="(taskPubComSched.data.startDate | isInThePast) && (taskPubComSched.data.endDate | isInTheFuture)">
+			<small>Comment Period Ends In</small>
+			<countdown-clock x-end="taskPubComSched.data.endDate"></countdown-clock>
+		</div>
+		<hr>
+		<!-- SCOPE/TOPIC TABLE -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Scope / Topics</h3>
+				<table class="table table-condensed">
+					<tbody>
+						<tr ng-repeat="value in taskPubComSched.data.scopeTopics">
+							<td>{{ value }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<hr>
+		<!-- IMPORTANT DATES -->
+		<div class="row" ng-show="taskPubComSched.data.startDate">
+			<div class="col-md-12">
+				<div class="form-group">
+					<h3>Important Dates</h3>
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+								<th>Task</th>
+								<th>Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Post Ad By</td>
+								<td>{{ taskPubComSched.data.startDate | amSubtract : '7' : 'days' | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a' }}</td>
+							</tr>
+							<tr>
+								<td>Provide Information By</td>
+								<td>{{ taskPubComSched.data.startDate | amSubtract : '7' : 'days' | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a' }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<hr ng-show="taskPubComSched.data.startDate">		
+		<!-- OPEN HOUSE -->
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-12" ng-if="1 == 1"><!-- if EAO user... -->
+					<h3>Open House</h3>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Date / Time</label>
+								<div class="input-group">
+									<p class="form-control-static">{{ (taskPubComSched.data.openHouseDate | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a') || 'No date defined' }}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Location</label>
+								<p class="form-control-static">{{ (taskPubComSched.data.openHouseLocation) || 'No date defined' }}</p>
+							</div>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="panel-footer text-right" ng-show="taskPubComSched.task.status === 'In Progress'">
+		<a class="btn btn-default"  href ng-click="taskPubComSched.saveTask()">Save</a>
+		<a class="btn btn-success"  href ng-click="taskPubComSched.completeTask()">Complete</a>
+	</div>
+	<div class="panel-footer text-right" ng-show="taskPubComSched.task.status === 'Not Started'">
+		Please activate this task to make changes.
+	</div>		
+
 </div>

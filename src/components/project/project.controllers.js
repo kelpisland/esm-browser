@@ -162,26 +162,30 @@
 
 		$scope.$watch('project', function(newValue) {
 			// wait for project and get related buckets
-			Project.getProjectBuckets(newValue).then( function(res) {
-				pr.buckets = res.data;
-			});
+			if (newValue) {
+				pr.buckets = newValue.buckets;
+			}
+						
+			// Project.getProjectBuckets(newValue).then( function(res) {
+			// 	pr.buckets = res.data;
+			// });
 
-			Project.getProjectLayers(newValue).then( function(res) {
-				pr.projectLayers = res.data;
-				pr.workSpaceLayers.push({"name":"Project", "layers": res.data});
-			});
+			// Project.getProjectLayers(newValue).then( function(res) {
+			// 	pr.projectLayers = res.data;
+			// 	pr.workSpaceLayers.push({"name":"Project", "layers": res.data});
+			// });
 			
-			Project.getProjectTags(newValue).then( function(res) {
-				pr.projectTags = res.data;
-			});			
+			// Project.getProjectTags(newValue).then( function(res) {
+			// 	pr.projectTags = res.data;
+			// });			
 
-			Project.getProjectResearch(newValue).then( function(res) {
-				pr.projectResearch = res.data;
-			});		
+			// Project.getProjectResearch(newValue).then( function(res) {
+			// 	pr.projectResearch = res.data;
+			// });		
 
-			Project.getProjectRelatedResearch(newValue).then( function(res) {
-				pr.projectRelatedResearch = res.data;
-			});		
+			// Project.getProjectRelatedResearch(newValue).then( function(res) {
+			// 	pr.projectRelatedResearch = res.data;
+			// });		
 
 		});
 

@@ -11,7 +11,7 @@
 						</div>
 
 						<div class='col-sm-4'>
-							<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="projTomb.project.currentPhase">{{ projTomb.project.phases[projTomb.project.currentPhase].name }}</p></div>
+							<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="projTomb.project.currentPhase">{{ projTomb.project.currentPhase | phaseName:projTomb.project.phases }}</p></div>
 						</div>
 
 						<div class='col-sm-4'>
@@ -26,7 +26,7 @@
 						<div class='col-sm-3'>
 							<div><label class="control-label">Type</label><p>{{ projTomb.project.type }}</p></div>
 							<div><label class="control-label">Location</label><p>{{ projTomb.project.location }}</p></div>
-							<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="projTomb.project.currentPhase">{{ projTomb.project.phases[projTomb.project.currentPhase].name }}</p></div>
+							<div><label class="control-label">Current Phase</label><p x-phase-colour x-phase="projTomb.project.currentPhase">{{ projTomb.project.currentPhase | phaseName:projTomb.project.phases }}</p></div>
 							<div><label class="control-label">Estimated Phase Completion</label><p>{{ projTomb.project.dateCurrentPhaseEstimatedEnd | amDateFormat:'MMM Do YYYY' }}</p></div>
 							<div><label class="control-label">Next Phase</label><p x-phase-colour x-phase="projTomb.project.nextPhase">{{ projTomb.project.nextPhase }}</p></div>
 						</div>
@@ -55,12 +55,12 @@
 					
 						<div class='col-sm-6'>
 							<label class="control-label">Overall Progress</label>
-							<tmpl-progress-bar x-percentage="projTomb.project.overallProgress"></tmpl-progress-bar>
+							<tmpl-progress-bar x-percentage="projTomb.project.overallProgress || 0"></tmpl-progress-bar>
 						</div>
 		
 						<div class='col-sm-6'>
 							<label class="control-label">Phase Progress</label>
-							<tmpl-progress-bar x-percentage="projTomb.project.phases[projTomb.project.currentPhase].progress"></tmpl-progress-bar>
+							<tmpl-progress-bar x-percentage="projTomb.project.phases[projTomb.project.currentPhase].progress || 0"></tmpl-progress-bar>
 						</div>					
 					
 					</div>
@@ -83,17 +83,18 @@
 			<div class='panel panel-default panel-project-summary panel-tombstone-menu'>
 
 				<div class='panel-body' ng-if="!projTomb.tombstone">
-					<p><a href x-modal-project-edit		x-project="projTomb.project"><span class='glyphicon glyphicon-pencil'></span> Edit Project</a></p>
-					<p><a href ui-sref="configuration"><span class='glyphicon glyphicon-pencil'></span> System Configuration</a></p>
+					<p><a href x-modal-project-edit-plan-schedule 		x-project="projTomb.project"><span class='glyphicon glyphicon-calendar'></span> Manage Schedule</a></p>
+					<a href x-modal-eao-access							x-project="projTomb.project"><span class='glyphicon glyphicon-user'></span> Manage Access</a>
 				</div>
 
 				<div class='panel-body' ng-if="projTomb.tombstone">
 
-					<p><a href x-modal-eao-project-edit		x-project="projTomb.project"><span class='glyphicon glyphicon-pencil'></span> Edit Project</a></p>
-					<p><a href x-modal-eao-access			x-project="projTomb.project"><span class='glyphicon glyphicon-user'></span> Manage Access</a></p>
+					<p><a href x-modal-project-edit-plan-schedule 		x-project="projTomb.project"><span class='glyphicon glyphicon-calendar'></span> Manage Schedule</a></p>
+					<p><a href x-modal-eao-access						x-project="projTomb.project"><span class='glyphicon glyphicon-user'></span> Manage Access</a></p>
+
 					<hr>
 
-					<p><a href x-modal-project-edit-plan-schedule 	x-project="projTomb.project"><span class='glyphicon glyphicon-calendar'></span> Manage Schedule</a></p>
+					<p><a href x-modal-eao-project-edit		x-project="projTomb.project"><span class='glyphicon glyphicon-pencil'></span> Edit Project</a></p>
 
 					<hr>
 					<p><a href x-modal-manage-documents		x-project="projTomb.project"><span class='glyphicon glyphicon-file'></span> Documents</a></p>
@@ -103,6 +104,10 @@
 					<hr>
 
 					<a href x-modal-view-spatially 			x-project="projTomb.project"><span class='glyphicon glyphicon-globe'></span> View Spatially</a>
+
+					<hr>
+
+					<p><a href ui-sref="configuration"><span class='glyphicon glyphicon-pencil'></span> System Configuration</a></p>
 
 				</div>
 

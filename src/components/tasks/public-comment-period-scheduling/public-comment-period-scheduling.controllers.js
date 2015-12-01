@@ -14,10 +14,7 @@
  	//
 	function controllerTaskPublicCommentPeriodScheduling($scope, $rootScope) {
 		var taskPubComSched = this;
-		taskPubComSched.item = {
-			title: "Title",
-			value: "Value"
-		};
+
 		taskPubComSched.data = {
 			scopeTopics: ['value 1','value 2'],
 			importantDates: [
@@ -42,22 +39,22 @@
 		});
 
 		// get the spec item
-		$scope.$watch('item', function(newValue) {
+		$scope.$watch('task', function(newValue) {
 			// get item for title
 			if (newValue) {
-				console.log('task', newValue);
-				taskPubComSched.itemId = newValue.item._id;
-				taskPubComSched.item = newValue.item;
+				taskPubComSched.taskId = newValue._id;
+				taskPubComSched.task = newValue;
 			}
 		});
 
+		taskPubComSched.saveTask = function() {
+			//save this task
+		};
+
 		taskPubComSched.completeTask = function() {
-			// validate
-			// when ok, broadcast
-			console.log('complete', taskPubComSched.item);
-			taskPubComSched.item.value = 'Complete';
-			$rootScope.$broadcast('resolveItem', {itemId: taskPubComSched.itemId});
-		}
+			taskPubComSched.saveTask();
+			$rootScope.$broadcast('resolveTask', taskPubComSched.task);
+		};
 
     }
 

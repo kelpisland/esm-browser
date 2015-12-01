@@ -3,31 +3,31 @@
     'use strict';
 
     angular.module('app.tasks')
-        .run( configTaskPublicCommentVetting )
-		.directive('tmplPublicCommentVetting',  directiveTaskPublicCommentVetting);
+        .run( configTaskManageIssues )
+		.directive('tmplManageIssues',  directiveTaskManageIssues);
     // -----------------------------------------------------------------------------------
     //
     // Config: register this task with the UI
     //
     // -----------------------------------------------------------------------------------
-    configTaskPublicCommentVetting.$inject = ['ProcessCodes'];
+    configTaskManageIssues.$inject = ['ProcessCodes'];
     /* @ngInject */
-    function configTaskPublicCommentVetting(ProcessCodes) {
-        ProcessCodes.push('Public Comment Vetting');
-    }        
+    function configTaskManageIssues(ProcessCodes) {
+        ProcessCodes.push('Manage Issues');
+    }
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Task, simple complete
 	//
     // -----------------------------------------------------------------------------------
-    directiveTaskPublicCommentVetting.$inject = [];
+    directiveTaskManageIssues.$inject = [];
     /* @ngInject */
-    function directiveTaskPublicCommentVetting() {
+    function directiveTaskManageIssues() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/tasks/public-comment-vetting/public-comment-vetting.html',
-            controller: 'controllerTaskPublicCommentVetting',
-            controllerAs: 'taskPubComVet',
+            templateUrl: 'components/tasks/manage-issues/manage-issues.html',
+            controller: 'controllerTaskManageIssues',
+            controllerAs: 'taskManageIssues',
             scope: {
             	anchor: '@',
             	task: '=',

@@ -18,7 +18,7 @@
             restrict: 'E',
             templateUrl: 'components/activity/partials/activity-list.html',
             controller: 'controllerActivityList',
-            controllerAs: 'al',
+            controllerAs: 'actList',
 			scope : {
              	project: '=',
                 filter: '='
@@ -38,9 +38,10 @@
             restrict: 'E',
             templateUrl: 'components/activity/partials/activity-item.html',
             controller: 'controllerActivityItem',
-            controllerAs: 'ai',
+            controllerAs: 'actItem',
 			scope : {
-             	activity: '='
+             	activity: '=',
+                project: '='
 			}
         };
         return directive;

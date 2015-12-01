@@ -59,7 +59,8 @@
 			scope : {
              	project: '=',
                 activity: '=',
-                tasks: '='
+                tasks: '=',
+                task: '='
 			}
         };
         return directive;
@@ -80,7 +81,8 @@
 			scope : {
              	project: '=',
                 activity: '=',
-                tasks: '='                
+                tasks: '=' ,
+                task: '='              
 			}
         };
         return directive;

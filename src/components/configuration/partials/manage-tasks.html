@@ -4,24 +4,20 @@
         <div class="col-sm-8">
             <table class="table table-condensed table-striped table-hover">
                 <thead class="small">
-                    <th width="16%">Code</th>
-                    <th width="16%">Name</th>
-                    <th width="20%">Description</th>
-                    <th width="16%">Status</th>
-                    <th width="16%">Process Code</th>
-                    <th width="16%">Statuses</th>
+                    <th width="25%">Code</th>
+                    <th width="25%">Name</th>
+                    <th width="25%">Description</th>
+                    <th width="25%">Process Code</th>
                 </thead>
                 <tbody>
                 <tr ng-repeat="task in configDataElement.data.tasks" ng-click='configDataElement.editRecord(task)' class="clickable">
                     <td>{{ task.code }}</td>
                     <td>{{ task.name }}</td>
                     <td>{{ task.description }}</td>
-                    <td>{{ task.status }}</td>
                     <td>{{ task.processCode }}</td>
-                    <td><span ng-repeat="status in task.statuses"><br ng-if="!$first">{{ status }}</span></td>
                 </tr>
                 <tr ng-if="configDataElement.data.tasks.length === 0">
-                    <td colspan="6">No tasks defined.</td>
+                    <td colspan="5">No tasks defined.</td>
                 </tr>
                 </tbody>
             </table>
@@ -50,33 +46,11 @@
                         <textarea class="form-control" ng-model="configDataElement.activeRecord.description">{{ configDataElement.activeRecord.description }}</textarea>
                     </div>
 
-
-                    <div class="form-group">
-                        <label class="control-label">Statuses</label>
-                        <a href x-modal-select-items x-all-items="configDataElement.config.statuses" x-selected-items="configDataElement.activeRecord.statuses" x-item-name="Statuses">
-
-                            <span ng-if="configDataElement.activeRecord.statuses.length === 0 || !configDataElement.activeRecord.statuses">Click here to select</span>
-                            <span ng-repeat="status in configDataElement.activeRecord.statuses"><br ng-if="!$first">{{ status }}</span>
-                        </a>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="control-label">Default Status</label>
-                        <a href x-modal-select-items x-all-items="configDataElement.config.statuses" x-single=true x-selected-items="configDataElement.activeRecord.status" x-item-name="Default Status">
-                            
-                            <span ng-if="configDataElement.activeRecord.status === ''">Click here to select</span>
-                            <span ng-if="configDataElement.activeRecord.status !== ''">{{ configDataElement.activeRecord.status }}</span>
-                        </a>
-                    </div>
-
-
                     <div class="form-group">
                         <label class="control-label">Process Code</label>
                         <select class="form-control" ng-model="configDataElement.activeRecord.processCode" ng-options="(item | kebab) as item for item in configDataElement.processCodes">
                         </select>
                     </div>
-
 
 
                     <div class="form-group" ng-if="configDataElement.activeRecordNew">

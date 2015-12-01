@@ -1,5 +1,5 @@
-<panel-sort x-fields="al.panelSort" x-data="al.activities"></panel-sort>
+<panel-sort x-fields="actList.panelSort" x-data="actList.project.activities"></panel-sort>
 
-<section ng-repeat="act in al.activities | filter:{'status':al.activityFilterStatus}" >
-	<tmpl-activity-item x-activity="act"></tmpl-activity-item>
+<section ng-repeat="act in actList.project.activities | filter:{'status':actList.activityFilterStatus}" >
+	<tmpl-activity-item x-activity="act" x-project="actList.project"></tmpl-activity-item>
 </section>

@@ -30,7 +30,8 @@
             controllerAs: 'taskPubComSched',
             scope: {
             	anchor: '@',
-            	item: '='
+            	task: '=',
+                project: '='
             }
         };
         return directive;

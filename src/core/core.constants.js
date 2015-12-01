@@ -40,7 +40,15 @@
                 'thompson': 'Thompson',
                 'vancouverisland': 'Vancouver Island'
             }
-        )        
+        ) 
+        .constant('TASKSTATUS',
+            [
+                'Not Required',
+                'Not Started',
+                'In Progress',
+                'Complete'
+            ]
+        )
         .value('Global', {
 			user:{name:{}, _id:undefined},
 			public: true
