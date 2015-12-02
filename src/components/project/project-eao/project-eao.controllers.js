@@ -87,6 +87,7 @@
 		projectIntake.setProjectStream = function() {
 			if ((!projectIntake.project.stream || projectIntake.project.stream === '') && projectIntake.newStream) {
 				Project.setProjectStream(projectIntake.project._id, projectIntake.newStream);
+				$state.go('eao.project', {'id':projectIntake.project._id});
 			}
 		};
 
