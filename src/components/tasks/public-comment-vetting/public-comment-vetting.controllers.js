@@ -16,19 +16,26 @@
 		var taskPubComVet = this;
 
 		taskPubComVet.data = {
-			scopeTopics: [ 'value 1','value 2'],
-			importantDates: [
-				['row 1 col 1', 'row 1 col 2'],
-				['row 2 col 1', 'row 2 col 2'],
-			],
-			openHouseLocation: "1234 Main Street \nSmallville, BC",
-			showScopeTopicAddButton: true
+			showComment: true,
+			showInappropriateCommentForm: false,
+			comment: {
+				text: "Hi there, I am a comment.",
+				author: "Some Author",
+				date: "Some Date",
+				status: "pending"
+			}
+
 		};
 
-		$scope.addRowToScopeTopics = function() {
-			taskPubComVet.data.scopeTopics.push(taskPubComVet.data.newScopeTopic);
-			taskPubComVet.data.newScopeTopic = "";
-			taskPubComVet.data.showScopeTopicAddButton = true;
+		$scope.vetComment = function() {
+			alert("vetComment Function Called.");
+		}
+		$scope.flagComment = function() {
+			taskPubComVet.data.showComment = false;
+			taskPubComVet.data.showInappropriateCommentForm = true;
+		}
+		$scope.deleteComment = function() {
+			alert("deleteComment Function Called.");
 		}
 
 		// get the task identifier.  (ID + Task Type)
