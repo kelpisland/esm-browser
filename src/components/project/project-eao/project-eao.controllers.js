@@ -76,7 +76,6 @@
 		});
 
 		Project.getProject({id: $state.params.id}).then( function(res) {
-			console.log('get project', res.data);
 			projectIntake.project = res.data;
 		});
 
@@ -90,6 +89,7 @@
 				$state.go('eao.project', {'id':projectIntake.project._id});
 			}
 		};
+
 
     };    
     // -----------------------------------------------------------------------------------
