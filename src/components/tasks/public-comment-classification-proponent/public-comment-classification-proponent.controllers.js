@@ -19,27 +19,33 @@
 			value: "Value"
 		};
 		taskPubComClassProp.data = {
-			commentText: "Here is some comment text.",
-			author: "Author Name",
-			date: "Comment Date",
-			valueComponents: ['Value Component 1','Value Component 2','Value Component 3'],
-			associations: ['Association 1','Association 2','Association 3'],
-			issues: ['Issue 1','Issue 2','Issue 3'],
 			comments: [
 					{
-						comment: "Comment 1 text",
-						date: "Comment 1 date",
-						author: "Comment 1 author"
+						text: "Comment 1 text",
+						dateTime: "2015-12-04T,19:26:02.756Z",
+						author: "Comment 1 author",
+						status: "In Progress",
+						valueComponents: ['Value Component 1','Value Component 2','Value Component 3'],
+						associations: ['Association 1','Association 2','Association 3'],
+						issues: ['Issue 1','Issue 2','Issue 3'],
 					},
 					{
-						comment: "Comment 2 text",
-						date: "Comment 2 date",
-						author: "Comment 2 author"
+						text: "Comment 2 text",
+						dateTime: "2015-12-04T,19:26:02.756Z",
+						author: "Comment 2 author",
+						status: "Done",
+						valueComponents: ['Value Component 1','Value Component 2','Value Component 3'],
+						associations: ['Association 1','Association 2','Association 3'],
+						issues: ['Issue 1','Issue 2','Issue 3'],
 					},
 					{
-						comment: "Comment 3 text",
-						date: "Comment 3 date",
-						author: "Comment 3 author"
+						text: "Comment 3 text",
+						dateTime: "2015-12-04T,19:26:02.756Z",
+						author: "Comment 3 author",
+						status: "In Progress",
+						valueComponents: ['Value Component 1','Value Component 2','Value Component 3'],
+						associations: ['Association 1','Association 2','Association 3'],
+						issues: ['Issue 1','Issue 2','Issue 3'],
 					},
 				]
 
