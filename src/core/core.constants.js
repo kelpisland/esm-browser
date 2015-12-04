@@ -41,7 +41,7 @@
                 'vancouverisland': 'Vancouver Island'
             }
         ) 
-        .constant('TASKSTATUS',
+        .constant('TASK_STATUS',
             [
                 'Not Required',
                 'Not Started',
@@ -49,6 +49,15 @@
                 'Complete'
             ]
         )
+        .constant('VC_ASSESSMENT_CATEGORIES',
+            [
+                'Environment',
+                'Economic',
+                'Social',
+                'Heritage',
+                'Health'
+            ]
+        )        
         .value('Global', {
 			user:{name:{}, _id:undefined},
 			public: true

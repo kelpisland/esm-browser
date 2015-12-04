@@ -6,7 +6,8 @@
         .directive('tmplEaoActivity', directiveEAOActivity)
         .directive('tmplEaoActivityDetail', directiveEAOActivityDetail)
 		.directive('tmplEaoActivityTasks', directiveEAOActivityTasks)       
-		.directive('tmplEaoActivityProcesses', directiveEAOActivityProcesses);        
+		.directive('tmplEaoActivityProcesses', directiveEAOActivityProcesses)
+        .directive('modalAddCustomTask', directiveModalAddCustomTask);
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Activity EAO
@@ -87,4 +88,39 @@
         };
         return directive;
     }
+
+    // -----------------------------------------------------------------------------------
+    //
+    // DIRECTIVE: Add Custom Task to Activity
+    //
+    // -----------------------------------------------------------------------------------
+    directiveModalAddCustomTask.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalAddCustomTask($modal) {
+        var directive = {
+            restrict:'A',
+            scope : {
+                project: '='
+            },
+            link : function(scope, element, attrs) {
+                element.on('click', function() {
+                    var modalCustomTask = $modal.open({
+                        animation: true,
+                        templateUrl: 'components/activity/partials/modal-add-custom-task.html',
+                        controller: 'controllerModalAddCustomTask',
+                        controllerAs: 'customTask',
+                        resolve: {
+                            rProject: function () {
+                                return scope.project;
+                            }
+                        },
+                        size: 'lg'
+                    });
+                    modalCustomTask.result.then(function () {}, function () {});
+                });
+            }
+        };
+        return directive;
+    }
+
 })();

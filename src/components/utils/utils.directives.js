@@ -5,6 +5,7 @@
     angular.module('app.utils')
         .directive('tmplQuickLinks', directiveQuickLinks)
         .directive('tmplRecentActivity', directiveRecentNews)
+        .directive('kebabThis', directiveKebabThis)
         .directive('modalAddPublicComment', directiveModalAddPublicComment)
         .directive('modalDatePicker', directiveModalDatePicker)
         .directive('centerVertical', directiveCenterVertical)
@@ -55,6 +56,31 @@
             templateUrl: 'components/utils/partials/recent-activity.html',
             controller: 'controllerRecentActivity',
             controllerAs: 'raPanel'
+        };
+        return directive;
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Kebab the name provided
+	//
+    // -----------------------------------------------------------------------------------
+    directiveKebabThis.$inject = ['$filter'];
+    /* @ngInject */
+    function directiveKebabThis($filter) {
+        var directive = {
+            restrict:'A',
+            scope: {
+            	source: '=',
+            	destination: '='
+            },
+			link : function(scope, element, attrs) {
+				element.on('blur', function() {
+					console.log(scope.destination, scope.source)
+		            if (scope.source && (scope.destination === '' || scope.destination === 'code')) {
+		                scope.destination = $filter('kebab')(scope.source);
+		            }
+				});
+			}
         };
         return directive;
     }

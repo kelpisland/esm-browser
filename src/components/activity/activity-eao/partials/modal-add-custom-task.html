@@ -1,0 +1,33 @@
+<div class="modal-header">
+	<h3 class="modal-title">Add a custom task to this activity</h3>
+</div>
+<div class="modal-body">
+
+
+	<div class="form-group">
+	    <label class="control-label">Name</label>
+	    <input class="form-control" type="text" ng-model="customTask.activeRecord.name" ng-blur="customTask.kebabNameToCode()">
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Code</label>
+	    <input class="form-control" type="text" ng-model="customTask.activeRecord.code">
+	</div>
+
+
+	<div class="form-group">
+	    <label class="control-label">Description</label>
+	    <textarea class="form-control" ng-model="customTask.activeRecord.description">{{ customTask.activeRecord.description }}</textarea>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label">Process Code</label>
+	    <select class="form-control" ng-model="customTask.activeRecord.processCode" ng-options="(item | kebab) as item for item in customTask.processCodes">
+	    </select>
+	</div>
+
+
+</div>
+<div class="modal-footer">
+	<button class="btn btn-warning" type="button" ng-click="resRev.cancel()">Close</button>
+</div>

@@ -76,9 +76,9 @@
 	// CONTROLLER: EAO Activity Tasks
 	//
     // -----------------------------------------------------------------------------------
-    controllerEAOActivityTasks.$inject = ['$scope', '$rootScope', '$filter', 'moment', 'Task'];
+    controllerEAOActivityTasks.$inject = ['$scope', '$rootScope', '$filter', 'moment', 'Task', '$modal'];
 	//
-	function controllerEAOActivityTasks($scope, $rootScope, $filter, moment, Task) {
+	function controllerEAOActivityTasks($scope, $rootScope, $filter, moment, Task, $modal) {
 		var actTasks = this;
 		actTasks.form = {};
 		actTasks.tasks = {};
@@ -130,6 +130,9 @@
 
 		};
 
+		actTasks.addCustomTask = function() {
+
+		};
 
     }
     // -----------------------------------------------------------------------------------
