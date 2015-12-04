@@ -19,31 +19,156 @@
 			value: "Value"
 		};
 		taskPubComClassProp.data = {
-			commentText: "Here is some comment text.",
-			author: "Author Name",
-			date: "Comment Date",
-			valueComponents: ['Value Component 1','Value Component 2','Value Component 3'],
-			associations: ['Association 1','Association 2','Association 3'],
-			issues: ['Issue 1','Issue 2','Issue 3'],
+			doneComments: [],
 			comments: [
 					{
-						comment: "Comment 1 text",
-						date: "Comment 1 date",
-						author: "Comment 1 author"
+						text: "Comment 2 text",
+						dateTime: "1428423623006",
+						author: "Comment 2 author",
+						status: "In Progress",
+						valueComponents: [
+							{
+								type: "Value Component",
+								title: "Value Component 1"
+							},
+							{
+								type: "Value Component",
+								title: "Value Component 2"
+							},
+							{
+								type: "Value Component",
+								title: "Value Component 3"
+							}
+						],
+						associations: [
+
+						],
+						issues: [
+							{
+								type: "Issue",
+								title: "Issue 1"
+							},
+							{
+								type: "Issue",
+								title: "Issue 2"
+							},
+							{
+								type: "Issue",
+								title: "Issue 3"
+							}
+						]
 					},
+				{
+					text: "Comment 1 text",
+					dateTime: "1428423623006",
+					author: "Comment 1 author",
+					status: "Done",
+					valueComponents: [
+						{
+							type: "Value Component",
+							title: "Value Component 1"
+						},
+						{
+							type: "Value Component",
+							title: "Value Component 2"
+						}
+					],
+					associations: [
+						{
+							type: "Issue",
+							title: "Issue 1"
+						},
+						{
+							type: "Value Component",
+							title: "Value Component 3"
+						}
+					],
+					issues: [
+						{
+							type: "Issue",
+							title: "Issue 2"
+						},
+						{
+							type: "Issue",
+							title: "Issue 3"
+						}
+					]
+				},
 					{
-						comment: "Comment 2 text",
-						date: "Comment 2 date",
-						author: "Comment 2 author"
-					},
-					{
-						comment: "Comment 3 text",
-						date: "Comment 3 date",
-						author: "Comment 3 author"
+						text: "Comment 3 text",
+						dateTime: "1428423623006",
+						author: "Comment 3 author",
+						status: "In Progress",
+						valueComponents: [
+							{
+								type: "Value Component",
+								title: "Value Component 1"
+							},
+							{
+								type: "Value Component",
+								title: "Value Component 2"
+							},
+							{
+								type: "Value Component",
+								title: "Value Component 3"
+							}
+						],
+						associations: [
+
+						],
+						issues: [
+							{
+								type: "Issue",
+								title: "Issue 1"
+							},
+							{
+								type: "Issue",
+								title: "Issue 2"
+							},
+							{
+								type: "Issue",
+								title: "Issue 3"
+							}
+						]
 					},
 				]
 
 		};
+
+		$scope.addToAssociation = function(type, index) {
+			if (taskPubComClassProp.data.comments[0].status != "Done"){
+				if (type == 'valueComponent') {
+					// copy it in...
+					taskPubComClassProp.data.comments[0].associations.push(taskPubComClassProp.data.comments[0].valueComponents[index]);
+					// and remove it
+					taskPubComClassProp.data.comments[0].valueComponents.splice(index, 1);
+				} else if (type = 'issue') {
+					// copy it in
+					taskPubComClassProp.data.comments[0].associations.push(taskPubComClassProp.data.comments[0].issues[index]);
+					// and remove it
+					taskPubComClassProp.data.comments[0].issues.splice(index, 1);
+				}
+			}
+
+		}
+
+		$scope.removeFromAssociation = function(index) {
+			if (taskPubComClassProp.data.comments[0].status != "Done") {
+				if (taskPubComClassProp.data.comments[0].associations[index].type == 'Value Component') {
+					taskPubComClassProp.data.comments[0].valueComponents.push(taskPubComClassProp.data.comments[0].associations[index]);
+				} else if (taskPubComClassProp.data.comments[0].associations[index].type == 'Issue') {
+					taskPubComClassProp.data.comments[0].issues.push(taskPubComClassProp.data.comments[0].associations[index]);
+				}
+				taskPubComClassProp.data.comments[0].associations.splice(index, 1);
+			}
+		}
+
+		$scope.next = function() {
+			// add this one to the doneComments array
+			taskPubComClassProp.data.doneComments.push(taskPubComClassProp.data.comments[0]);
+			// and remove it from the comments array.
+			taskPubComClassProp.data.comments.splice(0, 1);
+		}
 
 		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('anchor', function(newValue) {

@@ -3,92 +3,110 @@
 		Public Comments Classification: {{ taskPubComClassProp.task.name }} <em class="small">{{ taskPubComClassProp.task.currentStatusTitle }}</em>
 	</div>
 
-		<!-- COMMENT TABLE -->
-		<table class="table table-condensed">
-			<thead>
-				<tr>
-					<th>Comment</th>
-					<th>Date</th>
-				</tr>
-			</thead>
 
 
-			<tfoot>
-				<tr>
-					<td class="text-center" colspan="2">
-				<!-- PAGINATION -->
+	<!-- COMMENT TABLE -->
+	<table class="table table-condensed" ng-if="taskPubComClassProp.data.comments.length > 0">
 
-						<div class="form-group">
-							<div class="btn-group" role="group">
-								<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</button>
-								<button type="button" class="btn btn-default">1</button>
-								<button type="button" class="btn btn-default">2</button>
-								<button type="button" class="btn btn-default">3</button>
-								<button type="button" class="btn btn-default">4</button>
-								<button type="button" class="btn btn-default">5</button>
-								<button type="button" class="btn btn-default">6</button>
-								<button type="button" class="btn btn-default">7</button>
-								<button type="button" class="btn btn-default">8</button>
-								<button type="button" class="btn btn-primary">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+		<tbody>
+		<tr ng-repeat="comment in taskPubComClassProp.data.comments">
+
+			<td colspan="3" ng-if="$first">
+
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+							<label class="control-label">Author</label>
+							<p>{{ comment.author }}</p>
+								</div>
+
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group text-right">
+								<label class="control-label">Date</label>
+								<p>{{ comment.dateTime | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a'  }}</p>
+								</div>
+
+						</div>
+						<div class="col-sm-12">
+							<div class="form-group">
+							<label class="control-label">Comment</label>
+							{{ comment.text }}
 							</div>
 						</div>
-					</td>
-				</tr>
-			</tfoot>
+					</div>
 
-
-			<tbody>
-				<tr ng-repeat="comment in taskPubComClassProp.data.comments">
-
-					<td colspan="2" ng-if="$first">
-
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-sm-12">
-									<label class="control-label">Comment</label>
-									{{ comment.comment }}
-								</div>
-								<div class="col-sm-3">
-									<p>{{ comment.date }}</p>
+					<div class="well well-sm">
+						<div class="row">
+							<div class="col-sm-4">
+								<label class="control-label">Value Components</label>
+								<div class="list-group">
+									<button ng-repeat="(index, button) in comment.valueComponents" type="button" class="list-group-item {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="addToAssociation('valueComponent', index)">{{ button.title }}<span class="glyphicon glyphicon-chevron-right pull-right "></span></button>
 								</div>
 							</div>
-
-							<div class="well well-sm">
-								<div class="row">
-									<div class="col-sm-4">
-										<label class="control-label">Value Components</label>
-										<div class="list-group">
-											<button ng-repeat="button in taskPubComClassProp.data.valueComponents" type="button" class="list-group-item">{{ button }}<span class="glyphicon glyphicon-chevron-right pull-right "></span></button>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<label class="control-label">Association</label>
-										<div class="list-group">
-											<button ng-repeat="button in taskPubComClassProp.data.associations" type="button" class="list-group-item text-center"><span class="center-block">{{ button }}</span></button>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<label class="control-label">Issues</label>
-										<div class="list-group">
-											<button ng-repeat="button in taskPubComClassProp.data.issues" type="button" class="list-group-item text-right"><span class="glyphicon glyphicon-chevron-left pull-left "> </span><span class="pull-right">{{ button }}</span></button>
-										</div>
-									</div>
-									<div class="col-sm-12">
-										<button class="btn btn-success pull-right">Next</button>
-									</div>
+							<div class="col-sm-4">
+								<label class="control-label">Association</label>
+								<div class="list-group">
+									<button ng-repeat="(index, button) in comment.associations" type="button" class="list-group-item text-center {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="removeFromAssociation(index)"><span class="center-block">{{ button.title }}</span></button>
 								</div>
+							</div>
+							<div class="col-sm-4">
+								<label class="control-label">Issues</label>
+								<div class="list-group">
+									<button ng-repeat="(index, button) in comment.issues" type="button" class="list-group-item text-right {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="addToAssociation('issue', index)"><span class="glyphicon glyphicon-chevron-left pull-left "> </span><span class="pull-right">{{ button.title }}</span></button>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<button class="btn btn-success pull-right" ng-click="next()">Next</button>
 							</div>
 						</div>
+					</div>
+				</div>
+			</td>
 
 
-					</td>
+		</tr>
+		</tbody>
+	</table>
 
-					<td ng-if="!$first">{{ comment.comment }}</td>
-					<td ng-if="!$first">{{ comment.date }}</td>
-				</tr>
-			</tbody>
+	<table class="table table-condensed" ng-if="taskPubComClassProp.data.comments.length > 1">
+		<thead>
+		<tr>
+			<th>Comment</th>
+			<th>Date</th>
+			<th>Author</th>
+			<th>Status</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="comment in taskPubComClassProp.data.comments">
+			<td ng-if="!$first">{{ comment.text }}</td>
+			<td ng-if="!$first">{{ comment.dateTime | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a' }}</td>
+			<td ng-if="!$first">{{ comment.author }}</td>
+			<td ng-if="!$first">{{ comment.status }}</td>
+		</tr>
+		</tbody>
+	</table>
 
+	<h3 class="text-center" ng-if="taskPubComClassProp.data.comments.length == 0">No more comments on this page.</h3>
 
-		</table>
+	<div class="panel-footer text-center">
+		<div class="form-group">
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</button>
+				<button type="button" class="btn btn-default">1</button>
+				<button type="button" class="btn btn-default">2</button>
+				<button type="button" class="btn btn-default">3</button>
+				<button type="button" class="btn btn-default">4</button>
+				<button type="button" class="btn btn-default">5</button>
+				<button type="button" class="btn btn-default">6</button>
+				<button type="button" class="btn btn-default">7</button>
+				<button type="button" class="btn btn-default">8</button>
+				<button type="button" class="btn btn-primary">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+			</div>
+		</div>
+	</div>
+
 
 </div>
