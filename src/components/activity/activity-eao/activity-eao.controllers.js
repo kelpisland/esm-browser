@@ -179,6 +179,7 @@
 	//
 	function controllerModalAddCustomTask($modalInstance, ProcessCodes, Configuration, rActivity, rTasks) {
 		var customTask = this;
+
 		
 		customTask.processCodes = ProcessCodes;
 	
@@ -187,13 +188,12 @@
             customTask.activeRecord = res.data;
         });
 
+
 		customTask.ok = function () { 
 
             Configuration.addConfigItem(customTask.activeRecord, 'task').then( function(res) {
             	Configuration.addTaskToActivity(rActivity._id, res.data._id).then( function(res) {
-            		console.log(res.data);
             		rTasks.push(res.data);
-
 					$modalInstance.close();
 				});
             });

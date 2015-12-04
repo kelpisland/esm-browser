@@ -5,7 +5,7 @@
     angular.module('app.project')
     	// Public
         .controller('controllerPublicProject', controllerPublicProject)
-        .controller('ModalAddPublicComment', controllerModalAddComment);
+        .controller('controllerModalAddComment', controllerModalAddComment)
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Public Project Detail
@@ -39,9 +39,8 @@
 		
 		//
 		// Get Project
-		Project.getLocalProject({id: $stateParams.id}).then(function(res) {
+		Project.getProject({id: $stateParams.id}).then(function(res) {
 			vm.project = res.data;
-			console.log(res.data);
 		});
 
     }
@@ -53,11 +52,9 @@
     controllerModalAddComment.$inject = ['$modalInstance'];
 	//
     function controllerModalAddComment($modalInstance) { 
-		var md = this;
-		md.ok = function () { $modalInstance.close(); };
-		md.cancel = function () { $modalInstance.dismiss('cancel'); };
+		var publicComment = this;
+		publicComment.ok = function () { $modalInstance.close(); };
+		publicComment.cancel = function () { $modalInstance.dismiss('cancel'); };
 	};
-	
-	
 	
 })();

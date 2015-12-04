@@ -25,7 +25,7 @@
     function directiveTaskValueComponents() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/tasks/manage-issues/manage-issues.html',
+            templateUrl: 'components/tasks/manage-value-components/manage-value-components.html',
             controller: 'controllerTaskValueComponents',
             controllerAs: 'taskValueComponents',
             scope: {

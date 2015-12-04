@@ -5,7 +5,6 @@
     angular.module('app.utils')
         .controller('controllerQuickLinks', controllerQuickLinks)
 	    .controller('controllerRecentActivity', controllerRecentActivity)   
-        .controller('controllerModalAddComment', controllerModalAddComment)
         .controller('controllerPanelSort', controllerPanelSort)
         .controller('controllerModalResearchDetail', controllerModalResearchDetail)
         .controller('controllerRolesSelect', controllerRolesSelect)
@@ -45,20 +44,6 @@
 			raPanel.recentActivity = res.data;
 		});
     }
-        
-    // -----------------------------------------------------------------------------------
-	//
-	// CONTROLLER: Modal: Add Anon Comment
-	//
-    // -----------------------------------------------------------------------------------
-    controllerModalAddComment.$inject = ['$modalInstance'];
-	//
-    function controllerModalAddComment($modalInstance) { 
-		var md = this;
-		md.ok = function () { $modalInstance.close(); };
-		md.cancel = function () { $modalInstance.dismiss('cancel'); };
-	};
-
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Panel Sort
@@ -361,9 +346,9 @@
 	// CONTROLLER: Modal: View Select Items
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalSelectItems.$inject = ['$modalInstance', 'rAllItems', 'rSelectedItems', 'rItemName', 'rSingle'];
+    controllerModalSelectItems.$inject = ['$modalInstance', 'rAllItems', 'rSelectedItems', 'rItemName', 'rSingle', 'rUnique'];
     //
-    function controllerModalSelectItems($modalInstance, rAllItems, rSelectedItems, rItemName, rSingle) { 
+    function controllerModalSelectItems($modalInstance, rAllItems, rSelectedItems, rItemName, rSingle, rUnique) { 
 		var selectItems = this;
 
 		console.log('selected items', rSelectedItems);
@@ -371,30 +356,41 @@
 		// constrain selection to just one.  Directive needs to have x-single=true
 		selectItems.modeSingle = rSingle;
 
-		// remove a milestone from the temporary list.
-		selectItems.removeItemFromSelection = function(idx) {
-			selectItems.selectedItems.splice(idx, 1);
+		selectItems.refreshSource = function() {
+			if (rUnique) {
+				selectItems.itemList = [];
+				_.each( rAllItems, function(obj) {
+					if (!_.some(selectItems.selectedItems, _.matchesProperty('code', obj.code))) {
+						selectItems.itemList.push(obj);
+					}	
+				});
+			}
 		};
 
-		// add the milestone to the project
+
+
+		// remove an item from the temporary list.
+		selectItems.removeItemFromSelection = function(idx) {
+			selectItems.selectedItems.splice(idx, 1);
+			selectItems.refreshSource();
+		};
+
+		// add the item to the project
 		selectItems.addItemToSelection = function(item) {
 			if (selectItems.modeSingle) {
 				selectItems.selectedItems = [item];
 			} else {
 				selectItems.selectedItems.push(item);
 			}
-			console.log('selected add', selectItems.selectedItems);
+			selectItems.refreshSource();
 		};
 
 		// is the milestone already in the project?
 		selectItems.inSelection = function(item) {
 			return _.includes(selectItems.selectedItems, item);
 		};
-		
-		// TODO: manually sort the milestone list.
-		
+	
 		// set local var to passed project
-		selectItems.itemList = rAllItems || [];
 		selectItems.itemName = rItemName;
 
 		// copy the original values so we can cancel the changes and revert back.
@@ -403,6 +399,10 @@
 		} else {
 			selectItems.selectedItems = rSelectedItems;			
 		}
+
+		selectItems.itemList = rAllItems || [];
+		selectItems.refreshSource();
+
 
 		selectItems.cancel = function () { $modalInstance.dismiss('cancel'); };
 		selectItems.ok = function () { 

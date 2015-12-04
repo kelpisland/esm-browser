@@ -3,7 +3,7 @@
     'use strict';
 
     angular.module('app.documents')
-        .controller('controllerDocumentUploadGeneral', controllerDocumentUploadGeneral)
+        .controller('controllerDocumentUploadGlobal', controllerDocumentUploadGlobal)
         .controller('controllerDocumentList', controllerDocumentList)
 		.controller('controllerModalDocumentViewer', controllerModalDocumentViewer)
 		.controller('controllerModalDocumentBuckets', controllerModalDocumentBuckets);
@@ -15,7 +15,7 @@
     // -----------------------------------------------------------------------------------
     controllerDocumentUploadGeneral.$inject = ['$scope', 'Upload', '$timeout', 'API', 'Document'];
     /* @ngInject */
-    function controllerDocumentUploadGeneral($scope, Upload, $timeout, API, Document) {
+    function controllerDocumentUploadGlobal($scope, Upload, $timeout, API, Document) {
 		var docUpload = this;
 
 		docUpload.fileList = [];

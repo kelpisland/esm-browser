@@ -6,7 +6,6 @@
         .directive('tmplQuickLinks', directiveQuickLinks)
         .directive('tmplRecentActivity', directiveRecentNews)
         .directive('kebabThis', directiveKebabThis)
-        .directive('modalAddPublicComment', directiveModalAddPublicComment)
         .directive('modalDatePicker', directiveModalDatePicker)
         .directive('centerVertical', directiveCenterVertical)
         .directive('countdownClock',directiveCountdownClock)
@@ -75,35 +74,10 @@
             },
 			link : function(scope, element, attrs) {
 				element.on('blur', function() {
-					console.log(scope.destination, scope.source)
 		            if (scope.source && (scope.destination === '' || scope.destination === 'code')) {
 		                scope.destination = $filter('kebab')(scope.source);
+		                scope.$apply();
 		            }
-				});
-			}
-        };
-        return directive;
-    }
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Modal add public comment
-	//
-    // -----------------------------------------------------------------------------------
-    directiveModalAddPublicComment.$inject = ['$modal'];
-    /* @ngInject */
-    function directiveModalAddPublicComment($modal) {
-        var directive = {
-            restrict:'A',
-			link : function(scope, element, attrs) {
-				element.on('click', function() {
-					var modalAddComment = $modal.open({
-						animation: true,
-						templateUrl: 'components/utils/partials/modal-add-public-comment.html',
-						controller: 'controllerModalAddComment',
-						controllerAs: 'md',
-						size: 'md'
-					});
-					modalAddComment.result.then(function () {}, function () {});
 				});
 			}
         };
@@ -603,6 +577,7 @@
             	selectedItems: '=',
             	itemName: '@',
             	single: '=',
+            	unique: '=',
             	callback: '='
 			},
 			link : function(scope, element, attrs) {
@@ -624,7 +599,10 @@
 							},
 							rSingle: function () { //
 								return (scope.single || false);
-							}	
+							},
+							rUnique: function () { //
+								return (scope.unique || false);
+							}								
 						},
 						size: 'lg'
 					});

@@ -10,10 +10,9 @@
 	// CONTROLLER: Task for Simple Complete
 	//
     // -----------------------------------------------------------------------------------
-    controllerTaskValueComponents.$inject = ['$scope', '$rootScope', 'Task', 'Notification', '$q', 'ProcessCodes'];
+    controllerTaskValueComponents.$inject = ['$scope', '$rootScope', 'Task', 'Notification', '$q', 'ProcessCodes', 'Configuration'];
  	//
-	function controllerTaskValueComponents($scope, $rootScope, Task, Notification, $q, ProcessCodes) {
-		
+	function controllerTaskValueComponents($scope, $rootScope, Task, Notification, $q, ProcessCodes, Configuration) {
 
 		var taskValueComponents = this;
 
@@ -24,6 +23,11 @@
 			if (newValue) {
 				taskValueComponents.project = newValue;
 			}
+		});
+
+		Configuration.getBaseConfigItem('bucket').then( function(res) {
+			taskValueComponents.allBuckets = res.data;
+			console.log('all buckets', res.data);
 		});
 
 		$scope.$watch('anchor', function(newValue) {

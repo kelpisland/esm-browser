@@ -4,6 +4,7 @@
 
     angular.module('app.documents')
         .directive('tmplDocumentsUploadGeneral', directiveDocumentsUploadGeneral)
+        .directive('tmplDocumentsUploadClassify', directiveDocumentsUploadClassify)        
         .directive('tmplDocumentsList', directiveDocumentsList)        
         .directive('modalDocumentViewer', directiveModalDocumentViewer)
         .directive('modalDocumentBuckets', directiveModalDocumentBuckets);
@@ -21,12 +22,30 @@
             scope: {
                 project: '='
             },
-            controller: 'controllerDocumentUploadGeneral',
+            controller: 'controllerDocumentUploadGlobal',
             controllerAs: 'docUpload'
         };
 
         return directive;
     }
+    // -----------------------------------------------------------------------------------
+    //
+    // CONTROLLER: Document Upload General
+    //
+    // -----------------------------------------------------------------------------------
+    function directiveDocumentsUploadClassify() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/documents/partials/document-upload-classify.html',
+            scope: {
+                project: '='
+            },
+            controller: 'controllerDocumentUploadGlobal',
+            controllerAs: 'docUpload'
+        };
+
+        return directive;
+    }    
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Document List Table

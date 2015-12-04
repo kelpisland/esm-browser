@@ -27,8 +27,12 @@
         };
 
 
+        var getBaseConfigItem = function(context) {
+            return $http({method:'GET',url: SERVERAPI + '/base/' + context});
+        };
+
+
         var getConfigItem = function(context) {
-            console.log('context', context);
             return $http({method:'GET',url: SERVERAPI + '/' + context});
         };
         var newConfigItem = function(context) {
@@ -80,6 +84,8 @@
             getStreams: getStreams,
             getStream: getStream,
 
+            getBaseConfigItem: getBaseConfigItem,
+            
             getConfigItem: getConfigItem,
             newConfigItem: newConfigItem,
             addConfigItem: addConfigItem,

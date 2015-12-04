@@ -50,15 +50,15 @@
 
 		<div class='col-sm-9'>
 
-			<div class="alert alert-info clickable text-center" x-modal-add-public-comment ng-if="vm.project.commentOpen">
-				<p>Public Comments Open from <strong>{{ vm.project.commentOpen | amDateFormat:'MMM Do, YYYY'}}</strong> to <strong>{{ vm.project.commentClose | amDateFormat:'MMM Do, YYYY' }}</strong></p>
-				<p>Click here to contribute a comment</p>
+			<div class="alert alert-info clickable text-center" x-modal-add-public-comment ng-if="vm.project.dateCommentsOpen">
+				<p>Public Comments Open from <strong>{{ vm.project.dateCommentsOpen | amDateFormat:'MMM Do, YYYY'}}</strong> to <strong>{{ vm.project.dateCommentsClosed | amDateFormat:'MMM Do, YYYY' }}</strong></p>
+				<h3>Click here to contribute a comment</h3>
 				<hr>
-				<p class="lead"><small>Public Comment Period Ends In</small><countdown-clock x-end="vm.project.commentClose"></countdown-clock></p>
+				<p class="lead"><small>Public Comment Period Ends In</small><countdown-clock x-end="vm.project.dateCommentsClosed"></countdown-clock></p>
 			</div>
 
 
-			<div class="panel panel-default panel-project-summary clickable" x-modal-project-schedule x-project="vm.project">
+<!-- 			<div class="panel panel-default panel-project-summary clickable" x-modal-project-schedule x-project="vm.project">
 				<div class="panel-body">
 					<div class='row'>
 						<div class="col-sm-12">
@@ -76,9 +76,9 @@
 								</div>
 							</div>
 						</div>
-					</div> <!-- /row -->
+					</div> --> <!-- /row -->
 					
-					<div class='row'>
+<!-- 					<div class='row' >
 						<div class="col-sm-4">
 							<div class="text-center">
 								<label class="control-label">Current Phase</label>
@@ -97,14 +97,14 @@
 								<p>{{ vm.project.nextPhase }}</p>
 							</div>
 						</div>
-					</div> <!-- /row -->
-				</div>
+					</div> --> <!-- /row -->
+<!-- 				</div>
 			</div>
-
+ -->
 
 			<nav class="navbar navbar-default navbar-sm">
 				<div class="container-fluid">
-
+<!-- 
 					<ul class="nav navbar-nav navbar-left">
 						<li>
 							<p class="navbar-text">Concerns: 6</p>
@@ -116,7 +116,7 @@
 							<p class="navbar-text">Open: 5</p>
 						</li>
 
-					</ul>
+					</ul> -->
 
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -125,7 +125,7 @@
 						<li>
 							<form class="navbar-form" role="filter1">
 								<div class="form-group">
-									<input ng-model="vm.filterKeyword" type="text" class="form-control" placeholder="Filter Map">
+									<input ng-model="vm.filterKeyword" type="text" class="form-control" placeholder="Filter">
 								</div>
 							</form>
 						</li>
@@ -136,16 +136,16 @@
 
 
 
-			<div ng-repeat="point in vm.project.discussionPoints | filter:vm.filterKeyword" class="concern-list">
+			<div ng-repeat="bucket in filteredBuckets = (vm.project.buckets | filter:vm.filterKeyword)" class="concern-list">
 				<h3 ng-click='form[point.group] = !form[point.group]' class="clickable concern-heading">
-					<div class='pull-right small'>
+<!-- 					<div class='pull-right small'>
 						<span class='label label-default'>Concerns: {{ point.concerns.length }}</span>&nbsp;<span class='label label-success'>Closed: {{ vm.closedConcerns(point.concerns) }}</span>&nbsp;<span class='label label-primary'>Open: {{ vm.openConcerns(point.concerns) }}</span>
-					</div>
-					{{ point.group }}
+					</div> -->
+					{{ bucket.name }}
 				</h3>
 				<hr ng-if='!form[point.group] && !$last'>
 
-				<div class="panel panel-default panel-concern" ng-if='form[point.group]' ng-repeat='item in point.concerns'>
+				<div class="panel panel-default panel-concern" ng-if='form[point.group]' ng-repeat='item in bucket.concerns'>
 					<div class="panel-body">
 						<div class="clearfix">
 						<h4 class='pull-right no-margins'><span class='label' ng-class="{'label-success':item.status === 'Closed', 'label-primary':item.status === 'Open'}">{{ item.status }}</span></h4>
@@ -189,6 +189,9 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div ng-show="filteredBuckets.length === 0">
+				<h3 class="text-info">No value components have been defined for this project yet.</h3>
 			</div>
 
 		</div>
