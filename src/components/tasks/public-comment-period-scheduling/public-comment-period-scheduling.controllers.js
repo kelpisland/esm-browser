@@ -16,6 +16,8 @@
 		var taskPubComSched = this;
 
 		taskPubComSched.data = {
+			startDate: "Wed Dec 16 2015 10:30:00 GMT-0800 (PST)",
+			endDate: "Wed Dec 16 2015 10:30:00 GMT-0800 (PST)",
 			scopeTopics: [
 				{
 					text:"value 1",
@@ -37,7 +39,18 @@
 				['row 1 col 1', 'row 1 col 2'],
 				['row 2 col 1', 'row 2 col 2'],
 			],
-			openHouseLocation: "1234 Main Street \nSmallville, BC",
+			openHouses: [
+				{
+					location: "1234 Main Street \nSmallville, BC",
+					dateTime: "Wed Dec 16 2015 10:30:00 GMT-0800 (PST)"
+
+				},
+				{
+					location: "1234 Main Avenue \nBigtown, BC",
+					dateTime: "Wed Dec 16 2015 10:30:00 GMT-0800 (PST)"
+
+				},
+			],
 			showScopeTopicAddButton: true
 		};
 
@@ -73,7 +86,9 @@
 		$scope.deleteScopeTopicsRowCancel = function(index) {
 			taskPubComSched.data.scopeTopics[index].delete = false;
 		}
-
+		$scope.deleteOpenHouse = function(index) {
+			taskPubComSched.data.openHouses.splice(index, 1);
+		}
 
 		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('anchor', function(newValue) {
