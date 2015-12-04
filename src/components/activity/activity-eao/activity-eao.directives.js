@@ -100,21 +100,25 @@
         var directive = {
             restrict:'A',
             scope : {
-                project: '='
+                activity: '=',
+                tasks: '='
             },
             link : function(scope, element, attrs) {
                 element.on('click', function() {
                     var modalCustomTask = $modal.open({
                         animation: true,
-                        templateUrl: 'components/activity/partials/modal-add-custom-task.html',
+                        templateUrl: 'components/activity/activity-eao/partials/modal-add-custom-task.html',
                         controller: 'controllerModalAddCustomTask',
                         controllerAs: 'customTask',
                         resolve: {
-                            rProject: function () {
-                                return scope.project;
+                            rActivity: function () {
+                                return scope.activity;
+                            },
+                            rTasks: function () {
+                                return scope.tasks;
                             }
                         },
-                        size: 'lg'
+                        size: 'sm'
                     });
                     modalCustomTask.result.then(function () {}, function () {});
                 });

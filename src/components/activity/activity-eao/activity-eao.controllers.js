@@ -6,7 +6,8 @@
 		.controller('controllerEAOActivity', controllerEAOActivity)
 		.controller('controllerEAOActivityDetail', controllerEAOActivityDetail)
 		.controller('controllerEAOActivityTasks', controllerEAOActivityTasks)
-		.controller('controllerEAOActivityProcesses', controllerEAOActivityProcesses);
+		.controller('controllerEAOActivityProcesses', controllerEAOActivityProcesses)
+		.controller('controllerModalAddCustomTask', controllerModalAddCustomTask);
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Activity EAO
@@ -169,5 +170,36 @@
 		});
 
     }
-    
+    // -----------------------------------------------------------------------------------
+	//
+	// CONTROLLER: Modal Add Custom Task
+	//
+    // -----------------------------------------------------------------------------------
+    controllerModalAddCustomTask.$inject = ['$modalInstance', 'ProcessCodes', 'Configuration', 'rActivity', 'rTasks'];
+	//
+	function controllerModalAddCustomTask($modalInstance, ProcessCodes, Configuration, rActivity, rTasks) {
+		var customTask = this;
+		
+		customTask.processCodes = ProcessCodes;
+	
+
+        Configuration.newConfigItem('task').then( function(res) {
+            customTask.activeRecord = res.data;
+        });
+
+		customTask.ok = function () { 
+
+            Configuration.addConfigItem(customTask.activeRecord, 'task').then( function(res) {
+            	Configuration.addTaskToActivity(rActivity._id, res.data._id).then( function(res) {
+            		console.log(res.data);
+            		rTasks.push(res.data);
+
+					$modalInstance.close();
+				});
+            });
+		
+		};
+		customTask.cancel = function () { $modalInstance.dismiss('cancel'); };
+		
+    }       
 })();

@@ -3,7 +3,6 @@
 </div>
 <div class="modal-body">
 
-
 	<div class="form-group">
 	    <label class="control-label">Name</label>
 	    <input class="form-control" type="text" ng-model="customTask.activeRecord.name" ng-blur="customTask.kebabNameToCode()">
@@ -26,8 +25,8 @@
 	    </select>
 	</div>
 
-
 </div>
 <div class="modal-footer">
-	<button class="btn btn-warning" type="button" ng-click="resRev.cancel()">Close</button>
+	<button class="btn btn-default" type="button" ng-click="customTask.cancel()">Cancel</button>
+	<button class="btn btn-success" type="button" ng-click="customTask.ok()">OK</button>
 </div>
