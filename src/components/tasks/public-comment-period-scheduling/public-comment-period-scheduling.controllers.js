@@ -20,16 +20,19 @@
 			endDate: null,
 			scopeTopics: [
 				{
+					_id: 123,
 					text:"value 1",
 					edit:false,
 					delete: false
 				},
 				{
+					_id: 456,
 					text:"value 2",
 					edit:false,
 					delete: false
 				},
 				{
+					_id: 789,
 					text:"value 3",
 					edit:false,
 					delete: false
@@ -70,8 +73,10 @@
 			taskPubComSched.data.scopeTopics[index].edit=false;
 		}
 
-		$scope.deleteScopeTopicsRow = function(index) {
-			taskPubComSched.data.scopeTopics[index].delete=true;
+		$scope.deleteScopeTopicsRow = function(item) {
+			_.remove(taskPubComSched.data.scopeTopics, function(obj) {
+				return obj._id === item._id;
+			});
 		}
 
 		$scope.deleteScopeTopicsRowConfirm = function(index) {

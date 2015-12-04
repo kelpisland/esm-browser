@@ -31,6 +31,7 @@
     "ng-file-upload": "~7.3.8",
     "ngmap": "~1.13.4",
     "angular-bootstrap-datetimepicker": "latest",
-    "angular-cookie": "~4.0.9"
+    "angular-cookie": "~4.0.9",
+    "angular-bootstrap-confirm": "~0.7.0"
   }
 }
