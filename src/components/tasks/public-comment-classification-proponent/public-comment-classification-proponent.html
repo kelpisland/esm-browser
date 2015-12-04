@@ -3,8 +3,10 @@
 		Public Comments Classification: {{ taskPubComClassProp.task.name }} <em class="small">{{ taskPubComClassProp.task.currentStatusTitle }}</em>
 	</div>
 
+
+
 	<!-- COMMENT TABLE -->
-	<table class="table table-condensed">
+	<table class="table table-condensed" ng-if="taskPubComClassProp.data.comments.length > 0">
 
 		<tbody>
 		<tr ng-repeat="comment in taskPubComClassProp.data.comments">
@@ -13,12 +15,25 @@
 
 				<div class="container-fluid">
 					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+							<label class="control-label">Author</label>
+							<p>{{ comment.author }}</p>
+								</div>
+
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group text-right">
+								<label class="control-label">Date</label>
+								<p>{{ comment.dateTime | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a'  }}</p>
+								</div>
+
+						</div>
 						<div class="col-sm-12">
+							<div class="form-group">
 							<label class="control-label">Comment</label>
 							{{ comment.text }}
-						</div>
-						<div class="col-sm-3">
-							<p>{{ comment.dateTime }}</p>
+							</div>
 						</div>
 					</div>
 
@@ -27,23 +42,23 @@
 							<div class="col-sm-4">
 								<label class="control-label">Value Components</label>
 								<div class="list-group">
-									<button ng-repeat="button in comment.valueComponents" type="button" class="list-group-item">{{ button }}<span class="glyphicon glyphicon-chevron-right pull-right "></span></button>
+									<button ng-repeat="(index, button) in comment.valueComponents" type="button" class="list-group-item {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="addToAssociation('valueComponent', index)">{{ button.title }}<span class="glyphicon glyphicon-chevron-right pull-right "></span></button>
 								</div>
 							</div>
 							<div class="col-sm-4">
 								<label class="control-label">Association</label>
 								<div class="list-group">
-									<button ng-repeat="button in comment.associations" type="button" class="list-group-item text-center"><span class="center-block">{{ button }}</span></button>
+									<button ng-repeat="(index, button) in comment.associations" type="button" class="list-group-item text-center {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="removeFromAssociation(index)"><span class="center-block">{{ button.title }}</span></button>
 								</div>
 							</div>
 							<div class="col-sm-4">
 								<label class="control-label">Issues</label>
 								<div class="list-group">
-									<button ng-repeat="button in comment.issues" type="button" class="list-group-item text-right"><span class="glyphicon glyphicon-chevron-left pull-left "> </span><span class="pull-right">{{ button }}</span></button>
+									<button ng-repeat="(index, button) in comment.issues" type="button" class="list-group-item text-right {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="addToAssociation('issue', index)"><span class="glyphicon glyphicon-chevron-left pull-left "> </span><span class="pull-right">{{ button.title }}</span></button>
 								</div>
 							</div>
 							<div class="col-sm-12">
-								<button class="btn btn-success pull-right">Next</button>
+								<button class="btn btn-success pull-right" ng-click="next()">Next</button>
 							</div>
 						</div>
 					</div>
@@ -55,7 +70,7 @@
 		</tbody>
 	</table>
 
-	<table class="table table-condensed">
+	<table class="table table-condensed" ng-if="taskPubComClassProp.data.comments.length > 1">
 		<thead>
 		<tr>
 			<th>Comment</th>
@@ -67,12 +82,14 @@
 		<tbody>
 		<tr ng-repeat="comment in taskPubComClassProp.data.comments">
 			<td ng-if="!$first">{{ comment.text }}</td>
-			<td ng-if="!$first">{{ comment.dateTime }}</td>
+			<td ng-if="!$first">{{ comment.dateTime | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a' }}</td>
 			<td ng-if="!$first">{{ comment.author }}</td>
 			<td ng-if="!$first">{{ comment.status }}</td>
 		</tr>
 		</tbody>
 	</table>
+
+	<h3 class="text-center" ng-if="taskPubComClassProp.data.comments.length == 0">No more comments on this page.</h3>
 
 	<div class="panel-footer text-center">
 		<div class="form-group">
@@ -90,5 +107,6 @@
 			</div>
 		</div>
 	</div>
+
 
 </div>
