@@ -135,7 +135,7 @@
 
 		};
 
-		$scope.addToAssociation = function(type, index) {
+		taskPubComClassProp.addToAssociation = function(type, index) {
 			if (taskPubComClassProp.data.comments[0].status != "Done"){
 				if (type == 'valueComponent') {
 					// copy it in...
@@ -152,7 +152,7 @@
 
 		}
 
-		$scope.removeFromAssociation = function(index) {
+		taskPubComClassProp.removeFromAssociation = function(index) {
 			if (taskPubComClassProp.data.comments[0].status != "Done") {
 				if (taskPubComClassProp.data.comments[0].associations[index].type == 'Value Component') {
 					taskPubComClassProp.data.comments[0].valueComponents.push(taskPubComClassProp.data.comments[0].associations[index]);
@@ -163,7 +163,7 @@
 			}
 		}
 
-		$scope.next = function() {
+		taskPubComClassProp.next = function() {
 			// add this one to the doneComments array
 			taskPubComClassProp.data.doneComments.push(taskPubComClassProp.data.comments[0]);
 			// and remove it from the comments array.

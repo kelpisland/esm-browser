@@ -51,41 +51,41 @@
 			showScopeTopicAddButton: true
 		};
 
-		$scope.addRowToScopeTopics = function() {
+		taskPubComSched.addRowToScopeTopics = function() {
 			taskPubComSched.data.scopeTopics.push({ text:taskPubComSched.data.newScopeTopic, edit:false });
 			taskPubComSched.data.newScopeTopic = "";
 			taskPubComSched.data.showScopeTopicAddButton = true;
 		}
 
-		$scope.editScopeTopicsRow = function(index) {
+		taskPubComSched.editScopeTopicsRow = function(index) {
 			taskPubComSched.data.scopeTopics[index].newText = taskPubComSched.data.scopeTopics[index].text;
 			taskPubComSched.data.scopeTopics[index].edit=true;
 		}
 
-		$scope.editScopeTopicsRowOkay = function(index) {
+		taskPubComSched.editScopeTopicsRowOkay = function(index) {
 			taskPubComSched.data.scopeTopics[index].text = taskPubComSched.data.scopeTopics[index].newText;
 			taskPubComSched.data.scopeTopics[index].newText = '';
 			taskPubComSched.data.scopeTopics[index].edit=false;
 		}
 
-		$scope.editScopeTopicsRowCancel = function(index) {
+		taskPubComSched.editScopeTopicsRowCancel = function(index) {
 			taskPubComSched.data.scopeTopics[index].newText = '';
 			taskPubComSched.data.scopeTopics[index].edit=false;
 		}
 
-		$scope.deleteScopeTopicsRow = function(item) {
+		taskPubComSched.deleteScopeTopicsRow = function(item) {
 			_.remove(taskPubComSched.data.scopeTopics, function(obj) {
 				return obj._id === item._id;
 			});
 		}
 
-		$scope.deleteScopeTopicsRowConfirm = function(index) {
+		taskPubComSched.deleteScopeTopicsRowConfirm = function(index) {
 			taskPubComSched.data.scopeTopics.splice(index,1);
 		}
-		$scope.deleteScopeTopicsRowCancel = function(index) {
+		taskPubComSched.deleteScopeTopicsRowCancel = function(index) {
 			taskPubComSched.data.scopeTopics[index].delete = false;
 		}
-		$scope.deleteOpenHouse = function(index) {
+		taskPubComSched.deleteOpenHouse = function(index) {
 			taskPubComSched.data.openHouses.splice(index, 1);
 		}
 

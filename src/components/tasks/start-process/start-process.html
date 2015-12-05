@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Start Process: {{ taskStartProcess.task.name }} <em class="small">{{ taskStartProcess.task.status }}</em>
+	</div>
+	<div class="text-center">
+		<div ng-if="!taskStartProcess.data.startTime">
+			<h3>Start Process</h3>
+			<button class="btn btn-lg btn-success" ng-click="taskStartProcess.go()">Go</button>
+		</div>
+		<div ng-if="taskStartProcess.data.startTime">
+			<h3>Process Started: {{ taskStartProcess.data.startTime | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a'  }}</h3>
+			<button class="btn btn-lg btn-success disabled">Start Process</button>
+		</div>
+		<p></p>
+	</div>
+</div>
