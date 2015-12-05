@@ -1,46 +1,77 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		Public Comments Vetting: {{ taskPubComVet.task.name }} <em class="small">{{ taskPubComVet.task.currentStatusTitle }}</em>
+		Public Comments Vetting: {{ taskPubComVet.task.name }} <em class="small pull-right">{{ taskPubComVet.task.status }}</em>
 	</div>
-	<div class="panel-body">
-
-		<!-- COMMENT -->
-		<div ng-if="taskPubComVet.data.showComment">
-			<h3>Comment</h3>
-			<div class="form-group">
-				<label class="control-label">Author</label>
-				<p>{{ taskPubComVet.data.comment.author }}</p>
-			</div>
-			<div class="form-group">
-				<label class="control-label">Date</label>
-				<p>{{ taskPubComVet.data.comment.date }}</p>
-			</div>
-			<div class="form-group">
-				<label class="control-label">Comment</label>
-				<p>{{ taskPubComVet.data.comment.text }}</p>
-			</div>
-
-			<div class="text-right">
-				<button class="btn btn-danger" ng-click="flagComment()"><span class="glyphicon glyphicon-flag"></span> Inappropriate</button>
-				<button class="btn btn-success" ng-click="vetComment()"><span class="glyphicon glyphicon-ok"></span> OK</button>
-			</div>
-			<hr>
+	<div class="panel-sub-heading">
+		<div class="btn-group btn-group-justified" ng-init="taskPubComVet.filter = 'pending'">
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'pending'}"		ng-click="taskPubComVet.filter = 'pending'">Pending ({{ (taskPubComVet.data.comments | filter:{result: 'pending'} | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'accepted'}"		ng-click="taskPubComVet.filter = 'accepted'">Accepted ({{ (taskPubComVet.data.comments | filter:{result: 'accepted'} | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'rejected'}"		ng-click="taskPubComVet.filter = 'rejected'">Rejected ({{ (taskPubComVet.data.comments | filter:{result: 'rejected'} | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'deferred'}"		ng-click="taskPubComVet.filter = 'deferred'">Deferred ({{ (taskPubComVet.data.comments | filter:{result: 'deferred'} | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
 		</div>
+	</div>
 
-		<!-- INAPPROPRIATE COMMENT FORM -->
+	<table class="table table-condensed">
+		<thead>
+			<tr ng-show="taskPubComVet.showFilter" class="panel-sub-heading">
+				<td class="text-right form-inline" colspan="2">
 
-		<div ng-if="taskPubComVet.data.showInappropriateCommentForm">
-			<h3>Inappropriate Comment</h3>
-			<div class="form-group">
-				<label class="control-label">Coment</label>
-				<textarea class="form-control" ng-model="taskPubComVet.data.comment.text"></textarea>
-			</div>
-			<div class="text-right">
-				<button class="btn btn-success" ng-click="vetComment()"><span class="glyphicon glyphicon-ok"></span> Accept Edit</button>
-				<button class="btn btn-danger" ng-click="deleteComment()"><span class="glyphicon glyphicon-trash"></span> Delete Comment</button>
-			</div>
-		</div>
+					<div class="form-group">
+						<label class="control-label">Filter</label>
+						<div class="input-group input-group-sm">
+							<input ng-model="taskPubComVet.filterKeyword" type="text" class="form-control" placeholder="Filter">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" ng-click="taskPubComVet.filterKeyword = undefined"><span class="glyphicon glyphicon-remove"></span></button>
+							</span>
+						</div>						
+					</div>
 
+				</td>
+			</tr>
+			<tr class="small">
+				<th>Comment</th>
+				<th class="text-right"><a href ng-click="taskPubComVet.showFilter = !taskPubComVet.showFilter"><span class="glyphicon glyphicon-search"></span></a></th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="com in filteredComments = (taskPubComVet.data.comments | filter:{result: taskPubComVet.filter} | filter:taskPubComVet.filterKeyword) track by $index" ng-class="{'bg-warning':$first}">
+
+				<td width="60%" ng-if="$first">{{ com.comment }}<br/><small>{{ com.author }}</small></td>
+
+				<td width="40%" ng-if="$first">
+
+					<ul class="list-unstyled document-vetting">
+						<li class="clearfix"><small>Overall Comment</small>
+							<div class="btn-group btn-group-xs pull-right">
+								<a href class="btn btn-default" ng-class="{'btn-success': com.status === 'accepted'}"	ng-click="com.status = 'accepted'">Accept</a>
+								<a href class="btn btn-default" ng-class="{'btn-danger': com.status === 'rejected'}"	ng-click="com.status = 'rejected'">Reject</a>
+								<a href class="btn btn-default" ng-class="{'btn-info': com.status === 'deferred'}"		ng-click="com.status = 'deferred'">Defer</a>
+							</div>
+						</li>
+						<li class="clearfix" ng-repeat="doc in com.documents">
+							<a href="{{ doc.url }}" target="_new" class="small">{{ doc.name }}</a>
+							<div class="btn-group btn-group-xs pull-right">
+								<a href class="btn btn-default" ng-class="{'btn-success': doc.status === 'accepted'}"	ng-click="doc.status = 'accepted'">Accept</a>
+								<a href class="btn btn-default" ng-class="{'btn-danger': doc.status === 'rejected'}"	ng-click="doc.status = 'rejected'">Reject</a>
+								<a href class="btn btn-default" ng-class="{'btn-info': doc.status === 'deferred'}"		ng-click="doc.status = 'deferred'">Defer</a>
+							</div>
+						</li>
+						<li class="text-right">
+							<a href class="btn-link btn" ng-click='taskPubComVet.finalizeCommentStatus(com)' ng-disabled="com.status === 'pending'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
+						</li>
+					</ul>
+				</td>
+
+
+				<td width="100%" colspan="2" ng-if="!$first" class="text-muted">
+					{{ com.comment }}
+				</td>
+
+			</tr>
+			<tr ng-show="filteredComments.length === 0">
+				<td colspan="2">There are no {{ taskPubComVet.filter }} comments.</td>
+			</tr>
+		</tbody>
 
 	</div>
 </div>

@@ -13,7 +13,7 @@
 	// CONTROLLER: Document Upload General
 	//
     // -----------------------------------------------------------------------------------
-    controllerDocumentUploadGeneral.$inject = ['$scope', 'Upload', '$timeout', 'API', 'Document'];
+    controllerDocumentUploadGlobal.$inject = ['$scope', 'Upload', '$timeout', 'API', 'Document'];
     /* @ngInject */
     function controllerDocumentUploadGlobal($scope, Upload, $timeout, API, Document) {
 		var docUpload = this;

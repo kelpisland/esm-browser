@@ -96,6 +96,13 @@ button:focus, a:focus {
 .project-info-panel > .panel-heading {
 	padding-bottom: 0;
 }
+
+.panel-sub-heading {
+	background-color: #f5f5f5;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
 .panel label + p,
 .panel label + ul {
 	margin-bottom: 15px;
@@ -544,3 +551,11 @@ nav {
 	white-space: nowrap;
 }
 
+.document-vetting li:first-child {
+    border-top: none;
+}
+
+.document-vetting li {
+    border-top: 1px solid #ddd;
+    padding: 2px 0px;
+}

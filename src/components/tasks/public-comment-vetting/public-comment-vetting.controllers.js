@@ -16,27 +16,59 @@
 		var taskPubComVet = this;
 
 		taskPubComVet.data = {
-			showComment: true,
-			showInappropriateCommentForm: false,
-			comment: {
-				text: "Hi there, I am a comment.",
+			comments: [
+			{
+				comment: "Hi there, I am a comment.",
 				author: "Some Author",
 				date: "Some Date",
-				status: "pending"
-			}
-
+				status: "pending",
+				result: "pending",
+				documents: [
+					{
+						_id:1234,
+						name: "document 1",
+						url: "http://here/url",
+						status: "pending"
+					}
+				]
+			},
+			{
+				comment: "Hi there, I am a comment.",
+				author: "Some Author",
+				date: "Some Date",
+				status: "pending",
+				result: "pending"
+			},
+			{
+				comment: "Hi there, I am a comment.",
+				author: "Some Author",
+				date: "Some Date",
+				status: "pending",
+				result: "pending"
+			}]
 		};
 
-		$scope.vetComment = function() {
-			alert("vetComment Function Called.");
-		}
-		$scope.flagComment = function() {
-			taskPubComVet.data.showComment = false;
-			taskPubComVet.data.showInappropriateCommentForm = true;
-		}
-		$scope.deleteComment = function() {
-			alert("deleteComment Function Called.");
-		}
+
+		taskPubComVet.finalizeCommentStatus = function(com) {
+			// all documents and comment must have a status of not pending.
+			var pendingDocument = false;
+			if (com.status !== 'pending') {
+				_.each(com.documents, function(doc) {
+					if (doc.status === 'pending' || !doc.status) {
+						pendingDocument = true;
+					}
+				});
+				if (!pendingDocument) {
+					com.result = com.status;
+				} else {
+					window.alert("Please review all documents before viewing the next comment.");
+				}
+			} else {
+				window.alert("Please review the overall comment and all documents before viewing the next comment.");
+			}
+		};
+
+		
 
 		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('anchor', function(newValue) {
