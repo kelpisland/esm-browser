@@ -42,23 +42,23 @@
 							<div class="col-sm-4">
 								<label class="control-label">Value Components</label>
 								<div class="list-group">
-									<button ng-repeat="(index, button) in comment.valueComponents" type="button" class="list-group-item {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="addToAssociation('valueComponent', index)">{{ button.title }}<span class="glyphicon glyphicon-chevron-right pull-right "></span></button>
+									<button ng-repeat="(index, button) in comment.valueComponents" type="button" class="list-group-item {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="taskPubComClassProp.addToAssociation('valueComponent', index)">{{ button.title }}<span class="glyphicon glyphicon-chevron-right pull-right "></span></button>
 								</div>
 							</div>
 							<div class="col-sm-4">
 								<label class="control-label">Association</label>
 								<div class="list-group">
-									<button ng-repeat="(index, button) in comment.associations" type="button" class="list-group-item text-center {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="removeFromAssociation(index)"><span class="center-block">{{ button.title }}</span></button>
+									<button ng-repeat="(index, button) in comment.associations" type="button" class="list-group-item text-center {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="taskPubComClassProp.removeFromAssociation(index)"><span class="center-block">{{ button.title }}</span></button>
 								</div>
 							</div>
 							<div class="col-sm-4">
 								<label class="control-label">Issues</label>
 								<div class="list-group">
-									<button ng-repeat="(index, button) in comment.issues" type="button" class="list-group-item text-right {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="addToAssociation('issue', index)"><span class="glyphicon glyphicon-chevron-left pull-left "> </span><span class="pull-right">{{ button.title }}</span></button>
+									<button ng-repeat="(index, button) in comment.issues" type="button" class="list-group-item text-right {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="taskPubComClassProp.addToAssociation('issue', index)"><span class="glyphicon glyphicon-chevron-left pull-left "> </span><span class="pull-right">{{ button.title }}</span></button>
 								</div>
 							</div>
 							<div class="col-sm-12">
-								<button class="btn btn-success pull-right" ng-click="next()">Next</button>
+								<button class="btn btn-success pull-right" ng-click="taskPubComClassProp.next()">Next</button>
 							</div>
 						</div>
 					</div>

@@ -18,7 +18,7 @@
 
 		taskValueComponents.mailOut = [];
 
-		// watch projoect
+		// watch project
 		$scope.$watch('project', function(newValue) {
 			if (newValue) {
 				taskValueComponents.project = newValue;
