@@ -36,7 +36,7 @@
 		<tbody>
 			<tr ng-repeat="com in filteredComments = (taskPubComVet.data.comments | filter:{result: taskPubComVet.filter} | filter:taskPubComVet.filterKeyword) track by $index" ng-class="{'bg-warning':$first}">
 
-				<td width="60%" ng-if="$first">{{ com.comment }}<br/><small>{{ com.author }}</small></td>
+				<td width="60%" ng-if="$first">{{ com.comment }}<br/><small>{{ com.dateCreated | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small></td>
 
 				<td width="40%" ng-if="$first">
 

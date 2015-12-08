@@ -30,7 +30,8 @@
             controllerAs: 'taskPubComClassProp',
             scope: {
             	anchor: '@',
-            	item: '='
+            	task: '=',
+                project: '='                
             }
         };
         return directive;

@@ -1,112 +1,215 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		Public Comments Classification: {{ taskPubComClassProp.task.name }} <em class="small">{{ taskPubComClassProp.task.currentStatusTitle }}</em>
+		Public Comments Classification: {{ taskPubComClassProp.task.name }} <em class="small pull-right">{{ taskPubComClassProp.task.status }}</em>
 	</div>
 
 
 
-	<!-- COMMENT TABLE -->
-	<table class="table table-condensed" ng-if="taskPubComClassProp.data.comments.length > 0">
 
-		<tbody>
-		<tr ng-repeat="comment in taskPubComClassProp.data.comments">
-
-			<td colspan="3" ng-if="$first">
-
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-							<label class="control-label">Author</label>
-							<p>{{ comment.author }}</p>
-								</div>
-
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group text-right">
-								<label class="control-label">Date</label>
-								<p>{{ comment.dateTime | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a'  }}</p>
-								</div>
-
-						</div>
-						<div class="col-sm-12">
-							<div class="form-group">
-							<label class="control-label">Comment</label>
-							{{ comment.text }}
-							</div>
-						</div>
-					</div>
-
-					<div class="well well-sm">
-						<div class="row">
-							<div class="col-sm-4">
-								<label class="control-label">Value Components</label>
-								<div class="list-group">
-									<button ng-repeat="(index, button) in comment.valueComponents" type="button" class="list-group-item {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="taskPubComClassProp.addToAssociation('valueComponent', index)">{{ button.title }}<span class="glyphicon glyphicon-chevron-right pull-right "></span></button>
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<label class="control-label">Association</label>
-								<div class="list-group">
-									<button ng-repeat="(index, button) in comment.associations" type="button" class="list-group-item text-center {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="taskPubComClassProp.removeFromAssociation(index)"><span class="center-block">{{ button.title }}</span></button>
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<label class="control-label">Issues</label>
-								<div class="list-group">
-									<button ng-repeat="(index, button) in comment.issues" type="button" class="list-group-item text-right {{ comment.status != 'In Progress' ? 'disabled' : '' }}" ng-click="taskPubComClassProp.addToAssociation('issue', index)"><span class="glyphicon glyphicon-chevron-left pull-left "> </span><span class="pull-right">{{ button.title }}</span></button>
-								</div>
-							</div>
-							<div class="col-sm-12">
-								<button class="btn btn-success pull-right" ng-click="taskPubComClassProp.next()">Next</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</td>
-
-
-		</tr>
-		</tbody>
-	</table>
-
-	<table class="table table-condensed" ng-if="taskPubComClassProp.data.comments.length > 1">
-		<thead>
-		<tr>
-			<th>Comment</th>
-			<th>Date</th>
-			<th>Author</th>
-			<th>Status</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr ng-repeat="comment in taskPubComClassProp.data.comments">
-			<td ng-if="!$first">{{ comment.text }}</td>
-			<td ng-if="!$first">{{ comment.dateTime | amDateFormat : 'dddd, MMMM Do YYYY, h:mm a' }}</td>
-			<td ng-if="!$first">{{ comment.author }}</td>
-			<td ng-if="!$first">{{ comment.status }}</td>
-		</tr>
-		</tbody>
-	</table>
-
-	<h3 class="text-center" ng-if="taskPubComClassProp.data.comments.length == 0">No more comments on this page.</h3>
-
-	<div class="panel-footer text-center">
-		<div class="form-group">
-			<div class="btn-group" role="group">
-				<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</button>
-				<button type="button" class="btn btn-default">1</button>
-				<button type="button" class="btn btn-default">2</button>
-				<button type="button" class="btn btn-default">3</button>
-				<button type="button" class="btn btn-default">4</button>
-				<button type="button" class="btn btn-default">5</button>
-				<button type="button" class="btn btn-default">6</button>
-				<button type="button" class="btn btn-default">7</button>
-				<button type="button" class="btn btn-default">8</button>
-				<button type="button" class="btn btn-primary">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
-			</div>
+	<div class="panel-sub-heading">
+		<div class="btn-group btn-group-justified" ng-init="taskPubComClassProp.filter = 'pending'">
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'pending'}"			ng-click="taskPubComClassProp.filter = 'pending'">Pending ({{ (taskPubComClassProp.data.comments | filter:{result: 'pending'} | filter:taskPubComClassProp.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'classified'}"		ng-click="taskPubComClassProp.filter = 'classified'">Classified ({{ (taskPubComClassProp.data.comments | filter:{result: 'classified'} | filter:taskPubComClassProp.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'deferred'}"		ng-click="taskPubComClassProp.filter = 'deferred'">Deferred ({{ (taskPubComClassProp.data.comments | filter:{result: 'deferred'} | filter:taskPubComClassProp.filterKeyword).length || 0 }})</a>
 		</div>
 	</div>
 
+	<table class="table table-condensed">
+		<thead>
+			<tr ng-show="taskPubComClassProp.showFilter" class="panel-sub-heading">
+				<td class="text-right form-inline" colspan="2">
 
+					<div class="form-group">
+						<label class="control-label">Filter</label>
+						<div class="input-group input-group-sm">
+							<input ng-model="taskPubComClassProp.filterKeyword" type="text" class="form-control" placeholder="Filter">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" ng-click="taskPubComClassProp.filterKeyword = undefined"><span class="glyphicon glyphicon-remove"></span></button>
+							</span>
+						</div>
+					</div>
+
+				</td>
+			</tr>
+			<tr class="small">
+				<th>Comment</th>
+				<th class="text-right"><a href ng-click="taskPubComClassProp.showFilter = !taskPubComClassProp.showFilter"><span class="glyphicon glyphicon-search"></span></a></th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat-start="com in filteredComments = (taskPubComClassProp.data.comments | filter:{result: taskPubComClassProp.filter} | filter:taskPubComClassProp.filterKeyword) track by $index" ng-class="{'bg-warning':$first}">
+
+				<td width="60%" ng-if="$first">{{ com.comment }}<br/><small>{{ com.dateCreated | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small></td>
+
+				<td width="40%" ng-if="$first">
+
+					<ul class="list-unstyled document-vetting">
+						<li class="clearfix" ng-repeat="doc in com.documents">
+							<a href="{{ doc.url }}" target="_new" class="small">{{ doc.name }}</a>
+						</li>
+					</ul>
+
+				</td>
+
+
+				<td width="100%" colspan="2" ng-if="!$first" class="text-muted">
+					{{ com.comment }}
+				</td>
+
+			</tr>
+			<tr ng-repeat-end ng-if="$first" ng-class="{'bg-warning':$first}">
+				<td colspan="2" class="no-top-border">
+
+					<div class="row">
+						<div class="col-sm-6">
+
+							<label class="control-label"><a href ng-click="taskPubComClassProp.showBucketFilter = !taskPubComClassProp.showBucketFilter" class="pull-right"><span class="glyphicon glyphicon-search"></span></a>Value Components</label>
+							<ul class="list-unstyled task-list no-lower-margin">
+
+								<!-- bucket filter -->
+								<li ng-if="taskPubComClassProp.showBucketFilter">
+									<div class="input-group input-group-sm">
+										<input type="search" class="form-control" placeholder="Filter Value Components" ng-model="taskPubComClassProp.filterBuckets">
+										<span class="input-group-btn">
+											<button class="btn btn-default" type="button" ng-click="taskPubComClassProp.filterBuckets = null"><span class="glyphicon glyphicon-remove"></span></button>
+										</span>
+									</div>
+								</li>
+
+
+								<li ng-repeat="bucket in filteredCommentBuckets = (com.buckets | filter:taskPubComClassProp.filterBuckets) track by $index">
+									<button class="btn btn-block btn-sm btn-layer btn-success" ng-click="taskPubComClassProp.removeBucketFromSelection(com, bucket)">{{ bucket.name }}</button>
+								</li>
+								
+
+								<!-- there are no buckets defined on the project -->
+								<li ng-if="com.buckets.length === 0 && taskPubComClassProp.buckets.length === 0 && !taskPubComClassProp.filterBuckets">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">There are no value components identified for this project.</span>
+								</li>
+
+
+								<!-- there are buckets but nothing assigned -->
+								<li ng-if="taskPubComClassProp.buckets.length > 0 && com.buckets.length === 0  && !taskPubComClassProp.filterBuckets">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">Select value components from the list below.</span>
+								</li>
+
+
+								<!-- there are buckets and a filter but no matches -->
+								<li ng-if="taskPubComClassProp.buckets.length > 0 && com.buckets.length === 0 && filteredCommentBuckets.length === 0 && taskPubComClassProp.filterBuckets">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">No value components match this filter. <a href ng-click="taskPubComClassProp.vcFilter = null">Clear filter.</a></span>
+								</li>
+							</ul>
+
+							<div class="text-center" ng-if="taskPubComClassProp.project.buckets.length > 0">
+								<span class="glyphicon glyphicon-chevron-up vc-task-arrows"></span>
+								<span class="glyphicon glyphicon-chevron-down vc-task-arrows"></span>
+							</div>
+
+							<ul class="list-unstyled task-list" ng-if="taskPubComClassProp.project.buckets.length > 0">
+								<li ng-repeat="bucket in filteredBuckets = (taskPubComClassProp.buckets | filter:taskPubComClassProp.filterBuckets) track by $index">
+									<button class="btn btn-block btn-sm btn-layer" ng-click="taskPubComClassProp.addBucketToSelection(com, bucket)">{{ bucket.name }}</button>
+								</li>
+
+								<!-- all been selected -->
+								<li ng-if="taskPubComClassProp.buckets.length === 0" class="small">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">All value components have been selected.</span>
+								</li>
+
+								<li ng-if="filteredBuckets.length === 0 && taskPubComClassProp.filterBuckets">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">
+										No value components match your filter.<br/>
+										<a href ng-click="taskPubComClassProp.filterBuckets = null">Clear filter</a>
+									</span>
+								</li>
+							</ul>
+
+
+
+
+						</div>
+						<div class="col-sm-6">
+
+							<label class="control-label"><a href ng-click="taskPubComClassProp.showIssueFilter = !taskPubComClassProp.showIssueFilter" class="pull-right"><span class="glyphicon glyphicon-search"></span></a>Issues</label>
+							<ul class="list-unstyled task-list no-lower-margin">
+
+								<!-- issue filter -->
+								<li ng-if="taskPubComClassProp.showIssueFilter">
+									<div class="input-group input-group-sm">
+										<input type="search" class="form-control" placeholder="Filter Value Components" ng-model="taskPubComClassProp.filterIssues">
+										<span class="input-group-btn">
+											<button class="btn btn-default" type="button" ng-click="taskPubComClassProp.filterIssues = null"><span class="glyphicon glyphicon-remove"></span></button>
+										</span>
+									</div>
+								</li>
+
+
+								<li ng-repeat="issue in filteredCommentIssues = (com.issues | filter:taskPubComClassProp.filterIssues) track by $index">
+									<button class="btn btn-block btn-sm btn-layer btn-success" ng-click="taskPubComClassProp.removeIssueFromSelection(com, issue)">{{ issue.name }}</button>
+								</li>
+								
+
+								<!-- there are no issues defined on the project -->
+								<li ng-if="com.issues.length === 0 && taskPubComClassProp.issues.length === 0 && !taskPubComClassProp.filterIssues">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">There are no issues identified for this project.</span>
+								</li>
+
+
+								<!-- there are issues but nothing assigned -->
+								<li ng-if="taskPubComClassProp.issues.length > 0 && com.issues.length === 0  && !taskPubComClassProp.filterIssues">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">Select issues from the list below.</span>
+								</li>
+
+
+								<!-- there are issues and a filter but no matches -->
+								<li ng-if="taskPubComClassProp.issues.length > 0 && com.issues.length === 0 && filteredCommentIssues.length === 0 && taskPubComClassProp.filterIssues">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">No issues match this filter. <a href ng-click="taskPubComClassProp.vcFilter = null">Clear filter.</a></span>
+								</li>
+							</ul>
+
+							<div class="text-center" ng-if="taskPubComClassProp.project.issues.length > 0">
+								<span class="glyphicon glyphicon-chevron-up vc-task-arrows"></span>
+								<span class="glyphicon glyphicon-chevron-down vc-task-arrows"></span>
+							</div>
+
+							<ul class="list-unstyled task-list" ng-if="taskPubComClassProp.project.issues.length > 0">
+								<li ng-repeat="issue in filteredIssues = (taskPubComClassProp.issues | filter:taskPubComClassProp.filterIssues) track by $index">
+									<button class="btn btn-block btn-sm btn-layer" ng-click="taskPubComClassProp.addIssueToSelection(com, issue)">{{ issue.name }}</button>
+								</li>
+
+								<!-- all been selected -->
+								<li ng-if="taskPubComClassProp.buckets.length === 0" class="small">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">All issues have been selected.</span>
+								</li>
+
+								<li ng-if="filteredBuckets.length === 0 && taskPubComClassProp.filterIssues">
+									<span class="btn btn-block btn-sm btn-layer" ng-disabled="1">
+										No issues match your filter.<br/>
+										<a href ng-click="taskPubComClassProp.filterIssues = null">Clear filter</a>
+									</span>
+								</li>
+							</ul>
+
+
+
+
+						</div>
+
+					</div>
+
+					<div class="text-right">
+						<a href class="btn-link btn" ng-click='taskPubComVet.deferCommentStatus(com)'>Defer</a>								
+						<a href class="btn-link btn" ng-click='taskPubComVet.finalizeCommentStatus(com)' ng-disabled="com.status === 'classified'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
+					</div>
+
+				</td>
+			</tr>
+
+			<tr ng-show="filteredComments.length === 0">
+				<td colspan="2">There are no {{ taskPubComClassProp.filter }} comments.</td>
+			</tr>
+		</tbody>
+
+	</div>
 </div>
+
+

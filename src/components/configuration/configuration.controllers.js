@@ -353,11 +353,6 @@
             configDataElement.activeRecordNew = false;
         };
 
-        configDataElement.kebabNameToCode = function() {
-            if (configDataElement.activeRecord.name && (configDataElement.activeRecord.code === '' || configDataElement.activeRecord.code === 'code')) {
-                configDataElement.activeRecord.code = $filter('kebab')(configDataElement.activeRecord.name);
-            }
-        };
 
         // -----------------------------------------------------------------------------------
         //

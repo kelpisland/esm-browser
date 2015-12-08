@@ -39,7 +39,6 @@
 			return $http({method:'PUT',url: SERVERAPI + '/project/' + projectId + '/set/stream/' + streamId});
 		};
 
-
     	var getProjectTypes = function(req) {
 			return $http({method:'GET',url: API + '/v1/projectTypes'});
 		};
@@ -49,29 +48,45 @@
 		};
 
 		var updateMilestone = function(req) {
-			console.log('req update milestone', req);
 			return $http({method:'PUT',url: SERVERAPI + '/milestone/' + req._id, data: req});
 		};
 
 
-  //   	var getProjectBuckets = function(req) {
-		// 	return $http({method:'GET',url: API + '/v1/project/' + req.id + '/buckets'});
-		// };
-  //   	var getProjectTags = function(req) {
-		// 	return $http({method:'GET',url: API + '/v1/project/' + req.id + '/tags'});
-		// };		
-  //   	var getProjectResearch = function(req) {
-		// 	return $http({method:'GET',url: API + '/v1/project/' + req.id + '/research'});
-		// };		
-  //   	var getProjectRelatedResearch = function(req) {
-		// 	return $http({method:'GET',url: API + '/v1/project/' + req.id + '/researchRelated'});
-		// };		
-  //   	var getProjectLayers = function(req) {
-		// 	return $http({method:'GET',url: API + '/v1/project/' + req.id + '/layers'});
-		// };		
-  //   	var getProjectContacts = function(req) {
-		// 	return $http({method:'GET',url: API + '/v1/project/' + req.id + '/contacts'});
-		// };
+		// Add elements to projects
+
+		var addBucketToProject = function(projectId, bucketId) {
+			return $http({method:'PUT',url: SERVERAPI + '/project/' + projectId + '/add/bucket/' + bucketId});
+		};
+
+		var addPhaseToProject = function(projectId, phaseId) {
+			return $http({method:'PUT',url: SERVERAPI + '/project/' + projectId + '/add/phase/' + phaseId});
+		};
+
+		var addMilestoneToPhase = function(phaseId, milestoneId) {
+			return $http({method:'PUT',url: SERVERAPI + '/project/phase/' + phaseId + '/add/milestone/' + milestoneId});
+		};
+
+		var addActivityToPhase = function(phaseId, activityId) {
+			return $http({method:'PUT',url: SERVERAPI + '/project/phase/' + phaseId + '/add/activity/' + activityId});
+		};
+
+		var addTaskToActivity = function(activityId, taskId) {
+			return $http({method:'PUT',url: SERVERAPI + '/project/activity/' + activityId + '/add/task/' + taskId});
+		};
+
+		var addRequirementToTask = function(taskId, requirementId) {
+			return $http({method:'PUT',url: SERVERAPI + '/project/task/' + taskId + '/add/requirement/' + requirementId});
+		};
+
+		var addRequirementToMilestone = function(milestoneId, requirementId) {
+			return $http({method:'PUT',url: SERVERAPI + '/project/milestone/' + milestoneId + '/add/project/requirement/' + requirementId});
+		};
+
+		var addRequirementToBucket = function(bucketId, requirementId) {
+			return $http({method:'PUT',url: SERVERAPI + '/project/bucket/' + bucketId + '/add/project/requirement/' + requirementId});
+		};
+
+
 
 		return {
 			getNewProject: getNewProject,
@@ -82,7 +97,15 @@
 			setProjectStream, setProjectStream,
 			getProjectTypes: getProjectTypes,
 			getProjectIntakeQuestions, getProjectIntakeQuestions,
-			updateMilestone: updateMilestone
+			updateMilestone: updateMilestone,
+			addBucketToProject: addBucketToProject,
+			addPhaseToProject: addPhaseToProject,
+			addMilestoneToPhase: addMilestoneToPhase,
+			addActivityToPhase: addActivityToPhase,
+			addTaskToActivity: addTaskToActivity,
+			addRequirementToTask: addRequirementToTask,
+			addRequirementToMilestone: addRequirementToMilestone,
+			addRequirementToBucket: addRequirementToBucket
 			// getProjectBuckets: getProjectBuckets,
 			// getProjectTags: getProjectTags,
 			// getProjectResearch: getProjectResearch,

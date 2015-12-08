@@ -10,7 +10,7 @@
         .controller('controllerRolesSelect', controllerRolesSelect)
         .controller('controllerUsersSelect', controllerUsersSelect)
         .controller('controllerModalUsersSelect', controllerModalUsersSelect)
-        .controller('controllerRequirementChecklist', controllerRequirementChecklist)
+        .controller('controllerRequirementCalculation', controllerRequirementCalculation)
         .controller('controllerModalUserList', controllerModalUserList)
         .controller('controllerModalUserContactInfo', controllerModalUserContactInfo)
         .controller('controllerModalSelectItems', controllerModalSelectItems)
@@ -266,12 +266,13 @@
 
     // -----------------------------------------------------------------------------------
 	//
-	// CONTROLLER: Modal: Add Anon Comment
+	// CONTROLLER: Requirement Completion Calculation
+	// provide Project and list of requirements, response is reqCheckList.reqs with a list of requirements completed
 	//
     // -----------------------------------------------------------------------------------
-    controllerRequirementChecklist.$inject = ['$scope'];
+    controllerRequirementCalculation.$inject = ['$scope'];
 	//
-    function controllerRequirementChecklist($scope) { 
+    function controllerRequirementCalculation($scope) { 
 		var reqChecklist = this;
 		reqChecklist.reqs = [];
 
@@ -280,13 +281,11 @@
 				_.each(reqChecklist.requiredList, function(req, idx) {
 					var found = _.findWhere(reqChecklist.project.requirements, { 'code': req });
 					if (found) {
-						reqChecklist.reqs.push( _.findWhere(reqChecklist.project.requirements, { 'code': req }) );
+						reqChecklist.reqs.push( found );
 					} else {
 						reqChecklist.reqs.push({'code':req, 'status':'invalid'});
 					}
 				});
-				console.log('reqs', reqChecklist.reqs);
-
 			}
 		};
 
@@ -299,8 +298,6 @@
 			reqChecklist.project = newValue;
 			indicateRequirements();
 		});
-
-
 
 		// search through the project requirements and see if the requirements passed in by the task have been met.
 
@@ -351,8 +348,6 @@
     function controllerModalSelectItems($modalInstance, rAllItems, rSelectedItems, rItemName, rSingle, rUnique) { 
 		var selectItems = this;
 
-		console.log('selected items', rSelectedItems);
-
 		// constrain selection to just one.  Directive needs to have x-single=true
 		selectItems.modeSingle = rSingle;
 
@@ -366,8 +361,6 @@
 				});
 			}
 		};
-
-
 
 		// remove an item from the temporary list.
 		selectItems.removeItemFromSelection = function(idx) {
@@ -385,11 +378,6 @@
 			selectItems.refreshSource();
 		};
 
-		// is the milestone already in the project?
-		selectItems.inSelection = function(item) {
-			return _.includes(selectItems.selectedItems, item);
-		};
-	
 		// set local var to passed project
 		selectItems.itemName = rItemName;
 
@@ -397,18 +385,19 @@
 		if (!rSelectedItems) {
 			selectItems.selectedItems = [];
 		} else {
-			selectItems.selectedItems = rSelectedItems;			
+			selectItems.selectedItems = angular.copy(rSelectedItems);
 		}
 
 		selectItems.itemList = rAllItems || [];
 		selectItems.refreshSource();
 
 
-		selectItems.cancel = function () { $modalInstance.dismiss('cancel'); };
+		selectItems.cancel = function () {
+			selectItems.selectedItems = angular.copy(rSelectedItems);
+			$modalInstance.dismiss('cancel');
+		};
 		selectItems.ok = function () { 
 			// saving so write the new data.
-			console.log('original items', rSelectedItems);
-			console.log('selected items', selectItems.selectedItems);
 			$modalInstance.close(selectItems.selectedItems);
 		};
 	};	

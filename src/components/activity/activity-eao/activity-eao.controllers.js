@@ -175,24 +175,21 @@
 	// CONTROLLER: Modal Add Custom Task
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalAddCustomTask.$inject = ['$modalInstance', 'ProcessCodes', 'Configuration', 'rActivity', 'rTasks'];
+    controllerModalAddCustomTask.$inject = ['$modalInstance', 'ProcessCodes', 'Configuration', 'Project', 'rActivity', 'rTasks'];
 	//
-	function controllerModalAddCustomTask($modalInstance, ProcessCodes, Configuration, rActivity, rTasks) {
+	function controllerModalAddCustomTask($modalInstance, ProcessCodes, Configuration, Project, rActivity, rTasks) {
 		var customTask = this;
-
 		
 		customTask.processCodes = ProcessCodes;
-	
 
         Configuration.newConfigItem('task').then( function(res) {
             customTask.activeRecord = res.data;
         });
 
-
 		customTask.ok = function () { 
 
             Configuration.addConfigItem(customTask.activeRecord, 'task').then( function(res) {
-            	Configuration.addTaskToActivity(rActivity._id, res.data._id).then( function(res) {
+            	Project.addTaskToActivity(rActivity._id, res.data._id).then( function(res) {
             		rTasks.push(res.data);
 					$modalInstance.close();
 				});

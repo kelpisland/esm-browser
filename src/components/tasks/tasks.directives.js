@@ -26,7 +26,6 @@
 
 				scope.$watch('task', function(newTask) {
 					if (newTask) {
-						console.log('newtaskpreload', newTask);
 						var tmpl = '<tmpl-' + newTask.processCode + ' x-anchor="' + (newTask.code + '-' + newTask._id) + '" x-task="task" x-project="project" ng-show="current === \'' + (newTask.code + '-' + newTask._id) + '\'"></tmpl-' + newTask.processCode + '>';
 						var ctmpl = $compile(tmpl)(scope);	
 						element.replaceWith(ctmpl);

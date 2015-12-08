@@ -1,4 +1,9 @@
 <div class="modal-header">
+	<div class="pull-right">
+		<div class="form-group">
+			<input ng-model="selectItems.filter" type="text" class="form-control" placeholder="Filter">
+		</div>
+	</div>
 	<h3 class="modal-title">Select {{ selectItems.itemName }}</h3>
 </div>
 <div class="modal-body">
@@ -9,11 +14,14 @@
 			<label class="control-label">{{ selectItems.itemName }}</label>
 			<div class="well well-sm">
 				<ul class="list-unstyled task-list">
-					<li ng-repeat="aItem in selectItems.itemList track by $index">
+					<li ng-repeat="aItem in filteredItems = (selectItems.itemList | filter:selectItems.filter) track by $index">
 						<button class="btn btn-block btn-sm btn-layer" ng-click="selectItems.addItemToSelection(aItem)">{{ aItem.name }}</button>
 					</li>
-					<li ng-if="selectItems.itemList.length === 0" class="small">
+					<li ng-if="selectItems.itemList.length === 0 && !selectItems.filter" class="small">
 						No {{ selectItems.itemName }} defined.
+					</li>
+					<li ng-if="filteredItems.length === 0 && selectItems.filter" class="small">
+						No {{ selectItems.itemName }} match your filter.
 					</li>
 				</ul>
 			</div>
@@ -24,11 +32,14 @@
 			<label class="control-label">Selected {{ selectItems.itemName }}</label>
 			<div class="well well-sm">
 				<ul class="list-unstyled task-list">
-					<li ng-repeat="item in selectItems.selectedItems track by $index">
+					<li ng-repeat="item in filteredSelected = (selectItems.selectedItems | filter:selectItems.filter) track by $index">
 						<button class="btn btn-block btn-sm btn-layer" ng-click="selectItems.removeItemFromSelection($index)">{{ item.name }}</button>
 					</li>
-					<li ng-if="selectItems.selectedItems.length === 0" class="small">
+					<li ng-if="selectItems.selectedItems.length === 0 && !selectItems.filter" class="small">
 						No {{ selectItems.itemName }} selected.
+					</li>
+					<li ng-if="filteredSelected.length === 0 && selectItems.filter" class="small">
+						No {{ selectItems.itemName }} match your filter.
 					</li>
 				</ul>
 			</div>

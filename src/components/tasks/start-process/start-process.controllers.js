@@ -13,20 +13,15 @@
     controllerTaskStartProcess.$inject = ['$scope', '$rootScope'];
  	//
 	function controllerTaskStartProcess($scope, $rootScope) {
-
 		var taskStartProcess = this;
 
-		taskStartProcess.task = {
-			name: "Task Name",
-			title: "Task Title"
-		}
 		taskStartProcess.data = {
 			startTime: false
 		}
 
 		taskStartProcess.go = function() {
 			taskStartProcess.data.startTime = Date();
-		}
+		};
 
 		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('anchor', function(newValue) {
@@ -36,15 +31,15 @@
 		});
 
 		// get the spec item
-		$scope.$watch('item', function(newValue) {
+		$scope.$watch('task', function(newValue) {
 			// get item for title
 			if (newValue) {
-				console.log('task', newValue);
-				taskStartProcess.itemId = newValue.item._id;
-				taskStartProcess.item = newValue.item;
+				taskStartProcess.taskId = newValue._id;
+				taskStartProcess.task = newValue;
 			}
 		});
-		
+
+
     }    
 
 

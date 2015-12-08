@@ -18,14 +18,10 @@
 		var getProjectActivity = function(req) {
 			return $http({method:'GET',url: SERVERAPI + '/activity/' + req.id});
 		};
-		var getResponseRevisions = function(req) {
-			return $http({method:'GET',url: API + '/v1/responseRevisions/' + req.id});
-		};
+
 
 		return {
-			// getProjectActivities: getProjectActivities,
-			getProjectActivity: getProjectActivity,
-			getResponseRevisions: getResponseRevisions
+			getProjectActivity: getProjectActivity
 		};
     }
 

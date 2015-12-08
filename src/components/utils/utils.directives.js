@@ -22,6 +22,7 @@
         .directive('modalSelectUsers', directiveModalSelectUsers)
         .directive('modalUserList', directiveModalUserList)
         .directive('tmplRequirementChecklist', directiveRequirementChecklist)
+        .directive('tmplRequirementTally', directiveRequirementTally)        
         .directive('modalUserContactInfo', directiveModalUserContactInfo)
         .directive('selectOnClick', directiveSelectOnClick)
         .directive('modalSelectItems', directiveModalSelectItems);
@@ -499,7 +500,7 @@
         var directive = {
             restrict: 'E',
             templateUrl: 'components/utils/partials/requirement-checklist.html',
-            controller: 'controllerRequirementChecklist',
+            controller: 'controllerRequirementCalculation',
             controllerAs: 'reqChecklist',
             scope : {
             	required: '=',
@@ -507,7 +508,27 @@
             }
         };
         return directive;
-    }   
+    }
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Requirement Tally
+	//
+    // -----------------------------------------------------------------------------------
+    directiveRequirementTally.$inject = [];
+    /* @ngInject */
+    function directiveRequirementTally() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'components/utils/partials/requirement-tally.html',
+            controller: 'controllerRequirementCalculation',
+            controllerAs: 'reqChecklist',
+            scope : {
+            	required: '=',
+            	project: '='
+            }
+        };
+        return directive;
+    }
     // -----------------------------------------------------------------------------------
 	//
 	// DIRECTIVE: Modal User List

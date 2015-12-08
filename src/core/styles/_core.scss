@@ -317,7 +317,7 @@ nav {
 }
 
 .no-lower-margin {
-	margin-bottom: 0;
+	margin-bottom: 0 !important;
 }
 .well .table tr:first-child td {
 	padding-top: 0;
@@ -551,11 +551,16 @@ nav {
 	white-space: nowrap;
 }
 
-.document-vetting li:first-child {
-    border-top: none;
+.document-vetting li:first-child,
+.no-top-border {
+    border-top: none !important;
 }
 
 .document-vetting li {
     border-top: 1px solid #ddd;
     padding: 2px 0px;
+}
+
+.vc-task-arrows {
+	opacity: 0.2;
 }
