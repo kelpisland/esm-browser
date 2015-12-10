@@ -7,7 +7,8 @@
         .directive('tmplEaoProjectNew', directiveEAOProjectNew)
         .directive('tmplEaoProjectIntake', directiveEAOProjectIntake)
         .directive('modalProjectEdit', directiveModalProjectEdit)
-		.directive('modalProjectEditPlanSchedule', directiveModalProjectEditPlanSchedule);
+		.directive('modalProjectEditPlanSchedule', directiveModalProjectEditPlanSchedule)
+		.directive('modalProjectContacts', directiveModalProjectContacts);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -158,70 +159,36 @@
     }
     // -----------------------------------------------------------------------------------
 	//
-	// DIRECTIVE: Modal Edit Project Activities
+	// DIRECTIVE: Modal Edit Project Team
 	//
     // -----------------------------------------------------------------------------------
-   //  directiveModalProjectEditPlanActivities.$inject = ['$modal'];
-   //  /* @ngInject */
-   //  function directiveModalProjectEditPlanActivities($modal) {
-   //      var directive = {
-   //          restrict:'A',
-   //          scope : {
-   //          	project: '='
-   //          },
-			// link : function(scope, element, attrs) {
-			// 	element.on('click', function() {
-			// 		var modalDocView = $modal.open({
-			// 			animation: true,
-			// 			templateUrl: 'components/project/project-eao/partials/modal-edit-plan-activities.html',
-			// 			controller: 'controllerModalProjectEditPlanActivities',
-			// 			controllerAs: 'peact',
-			// 			resolve: {
-			// 				rProject: function () {
-			// 					return scope.project;
-			// 				}
-			// 			},
-			// 			size: 'lg'
-			// 		});
-			// 		modalDocView.result.then(function () {}, function () {});
-			// 	});
-			// }
-   //      };
-   //      return directive;
-   //  }
-    // -----------------------------------------------------------------------------------
-	//
-	// DIRECTIVE: Modal Edit Project Artifacts
-	//
-    // -----------------------------------------------------------------------------------
-   //  directiveModalProjectEditPlanArtifacts.$inject = ['$modal'];
-   //  /* @ngInject */
-   //  function directiveModalProjectEditPlanArtifacts($modal) {
-   //      var directive = {
-   //          restrict:'A',
-   //          scope : {
-   //          	project: '='
-   //          },
-			// link : function(scope, element, attrs) {
-			// 	element.on('click', function() {
-			// 		var modalDocView = $modal.open({
-			// 			animation: true,
-			// 			templateUrl: 'components/project/project-eao/partials/modal-edit-plan-artifacts.html',
-			// 			controller: 'controllerModalProjectEditPlanArtifacts',
-			// 			controllerAs: 'peart',
-			// 			resolve: {
-			// 				rProject: function () {
-			// 					return scope.project;
-			// 				}
-			// 			},
-			// 			size: 'lg'
-			// 		});
-			// 		modalDocView.result.then(function () {}, function () {});
-			// 	});
-			// }
-   //      };
-   //      return directive;
-   //  }
-
+    directiveModalProjectContacts.$inject = ['$modal'];
+    /* @ngInject */
+    function directiveModalProjectContacts($modal) {
+        var directive = {
+            restrict:'A',
+            scope : {
+            	project: '='
+            },
+			link : function(scope, element, attrs) {
+				element.on('click', function() {
+					var modalDocView = $modal.open({
+						animation: true,
+						templateUrl: 'components/project/project-eao/partials/modal-project-contacts.html',
+						controller: 'controllerModalProjectContacts',
+						controllerAs: 'projectContacts',
+						resolve: {
+							rProject: function () {
+								return scope.project;
+							}
+						},
+						size: 'lg'
+					});
+					modalDocView.result.then(function () {}, function () {});
+				});
+			}
+        };
+        return directive;
+    }
 
 })();

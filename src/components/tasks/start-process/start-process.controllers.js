@@ -16,11 +16,13 @@
 		var taskStartProcess = this;
 
 		taskStartProcess.data = {
-			startTime: false
+			startTime: null
 		}
 
-		taskStartProcess.go = function() {
+		taskStartProcess.startProcess = function() {
 			taskStartProcess.data.startTime = Date();
+			taskStartProcess.task.status = 'Complete';
+			$rootScope.$broadcast('resolveItem', {item: taskStartProcess.itemId});			
 		};
 
 		// get the task identifier.  (ID + Task Type)

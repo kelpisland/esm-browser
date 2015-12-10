@@ -7,10 +7,14 @@
 
 
 	<div class="panel-sub-heading">
-		<div class="btn-group btn-group-justified" ng-init="taskPubComClassProp.filter = 'pending'">
-			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'pending'}"			ng-click="taskPubComClassProp.filter = 'pending'">Pending ({{ (taskPubComClassProp.data.comments | filter:{result: 'pending'} | filter:taskPubComClassProp.filterKeyword).length || 0 }})</a>
-			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'classified'}"		ng-click="taskPubComClassProp.filter = 'classified'">Classified ({{ (taskPubComClassProp.data.comments | filter:{result: 'classified'} | filter:taskPubComClassProp.filterKeyword).length || 0 }})</a>
-			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'deferred'}"		ng-click="taskPubComClassProp.filter = 'deferred'">Deferred ({{ (taskPubComClassProp.data.comments | filter:{result: 'deferred'} | filter:taskPubComClassProp.filterKeyword).length || 0 }})</a>
+		<div class="btn-group btn-group-justified" ng-init="taskPubComClassProp.filter = 'Unclassified'">
+			<a href class="btn btn-default btn-sm"
+				ng-class="{'btn-success': taskPubComClassProp.filter === 'Unclassified'}"
+				ng-click="taskPubComClassProp.filter = 'Unclassified'">
+					Unclassified ({{ (taskPubComClassProp.data.comments | filter:{overallStatus: 'Unclassified'}:true | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword).length || 0 }})
+			</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'classified'}"		ng-click="taskPubComClassProp.filter = 'Classified'">Classified ({{ (taskPubComClassProp.data.comments | filter:{overallStatus: 'Classified'}:true | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'Deferred'}"		ng-click="taskPubComClassProp.filter = 'Deferred'">Deferred ({{ (taskPubComClassProp.data.comments | filter:{overallStatus: 'Deferred'}:true | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword).length || 0 }})</a>
 		</div>
 	</div>
 
@@ -18,6 +22,14 @@
 		<thead>
 			<tr ng-show="taskPubComClassProp.showFilter" class="panel-sub-heading">
 				<td class="text-right form-inline" colspan="2">
+
+					<div class="form-group pull-left">
+						<div class="btn-group btn-group-sm">
+							<button class="btn btn-default" type="button" ng-class="{'btn-primary': taskPubComClassProp.filterScopeComments}" ng-click="taskPubComClassProp.filterScopeComments = !taskPubComClassProp.filterScopeComments" >Comments</button>
+							<button class="btn btn-default" type="button" ng-class="{'btn-primary': taskPubComClassProp.filterScopeValueComponents}" ng-click="taskPubComClassProp.filterScopeValueComponents = !taskPubComClassProp.filterScopeValueComponents">Value Components</button>
+							<button class="btn btn-default" type="button" ng-class="{'btn-primary': taskPubComClassProp.filterScopeIssues}" ng-click="taskPubComClassProp.filterScopeIssues = !taskPubComClassProp.filterScopeIssues">Issues</span></button>
+						</div>
+					</div>
 
 					<div class="form-group">
 						<label class="control-label">Filter</label>
@@ -37,9 +49,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat-start="com in filteredComments = (taskPubComClassProp.data.comments | filter:{result: taskPubComClassProp.filter} | filter:taskPubComClassProp.filterKeyword) track by $index" ng-class="{'bg-warning':$first}">
+			<tr ng-repeat-start="com in filteredComments = (taskPubComClassProp.data.comments | filter:{overallStatus: taskPubComClassProp.filter} | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword) track by $index" ng-class="{'bg-warning':$first}">
 
-				<td width="60%" ng-if="$first">{{ com.comment }}<br/><small>{{ com.dateCreated | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small></td>
+				<td width="60%" ng-if="$first">{{ com.comment }}<br/><small>{{ com.dateAdded | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small></td>
 
 				<td width="40%" ng-if="$first">
 
@@ -63,21 +75,12 @@
 					<div class="row">
 						<div class="col-sm-6">
 
-							<label class="control-label"><a href ng-click="taskPubComClassProp.showBucketFilter = !taskPubComClassProp.showBucketFilter" class="pull-right"><span class="glyphicon glyphicon-search"></span></a>Value Components</label>
+							<label class="control-label">
+								Value Components
+							</label>
 							<ul class="list-unstyled task-list no-lower-margin">
 
-								<!-- bucket filter -->
-								<li ng-if="taskPubComClassProp.showBucketFilter">
-									<div class="input-group input-group-sm">
-										<input type="search" class="form-control" placeholder="Filter Value Components" ng-model="taskPubComClassProp.filterBuckets">
-										<span class="input-group-btn">
-											<button class="btn btn-default" type="button" ng-click="taskPubComClassProp.filterBuckets = null"><span class="glyphicon glyphicon-remove"></span></button>
-										</span>
-									</div>
-								</li>
-
-
-								<li ng-repeat="bucket in filteredCommentBuckets = (com.buckets | filter:taskPubComClassProp.filterBuckets) track by $index">
+								<li ng-repeat="bucket in filteredCommentBuckets = (com.buckets | filterClassifyValueComponents:taskPubComClassProp.filterScopeValueComponents:taskPubComClassProp.filterKeyword) track by $index">
 									<button class="btn btn-block btn-sm btn-layer btn-success" ng-click="taskPubComClassProp.removeBucketFromSelection(com, bucket)">{{ bucket.name }}</button>
 								</li>
 								
@@ -106,7 +109,7 @@
 							</div>
 
 							<ul class="list-unstyled task-list" ng-if="taskPubComClassProp.project.buckets.length > 0">
-								<li ng-repeat="bucket in filteredBuckets = (taskPubComClassProp.buckets | filter:taskPubComClassProp.filterBuckets) track by $index">
+								<li ng-repeat="bucket in filteredBuckets = (taskPubComClassProp.buckets | filterClassifyValueComponents:taskPubComClassProp.filterScopeValueComponents:taskPubComClassProp.filterKeyword) track by $index">
 									<button class="btn btn-block btn-sm btn-layer" ng-click="taskPubComClassProp.addBucketToSelection(com, bucket)">{{ bucket.name }}</button>
 								</li>
 
@@ -129,21 +132,12 @@
 						</div>
 						<div class="col-sm-6">
 
-							<label class="control-label"><a href ng-click="taskPubComClassProp.showIssueFilter = !taskPubComClassProp.showIssueFilter" class="pull-right"><span class="glyphicon glyphicon-search"></span></a>Issues</label>
+							<label class="control-label">
+								Issues
+							</label>
 							<ul class="list-unstyled task-list no-lower-margin">
 
-								<!-- issue filter -->
-								<li ng-if="taskPubComClassProp.showIssueFilter">
-									<div class="input-group input-group-sm">
-										<input type="search" class="form-control" placeholder="Filter Value Components" ng-model="taskPubComClassProp.filterIssues">
-										<span class="input-group-btn">
-											<button class="btn btn-default" type="button" ng-click="taskPubComClassProp.filterIssues = null"><span class="glyphicon glyphicon-remove"></span></button>
-										</span>
-									</div>
-								</li>
-
-
-								<li ng-repeat="issue in filteredCommentIssues = (com.issues | filter:taskPubComClassProp.filterIssues) track by $index">
+								<li ng-repeat="issue in filteredCommentIssues = (com.issues | filterClassifyIssues:taskPubComClassProp.filterScopeIssues:taskPubComClassProp.filterKeyword) track by $index">
 									<button class="btn btn-block btn-sm btn-layer btn-success" ng-click="taskPubComClassProp.removeIssueFromSelection(com, issue)">{{ issue.name }}</button>
 								</li>
 								
@@ -172,7 +166,7 @@
 							</div>
 
 							<ul class="list-unstyled task-list" ng-if="taskPubComClassProp.project.issues.length > 0">
-								<li ng-repeat="issue in filteredIssues = (taskPubComClassProp.issues | filter:taskPubComClassProp.filterIssues) track by $index">
+								<li ng-repeat="issue in filteredIssues = (taskPubComClassProp.issues | filterClassifyIssues:taskPubComClassProp.filterScopeIssues:taskPubComClassProp.filterKeyword) track by $index">
 									<button class="btn btn-block btn-sm btn-layer" ng-click="taskPubComClassProp.addIssueToSelection(com, issue)">{{ issue.name }}</button>
 								</li>
 
@@ -197,8 +191,8 @@
 					</div>
 
 					<div class="text-right">
-						<a href class="btn-link btn" ng-click='taskPubComVet.deferCommentStatus(com)'>Defer</a>								
-						<a href class="btn-link btn" ng-click='taskPubComVet.finalizeCommentStatus(com)' ng-disabled="com.status === 'classified'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href class="btn-link btn" ng-click='taskPubComClassProp.deferCommentStatus(com)'>Defer</a>								
+						<a href class="btn-link btn" ng-click='taskPubComClassProp.finalizeCommentStatus(com)' ng-disabled="com.status === 'Classified'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
 					</div>
 
 				</td>

@@ -20,31 +20,37 @@
 			{
 				comment: "Hi there, I am a comment.",
 				author: "Some Author",
-				date: "Some Date",
-				status: "pending",
-				result: "pending",
+				dateAdded: "Some Date",
+				original: null,
+				eaoStatus: "Unvetted",
+				eaoNotes: "",
+				overallStatus: "Unvetted",
+				proponentStatus: "Unvetted",
+				proponentNotes: '',
+				buckets: [],
+				issues: [],
 				documents: [
 					{
 						_id:1234,
 						name: "document 1",
 						url: "http://here/url",
-						status: "pending"
+						status: "Unvetted"
 					}
 				]
 			},
 			{
 				comment: "Hi there, I am a comment.",
 				author: "Some Author",
-				date: "Some Date",
-				status: "pending",
-				result: "pending"
+				dateAdded: "Some Date",
+				eaoStatus: "Unvetted",
+				overallStatus: "Unvetted",
 			},
 			{
 				comment: "Hi there, I am a comment.",
 				author: "Some Author",
-				date: "Some Date",
-				status: "pending",
-				result: "pending"
+				dateAdded: "Some Date",
+				eaoStatus: "Unvetted",
+				overallStatus: "Unvetted",
 			}]
 		};
 
@@ -52,14 +58,15 @@
 		taskPubComVet.finalizeCommentStatus = function(com) {
 			// all documents and comment must have a status of not pending.
 			var pendingDocument = false;
-			if (com.status !== 'pending') {
+			if (com.eaoStatus !== 'Unvetted') {
 				_.each(com.documents, function(doc) {
-					if (doc.status === 'pending' || !doc.status) {
+					if (doc.status === 'Unvetted' || !doc.status) {
 						pendingDocument = true;
 					}
 				});
 				if (!pendingDocument) {
-					com.result = com.status;
+					com.overallStatus = com.eaoStatus;
+					// todo: make sure the handoff is correct to classification
 				} else {
 					window.alert("Please review all documents before viewing the next comment.");
 				}

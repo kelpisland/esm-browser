@@ -19,11 +19,6 @@
 		vm.projects = [];
 		vm.filter = {};
 		
-		// get projects form the mock server storage
-		Projects.getLocalProjects().then( function(res) {
-			vm.projects = res.data;
-		});
-
 		// get projects
 		Projects.getProjects().then( function(res) {
 			_.each( res.data, function( project, idx ) {

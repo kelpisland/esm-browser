@@ -3,11 +3,11 @@
 		Public Comments Vetting: {{ taskPubComVet.task.name }} <em class="small pull-right">{{ taskPubComVet.task.status }}</em>
 	</div>
 	<div class="panel-sub-heading">
-		<div class="btn-group btn-group-justified" ng-init="taskPubComVet.filter = 'pending'">
-			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'pending'}"		ng-click="taskPubComVet.filter = 'pending'">Pending ({{ (taskPubComVet.data.comments | filter:{result: 'pending'} | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
-			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'accepted'}"		ng-click="taskPubComVet.filter = 'accepted'">Accepted ({{ (taskPubComVet.data.comments | filter:{result: 'accepted'} | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
-			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'rejected'}"		ng-click="taskPubComVet.filter = 'rejected'">Rejected ({{ (taskPubComVet.data.comments | filter:{result: 'rejected'} | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
-			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'deferred'}"		ng-click="taskPubComVet.filter = 'deferred'">Deferred ({{ (taskPubComVet.data.comments | filter:{result: 'deferred'} | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
+		<div class="btn-group btn-group-justified" ng-init="taskPubComVet.filter = 'Unvetted'">
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'Unvetted'}"		ng-click="taskPubComVet.filter = 'Unvetted'">Unvetted ({{ (taskPubComVet.data.comments | filter:{overallStatus: 'Unvetted'}:true | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'Vetted'}"		ng-click="taskPubComVet.filter = 'Vetted'">Vetted ({{ (taskPubComVet.data.comments | filter:{overallStatus: 'Vetted'}:true | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'Rejected'}"		ng-click="taskPubComVet.filter = 'Rejected'">Rejected ({{ (taskPubComVet.data.comments | filter:{overallStatus: 'Rejected'}:true | filter:taskPubComVet.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComVet.filter === 'Deferred'}"		ng-click="taskPubComVet.filter = 'Deferred'">Deferred ({{ (taskPubComVet.data.comments | filter:{overallStatus: 'Deferred'} :true| filter:taskPubComVet.filterKeyword).length || 0 }})</a>
 		</div>
 	</div>
 
@@ -34,32 +34,33 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="com in filteredComments = (taskPubComVet.data.comments | filter:{result: taskPubComVet.filter} | filter:taskPubComVet.filterKeyword) track by $index" ng-class="{'bg-warning':$first}">
+			<tr ng-repeat="com in filteredComments = (taskPubComVet.data.comments | filter:{overallStatus: taskPubComVet.filter}:true | filter:taskPubComVet.filterKeyword) track by $index" ng-class="{'bg-warning':$first}">
 
-				<td width="60%" ng-if="$first">{{ com.comment }}<br/><small>{{ com.dateCreated | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small></td>
+				<td width="60%" ng-if="$first">{{ com.comment }}<br/><small>{{ com.dateAdded | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small></td>
 
 				<td width="40%" ng-if="$first">
 
-					<ul class="list-unstyled document-vetting">
+					<ul class="list-unstyled document-vetting no-lower-margin">
 						<li class="clearfix"><small>Overall Comment</small>
 							<div class="btn-group btn-group-xs pull-right">
-								<a href class="btn btn-default" ng-class="{'btn-success': com.status === 'accepted'}"	ng-click="com.status = 'accepted'">Accept</a>
-								<a href class="btn btn-default" ng-class="{'btn-danger': com.status === 'rejected'}"	ng-click="com.status = 'rejected'">Reject</a>
-								<a href class="btn btn-default" ng-class="{'btn-info': com.status === 'deferred'}"		ng-click="com.status = 'deferred'">Defer</a>
+								<a href class="btn btn-default" ng-class="{'btn-success': com.eaoStatus === 'Vetted'}"		ng-click="com.eaoStatus = 'Vetted'">Accept</a>
+								<a href class="btn btn-default" ng-class="{'btn-danger': com.eaoStatus === 'Rejected'}"		ng-click="com.eaoStatus = 'Rejected'">Reject</a>
+								<a href class="btn btn-default" ng-class="{'btn-info': com.eaoStatus === 'Deferred'}"		ng-click="com.eaoStatus = 'Deferred'">Defer</a>
 							</div>
 						</li>
 						<li class="clearfix" ng-repeat="doc in com.documents">
 							<a href="{{ doc.url }}" target="_new" class="small">{{ doc.name }}</a>
 							<div class="btn-group btn-group-xs pull-right">
-								<a href class="btn btn-default" ng-class="{'btn-success': doc.status === 'accepted'}"	ng-click="doc.status = 'accepted'">Accept</a>
-								<a href class="btn btn-default" ng-class="{'btn-danger': doc.status === 'rejected'}"	ng-click="doc.status = 'rejected'">Reject</a>
-								<a href class="btn btn-default" ng-class="{'btn-info': doc.status === 'deferred'}"		ng-click="doc.status = 'deferred'">Defer</a>
+								<a href class="btn btn-default" ng-class="{'btn-success': doc.status === 'Vetted'}"		ng-click="doc.status = 'Vetted'">Accept</a>
+								<a href class="btn btn-default" ng-class="{'btn-danger': doc.status === 'Rejected'}"	ng-click="doc.status = 'Rejected'">Reject</a>
+								<a href class="btn btn-default" ng-class="{'btn-info': doc.status === 'Deferred'}"		ng-click="doc.status = 'Deferred'">Defer</a>
 							</div>
 						</li>
 						<li class="text-right">
-							<a href class="btn-link btn" ng-click='taskPubComVet.finalizeCommentStatus(com)' ng-disabled="com.status === 'pending'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
+							<a href class="btn-link btn" ng-click='taskPubComVet.finalizeCommentStatus(com)' ng-disabled="com.status === 'Unvetted'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
 						</li>
 					</ul>
+
 				</td>
 
 

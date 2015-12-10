@@ -17,10 +17,6 @@
 			return $http({method:'GET',url: SERVERAPI + '/new/project/'});
     	};
 
-		var getLocalProject = function(req) {
-			return $http({method:'GET',url: API + '/v1/project/' + req.id});
-		};
-
 		var getProject = function(req) {
 			console.log('getproject', req.id);
 			return $http({method:'GET',url: SERVERAPI + '/project/' + req.id});
@@ -90,7 +86,6 @@
 
 		return {
 			getNewProject: getNewProject,
-			getLocalProject: getLocalProject,
 			getProject: getProject,
 			addProject: addProject,
 			saveProject: saveProject,

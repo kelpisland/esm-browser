@@ -3,8 +3,10 @@
     'use strict';
 
     angular.module('app.tasks')
-		.controller('controllerTaskPublicCommentClassificationProponent', controllerTaskPublicCommentClassificationProponent);
-
+		.controller('controllerTaskPublicCommentClassificationProponent', controllerTaskPublicCommentClassificationProponent)
+		.filter ('filterClassifyComments', filterClassifyComments)
+		.filter ('filterClassifyValueComponents', filterClassifyValueComponents)
+		.filter ('filterClassifyIssues', filterClassifyIssues);
     // -----------------------------------------------------------------------------------
 	//
 	// CONTROLLER: Task for Simple Complete
@@ -18,15 +20,22 @@
 		taskPubComClassProp.buckets = [];
 		taskPubComClassProp.issues = [];
 
+		taskPubComClassProp.filterScopeComment = false;
+		taskPubComClassProp.filterScopeValueComponents = true;
+		taskPubComClassProp.filterScopeIssues = true;		
+
 		taskPubComClassProp.data = {
 			comments: [
 			{
 				comment: "Hi there, I am a comment.",
 				author: "Some Author",
-				date: "Some Date",
-				eao_status: "pending",
-				eao_result: "pending",
-				prop_result: "pending",
+				dateAdded: "Some Date",
+				original: null,
+				eaoStatus: "Unclassified",
+				eaoNotes: "",
+				overallStatus: "Unclassified",
+				proponentStatus: "Unclassified",
+				proponentNotes: '',
 				buckets: [],
 				issues: [],
 				documents: [
@@ -42,28 +51,28 @@
 				comment: "Hi there, I am a comment.",
 				author: "Some Author",
 				date: "Some Date",
-				status: "pending",
-				result: "pending"
+				overallStatus: "Unclassified",
+				proponentStatus: "Unclassified"
 			},
 			{
 				comment: "Hi there, I am a comment.",
 				author: "Some Author",
 				date: "Some Date",
-				status: "pending",
-				result: "pending"
+				overallStatus: "Unclassified",
+				proponentStatus: "Unclassified"
 			}]
 		};
 
 
 		taskPubComClassProp.deferCommentStatus = function(com) {
 			// todo: validation
-			com.result = 'deferred';
+			com.overallStatus = 'Deferred';
 		};
 
 		taskPubComClassProp.finalizeCommentStatus = function(com) {
 			// all documents and comment must have a status of not pending.
 			if (com.buckets.length > 0 || com.issues.length > 0) {
-				com.result = 'classified';
+				com.overallStatus = 'Classified';
 			} else {
 				window.alert("Please indicate which value components and / or issues this comment is related to before continuing.");
 			}
@@ -89,12 +98,6 @@
 			_.remove(com.buckets, bucket);
 			taskPubComClassProp.refreshBucketSource(com);
 		};
-
-
-
-
-
-
 
 		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('anchor', function(newValue) {
@@ -125,13 +128,49 @@
 			// when ok, broadcast
 			taskPubComClassProp.item.value = 'Complete';
 			$rootScope.$broadcast('resolveItem', {itemId: taskPubComClassProp.itemId});
-		}
-
+		};
 
     }
 
+	filterClassifyComments.$inject = ['$filter'];
 
+    function filterClassifyComments($filter) {
+    	return function(items, enable, keywords) {
+	    	console.log('comment', enable, keywords, items);
+	    	if (enable) {
+	    		console.log('advanced');
+	    		return $filter('filter')(items, keywords);
+	    	} else {
+	    		return items;
+	    	}
+    	}
+    }
 
+	filterClassifyValueComponents.$inject = ['$filter'];
+
+    function filterClassifyValueComponents($filter) {
+    	return function(items, enable, keywords) {
+	    	console.log('vc', enable, keywords, items);
+	    	if (enable) {
+	    		return $filter('filter')(items, keywords);
+	    	} else {
+	    		return items;
+	    	}
+    	}
+    }
+
+    filterClassifyIssues.$inject = ['$filter'];
+
+    function filterClassifyIssues($filter) {
+    	return function(items, enable, keywords) {
+	    	console.log('issue', enable, keywords, items);
+	    	if (enable) {
+	    		return $filter('filter')(items, keywords);
+	    	} else {
+	    		return items;
+	    	}
+    	}
+    }
 
 
 
