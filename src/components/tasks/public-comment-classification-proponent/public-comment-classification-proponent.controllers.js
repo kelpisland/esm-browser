@@ -136,9 +136,7 @@
 
     function filterClassifyComments($filter) {
     	return function(items, enable, keywords) {
-	    	console.log('comment', enable, keywords, items);
 	    	if (enable) {
-	    		console.log('advanced');
 	    		return $filter('filter')(items, keywords);
 	    	} else {
 	    		return items;
@@ -150,7 +148,6 @@
 
     function filterClassifyValueComponents($filter) {
     	return function(items, enable, keywords) {
-	    	console.log('vc', enable, keywords, items);
 	    	if (enable) {
 	    		return $filter('filter')(items, keywords);
 	    	} else {
@@ -163,7 +160,6 @@
 
     function filterClassifyIssues($filter) {
     	return function(items, enable, keywords) {
-	    	console.log('issue', enable, keywords, items);
 	    	if (enable) {
 	    		return $filter('filter')(items, keywords);
 	    	} else {

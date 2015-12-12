@@ -22,13 +22,12 @@
 			}
 		});
 
-		// get the spec item
-		$scope.$watch('item', function(newValue) {
-			// get item for title
+		// get the spec task
+		$scope.$watch('task', function(newValue) {
+			// get task for title
 			if (newValue) {
-				console.log('task', newValue);
-				taskCnc.itemId = newValue.item._id;
-				taskCnc.item = newValue.item;
+				taskCnc.taskId = newValue.task._id;
+				taskCnc.task = newValue.task;
 			}
 
 		});
@@ -36,9 +35,7 @@
 		taskCnc.completeTask = function() {
 			// validate
 			// when ok, broadcast
-			console.log('complete', taskCnc.item);
-			taskCnc.item.value = 'Complete';
-			$rootScope.$broadcast('resolveItem', {itemId: taskCnc.itemId});
+			$rootScope.$broadcast('resolveTask', taskCnc.task);
 		}
 		
     }    

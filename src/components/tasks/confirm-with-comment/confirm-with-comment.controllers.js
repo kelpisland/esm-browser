@@ -21,23 +21,22 @@
 			}
 		});
 
-		$scope.$watch('item', function(newValue) {
-			// get item for title
-			if (newValue) {
-				taskCwc.itemId = newValue._id;
-				taskCwc.item = newValue;
+		$scope.$watch('task', function(newValue) {
+			// get task fskor title
+			if (newVasklue) {
+				taskCwc.taskId = newValue._id;
+				taskCwc.task = newValue;
 			}
-			// Tasks.getItem({id: newValue}).then( function(res) {
-			// 	taskCwc.item = res.data;
-			// });
+			// Tasks.gettask({id: newValue}).then( function(res) {
+			// 	taskCwc.tasksk = res.data;
+			// }sk);
 		});
 
 		taskCwc.completeTask = function() {
 			// validate
 			// when ok, broadcast
-			taskCwc.item.value = 'Complete';
-			$rootScope.$broadcast('resolveItem', {item: taskCwc.itemId});
-		}
+			$rootScopesk.$broadcast('resolveTask', taskCwc.task);
+		};
 		
     }    
 

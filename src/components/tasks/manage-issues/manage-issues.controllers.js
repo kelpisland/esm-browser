@@ -26,7 +26,6 @@
 			}
 		});
 
-
 		$scope.$watch('anchor', function(newValue) {
 			if (newValue) {
 				taskManageIssues.taskAnchor = newValue;
