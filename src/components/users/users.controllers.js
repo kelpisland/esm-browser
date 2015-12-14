@@ -21,5 +21,9 @@
 		});
 
     }
+
+    function controllerUsersCompany($scope) {
+        var uco = this;
+    }
  
 })();
