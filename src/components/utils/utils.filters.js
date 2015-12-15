@@ -9,7 +9,9 @@
 		.filter('projectBucketNotComplete', filterProjectBucketNotComplete)
 		.filter('projects', filterProjects)
 		.filter('isInTheFuture', filterIsInTheFuture)
-		.filter('isInThePast', filterIsInThePast);		
+		.filter('isInThePast', filterIsInThePast)
+		.filter('max15Words', filterMax15Words)
+		.filter('safeHtml', filterSafeHtml);
 
     // -----------------------------------------------------------------------------------
 	//
@@ -115,5 +117,24 @@
 			return input < today;
 		}
     }   
+
+    filterMax15Words.$inject = [];
+
+    function filterMax15Words() {
+    	return function(input) {
+	    	return _.take(_.words(input), 15).join(' ');
+	    }
+    }
+
+
+    filterSafeHtml.$inject = ['$sce'];
+
+    function filterSafeHtml($sce) {
+    	return function(input) {
+    		console.log('safehtml', input);
+	    	return $sce.trustAsHtml(input);
+	    }
+    }
+
 
 })();

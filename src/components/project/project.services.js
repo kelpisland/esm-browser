@@ -18,7 +18,6 @@
     	};
 
 		var getProject = function(req) {
-			console.log('getproject', req.id);
 			return $http({method:'GET',url: SERVERAPI + '/project/' + req.id});
 		};
 
@@ -84,6 +83,55 @@
 
 
 
+		var getNewPublicComment = function() {
+			return $http({method:'GET',url: SERVERAPI + '/new/publiccomment'});
+		};
+
+		var addPublicComment = function(req) {
+			return $http({method:'POST',url: SERVERAPI + '/publiccomment', data: req});
+		};
+
+		var getPublicCommentsPublished = function(projectId) {
+			return $http({method:'GET',url: SERVERAPI + '/publiccomment/project/' + projectId + '/published'});
+		};
+
+		var getPublicCommentsUnpublished = function(projectId) {
+			return $http({method:'GET',url: SERVERAPI + '/publiccomment/project/' + projectId + '/unpublished'});
+		};
+
+		var getPublicCommentsUnpublishedLimit = function(projectId, limit, offset) {
+			return $http({method:'GET',url: SERVERAPI + '/publiccomment/project/' + projectId + '/unpublished/limit/' + limit + '/offset/' + offset});
+		};
+
+
+		var updatePublicCommentEAOPublish = function(req) {
+			return $http({method:'PUT',url: SERVERAPI + '/publiccomment/' + req._id + '/eao/publish'});
+		};
+
+		var updatePublicCommentEAODefer = function(req) {
+			return $http({method:'PUT',url: SERVERAPI + '/publiccomment/' + req._id + '/eao/defer'});
+		};
+
+		var updatePublicCommentEAOReject = function(req) {
+			return $http({method:'PUT',url: SERVERAPI + '/publiccomment/' + req._id + '/eao/reject'});
+		};
+
+
+
+		var updatePublicCommentDocumentEAOPublish = function(req) {
+			return $http({method:'PUT',url: SERVERAPI + '/publiccommentdocument/' + req._id + '/eao/publish'});
+		};
+
+		var updatePublicCommentDocumentEAODefer = function(req) {
+			return $http({method:'PUT',url: SERVERAPI + '/publiccommentdocument/' + req._id + '/eao/defer'});
+		};
+
+		var updatePublicCommentDocumentEAOReject = function(req) {
+			return $http({method:'PUT',url: SERVERAPI + '/publiccommentdocument/' + req._id + '/eao/reject'});
+		};
+
+
+
 		return {
 			getNewProject: getNewProject,
 			getProject: getProject,
@@ -100,7 +148,22 @@
 			addTaskToActivity: addTaskToActivity,
 			addRequirementToTask: addRequirementToTask,
 			addRequirementToMilestone: addRequirementToMilestone,
-			addRequirementToBucket: addRequirementToBucket
+			addRequirementToBucket: addRequirementToBucket,
+
+			getNewPublicComment: getNewPublicComment,
+			addPublicComment: addPublicComment,
+			getPublicCommentsPublished: getPublicCommentsPublished,
+			getPublicCommentsUnpublished: getPublicCommentsUnpublished,
+			getPublicCommentsUnpublishedLimit: getPublicCommentsUnpublishedLimit,
+
+			updatePublicCommentEAOPublish: updatePublicCommentEAOPublish,
+			updatePublicCommentEAODefer: updatePublicCommentEAODefer,
+			updatePublicCommentEAOReject: updatePublicCommentEAOReject,
+
+			updatePublicCommentDocumentEAOPublish: updatePublicCommentDocumentEAOPublish,
+			updatePublicCommentDocumentEAODefer: updatePublicCommentDocumentEAODefer,
+			updatePublicCommentDocumentEAOReject: updatePublicCommentDocumentEAOReject
+
 			// getProjectBuckets: getProjectBuckets,
 			// getProjectTags: getProjectTags,
 			// getProjectResearch: getProjectResearch,

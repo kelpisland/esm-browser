@@ -49,11 +49,21 @@
 	// CONTROLLER: Modal: Add Anon Comment
 	//
     // -----------------------------------------------------------------------------------
-    controllerModalAddComment.$inject = ['$modalInstance'];
+    controllerModalAddComment.$inject = ['$modalInstance', 'Project'];
 	//
-    function controllerModalAddComment($modalInstance) { 
+    function controllerModalAddComment($modalInstance, Project) { 
 		var publicComment = this;
-		publicComment.ok = function () { $modalInstance.close(); };
+
+		Project.getNewPublicComment().then( function(res) {
+			publicComment.data = res.data;
+		});
+
+		publicComment.ok = function () {
+			Project.addPublicComment(publicComment.data).then( function(res) {
+				$modalInstance.close();				
+			});
+		};
+		
 		publicComment.cancel = function () { $modalInstance.dismiss('cancel'); };
 	};
 	

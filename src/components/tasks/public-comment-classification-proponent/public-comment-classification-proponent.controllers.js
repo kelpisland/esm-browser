@@ -24,12 +24,14 @@
 		taskPubComClassProp.filterScopeValueComponents = true;
 		taskPubComClassProp.filterScopeIssues = true;		
 
+
+
 		taskPubComClassProp.data = {
 			comments: [
 			{
-				comment: "Hi there, I am a comment.",
+				comment: "This is a comment",
 				author: "Some Author",
-				dateAdded: "Some Date",
+				dateAdded: Date(),
 				original: null,
 				eaoStatus: "Unclassified",
 				eaoNotes: "",
@@ -120,6 +122,14 @@
 			if (newValue) {
 				taskPubComClassProp.project = newValue;
 				taskPubComClassProp.buckets = angular.copy(newValue.buckets);
+				console.log('class project', newValue.data);
+				if(newValue.data) {
+					taskPubComClassProp.data.comments = newValue.data.comments;
+					console.log('newvalue project', taskPubComClassProp.data.comments);
+				}
+				
+
+				
 			}
 		});
 

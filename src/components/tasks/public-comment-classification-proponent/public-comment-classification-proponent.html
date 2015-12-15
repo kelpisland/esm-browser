@@ -51,7 +51,9 @@
 		<tbody>
 			<tr ng-repeat-start="com in filteredComments = (taskPubComClassProp.data.comments | filter:{overallStatus: taskPubComClassProp.filter} | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword) track by $index" ng-class="{'bg-warning':$first}">
 
-				<td width="60%" ng-if="$first">{{ com.comment }}<br/><small>{{ com.dateAdded | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small></td>
+				<td width="60%" ng-if="$first"><small>{{ com.dateAdded | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small>
+					<div ng-bind-html="com.comment | safeHtml "></div>
+				</td>
 
 				<td width="40%" ng-if="$first">
 
@@ -65,7 +67,7 @@
 
 
 				<td width="100%" colspan="2" ng-if="!$first" class="text-muted">
-					{{ com.comment }}
+					<div ng-bind-html="com.comment | safeHtml | max15Words"></div>
 				</td>
 
 			</tr>
@@ -203,7 +205,12 @@
 			</tr>
 		</tbody>
 
+	</table>
+
+	<div class="panel-footer text-right">
+		<a href ng-click="taskPubComVet.getNextTen()"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Get Next 10 Comments</a>
 	</div>
+
 </div>
 
 

@@ -9,17 +9,17 @@
 	// Service: Util Services
 	//
     // -----------------------------------------------------------------------------------
-    serviceUtils.$inject = ['$http', 'API'];
+    serviceUtils.$inject = ['$http', 'API', 'SERVERAPI'];
     /* @ngInject */
-    function serviceUtils($http, API) {
+    function serviceUtils($http, API, SERVERAPI) {
     	var getCurrentUser = function(req) {
 			return $http({method:'GET',url: API + '/v1/currentUser'});
 		};
     	var getRecentActivity = function(req) {
-			return $http({method:'GET',url: API + '/v1/utils/recentActivity'});
+			return $http({method:'GET',url: SERVERAPI + '/project'});
 		};
     	var getQuickLinks = function(req) {
-			return $http({method:'GET',url: API + '/v1/utils/quicklinks'});
+			return $http({method:'GET',url: SERVERAPI + '/project'});
 		};
 		var getProjectMilestones = function(req) {
 			return $http({method:'GET',url: API + '/v1/projectMilestones'});
