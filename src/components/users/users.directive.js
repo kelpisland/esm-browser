@@ -4,10 +4,12 @@
     angular
         .module('app.users')
 		.directive('tmplQuicklinksThumbnails', directiveQuicklinksThumbnails)
-		.directive('tmplCompany', directiveCompany);
+		.directive('tmplCompany', directiveCompany)
+		.directive('tmplUser', directiveUser);
 	// ----- directiveFunction -----
 	directiveQuicklinksThumbnails.$inject = [];
 	directiveCompany.$inject = [];
+	directiveUser.$inject = [];
 
 	/* @ngInject */
 	function directiveQuicklinksThumbnails() {
@@ -31,8 +33,25 @@
 			controllerAs: 'uco',
 			scope: {
 				project: '@',
-				company: '=',
-				user: '='
+				company: '@',
+				user: '@'
+			}
+		}
+
+		return directive;
+	}
+
+	function directiveUser() {
+
+		var directive = {
+			restrict: 'E',
+			templateUrl: 'components/users/partials/user-user.html',
+			controller: 'controllerUsersUser',
+			controllerAs: 'uu',
+			scope: {
+				project: '@',
+				company: '@',
+				user: '@'
 			}
 		}
 

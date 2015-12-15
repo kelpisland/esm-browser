@@ -25,5 +25,9 @@
     function controllerUsersCompany($scope) {
         var uco = this;
     }
+
+    function controllerUsersUser($scope) {
+        var uu = this;
+    }
  
 })();
