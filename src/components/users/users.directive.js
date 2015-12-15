@@ -4,14 +4,15 @@
     angular
         .module('app.users')
 		.directive('tmplQuicklinksThumbnails', directiveQuicklinksThumbnails)
-		.directive('tmplCompany', directiveCompany)
-		.directive('tmplUser', directiveUser);
-	// ----- directiveFunction -----
+		.directive('tmplCompanyEntryForm', directiveCompanyEntryForm)
+		.directive('tmplUserEntryForm', directiveUserEntryForm);
+	// -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Modal Project Schedule
+	//
+    // -----------------------------------------------------------------------------------
 	directiveQuicklinksThumbnails.$inject = [];
-	directiveCompany.$inject = [];
-	directiveUser.$inject = [];
-
-	/* @ngInject */
+    /* @ngInject */
 	function directiveQuicklinksThumbnails() {
 
 		var directive = {
@@ -23,38 +24,49 @@
 
 		return directive;
 	}
-
-	function directiveCompany() {
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: Company Entry Form
+	//
+    // -----------------------------------------------------------------------------------
+	directiveCompanyEntryForm.$inject = [];
+    /* @ngInject */
+	function directiveCompanyEntryForm() {
 
 		var directive = {
 			restrict: 'E',
 			templateUrl: 'components/users/partials/user-company.html',
-			controller: 'controllerUsersCompany',
+			controller: 'controllerCompanyEntryForm',
 			controllerAs: 'uco',
 			scope: {
-				project: '@',
-				company: '@',
-				user: '@'
+				project: '=',
+				company: '=',
+				user: '='
 			}
 		}
 
 		return directive;
 	}
-
-	function directiveUser() {
-
+    // -----------------------------------------------------------------------------------
+	//
+	// DIRECTIVE: User Entry Form
+	//
+    // -----------------------------------------------------------------------------------
+	directiveUserEntryForm.$inject = [];
+    /* @ngInject */
+	function directiveUserEntryForm() {
+		
 		var directive = {
 			restrict: 'E',
 			templateUrl: 'components/users/partials/user-user.html',
-			controller: 'controllerUsersUser',
+			controller: 'controllerUserEntryForm',
 			controllerAs: 'uu',
 			scope: {
-				project: '@',
-				company: '@',
-				user: '@'
+				project: '=',
+				company: '=',
+				user: '='
 			}
 		}
-
 		return directive;
 	}
 
