@@ -17,18 +17,25 @@
 	function controllerTaskPublicCommentClassificationProponent($scope, $rootScope) {
 		var taskPubComClassProp = this;
 
+		// these hold the default list from the project.
+		// they should not be modified after initial load.
 		taskPubComClassProp.buckets = [];
 		taskPubComClassProp.issues = [];
+
+		// in each cateogry allow an active index.  Only one of these can be seen at a time.
+		// compare the active index and the proponent status to see which record is active or not.
+		// unclassified will always be 0.
+		taskPubComClassProp.activeCommentId = null;
 
 		taskPubComClassProp.filterScopeComment = false;
 		taskPubComClassProp.filterScopeValueComponents = true;
 		taskPubComClassProp.filterScopeIssues = true;		
 
+		var i=0;
 
-
-		taskPubComClassProp.data = {
-			comments: [
-			{
+		taskPubComClassProp.sampleData = function(id) {
+			return {
+				_id: id,
 				comment: "This is a comment",
 				author: "Some Author",
 				dateAdded: Date(),
@@ -48,47 +55,49 @@
 						status: "pending"
 					}
 				]
-			},
-			{
-				comment: "Hi there, I am a comment.",
-				author: "Some Author",
-				date: "Some Date",
-				overallStatus: "Unclassified",
-				proponentStatus: "Unclassified"
-			},
-			{
-				comment: "Hi there, I am a comment.",
-				author: "Some Author",
-				date: "Some Date",
-				overallStatus: "Unclassified",
-				proponentStatus: "Unclassified"
-			}]
+			};
 		};
+
+		// when a new comment is loaded, set the id to active.
+		// if an old comment is clicked, set the active id to the selected item so the edit will show.
+
+
+
+		taskPubComClassProp.data = {comments: [angular.copy(taskPubComClassProp.sampleData(++i))]};
+		taskPubComClassProp.activeCommentId = i;
 
 
 		taskPubComClassProp.deferCommentStatus = function(com) {
 			// todo: validation
-			com.overallStatus = 'Deferred';
+			com.overallStatus = com.proponentStatus = 'Deferred';
 		};
 
 		taskPubComClassProp.finalizeCommentStatus = function(com) {
 			// all documents and comment must have a status of not pending.
 			if (com.buckets.length > 0 || com.issues.length > 0) {
-				com.overallStatus = 'Classified';
+				com.overallStatus = com.proponentStatus = 'Classified';
+				// todo: load up temporary one.
+				var newComment = angular.copy(taskPubComClassProp.sampleData(++i));
+				taskPubComClassProp.data.comments.push(newComment);
+				taskPubComClassProp.activeCommentId = i;
+				taskPubComClassProp.refreshBucketSource(newComment);
 			} else {
 				window.alert("Please indicate which value components and / or issues this comment is related to before continuing.");
 			}
 		};
 
+		// refresh the bucket list by getting the project buckets.
 		taskPubComClassProp.refreshBucketSource = function(com) {
 			taskPubComClassProp.buckets = [];
 			_.each( taskPubComClassProp.project.buckets, function(obj) {
+				console.log('add bucket', obj.name, !_.some(com.buckets, _.matchesProperty('code', obj.code)));
 				if (!_.some(com.buckets, _.matchesProperty('code', obj.code))) {
 					taskPubComClassProp.buckets.push(obj);
 				}	
 			});
 		};
 		
+		// add a bucket to a comment by pushing it to the local list.
 		taskPubComClassProp.addBucketToSelection = function(com, bucket) {
 			if(!com.buckets) com.buckets = [];
 			com.buckets.push(bucket);
@@ -96,6 +105,13 @@
 			taskPubComClassProp.refreshBucketSource(com);
 		};
 
+
+		taskPubComClassProp.activateComment = function(com) {
+			taskPubComClassProp.activeCommentId = com._id;
+			taskPubComClassProp.refreshBucketSource(com);
+		};
+
+		// remove a bucket from the comment by removing it from the comment
 		taskPubComClassProp.removeBucketFromSelection = function(com, bucket) {
 			_.remove(com.buckets, bucket);
 			taskPubComClassProp.refreshBucketSource(com);
@@ -141,9 +157,13 @@
 		};
 
     }
-
+    // -----------------------------------------------------------------------------------
+	//
+	// FILTER: Filter comments
+	//
+    // -----------------------------------------------------------------------------------
 	filterClassifyComments.$inject = ['$filter'];
-
+	//
     function filterClassifyComments($filter) {
     	return function(items, enable, keywords) {
 	    	if (enable) {
@@ -153,9 +173,13 @@
 	    	}
     	}
     }
-
+    // -----------------------------------------------------------------------------------
+	//
+	// FILTER: Filter Value Components
+	//
+    // -----------------------------------------------------------------------------------
 	filterClassifyValueComponents.$inject = ['$filter'];
-
+	//
     function filterClassifyValueComponents($filter) {
     	return function(items, enable, keywords) {
 	    	if (enable) {
@@ -165,9 +189,13 @@
 	    	}
     	}
     }
-
+    // -----------------------------------------------------------------------------------
+	//
+	// FILTER: Filter Value Components
+	//
+    // -----------------------------------------------------------------------------------
     filterClassifyIssues.$inject = ['$filter'];
-
+    //
     function filterClassifyIssues($filter) {
     	return function(items, enable, keywords) {
 	    	if (enable) {
@@ -177,188 +205,5 @@
 	    	}
     	}
     }
-
-
-
-
-
-		
-		// taskPubComClassProp.data = {
-		// 	doneComments: [],
-		// 	comments: [
-		// 			{
-		// 				text: "Comment 2 text",
-		// 				dateTime: "1428423623006",
-		// 				author: "Comment 2 author",
-		// 				status: "In Progress",
-		// 				valueComponents: [
-		// 					{
-		// 						type: "Value Component",
-		// 						title: "Value Component 1"
-		// 					},
-		// 					{
-		// 						type: "Value Component",
-		// 						title: "Value Component 2"
-		// 					},
-		// 					{
-		// 						type: "Value Component",
-		// 						title: "Value Component 3"
-		// 					}
-		// 				],
-		// 				associations: [
-
-		// 				],
-		// 				issues: [
-		// 					{
-		// 						type: "Issue",
-		// 						title: "Issue 1"
-		// 					},
-		// 					{
-		// 						type: "Issue",
-		// 						title: "Issue 2"
-		// 					},
-		// 					{
-		// 						type: "Issue",
-		// 						title: "Issue 3"
-		// 					}
-		// 				]
-		// 			},
-		// 		{
-		// 			text: "Comment 1 text",
-		// 			dateTime: "1428423623006",
-		// 			author: "Comment 1 author",
-		// 			status: "Done",
-		// 			valueComponents: [
-		// 				{
-		// 					type: "Value Component",
-		// 					title: "Value Component 1"
-		// 				},
-		// 				{
-		// 					type: "Value Component",
-		// 					title: "Value Component 2"
-		// 				}
-		// 			],
-		// 			associations: [
-		// 				{
-		// 					type: "Issue",
-		// 					title: "Issue 1"
-		// 				},
-		// 				{
-		// 					type: "Value Component",
-		// 					title: "Value Component 3"
-		// 				}
-		// 			],
-		// 			issues: [
-		// 				{
-		// 					type: "Issue",
-		// 					title: "Issue 2"
-		// 				},
-		// 				{
-		// 					type: "Issue",
-		// 					title: "Issue 3"
-		// 				}
-		// 			]
-		// 		},
-		// 			{
-		// 				text: "Comment 3 text",
-		// 				dateTime: "1428423623006",
-		// 				author: "Comment 3 author",
-		// 				status: "In Progress",
-		// 				valueComponents: [
-		// 					{
-		// 						type: "Value Component",
-		// 						title: "Value Component 1"
-		// 					},
-		// 					{
-		// 						type: "Value Component",
-		// 						title: "Value Component 2"
-		// 					},
-		// 					{
-		// 						type: "Value Component",
-		// 						title: "Value Component 3"
-		// 					}
-		// 				],
-		// 				associations: [
-
-		// 				],
-		// 				issues: [
-		// 					{
-		// 						type: "Issue",
-		// 						title: "Issue 1"
-		// 					},
-		// 					{
-		// 						type: "Issue",
-		// 						title: "Issue 2"
-		// 					},
-		// 					{
-		// 						type: "Issue",
-		// 						title: "Issue 3"
-		// 					}
-		// 				]
-		// 			},
-		// 		]
-
-		// };
-
-		// taskPubComClassProp.addToAssociation = function(type, index) {
-		// 	if (taskPubComClassProp.data.comments[0].status != "Done"){
-		// 		if (type == 'valueComponent') {
-		// 			// copy it in...
-		// 			taskPubComClassProp.data.comments[0].associations.push(taskPubComClassProp.data.comments[0].valueComponents[index]);
-		// 			// and remove it
-		// 			taskPubComClassProp.data.comments[0].valueComponents.splice(index, 1);
-		// 		} else if (type = 'issue') {
-		// 			// copy it in
-		// 			taskPubComClassProp.data.comments[0].associations.push(taskPubComClassProp.data.comments[0].issues[index]);
-		// 			// and remove it
-		// 			taskPubComClassProp.data.comments[0].issues.splice(index, 1);
-		// 		}
-		// 	}
-
-		// }
-
-		// taskPubComClassProp.removeFromAssociation = function(index) {
-		// 	if (taskPubComClassProp.data.comments[0].status != "Done") {
-		// 		if (taskPubComClassProp.data.comments[0].associations[index].type == 'Value Component') {
-		// 			taskPubComClassProp.data.comments[0].valueComponents.push(taskPubComClassProp.data.comments[0].associations[index]);
-		// 		} else if (taskPubComClassProp.data.comments[0].associations[index].type == 'Issue') {
-		// 			taskPubComClassProp.data.comments[0].issues.push(taskPubComClassProp.data.comments[0].associations[index]);
-		// 		}
-		// 		taskPubComClassProp.data.comments[0].associations.splice(index, 1);
-		// 	}
-		// }
-
-		// taskPubComClassProp.next = function() {
-		// 	// add this one to the doneComments array
-		// 	taskPubComClassProp.data.doneComments.push(taskPubComClassProp.data.comments[0]);
-		// 	// and remove it from the comments array.
-		// 	taskPubComClassProp.data.comments.splice(0, 1);
-		// }
-
-		// get the task identifier.  (ID + Task Type)
-		// $scope.$watch('anchor', function(newValue) {
-		// 	if (newValue) {
-		// 		taskPubComClassProp.anchor = newValue;
-		// 	}
-		// });
-
-		// // get the spec item
-		// $scope.$watch('item', function(newValue) {
-		// 	// get item for title
-		// 	if (newValue) {
-		// 		taskPubComClassProp.itemId = newValue.item._id;
-		// 		taskPubComClassProp.item = newValue.item;
-		// 	}
-		// });
-
-		// taskPubComClassProp.completeTask = function() {
-		// 	// validate
-		// 	// when ok, broadcast
-		// 	taskPubComClassProp.item.value = 'Complete';
-		// 	$rootScope.$broadcast('resolveItem', {itemId: taskPubComClassProp.itemId});
-		// }
-
-  //   }
-
 
 })();

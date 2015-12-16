@@ -3,21 +3,32 @@
 		Public Comments Classification: {{ taskPubComClassProp.task.name }} <em class="small pull-right">{{ taskPubComClassProp.task.status }}</em>
 	</div>
 
-
-
-
 	<div class="panel-sub-heading">
 		<div class="btn-group btn-group-justified" ng-init="taskPubComClassProp.filter = 'Unclassified'">
 			<a href class="btn btn-default btn-sm"
 				ng-class="{'btn-success': taskPubComClassProp.filter === 'Unclassified'}"
 				ng-click="taskPubComClassProp.filter = 'Unclassified'">
-					Unclassified ({{ (taskPubComClassProp.data.comments | filter:{overallStatus: 'Unclassified'}:true | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword).length || 0 }})
+					Unclassified
 			</a>
-			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'classified'}"		ng-click="taskPubComClassProp.filter = 'Classified'">Classified ({{ (taskPubComClassProp.data.comments | filter:{overallStatus: 'Classified'}:true | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword).length || 0 }})</a>
-			<a href class="btn btn-default btn-sm" ng-class="{'btn-success': taskPubComClassProp.filter === 'Deferred'}"		ng-click="taskPubComClassProp.filter = 'Deferred'">Deferred ({{ (taskPubComClassProp.data.comments | filter:{overallStatus: 'Deferred'}:true | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword).length || 0 }})</a>
+			<a href class="btn btn-default btn-sm"
+				ng-class="{'btn-success': taskPubComClassProp.filter === 'Classified'}"
+				ng-click="taskPubComClassProp.filter = 'Classified'">
+				Classified ({{ (
+					taskPubComClassProp.data.comments | 
+					filter:{overallStatus: 'Classified'}:true |
+					filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword
+					).length || 0 }})</a>
+			
+			<a href class="btn btn-default btn-sm"
+				ng-class="{'btn-success': taskPubComClassProp.filter === 'Deferred'}"
+				ng-click="taskPubComClassProp.filter = 'Deferred'">
+				Deferred ({{ (
+					taskPubComClassProp.data.comments | 
+					filter:{overallStatus: 'Deferred'}:true | 
+					filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword
+					).length || 0 }})</a>
 		</div>
 	</div>
-
 	<table class="table table-condensed">
 		<thead>
 			<tr ng-show="taskPubComClassProp.showFilter" class="panel-sub-heading">
@@ -25,53 +36,77 @@
 
 					<div class="form-group pull-left">
 						<div class="btn-group btn-group-sm">
-							<button class="btn btn-default" type="button" ng-class="{'btn-primary': taskPubComClassProp.filterScopeComments}" ng-click="taskPubComClassProp.filterScopeComments = !taskPubComClassProp.filterScopeComments" >Comments</button>
-							<button class="btn btn-default" type="button" ng-class="{'btn-primary': taskPubComClassProp.filterScopeValueComponents}" ng-click="taskPubComClassProp.filterScopeValueComponents = !taskPubComClassProp.filterScopeValueComponents">Value Components</button>
-							<button class="btn btn-default" type="button" ng-class="{'btn-primary': taskPubComClassProp.filterScopeIssues}" ng-click="taskPubComClassProp.filterScopeIssues = !taskPubComClassProp.filterScopeIssues">Issues</span></button>
+							<button class="btn btn-default" type="button"
+								ng-class="{'btn-primary': taskPubComClassProp.filterScopeComments}"
+								ng-click="taskPubComClassProp.filterScopeComments = !taskPubComClassProp.filterScopeComments">
+								Comments
+							</button>
+							
+							<button class="btn btn-default" type="button"
+								ng-class="{'btn-primary': taskPubComClassProp.filterScopeValueComponents}"
+								ng-click="taskPubComClassProp.filterScopeValueComponents = !taskPubComClassProp.filterScopeValueComponents">
+								Value Components
+							</button>
+							
+							<button class="btn btn-default" type="button"
+								ng-class="{'btn-primary': taskPubComClassProp.filterScopeIssues}"
+								ng-click="taskPubComClassProp.filterScopeIssues = !taskPubComClassProp.filterScopeIssues">
+								Issues
+							</button>
+						
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label">Filter</label>
 						<div class="input-group input-group-sm">
+
 							<input ng-model="taskPubComClassProp.filterKeyword" type="text" class="form-control" placeholder="Filter">
+
 							<span class="input-group-btn">
-								<button class="btn btn-default" type="button" ng-click="taskPubComClassProp.filterKeyword = undefined"><span class="glyphicon glyphicon-remove"></span></button>
+								<button class="btn btn-default" type="button"
+									ng-click="taskPubComClassProp.filterKeyword = undefined">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
 							</span>
 						</div>
+
 					</div>
 
 				</td>
 			</tr>
 			<tr class="small">
 				<th>Comment</th>
-				<th class="text-right"><a href ng-click="taskPubComClassProp.showFilter = !taskPubComClassProp.showFilter"><span class="glyphicon glyphicon-search"></span></a></th>				
+				<th class="text-right">
+					<a href ng-click="taskPubComClassProp.showFilter = !taskPubComClassProp.showFilter"><span class="glyphicon glyphicon-search"></span></a>
+				</th>				
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat-start="com in filteredComments = (taskPubComClassProp.data.comments | filter:{overallStatus: taskPubComClassProp.filter} | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword) track by $index" ng-class="{'bg-warning':$first}">
+			<tr ng-repeat-start="com in filteredComments = (taskPubComClassProp.data.comments | filter:{overallStatus: taskPubComClassProp.filter}:true | filterClassifyComments:taskPubComClassProp.filterScopeComments:taskPubComClassProp.filterKeyword) track by $index"
+			ng-class="{'bg-warning':taskPubComClassProp.activeCommentId === com._id}">
 
-				<td width="60%" ng-if="$first"><small>{{ com.dateAdded | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small>
+				<td width="70%" ng-if="taskPubComClassProp.activeCommentId === com._id"><small>{{ com.dateAdded | amDateFormat:'MMM Do, YYYY hh:mm a'}}</small><br/><small>{{ com.author }}</small>
 					<div ng-bind-html="com.comment | safeHtml "></div>
 				</td>
 
-				<td width="40%" ng-if="$first">
+				<td width="30%" ng-if="taskPubComClassProp.activeCommentId === com._id">
 
 					<ul class="list-unstyled document-vetting">
 						<li class="clearfix" ng-repeat="doc in com.documents">
-							<a href="{{ doc.url }}" target="_new" class="small">{{ doc.name }}</a>
+							<a href="{{ doc.url }}" target="_new" class="small"><span class="glyphicon glyphicon-file"></span> {{ doc.name }}</a>
 						</li>
 					</ul>
 
 				</td>
 
 
-				<td width="100%" colspan="2" ng-if="!$first" class="text-muted">
+				<td width="100%" colspan="2" ng-if="taskPubComClassProp.activeCommentId !== com._id" class="text-muted" ng-click="taskPubComClassProp.activateComment(com)">
 					<div ng-bind-html="com.comment | safeHtml | max15Words"></div>
 				</td>
 
 			</tr>
-			<tr ng-repeat-end ng-if="$first" ng-class="{'bg-warning':$first}">
+			<tr ng-repeat-end ng-if="taskPubComClassProp.activeCommentId === com._id" ng-class="{'bg-warning':taskPubComClassProp.activeCommentId === com._id}">
 				<td colspan="2" class="no-top-border">
 
 					<div class="row">
@@ -185,16 +220,15 @@
 								</li>
 							</ul>
 
-
-
-
 						</div>
 
 					</div>
 
 					<div class="text-right">
 						<a href class="btn-link btn" ng-click='taskPubComClassProp.deferCommentStatus(com)'>Defer</a>								
-						<a href class="btn-link btn" ng-click='taskPubComClassProp.finalizeCommentStatus(com)' ng-disabled="com.status === 'Classified'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href class="btn-link btn" ng-click='taskPubComClassProp.finalizeCommentStatus(com)' ng-if="com.proponentStatus === 'Unclassified'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+						<a href class="btn-link btn" ng-click='taskPubComClassProp.saveCommentStatus(com)' ng-if="com.proponentStatus === 'Classified'">Save Changes</span></a>
 					</div>
 
 				</td>
@@ -208,7 +242,7 @@
 	</table>
 
 	<div class="panel-footer text-right">
-		<a href ng-click="taskPubComVet.getNextTen()"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Get Next 10 Comments</a>
+		100 Comments Remaining
 	</div>
 
 </div>

@@ -42,10 +42,10 @@
 			};
 		};
 
-		for (var i=0; i<10; i++) {
-			taskPubComVet.data.comments.push(taskPubComVet.sampleComment(i));
-		}
+		var i=0;
 
+		taskPubComVet.data.comments.push(angular.copy(taskPubComVet.sampleComment(++i)));
+		
 		taskPubComVet.finalizeCommentStatus = function(com) {
 			// all documents and comment must have a status of not pending.
 			var pendingDocument = false;
@@ -60,6 +60,7 @@
 					if (com.eaoStatus === 'Published') {
 						taskPubComVet.project.data.comments.push(com);
 					}
+					taskPubComVet.data.comments.push(angular.copy(taskPubComVet.sampleComment(++i)));
 					// todo: make sure the handoff is correct to classification
 				} else {
 					window.alert("Please review all documents before viewing the next comment.");
