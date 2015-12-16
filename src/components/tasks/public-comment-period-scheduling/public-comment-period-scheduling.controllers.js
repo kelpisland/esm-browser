@@ -41,11 +41,11 @@
 			openHouses: [
 				{
 					location: "1234 Main Street \nSmallville, BC",
-					dateTime: "Wed Dec 16 2015 10:30:00 GMT-0800 (PST)"
+					dateScheduled: "Wed Dec 16 2015 10:30:00 GMT-0800 (PST)"
 				},
 				{
 					location: "1234 Main Avenue \nBigtown, BC",
-					dateTime: "Wed Dec 16 2015 10:30:00 GMT-0800 (PST)"
+					dateScheduled: "Wed Dec 16 2015 10:30:00 GMT-0800 (PST)"
 				},
 			],
 			showScopeTopicAddButton: true
@@ -85,8 +85,10 @@
 		taskPubComSched.deleteScopeTopicsRowCancel = function(index) {
 			taskPubComSched.data.scopeTopics[index].delete = false;
 		}
-		taskPubComSched.deleteOpenHouse = function(index) {
-			taskPubComSched.data.openHouses.splice(index, 1);
+		taskPubComSched.deleteOpenHouse = function(oh) {
+			_.remove(taskPubComSched.data.openHouses, function(item) {
+				return item.dateScheduled === oh.dateScheduled;
+			});
 		}
 
 		// get the task identifier.  (ID + Task Type)

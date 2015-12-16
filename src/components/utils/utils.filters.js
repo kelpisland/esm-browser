@@ -131,7 +131,6 @@
 
     function filterSafeHtml($sce) {
     	return function(input) {
-    		console.log('safehtml', input);
 	    	return $sce.trustAsHtml(input);
 	    }
     }
