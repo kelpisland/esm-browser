@@ -42,6 +42,10 @@
 		Project.getProject({id: $stateParams.id}).then(function(res) {
 			vm.project = res.data;
 		});
+		vm.commentsByDate = [];
+		vm.refreshVisualization = 0;
+		vm.commentsByDate = {name: 'bydate', children: [{name: 'Dec 12', size: 4}, {name: 'Dec 13', size: 7}, {name: 'Dec 14', size: 1}, {name: 'Dec 15', size: 100}]};
+		vm.refreshVisualization = 1;
 
     }
     // -----------------------------------------------------------------------------------

@@ -24,23 +24,9 @@
 				</div>
 				
 				<div class='panel-body'>
-				
-					<table class='table table-condensed small'>
-						<thead>
-							<tr>
-								<th>Documents</th>
-								<th class="text-right"><a href x-modal-document-viewer>View all</a></th>
-							</tr>
-						</thead>					
-						<tbody class="clickable">
-							<tr>
-								<td class="document-cell">
-									<a href ng-click="vm.documentViewer()"><span class='glyphicon glyphicon-folder-close'></span> A.I.R. Documents
-								</td>
-								<td class='text-right'>Feb. 4, 2003</td>
-							</tr>
-						</tbody>
-					</table>
+					<label class="control-label">Comment Volume by Date</label>
+					<tmpl-public-project-comments-by-date x-data-change="vm.refreshVisualization" x-data="vm.commentsByDate"></tmpl-public-project-comments-by-date>
+
 
 
 				</div>
@@ -133,8 +119,6 @@
 
 				</div><!-- /.container-fluid -->
 			</nav>
-
-
 
 			<div ng-repeat="bucket in filteredBuckets = (vm.project.buckets | filter:vm.filterKeyword)" class="concern-list">
 				<h3 ng-click='form[point.group] = !form[point.group]' class="clickable concern-heading">
