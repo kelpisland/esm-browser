@@ -27,9 +27,8 @@
 		});
 
 		// get types for dropdown.
-		Document.getDocumentTypes().then(function(res){
-			docUpload.docTypes = res.data;
-		});
+		docUpload.docTypes = Document.getDocumentTypes();
+
 
 		$scope.$watch('files', function (newValue) {
 			if (newValue) {

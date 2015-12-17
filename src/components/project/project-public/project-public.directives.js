@@ -31,6 +31,9 @@
     function directiveModalAddPublicComment($modal) {
         var directive = {
             restrict:'A',
+            scope: {
+                project: '='
+            },
             link : function(scope, element, attrs) {
                 element.on('click', function() {
                     var modalAddComment = $modal.open({
@@ -38,6 +41,9 @@
                         templateUrl: 'components/project/project-public/partials/modal-add-public-comment.html',
                         controller: 'controllerModalAddComment',
                         controllerAs: 'publicComment',
+                        resolve: {
+                            rProject: function() {return scope.project}
+                        },
                         size: 'md'
                     });
                     modalAddComment.result.then(function () {}, function () {});

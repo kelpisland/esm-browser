@@ -18,9 +18,7 @@
     function controllerProjectsFilterBar($scope, $state, Projects, Global, $filter) {
 		var fbc = this;
 
-		Projects.getProjectTypes().then( function(res) {
-			fbc.types = res.data;
-		});
+		fbc.types = Projects.getProjectTypes();
 
 		Projects.getProjectMilestones().then( function(res) {
 			fbc.milestones = res.data;

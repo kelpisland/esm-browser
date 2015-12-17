@@ -13,8 +13,24 @@
     /* @ngInject */
     function serviceDocument($http, API) {
 
-    	var getDocumentTypes = function(req) {
-			return $http({method:'GET',url: API + '/v1/documentTypes/'});
+    	var getDocumentTypes = function() {
+			return [
+                {
+                    "code":"intakeoverview",
+                    "name":"Project Overview",
+                    "bucket":"intake"
+                },
+                {
+                    "code":"intakeshape",
+                    "name":"Shape File",
+                    "bucket":"intake"
+                },
+                {
+                    "code":"intakemisc",
+                    "name":"Supporting File",
+                    "bucket":"intake"
+                }
+            ];
 		};
 
 		return {

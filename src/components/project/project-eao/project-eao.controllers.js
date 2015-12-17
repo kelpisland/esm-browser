@@ -45,9 +45,7 @@
 	function controllerEAOProjectNew(Project) {
 		var projectNew = this;
 
-		Project.getProjectIntakeQuestions().then( function(res) {
-			projectNew.questions = res.data;			
-		});
+		projectNew.questions = Project.getProjectIntakeQuestions();
 
 		// Get blank project
 		Project.getNewProject().then( function(res) {
@@ -71,9 +69,7 @@
 	function controllerEAOProjectIntake($state, Project, Configuration) {
 		var projectIntake = this;
 
-		Project.getProjectIntakeQuestions().then( function(res) {
-			projectIntake.questions = res.data;			
-		});
+		projectNew.questions = Project.getProjectIntakeQuestions();
 
 		Project.getProject({id: $state.params.id}).then( function(res) {
 			projectIntake.project = res.data;

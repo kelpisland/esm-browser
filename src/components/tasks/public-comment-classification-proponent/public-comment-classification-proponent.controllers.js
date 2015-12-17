@@ -70,20 +70,26 @@
 		taskPubComClassProp.deferCommentStatus = function(com) {
 			// todo: validation
 			com.overallStatus = com.proponentStatus = 'Deferred';
+			taskPubComClassProp.fetchNewComment();
 		};
 
 		taskPubComClassProp.finalizeCommentStatus = function(com) {
 			// all documents and comment must have a status of not pending.
 			if (com.buckets.length > 0 || com.issues.length > 0) {
 				com.overallStatus = com.proponentStatus = 'Classified';
-				// todo: load up temporary one.
-				var newComment = angular.copy(taskPubComClassProp.sampleData(++i));
-				taskPubComClassProp.data.comments.push(newComment);
-				taskPubComClassProp.activeCommentId = i;
-				taskPubComClassProp.refreshBucketSource(newComment);
+				taskPubComClassProp.fetchNewComment();
 			} else {
 				window.alert("Please indicate which value components and / or issues this comment is related to before continuing.");
 			}
+		};
+
+
+		taskPubComClassProp.fetchNewComment = function() {
+			var newComment = angular.copy(taskPubComClassProp.sampleData(++i));
+			taskPubComClassProp.data.comments.push(newComment);
+			taskPubComClassProp.activeCommentId = i;
+
+			taskPubComClassProp.refreshBucketSource(newComment);
 		};
 
 		// refresh the bucket list by getting the project buckets.

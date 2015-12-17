@@ -99,8 +99,7 @@
     // Just take it easy and you'll be fine... and be careful in the future.
     function filterIsInTheFuture() {
 		return function(input) {
-			var today = moment();
-			return input > today;
+			return moment(input) > moment();
 		}
     }   
     // -----------------------------------------------------------------------------------
@@ -113,8 +112,7 @@
     // So tell me Future Boy, who's President of the United States in 1985?
     function filterIsInThePast() {
 		return function(input) {
-			var today = moment();
-			return input < today;
+			return moment(input) < moment();
 		}
     }   
 

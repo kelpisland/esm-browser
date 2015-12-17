@@ -17,7 +17,7 @@
             replace: true,
             scope: {
                 data: '=',
-                dataChange: '='
+                refresh: '='
             },
             template: '<div id="publicCommentsByDate"></div>',
             link: function (scope, element, attrs) {
@@ -58,29 +58,31 @@
                         .attr("height", diameter)
                         .attr("class", "bubble");
 
-                    scope.$watch('data', function(root) {
+                    scope.$watch('refresh', function(root) {
+                      console.log('root', root, scope.data);
+                      if (root) {
+                        var node = svg.selectAll(".node")
+                            .data(bubble.nodes(classes(scope.data))
+                            .filter(function(d) { return !d.children; }))
+                            .enter().append("g")
+                            .attr("class", "node")
+                            .attr("transform", function(d) { console.log(d); return "translate(" + d.x + "," + d.y + ")"; });
 
-                      var node = svg.selectAll(".node")
-                          .data(bubble.nodes(classes(root))
-                          .filter(function(d) { return !d.children; }))
-                          .enter().append("g")
-                          .attr("class", "node")
-                          .attr("transform", function(d) { console.log(d); return "translate(" + d.x + "," + d.y + ")"; });
+                        node.append("title")
+                            .text(function(d) { return format(d.value); });
 
-                      node.append("title")
-                          .text(function(d) { return format(d.value); });
+                        node.append("circle")
+                            .attr("r", function(d) { return d.r; })
+                            .style("fill", function(d) { return '#337ab7'; });
 
-                      node.append("circle")
-                          .attr("r", function(d) { return d.r; })
-                          .style("fill", function(d) { return '#337ab7'; });
-
-                      node.append("text")
-                          .attr("dy", ".3em")
-                          .text(function(d) { return d.name; })
-                          .style("text-anchor", "middle")
-                          .style('fill', '#ffffff')
-                          .each(getSize)
-                          .style("font-size", function(d) { return (d.scale/2) + "em"; });
+                        node.append("text")
+                            .attr("dy", ".3em")
+                            .text(function(d) { return d.name; })
+                            .style("text-anchor", "middle")
+                            .style('fill', '#ffffff')
+                            .each(getSize)
+                            .style("font-size", function(d) { return (d.scale/2) + "em"; });
+                      }
                     });
 
                     // Returns a flattened hierarchy containing all leaf nodes under the root.

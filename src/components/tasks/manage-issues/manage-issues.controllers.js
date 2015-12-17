@@ -38,9 +38,9 @@
 				taskManageIssues.taskId = newValue._id;
 				taskManageIssues.task = newValue;
 				// get task data or blank if no record exists.
-				Task.getTaskData({'code':newValue.code, 'id':newValue._id}).then( function(res) {
-					taskManageIssues.taskData = res.data;
-				});
+				// Task.getTaskData({'code':newValue.code, 'id':newValue._id}).then( function(res) {
+				// 	taskManageIssues.taskData = res.data;
+				// });
 			}
 		});
 

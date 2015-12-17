@@ -25,18 +25,16 @@
 				
 				<div class='panel-body'>
 					<label class="control-label">Comment Volume by Date</label>
-					<tmpl-public-project-comments-by-date x-data-change="vm.refreshVisualization" x-data="vm.commentsByDate"></tmpl-public-project-comments-by-date>
-
-
-
+					<tmpl-public-project-comments-by-date x-refresh="vm.refreshVisualization" x-data="vm.commentsByDateVis"></tmpl-public-project-comments-by-date>
 				</div>
+
 			</div>
 		</div>
 
 
 		<div class='col-sm-9'>
 
-			<div class="alert alert-info clickable text-center" x-modal-add-public-comment ng-if="vm.project.dateCommentsOpen">
+			<div class="alert alert-info clickable text-center" x-modal-add-public-comment x-project="vm.project" ng-if="(vm.project.dateCommentsOpen | isInThePast) && (vm.project.dateCommentsClosed | isInTheFuture)">
 				<p>Public Comments Open from <strong>{{ vm.project.dateCommentsOpen | amDateFormat:'MMM Do, YYYY'}}</strong> to <strong>{{ vm.project.dateCommentsClosed | amDateFormat:'MMM Do, YYYY' }}</strong></p>
 				<h3>Click here to contribute a comment</h3>
 				<hr>
@@ -90,19 +88,15 @@
 
 			<nav class="navbar navbar-default navbar-sm">
 				<div class="container-fluid">
-<!-- 
-					<ul class="nav navbar-nav navbar-left">
-						<li>
-							<p class="navbar-text">Concerns: 6</p>
-						</li>
-						<li>
-							<p class="navbar-text">Closed: 1</p>
-						</li>
-						<li>
-							<p class="navbar-text">Open: 5</p>
-						</li>
 
-					</ul> -->
+					<ul class="nav navbar-nav navbar-form navbar-left">
+						<li>
+							<div class="btn-group btn-group-sm">
+								<button class="btn btn-default" ng-click="vm.form.view = 'bydate'"	ng-class="{'btn-primary': vm.form.view === 'bydate'}">By Date</button>
+								<button class="btn btn-default" ng-click="vm.form.view = 'byvc'"	ng-class="{'btn-primary': vm.form.view === 'byvc'}">By Value Components</button>
+							</div>
+						</li>
+					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -120,11 +114,8 @@
 				</div><!-- /.container-fluid -->
 			</nav>
 
-			<div ng-repeat="bucket in filteredBuckets = (vm.project.buckets | filter:vm.filterKeyword)" class="concern-list">
+			<div ng-repeat="bucket in filteredBuckets = (vm.project.buckets | filter:vm.filterKeyword)" class="concern-list" ng-show="vm.form.view === 'byvc'">
 				<h3 ng-click='form[point.group] = !form[point.group]' class="clickable concern-heading">
-<!-- 					<div class='pull-right small'>
-						<span class='label label-default'>Concerns: {{ point.concerns.length }}</span>&nbsp;<span class='label label-success'>Closed: {{ vm.closedConcerns(point.concerns) }}</span>&nbsp;<span class='label label-primary'>Open: {{ vm.openConcerns(point.concerns) }}</span>
-					</div> -->
 					{{ bucket.name }}
 				</h3>
 				<hr ng-if='!form[point.group] && !$last'>
@@ -135,12 +126,6 @@
 						<h4 class='pull-right no-margins'><span class='label' ng-class="{'label-success':item.status === 'Closed', 'label-primary':item.status === 'Open'}">{{ item.status }}</span></h4>
 						<p>{{ item.description }}</p>
 						</div>
-<!-- 
-						<ul class="contact-list">
-							<li ng-repeat="contact in item.referredTo"><span class="label label-default" ng-click="vm.filter[point.group + 'concern' + item._id] = contact.name" ng-class="{'label-success clickable': !!contact.dateReplied && vm.filter[point.group + 'concern' + item._id] !== contact.name, 'label-warning clickable':  vm.filter[point.group + 'concern' + item._id] === contact.name}" title='Most Recent Reply: {{ contact.dateReplied || "None" }}'>{{ contact.name }}</span></li>
-							<li><span class="label label-primary clickable" ng-click="vm.filter[point.group + 'concern' + item._id] = ''">All</span></li>
-						</ul> 
- -->
 
 						<div class="table-responsive">
 
@@ -167,15 +152,57 @@
 									<tr ng-show="filteredComments[item._id].length === 0">
 										<td colspan='3'>No response from {{ vm.filter[point.group + 'concern' + item._id] }}</td>
 									</tr>
-								</thead>
+								</tbody>
 							</table>
 
 						</div>
 					</div>
 				</div>
 			</div>
-			<div ng-show="filteredBuckets.length === 0">
+
+			<div ng-show="filteredBuckets.length === 0 && vm.form.view === 'byvc'">
 				<h3 class="text-info">No value components have been defined for this project yet.</h3>
+			</div>
+
+
+			<div ng-repeat="(title, items) in vm.commentsByDate" class="concern-list" ng-show="vm.form.view === 'bydate'">
+				<h3 class="clickable concern-heading">
+					{{ title }}
+				</h3>
+
+				<div class="panel panel-default panel-concern" ng-repeat='item in items'>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-8">
+								{{ item.comment }}
+							</div>
+							<div class="col-sm-4">
+								{{ item.author }}<br/>
+								{{ item.dateAdded}}
+								
+							</div>
+						</div>
+					</div>
+						
+				</div>
+			</div>
+
+
+			<!-- <div ng-repeat="(title, items) in filteredComments = (vm.commentsByDate | filter:vm.filterKeyword)" class="concern-list" ng-show="vm.form.view === 'bydate'">
+				<h3 ng-click='form[title] = !form[title]' class="clickable concern-heading">
+					{{ title }}
+				</h3>
+				<hr ng-if='!form[title] && !$last'>
+
+				<div class="panel panel-default panel-concern" ng-if='form[title]' ng-repeat='item in items'>
+					<div class="panel-body">
+					</div>
+						
+				</div>
+			</div> -->
+
+			<div ng-show="filteredComments.length === 0 && vm.form.view === 'bydate'">
+				<h3 class="text-info">No comments are available for this project yet.</h3>
 			</div>
 
 		</div>

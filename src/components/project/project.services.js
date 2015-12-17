@@ -9,9 +9,9 @@
 	// DIRECTIVE: Public Projects Main
 	//
     // -----------------------------------------------------------------------------------
-    serviceProject.$inject = ['$http', 'API', 'SERVERAPI'];
+    serviceProject.$inject = ['$http', 'SERVERAPI'];
     /* @ngInject */
-    function serviceProject($http, API, SERVERAPI) {
+    function serviceProject($http, SERVERAPI) {
 
     	var getNewProject = function(req) {
 			return $http({method:'GET',url: SERVERAPI + '/new/project/'});
@@ -34,12 +34,77 @@
 			return $http({method:'PUT',url: SERVERAPI + '/project/' + projectId + '/set/stream/' + streamId});
 		};
 
-    	var getProjectTypes = function(req) {
-			return $http({method:'GET',url: API + '/v1/projectTypes'});
+    	var getProjectTypes = function() {
+			return [
+				"Mining",
+				"Energy",
+				"Transportation", 
+				"Water Management",
+				"Industrial",
+				"Waste Management",
+				"Waste Disposal",
+				"Food Processing",
+				"Tourist Destination"
+			];
 		};
 
-    	var getProjectIntakeQuestions = function(req) {
-			return $http({method:'GET',url: API + '/v1/projectIntakeQuestions'});
+    	var getProjectIntakeQuestions = function() {
+			return [
+				{
+					"code":"meetsrprcriteria",
+					"content":"This project meets the criteria set out in the Reviewable Projects Regulation.",
+					"type":"dropdown",
+					"options":["Yes", "No"]
+				},
+				{
+					"code":"section7optin",
+					"content":"This project does not require an environmental assessment but is seeking designation under Section 7 of the Environmental Assessment Act.",
+					"type":"dropdown",
+					"options":["Yes", "No"]
+				},
+				{
+					"code":"meetsCEAACriteria",
+					"content":"This project is reviewable under the Canadian Environmental Assessment Act.",
+					"type":"dropdown",
+					"options":["Yes", "No", "Unsure"]
+				},
+				{
+					"code":"contactedCEAA",
+					"content":"The Canadian Environmental Assessment Agency has been contacted about this project.",
+					"type":"dropdown",
+					"options":["Yes", "No"]
+				},
+				{
+					"code":"affectedFirstNations",
+					"content":"List the First Nations whose aboriginal or treaty rights could be affected by the project.",
+					"type":"text"
+				},
+				{
+					"code":"contactedFirstNations",
+					"content":"List the First Nations who have been contacted or consulted on the project.",
+					"type":"text"
+				},
+				{
+					"code":"lifespan",
+					"content":"Expected life of the project (years)",
+					"type":"smalltext"
+				},
+				{
+					"code":"investment",
+					"content":"Investment Amount (Canadian dollars)",
+					"type":"smalltext"
+				},
+				{
+					"code":"constructionjobs",
+					"content":"Construction Jobs (Person years)",
+					"type":"smalltext"
+				},
+				{
+					"code":"operatingjobs",
+					"content":"Operating Jobs (Person years)",
+					"type":"smalltext"
+				}	
+			];
 		};
 
 		var updateMilestone = function(req) {
@@ -82,15 +147,17 @@
 		};
 
 
-
+		// get comment blank with defaults
 		var getNewPublicComment = function() {
 			return $http({method:'GET',url: SERVERAPI + '/new/publiccomment'});
 		};
 
+		// post new comment
 		var addPublicComment = function(req) {
 			return $http({method:'POST',url: SERVERAPI + '/publiccomment', data: req});
 		};
 
+		
 		var getPublicCommentsPublished = function(projectId) {
 			return $http({method:'GET',url: SERVERAPI + '/publiccomment/project/' + projectId + '/published'});
 		};
@@ -132,6 +199,28 @@
 
 
 
+
+
+
+		var getPublicCommentVettingStart = function(req) {
+			return $http({method:'GET',url: SERVERAPI + '/publiccomment/project/' + req._id + '/vett/start'});
+		};
+
+		var getPublicCommentVettingClaim = function(req) {
+			return $http({method:'GET',url: SERVERAPI + '/publiccomment/project/' + req._id + '/vett/claim'});
+		};
+
+		var getPublicCommentClassifyStart = function(req) {
+			return $http({method:'GET',url: SERVERAPI + '/publiccomment/project/' + req._id + '/classify/start'});
+		};
+		
+		var getPublicCommentClassifyClaim = function(req) {
+			return $http({method:'GET',url: SERVERAPI + '/publiccomment/project/' + req._id + '/classify/claim'});
+		};
+
+
+
+
 		return {
 			getNewProject: getNewProject,
 			getProject: getProject,
@@ -162,14 +251,13 @@
 
 			updatePublicCommentDocumentEAOPublish: updatePublicCommentDocumentEAOPublish,
 			updatePublicCommentDocumentEAODefer: updatePublicCommentDocumentEAODefer,
-			updatePublicCommentDocumentEAOReject: updatePublicCommentDocumentEAOReject
+			updatePublicCommentDocumentEAOReject: updatePublicCommentDocumentEAOReject,
 
-			// getProjectBuckets: getProjectBuckets,
-			// getProjectTags: getProjectTags,
-			// getProjectResearch: getProjectResearch,
-			// getProjectRelatedResearch: getProjectRelatedResearch,
-			// getProjectLayers: getProjectLayers,
-			// getProjectContacts: getProjectContacts
+			getPublicCommentVettingStart: getPublicCommentVettingStart,
+			getPublicCommentVettingClaim: getPublicCommentVettingClaim,
+			getPublicCommentClassifyStart: getPublicCommentClassifyStart,
+			getPublicCommentClassifyClaim: getPublicCommentClassifyClaim
+
 		};
     }
 

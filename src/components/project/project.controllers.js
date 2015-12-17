@@ -70,9 +70,7 @@
 			projectEntryTS.project = newValue; 	
 		});
 		
-		Projects.getProjectTypes().then( function(res) {
-			projectEntryTS.types = res.data;
-		});
+		projectEntryTS.types = Projects.getProjectTypes();
     }
     // -----------------------------------------------------------------------------------
 	//
@@ -145,13 +143,13 @@
 			{'field': 'progress', 'name':'Complete'}
 		];
 
-		Utils.getCommonLayers().then( function(res) {
-			pr.sharedLayers = res.data;
-		});
+		pr.sharedLayers = Utils.getCommonLayers();
+		// Utils.getCommonLayers().then( function(res) {
+		// 	pr.sharedLayers = res.data;
+		// });
 
-		Utils.getResearchFocus().then( function(res) {
-			pr.researchFocus = res.data;
-		});
+		pr.researchFocus = Utils.getResearchFocus();
+		
 
 		pr.performSearch = function() {
 			Utils.getResearchResults({'term': pr.search.focus}).then( function(res) {

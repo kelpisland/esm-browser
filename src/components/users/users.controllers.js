@@ -19,9 +19,9 @@
     function controllerUsersQuicklinks(Users) {
 		var uql = this;
 
-		Users.getQuicklinks().then( function(res) {
-			uql.quicklinks = res.data;
-		});
+		// Users.getQuicklinks().then( function(res) {
+		// 	uql.quicklinks = res.data;
+		// });
 
     }
     // -----------------------------------------------------------------------------------

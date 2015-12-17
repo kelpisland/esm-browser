@@ -15,9 +15,7 @@
     function controllerPublicProjects(logger, $state, Projects) {
 		var vm = this;
 
-		Projects.getProjectTypes().then( function(res) {
-			vm.types = res.data;
-		});
+		vm.types = Projects.getProjectTypes();
 
 		Projects.getProjects().then( function(res) {
 			vm.projects = res.data;
