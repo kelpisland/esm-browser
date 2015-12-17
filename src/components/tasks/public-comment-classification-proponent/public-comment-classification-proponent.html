@@ -226,10 +226,7 @@
 
 					<div class="text-right">
 						<a href class="btn-link btn" ng-click='taskPubComClassProp.deferCommentStatus(com)' ng-if="com.proponentStatus !== 'Deferred'">Defer</a>
-						<a href class="btn-link btn" ng-click='taskPubComClassProp.finalizeCommentStatus(com)' ng-if="com.proponentStatus === 'Deferred'">Complete</a>								
-						<a href class="btn-link btn" ng-click='taskPubComClassProp.finalizeCommentStatus(com)' ng-if="com.proponentStatus === 'Unclassified'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-						<a href class="btn-link btn" ng-click='taskPubComClassProp.saveCommentStatus(com)' ng-if="com.proponentStatus === 'Classified'">Save Changes</span></a>
+						<a href class="btn-link btn" ng-click='taskPubComClassProp.finalizeCommentStatus(com)' ng-if="com.proponentStatus !== 'Classified'">Next Comment <span class="glyphicon glyphicon-chevron-right"></span></a>
 					</div>
 
 				</td>

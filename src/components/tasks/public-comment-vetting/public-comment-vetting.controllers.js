@@ -49,19 +49,23 @@
 		taskPubComVet.finalizeCommentStatus = function(com) {
 			// all documents and comment must have a status of not pending.
 			var pendingDocument = false;
+			// status change in progress
 			if (com.eaoStatus !== 'Unvetted') {
+				// determine if any documents have yet to be vetted
 				_.each(com.documents, function(doc) {
 					if (doc.status === 'Unvetted' || !doc.status) {
 						pendingDocument = true;
 					}
 				});
 				if (!pendingDocument) {
+					// proceed with status change
 					com.overallStatus = com.eaoStatus;
 					if (com.eaoStatus === 'Published') {
 						taskPubComVet.project.data.comments.push(com);
 					}
-					taskPubComVet.data.comments.push(angular.copy(taskPubComVet.sampleComment(++i)));
+					taskPubComVet.fetchNewComment();
 					// todo: make sure the handoff is correct to classification
+
 				} else {
 					window.alert("Please review all documents before viewing the next comment.");
 				}
@@ -69,6 +73,16 @@
 				window.alert("Please review the overall comment and all documents before viewing the next comment.");
 			}
 		};
+
+
+		taskPubComVet.fetchNewComment = function() {
+			taskPubComVet.filter = 'Unvetted';
+
+			var newComment = angular.copy(taskPubComVet.sampleComment(++i));
+			taskPubComVet.data.comments.push(newComment);
+			taskPubComVet.activeCommentId = i;
+		};
+
 
 		// get the task identifier.  (ID + Task Type)
 		$scope.$watch('project', function(newValue) {
