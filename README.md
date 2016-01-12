@@ -1,27 +1,21 @@
 # esm-browser
-A Project of the Environmental Assessment Office (EAO), BC Ministry of the Environment.
+A Project of the Environmental Assessment Office (EAO), BC Ministry of the Environment in partnership with the OCIO DevOps Pathfinder.
 
 This application is a tool to support the work of EAO staff, project proponents, and other stakeholders as environmental assessments are conducted.
 
 ## Features
-
-## Usage
-
-## Requirements
-
-## Installation
+Need a blurb about the app features.
 
 ## Project Status
+The project is actively developing towards a first release target of January 18, 2016.
 
 ## Goals/Roadmap
+As part of the first release the esm-browser will be containerized and run in the OCIO DevOps Docker server environment.
 
-## Getting Help or Reporting an Issue
+In February the OCIO DevOps pathfinder team will be migrating the containers to be managed through RedHat OpenShift.
 
-## How to Contribute
 
 ## License
-
-Here is the boiler-plate you should put into the comments header of every source code file as well as the bottom of your README.md:
 
     Copyright 2015 Province of British Columbia
 
