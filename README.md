@@ -1,10 +1,13 @@
 # esm-browser
-A Project of the Environmental Assessment Office (EAO), BC Ministry of the Environment in partnership with the OCIO DevOps Pathfinder.
 
-This application is a tool to support the work of EAO staff, project proponents, and other stakeholders as environmental assessments are conducted.
+The Environmental Assessment Office (EAO) is an independent provincial agency responsible for conducting Environmental Assessments , and administering the B.C. Environmental Assessment Act. 
+
+The first phases of this project are in partnership with the OCIO DevOps Pathfinder.
 
 ## Features
-Need a blurb about the app features.
+
+EAO leads major project reviews and prepares an assessment report detailing the findings of its review, which may also contain recommendations. The report, along with the project application, is referred to two government Ministers, who decide on project approval. Once approved, an EA certificate is issued.
+The public can find information on projects under review on the EAO's website. Work is underway to improve web access to project information. 
 
 ## Project Status
 The project is actively developing towards a first release target of January 18, 2016.
